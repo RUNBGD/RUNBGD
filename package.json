@@ -6,6 +6,7 @@
   "dependencies": {
     "gatsby": "^2.20.35",
     "gatsby-image": "^2.3.5",
+    "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-netlify": "^2.2.4",
     "gatsby-plugin-netlify-cms": "^4.2.5",
     "gatsby-plugin-purgecss": "^5.0.0",
@@ -28,6 +29,7 @@
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-helmet": "^6.0.0",
+    "sass": "^1.26.10",
     "uuid": "^7.0.0"
   },
   "keywords": [

@@ -113,3 +113,52 @@
 // }
 
 // export default Footer
+
+import React from 'react'
+import {Link} from 'gatsby'
+
+import instagramLogo from '../../img/instagram-logo.svg'
+import facebookLogo from '../../img/facebook-logo.svg'
+import twitterLogo from '../../img/twitter-logo.svg'
+
+import styles from './footer.module.scss'
+
+const Footer = () => {
+  return(
+    <footer className={styles.footer}>
+      <p>Connect With Us</p>
+      <div className={styles.socialIconsContainer}>
+        <a href='instagram.com' target='_blank'>
+          <img src={instagramLogo} alt='instagram logo'/>
+        </a>
+        <a href='facebook.com' target='_blank'>
+          <img src={facebookLogo} alt='facebook logo'/>
+        </a>
+        <a href='twitter.com' target='_blank'>
+          <img src={twitterLogo} alt='twitter logo'/>
+        </a>
+      </div>
+      <hr/>
+      <div className={styles.columnLinks}>
+        <Link to='/terms-of-use'>
+          Terms of Use
+        </Link>
+        <Link to='/advertise'>
+          Advertise
+        </Link>
+        <Link to='/contact-us'>
+          Contact Us
+        </Link>
+        <Link to='/sitemap'>
+          Sitemap
+        </Link>
+      </div>
+      <hr/>
+      <small className={styles.copyrightText}>
+        © 2020 RUN BGD, All Rights Reserved.
+      </small>
+    </footer>
+  )
+}
+
+export default Footer

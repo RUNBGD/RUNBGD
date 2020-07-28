@@ -96,3 +96,38 @@
 // }
 
 // export default Navbar
+
+import React from 'react'
+import Image from 'gatsby-image'
+import {useStaticQuery, graphql, Link} from 'gatsby'
+
+import menuButton from '../../img/menu-icon.svg'
+import searchButton from '../../img/search-icon.svg'
+import styles from './navbar.module.scss'
+
+const Header = () => {
+
+  let logo = useStaticQuery(graphql`
+    query getFluidLogo{
+      file(relativePath:{eq:"logo.png"}){
+        childImageSharp{
+          fluid(maxWidth: 100){
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `)
+
+  return (
+    <header class={styles.header}>
+      <img src={menuButton} alt='mobile menu button'/>
+      <Link to='/' className={styles.logo}>
+        <Image fluid={logo.file.childImageSharp.fluid} alt='logo'/>
+      </Link>
+      <img src={searchButton} alt='search website button' />
+    </header>
+  )
+}
+
+export default Header

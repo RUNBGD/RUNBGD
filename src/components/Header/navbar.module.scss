@@ -1,0 +1,12 @@
+.logo{
+  width: 36px;
+  height:36px;
+  display:inline-block;
+}
+
+.header{
+  display:flex;
+  justify-content: space-between;
+  padding: 4px 10px;
+  box-shadow:0 3px 6px rgba(0, 0, 0, 0.16);
+}

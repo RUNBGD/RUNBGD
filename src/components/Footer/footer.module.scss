@@ -1,0 +1,35 @@
+.footer{
+  box-shadow:0 -3px 6px rgba(0, 0, 0, 0.16);
+  padding:15px;
+  padding:10px;
+}
+
+.footer > p {
+  text-align: center;
+}
+
+.social-icons-container{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-icons-container > a {
+  padding: 0 17.5px;
+}
+
+.column-links{
+  display:flex;
+  flex-direction:column;
+}
+
+.column-links > a{
+  font-size:20px;
+  padding:10px 0;
+}
+
+.copyright-text{
+  display: inline-block;
+  width:100%;
+  text-align:center;
+}

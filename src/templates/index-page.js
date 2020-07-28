@@ -199,7 +199,29 @@ import Layout from '../components/Layout'
 const IndexPage = () => {
   return (
     <Layout>
-      <div>Hey</div>
+      <main>
+        <h3>
+          This is some blog entry that has meaning on home page.
+        </h3>
+        <hr/>
+        <h2>Trending</h2>
+        <hr/>
+        <h2>The City</h2>
+        <hr/>
+        <h2>Travel</h2>
+        <hr/>
+        <h2>Music</h2>
+        <hr/>
+        <h2>Culture</h2>
+        <hr/>
+        <h2>Style</h2>
+        <hr/>
+        <h2>Life</h2>
+        <hr/>
+        <h2>Food & Beverages</h2>
+        <hr/>
+        <h2>Latest Stories</h2>
+      </main>
     </Layout>
   ) 
 }
