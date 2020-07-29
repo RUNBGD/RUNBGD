@@ -193,6 +193,7 @@
 // `
 
 import React, {useState} from 'react'
+import InfiniteScroll from 'react-infinite-scroll-component';
 
 import Layout from '../components/Layout'
 
@@ -315,12 +316,17 @@ const IndexPage = () => {
         <SecondaryPostsCarousel posts={posts}/>
         <h2>Latest Stories</h2>
         <div style={{display:'relative'}}>
-          {infiniteScrollPosts.map((post, index) => {
-            if(index < numOfLatestPosts){
-              return <PostCover post={post}/>
-            }
+          <InfiniteScroll
+            dataLength={infiniteScrollPosts.length}
+            next={() => {setNumOfLatestPosts(prevState => prevState + 5)}}
+            hasMore={true}
+          >
+            {infiniteScrollPosts.map((post, index) => {
+              if(index < numOfLatestPosts){
+                return <PostCover post={post}/>
+              }
           })}
-          <button onClick={() => {setNumOfLatestPosts(prevState => prevState + 5)}}>Load More</button>
+          </InfiniteScroll>
         </div>
       </main>
     </Layout>
