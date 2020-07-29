@@ -1,0 +1,29 @@
+.post-category{
+    background:#EE1C25;
+    text-transform: uppercase;
+    display:inline-block;
+    padding:2.5px 15px;
+    font-weight: 700;
+    border-radius: 5px;
+    color:white;
+    font-size:12px;
+}
+
+.post{
+    margin-bottom:20px;
+    display:flex;
+}
+
+.post-image{
+    width:45%;
+}
+
+.post-heading{
+    font-size:12px;
+    margin-top:10px;
+    font-weight:700;
+}
+
+.post-text{
+    padding-left:5%;
+}

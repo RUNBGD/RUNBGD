@@ -192,35 +192,136 @@
 //   }
 // `
 
-import React from 'react'
+import React, {useState} from 'react'
 
 import Layout from '../components/Layout'
 
+import BigPostsCarousel from '../components/BigPostsCarousel'
+import SecondaryPostsCarousel from '../components/SecondaryPostsCarousel'
+import PostCover from '../components/PostCover'
+
+const posts = [{
+  heading:'This is some blog entry that has meaning on home page.',
+  category:'style',
+  author:'Dragan Filovski'
+},{
+  heading:'This is some blog entry that has meaning on home page.',
+  category:'style',
+  author:'Dragan Filovski'
+},{
+  heading:'This is some blog entry that has meaning on home page.',
+  category:'style',
+  author:'Dragan Filovski'
+}
+]
+
+const infiniteScrollPosts = [{
+  heading:'This is some blog entry that has meaning on home page.',
+  category:'style',
+  author:'Dragan Filovski'
+},{
+  heading:'This is some blog entry that has meaning on home page.',
+  category:'style',
+  author:'Dragan Filovski'
+},{
+  heading:'This is some blog entry that has meaning on home page.',
+  category:'style',
+  author:'Dragan Filovski'
+},{
+  heading:'This is some blog entry that has meaning on home page.',
+  category:'style',
+  author:'Dragan Filovski'
+},{
+  heading:'This is some blog entry that has meaning on home page.',
+  category:'style',
+  author:'Dragan Filovski'
+},{
+  heading:'This is some blog entry that has meaning on home page.',
+  category:'style',
+  author:'Dragan Filovski'
+},{
+  heading:'This is some blog entry that has meaning on home page.',
+  category:'style',
+  author:'Dragan Filovski'
+},{
+  heading:'This is some blog entry that has meaning on home page.',
+  category:'style',
+  author:'Dragan Filovski'
+},{
+  heading:'This is some blog entry that has meaning on home page.',
+  category:'style',
+  author:'Dragan Filovski'
+},{
+  heading:'This is some blog entry that has meaning on home page.',
+  category:'style',
+  author:'Dragan Filovski'
+},{
+  heading:'This is some blog entry that has meaning on home page.',
+  category:'style',
+  author:'Dragan Filovski'
+},{
+  heading:'This is some blog entry that has meaning on home page.',
+  category:'style',
+  author:'Dragan Filovski'
+},{
+  heading:'This is some blog entry that has meaning on home page.',
+  category:'style',
+  author:'Dragan Filovski'
+},{
+  heading:'This is some blog entry that has meaning on home page.',
+  category:'style',
+  author:'Dragan Filovski'
+},{
+  heading:'This is some blog entry that has meaning on home page.',
+  category:'style',
+  author:'Dragan Filovski'
+},{
+  heading:'This is some blog entry that has meaning on home page.',
+  category:'style',
+  author:'Dragan Filovski'
+},{
+  heading:'This is some blog entry that has meaning on home page.',
+  category:'style',
+  author:'Dragan Filovski'
+},{
+  heading:'This is some blog entry that has meaning on home page.',
+  category:'style',
+  author:'Dragan Filovski'
+}]
+
 const IndexPage = () => {
+
+  let [numOfLatestPosts, setNumOfLatestPosts] = useState(5)
+
   return (
     <Layout>
       <main>
-        <h3>
-          This is some blog entry that has meaning on home page.
-        </h3>
-        <hr/>
+        <BigPostsCarousel posts={posts}/>
         <h2>Trending</h2>
-        <hr/>
+        <SecondaryPostsCarousel posts={posts}/>
         <h2>The City</h2>
-        <hr/>
+        <SecondaryPostsCarousel posts={posts}/>
         <h2>Travel</h2>
-        <hr/>
+        <SecondaryPostsCarousel posts={posts}/>
         <h2>Music</h2>
-        <hr/>
+        <SecondaryPostsCarousel posts={posts}/>
         <h2>Culture</h2>
-        <hr/>
+        <SecondaryPostsCarousel posts={posts}/>
         <h2>Style</h2>
-        <hr/>
+        <SecondaryPostsCarousel posts={posts}/>
         <h2>Life</h2>
-        <hr/>
+        <SecondaryPostsCarousel posts={posts}/>
         <h2>Food & Beverages</h2>
-        <hr/>
+        <SecondaryPostsCarousel posts={posts}/>
         <h2>Latest Stories</h2>
+        <div style={{display:'relative'}}>
+          {infiniteScrollPosts.map((post, index) => {
+            if(index < numOfLatestPosts){
+              return <PostCover post={post}/>
+            }
+          })}
+          <button onClick={() => {setNumOfLatestPosts(prevState => prevState + 5)}}>Load More</button>
+        </div>
       </main>
     </Layout>
   ) 
