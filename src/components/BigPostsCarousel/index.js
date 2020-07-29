@@ -35,7 +35,7 @@ const BigPostsCarousel = ({posts}) => {
                     <span className={styles.postCategory}>{post.category}</span>
                     <p className={styles.postAuthor}>by <a>{post.author}</a></p>
                   </div>
-                  <img src={postImg} alt=''/>
+                  <img className={styles.postCover} src={postImg} alt=''/>
                 </div>
               </SwiperSlide>
             )

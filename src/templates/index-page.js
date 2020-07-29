@@ -200,6 +200,8 @@ import Layout from '../components/Layout'
 import BigPostsCarousel from '../components/BigPostsCarousel'
 import SecondaryPostsCarousel from '../components/SecondaryPostsCarousel'
 import PostCover from '../components/PostCover'
+import NewsletterForm from '../components/NewsletterForm';
+import FindPlacesMainCard from '../components/FindPlacesMainCard'
 
 const posts = [{
   heading:'This is some blog entry that has meaning on home page.',
@@ -288,11 +290,71 @@ const infiniteScrollPosts = [{
   heading:'This is some blog entry that has meaning on home page.',
   category:'style',
   author:'Dragan Filovski'
+},{
+  heading:'This is some blog entry that has meaning on home page.',
+  category:'style',
+  author:'Dragan Filovski'
+},{
+  heading:'This is some blog entry that has meaning on home page.',
+  category:'style',
+  author:'Dragan Filovski'
+},{
+  heading:'This is some blog entry that has meaning on home page.',
+  category:'style',
+  author:'Dragan Filovski'
+},{
+  heading:'This is some blog entry that has meaning on home page.',
+  category:'style',
+  author:'Dragan Filovski'
+},{
+  heading:'This is some blog entry that has meaning on home page.',
+  category:'style',
+  author:'Dragan Filovski'
+},{
+  heading:'This is some blog entry that has meaning on home page.',
+  category:'style',
+  author:'Dragan Filovski'
+},{
+  heading:'This is some blog entry that has meaning on home page.',
+  category:'style',
+  author:'Dragan Filovski'
+},{
+  heading:'This is some blog entry that has meaning on home page.',
+  category:'style',
+  author:'Dragan Filovski'
+},{
+  heading:'This is some blog entry that has meaning on home page.',
+  category:'style',
+  author:'Dragan Filovski'
+},{
+  heading:'This is some blog entry that has meaning on home page.',
+  category:'style',
+  author:'Dragan Filovski'
+},{
+  heading:'This is some blog entry that has meaning on home page.',
+  category:'style',
+  author:'Dragan Filovski'
+},{
+  heading:'This is some blog entry that has meaning on home page.',
+  category:'style',
+  author:'Dragan Filovski'
+},{
+  heading:'This is some blog entry that has meaning on home page.',
+  category:'style',
+  author:'Dragan Filovski'
+},{
+  heading:'This is some blog entry that has meaning on home page.',
+  category:'style',
+  author:'Dragan Filovski'
 }]
 
 const IndexPage = () => {
 
   let [numOfLatestPosts, setNumOfLatestPosts] = useState(5)
+
+  function loadMoreLatestPosts(){
+    setNumOfLatestPosts(prevState => prevState + 5)
+  }
 
   return (
     <Layout>
@@ -300,6 +362,10 @@ const IndexPage = () => {
         <BigPostsCarousel posts={posts}/>
         <h2>Trending</h2>
         <SecondaryPostsCarousel posts={posts}/>
+        <NewsletterForm />
+        <hr/>
+        <FindPlacesMainCard />
+        <hr/>
         <h2>The City</h2>
         <SecondaryPostsCarousel posts={posts}/>
         <h2>Travel</h2>
@@ -317,9 +383,15 @@ const IndexPage = () => {
         <h2>Latest Stories</h2>
         <div style={{display:'relative'}}>
           <InfiniteScroll
-            dataLength={infiniteScrollPosts.length}
-            next={() => {setNumOfLatestPosts(prevState => prevState + 5)}}
-            hasMore={true}
+            scrollThreshold='0px'
+            dataLength={numOfLatestPosts}
+            next={loadMoreLatestPosts}
+            hasMore={numOfLatestPosts < infiniteScrollPosts.length ? true : false}
+            endMessage={
+              <p style={{textAlign: 'center'}}>
+                <b>You have seen it all! Come later</b>
+              </p>
+            }
           >
             {infiniteScrollPosts.map((post, index) => {
               if(index < numOfLatestPosts){
