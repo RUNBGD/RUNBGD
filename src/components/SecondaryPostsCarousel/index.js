@@ -3,12 +3,12 @@ import SwiperCore, {Pagination} from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import swiperStyles from 'swiper/swiper.scss';
 import paginationSwiperStyles from 'swiper/components/pagination/pagination.scss'
-console.log(swiperStyles, paginationSwiperStyles)
-
 
 import styles from './secondary-posts-carousel.module.scss';
 
 import postImg from '../../img/example.png';
+
+console.log(swiperStyles, paginationSwiperStyles)
 
 SwiperCore.use([Pagination])
 
