@@ -1,8 +1,9 @@
 import React, {useState} from 'react'
 import SwiperCore, {Pagination} from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/swiper.scss';
-import 'swiper/components/pagination/pagination.scss';
+import swiperStyles from 'swiper/swiper.scss';
+import paginationSwiperStyles from 'swiper/components/pagination/pagination.scss'
+console.log(swiperStyles, paginationSwiperStyles)
 
 
 import styles from './big-posts-carousel.module.scss';
