@@ -29,7 +29,7 @@ const BigPostsCarousel = ({posts}) => {
         >
           {posts.map((post, index) => {
             return(
-              <SwiperSlide className={index === activeSlide ? styles.activeSlide : styles.inactiveSlide}>
+              <SwiperSlide className={index === activeSlide && styles.activeSlide}>
                 <div className={styles.post}> 
                   <h3>
                     {post.heading}

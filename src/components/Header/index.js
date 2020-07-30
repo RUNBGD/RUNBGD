@@ -97,13 +97,21 @@
 
 // export default Navbar
 
-import React from 'react'
+import React, {useState} from 'react'
 import Image from 'gatsby-image'
 import {useStaticQuery, graphql, Link} from 'gatsby'
 
 import menuButton from '../../img/menu-icon.svg'
 import searchButton from '../../img/search-icon.svg'
+import searchButtonWhite from '../../img/search-icon-white.svg'
+import closeButton from '../../img/close-icon.svg'
+import instagramLogo from '../../img/instagram-logo-white.svg' 
+import facebookLogo from '../../img/facebook-logo-white.svg' 
+import twitterLogo from '../../img/twitter-logo-white.svg' 
+
 import styles from './navbar.module.scss'
+import NewsletterForm from '../NewsletterForm'
+
 
 const Header = () => {
 
@@ -119,13 +127,65 @@ const Header = () => {
     }
   `)
 
+  let [menuOpened, setMenuOpened] = useState(false)
+
   return (
-    <header class={styles.header}>
-      <img src={menuButton} alt='mobile menu button'/>
-      <Link to='/' className={styles.logo}>
-        <Image fluid={logo.file.childImageSharp.fluid} alt='logo'/>
-      </Link>
-      <img src={searchButton} alt='search website button' />
+    <header class={`${styles.header} ${menuOpened && styles.headerDark}`}>
+      <div className={styles.headerMainButtons}>
+        <div className={styles.menuButtonContainer}>
+          <img src={menuOpened ? closeButton : menuButton} alt='mobile menu button' onClick={() => setMenuOpened(prevState => !prevState)}/>
+        </div>
+        <Link to='/' className={styles.logo}>
+          <Image fluid={logo.file.childImageSharp.fluid} alt='logo'/>
+        </Link>
+        <div className={styles.menuButtonContainer}>
+          <img src={menuOpened ? searchButtonWhite : searchButton} alt='search website button' />
+        </div>
+      </div>
+      <div className={`${styles.headerMoreMenuContainer} ${menuOpened && styles.headerMoreMenuContainerOpened}`}>
+        <nav className={`${styles.headerMoreMenu} ${menuOpened && styles.headerMoreMenuOpened}`}>
+          <div className={styles.linksBlock}>
+            <p className={styles.linksGroupName}>Channels</p>
+            <a>THE CITY</a>
+            <a>TRAVEL</a>
+            <a>MUSIC</a>
+            <a>CULTURE</a>
+            <a>style</a>
+            <a>life</a>
+            <a>Food & Beverages</a>
+          </div>
+          <div className={styles.linksBlock}>
+            <p className={styles.linksGroupName}>Follow On</p>
+            <a><img src={instagramLogo}/> instagram</a>
+            <a><img src={facebookLogo}/> facebook</a>
+            <a><img src={twitterLogo}/> twitter</a>
+          </div>
+          <div className={styles.linksBlock}>
+            <p className={styles.linksGroupName}>run bgd sites</p>
+            <a>RUN BGD</a>
+          </div>
+          <div className={styles.linksBlock}>
+            <p className={styles.linksGroupName}>work with us</p>
+            <a>careers</a>
+            <a>advertise</a>
+            <a>contact us</a>
+          </div>
+          <footer>
+            <NewsletterForm dark={true}/>
+            <div className={styles.navFooterLinks}>
+              <a>Terms of use</a>
+              <a>Privacy policy</a>
+              <a>Do not sell my info</a>
+              <a>Site map</a>
+              <a>Public Notice</a>
+            </div>
+            <hr/>
+            <small className={styles.navFooterCopyright}>
+              © 2020 RUN BGD, All Rights Reserved.
+            </small>
+          </footer>
+        </nav>
+      </div>
     </header>
   )
 }
