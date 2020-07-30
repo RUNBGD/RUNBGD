@@ -1,19 +1,19 @@
 import React from 'react'
+import Image from 'gatsby-image'
 
 import styles from './post-cover.module.scss'
-
-import postImg from '../../img/example.png';
-
 const PostCover = ({post}) => {
     return(
         <div className={styles.post}> 
-            <img src={postImg} alt='' className={styles.postImage}/>
+            <div className={styles.postImage}>
+                {post.frontmatter.coverImage && <Image fluid={post.frontmatter.coverImage.childImageSharp.fluid} alt=''/>}
+            </div>
             <div className={styles.postText}>
                 <div className={styles.postDetails}>
-                <span className={styles.postCategory}>{post.category}</span>
+                <span className={styles.postCategory}>{post.frontmatter.category}</span>
                 </div>
                 <p className={styles.postHeading}>
-                {post.heading}
+                {post.frontmatter.title}
                 </p>
             </div>
         </div>

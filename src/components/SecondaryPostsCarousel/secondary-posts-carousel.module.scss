@@ -24,12 +24,17 @@
     margin-bottom:20px;
 }
 
+.post-cover{
+    border-radius:5px;
+}
+
 .swiper-pagination{
     text-align:center
 }
 
 .post-image{
     width:100%;
+    margin-bottom:10px;
 }
 
 .post-heading{
@@ -56,4 +61,9 @@
 .carousel > div:nth-of-type(1) > .active-slide{
     transform:scale(1);
     transition:0.5s;
+}
+
+
+.is-only-slide{
+    width:100%;
 }

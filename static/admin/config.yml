@@ -21,12 +21,25 @@ collections:
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "blog-post"}
       - {label: "Title", name: "title", widget: "string"}
+      - {label: "Category", name: "category", widget: "relation", collection: "category", searchFields: ["title"], valueField: "title", displayFields: ["title"]}
       - {label: "Author", name: "author", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Featured Post", name: "featuredPost", widget: "boolean", default: false}
       - {label: "Category Featured Post", name: "categoryFeatured", widget: "boolean", default: false}
+      - {label: "Trending Post", name: "trending", widget: "boolean", default: false}
       - {label: "Cover Image", name: "coverImage", widget: "image"}
       - {label: "Body", name: "body", widget: "markdown"}
+  
+  - name: "category"
+    label: "Category"
+    folder: "src/pages/category"
+    create: true
+    slug: "{{title}}"
+    identifier_field: name
+    fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "category-page"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Order on home page", name: "order", widget: "number"}
 
   - name: "blog"
     label: "Blog"

@@ -193,17 +193,18 @@
 // `
 
 import React, {useState} from 'react'
-import InfiniteScroll from 'react-infinite-scroll-component';
+import {graphql, useStaticQuery} from 'gatsby'
+
 
 import Layout from '../components/Layout'
 
 import BigPostsCarousel from '../components/BigPostsCarousel'
 import SecondaryPostsCarousel from '../components/SecondaryPostsCarousel'
-import PostCover from '../components/PostCover'
 import NewsletterForm from '../components/NewsletterForm';
 import FindPlacesMainCard from '../components/FindPlacesMainCard'
+import LatestPosts from '../components/LatestPosts';
 
-const posts = [{
+const postsDummy = [{
   heading:'This is some blog entry that has meaning on home page.',
   category:'style',
   author:'Dragan Filovski'
@@ -218,187 +219,125 @@ const posts = [{
 }
 ]
 
-const infiniteScrollPosts = [{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-},{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-},{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-},{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-},{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-},{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-},{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-},{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-},{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-},{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-},{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-},{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-},{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-},{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-},{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-},{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-},{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-},{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-},{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-},{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-},{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-},{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-},{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-},{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-},{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-},{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-},{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-},{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-},{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-},{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-},{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-},{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-}]
 
 const IndexPage = () => {
+  
+ 
 
-  let [numOfLatestPosts, setNumOfLatestPosts] = useState(5)
 
-  function loadMoreLatestPosts(){
-    setNumOfLatestPosts(prevState => prevState + 5)
+   let carouselPosts = useStaticQuery( graphql`
+  query MyQuery {
+    allMarkdownRemark(filter: {frontmatter: {featuredPost: {eq: true}}}) {
+      edges {
+        node{
+          frontmatter{
+            title
+            author
+            category
+            coverImage{
+              childImageSharp {
+                fluid(maxWidth:1000, quality: 64){
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    categoryFeaturedPosts:allMarkdownRemark(filter: {frontmatter: {categoryFeatured: {eq: true}}}) {
+      edges {
+        node {
+          frontmatter {
+            title
+            category
+            author
+            coverImage {
+              childImageSharp {
+                fluid(maxWidth: 1000, quality: 64) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    categories:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "category-page"}}}) {
+      edges {
+        node {
+          frontmatter {
+            title
+            order
+          }
+        }
+      }
+    }
+
+    trending:allMarkdownRemark(filter: {frontmatter: {categoryFeatured: {eq: true}}}) {
+      edges {
+        node {
+          frontmatter {
+            title
+            category
+            coverImage{
+              childImageSharp {
+                fluid(maxWidth: 1000, quality: 64) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
+  `)
+
+  let featuredCategories = []
+
+  carouselPosts.categoryFeaturedPosts.edges.forEach(({node}) => {
+    let categoryName = node.frontmatter.category
+    if(featuredCategories.indexOf(categoryName) == -1){
+      featuredCategories.push(categoryName)
+    }
+  })
+
+  let featuredCategoriesInOrder = (featuredCategories) => {
+    let filteredCategories = carouselPosts.categories.edges.filter(({node:category}) => {
+      if(featuredCategories.indexOf(category.frontmatter.title) !== -1){
+        return true
+      }
+    })
+
+    let sortedAndFilteredCategories = filteredCategories.sort((a, b) => a.node.frontmatter.order - b.node.frontmatter.order )
+
+    return sortedAndFilteredCategories
+  }
+
+  console.log(carouselPosts.trending.edges)
 
   return (
     <Layout>
       <main>
-        <BigPostsCarousel posts={posts}/>
-        <h2>Trending</h2>
-        <SecondaryPostsCarousel posts={posts}/>
+        <BigPostsCarousel posts={carouselPosts}/>
+        <SecondaryPostsCarousel posts={carouselPosts.trending.edges} heading="Trending"/>
         <NewsletterForm />
         <hr/>
         <FindPlacesMainCard />
         <hr/>
-        <h2>The City</h2>
-        <SecondaryPostsCarousel posts={posts}/>
-        <h2>Travel</h2>
-        <SecondaryPostsCarousel posts={posts}/>
-        <h2>Music</h2>
-        <SecondaryPostsCarousel posts={posts}/>
-        <h2>Culture</h2>
-        <SecondaryPostsCarousel posts={posts}/>
-        <h2>Style</h2>
-        <SecondaryPostsCarousel posts={posts}/>
-        <h2>Life</h2>
-        <SecondaryPostsCarousel posts={posts}/>
-        <h2>Food & Beverages</h2>
-        <SecondaryPostsCarousel posts={posts}/>
+        {featuredCategoriesInOrder(featuredCategories).map(({node: category}) => {
+
+          let posts = carouselPosts.categoryFeaturedPosts.edges.filter(({node}) => {
+            return node.frontmatter.category === category.frontmatter.title
+          })
+
+          return <SecondaryPostsCarousel posts={posts} heading={category.frontmatter.title}/>
+        } )}
         <h2>Latest Stories</h2>
         <div style={{display:'relative'}}>
-          <InfiniteScroll
-            scrollThreshold='0px'
-            dataLength={numOfLatestPosts}
-            next={loadMoreLatestPosts}
-            hasMore={numOfLatestPosts < infiniteScrollPosts.length ? true : false}
-            endMessage={
-              <p style={{textAlign: 'center'}}>
-                <b>You have seen it all! Come later</b>
-              </p>
-            }
-          >
-            {infiniteScrollPosts.map((post, index) => {
-              if(index < numOfLatestPosts){
-                return <PostCover post={post}/>
-              }
-          })}
-          </InfiniteScroll>
+          <LatestPosts />
         </div>
       </main>
     </Layout>

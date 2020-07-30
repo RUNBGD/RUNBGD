@@ -3,10 +3,9 @@ import SwiperCore, {Pagination} from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import swiperStyles from 'swiper/swiper.scss';
 import paginationSwiperStyles from 'swiper/components/pagination/pagination.scss'
+import Image from 'gatsby-image'
 
 import styles from './big-posts-carousel.module.scss';
-
-import postImg from '../../img/example.png';
 
 console.log(swiperStyles, paginationSwiperStyles)
 
@@ -27,18 +26,21 @@ const BigPostsCarousel = ({posts}) => {
           className={styles.carousel}
           onSlideChange={(swiper) => setActiveSlide(swiper.realIndex)}
         >
-          {posts.map((post, index) => {
+          {posts.allMarkdownRemark.edges.map(({node: post}, index) => {
+            console.log(post)
             return(
               <SwiperSlide className={index === activeSlide && styles.activeSlide}>
                 <div className={styles.post}> 
                   <h3>
-                    {post.heading}
+                    {post.frontmatter.title}
                   </h3>
                   <div className={styles.postDetails}>
-                    <span className={styles.postCategory}>{post.category}</span>
-                    <p className={styles.postAuthor}>by <a>{post.author}</a></p>
+                    <span className={styles.postCategory}>{post.frontmatter.category}</span>
+                    <p className={styles.postAuthor}>by <a>{post.frontmatter.author}</a></p>
                   </div>
-                  <img className={styles.postCover} src={postImg} alt=''/>
+                  {
+                    post.frontmatter.coverImage && <Image fluid={post.frontmatter.coverImage.childImageSharp.fluid} alt='' className={styles.postCover} />
+                  }
                 </div>
               </SwiperSlide>
             )
