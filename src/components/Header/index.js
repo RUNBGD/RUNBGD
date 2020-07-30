@@ -117,9 +117,9 @@ const Header = () => {
 
   let logo = useStaticQuery(graphql`
     query getFluidLogo{
-      file(relativePath:{eq:"logo.png"}){
+      file(relativePath:{eq:"logo.jpeg"}){
         childImageSharp{
-          fluid(maxWidth: 100){
+          fluid(maxWidth: 300){
             ...GatsbyImageSharpFluid
           }
         }

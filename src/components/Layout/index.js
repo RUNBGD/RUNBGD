@@ -63,7 +63,7 @@ import Header from '../Header'
 import Footer from '../Footer'
 import useSiteMetadata from '../SiteMetadata'
 
-import logo from '../../img/logo.png'
+import logo from '../../img/logo.jpeg'
 
 
 const Layout = ({children}) => {
