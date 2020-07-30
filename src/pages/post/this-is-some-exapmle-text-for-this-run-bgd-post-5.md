@@ -2,6 +2,7 @@
 heading: This is some exapmle text for this RUN BGD post.
 templateKey: blog-post
 title: "This is some exapmle text for this RUN BGD post. "
+category: Travel
 author: Dragan Filovski
 date: 2020-07-30T10:58:33.227Z
 featuredPost: true
