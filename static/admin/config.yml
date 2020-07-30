@@ -16,7 +16,7 @@ collections:
     label: "Post"
     folder: "src/pages/post"
     create: true
-    slug: "{{heading}}"
+    slug: "{{title}}"
     identifier_field: name
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "blog-post"}
