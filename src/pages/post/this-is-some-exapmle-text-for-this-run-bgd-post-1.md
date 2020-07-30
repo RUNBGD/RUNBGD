@@ -6,7 +6,7 @@ category: Life
 author: Dragan Filovski
 date: 2020-07-30T10:43:41.278Z
 featuredPost: false
-categoryFeatured: false
+categoryFeatured: true
 trending: true
 coverImage: /img/belgrade-4583965_1920.jpg
 ---
