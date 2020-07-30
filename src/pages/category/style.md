@@ -1,5 +1,5 @@
 ---
 templateKey: category-page
-title: Style
-order: 5
+title: Food & Beverages
+order: 6
 ---
