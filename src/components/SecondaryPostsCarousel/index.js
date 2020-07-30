@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import swiperStyles from 'swiper/swiper.scss';
 import paginationSwiperStyles from 'swiper/components/pagination/pagination.scss'
 import Image from 'gatsby-image'
+import {Link, useStaticQuery, graphql} from 'gatsby'
 
 import styles from './secondary-posts-carousel.module.scss';
 
@@ -12,6 +13,24 @@ console.log(swiperStyles, paginationSwiperStyles)
 SwiperCore.use([Pagination])
 
 const BigPostsCarousel = ({posts, heading}) => {
+
+  let data = useStaticQuery(graphql`
+      query categories{
+        allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "category-page"}}}){
+          edges {
+              node{
+                fields{
+                  slug
+                }
+              frontmatter{
+                  title
+              }
+              }
+          }
+          }
+      }
+    `)
+
 
     let [activeSlide, setActiveSlide] = useState(0)
 
@@ -25,19 +44,30 @@ const BigPostsCarousel = ({posts, heading}) => {
           onSlideChange={(swiper) => setActiveSlide(swiper.realIndex)}
           slidesPerView='auto'
         >
-          {posts.map((post, index) => {
+          {posts.map(({node:post}, index) => {
+
+            let category = data.allMarkdownRemark.edges.filter(({node:category}) => post.frontmatter.category === category.frontmatter.title)
+
+            let categorySlug = category[0].node.fields.slug
+
             return(
               <SwiperSlide className={`${styles.slide} ${posts.length < 2 && styles.isOnlySlide} ${index === activeSlide ? styles.activeSlide : styles.inactiveSlide}`}>
                 <div className={styles.post}>
                   <div className={styles.postImage}>
-                    <Image fluid={post.node.frontmatter.coverImage.childImageSharp.fluid} alt='' className={styles.postCover}/>
+                    <Link to={post.fields.slug}>
+                      <Image fluid={post.frontmatter.coverImage.childImageSharp.fluid} alt='' className={styles.postCover}/>
+                    </Link>
                   </div>
                   <div className={styles.postDetails}>
-                    <span className={styles.postCategory}>{post.node.frontmatter.category}</span>
+                    <Link to={categorySlug}>
+                      <span className={styles.postCategory}>{post.frontmatter.category}</span>
+                    </Link>
                   </div>
-                  <p className={styles.postHeading}>
-                    {post.node.frontmatter.title}
-                  </p>
+                  <Link to={post.fields.slug}>
+                    <p className={styles.postHeading}>
+                      {post.frontmatter.title}
+                    </p>
+                  </Link>
                 </div>
               </SwiperSlide>
             )

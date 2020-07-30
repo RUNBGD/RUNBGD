@@ -15,6 +15,9 @@ let LatestPosts = () => {
         allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "blog-post"}}}){
         edges {
             node{
+              fields{
+                slug
+              }
             frontmatter{
                 title
                 category
@@ -29,6 +32,18 @@ let LatestPosts = () => {
             }
         }
         }
+        allCategories: allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "category-page"}}}){
+          edges {
+              node{
+                fields{
+                  slug
+                }
+              frontmatter{
+                  title
+              }
+              }
+          }
+          }
     }
     `)
 
@@ -51,7 +66,8 @@ let LatestPosts = () => {
           >
             {allPosts.allMarkdownRemark.edges.map(({node:post}, index) => {
               if(index < numOfLatestPosts){
-                return <PostCover post={post}/>
+                let category = allPosts.allCategories.edges.filter(({node:category}) => post.frontmatter.category === category.frontmatter.title)
+                return <PostCover post={post} categorySlug={category[0].node.fields.slug}/>
               }
           })}
           </InfiniteScroll>

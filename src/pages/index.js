@@ -230,6 +230,9 @@ const IndexPage = () => {
     allMarkdownRemark(filter: {frontmatter: {featuredPost: {eq: true}}}) {
       edges {
         node{
+          fields{
+            slug
+          }
           frontmatter{
             title
             author
@@ -248,6 +251,9 @@ const IndexPage = () => {
     categoryFeaturedPosts:allMarkdownRemark(filter: {frontmatter: {categoryFeatured: {eq: true}}}) {
       edges {
         node {
+          fields{
+            slug
+          }
           frontmatter {
             title
             category
@@ -267,6 +273,9 @@ const IndexPage = () => {
     categories:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "category-page"}}}) {
       edges {
         node {
+          fields{
+            slug
+          }
           frontmatter {
             title
             order
@@ -278,6 +287,9 @@ const IndexPage = () => {
     trending:allMarkdownRemark(filter: {frontmatter: {categoryFeatured: {eq: true}}}) {
       edges {
         node {
+          fields{
+            slug
+          }
           frontmatter {
             title
             category
@@ -304,8 +316,10 @@ const IndexPage = () => {
     }
   })
 
+
   let featuredCategoriesInOrder = (featuredCategories) => {
     let filteredCategories = carouselPosts.categories.edges.filter(({node:category}) => {
+      console.log(category)
       if(featuredCategories.indexOf(category.frontmatter.title) !== -1){
         return true
       }
@@ -315,8 +329,6 @@ const IndexPage = () => {
 
     return sortedAndFilteredCategories
   }
-
-  console.log(carouselPosts.trending.edges)
 
   return (
     <Layout>
