@@ -2,7 +2,7 @@
 heading: This is some exapmle text for this RUN BGD post.
 templateKey: blog-post
 title: "This is some exapmle text for this RUN BGD post. "
-category: The City
+category: the-city
 author: Dragan Filovski
 date: 2020-07-30T10:53:10.542Z
 featuredPost: true
