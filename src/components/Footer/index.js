@@ -117,10 +117,6 @@
 import React from 'react'
 import {Link, useStaticQuery, graphql} from 'gatsby'
 
-import instagramLogo from '../../img/instagram-logo.svg'
-import facebookLogo from '../../img/facebook-logo.svg'
-import twitterLogo from '../../img/twitter-logo.svg'
-
 import styles from './footer.module.scss'
 
 const Footer = () => {

@@ -204,27 +204,8 @@ import NewsletterForm from '../components/NewsletterForm';
 import FindPlacesMainCard from '../components/FindPlacesMainCard'
 import LatestPosts from '../components/LatestPosts';
 
-const postsDummy = [{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-},{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-},{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-}
-]
-
-
 const IndexPage = () => {
   
- 
-
-
    let carouselPosts = useStaticQuery( graphql`
   query MyQuery {
     allMarkdownRemark(filter: {frontmatter: {featuredPost: {eq: true}}}) {
@@ -292,6 +273,7 @@ const IndexPage = () => {
           }
           frontmatter {
             title
+            author
             category
             coverImage{
               childImageSharp {

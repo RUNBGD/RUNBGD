@@ -28,6 +28,18 @@ const BigPostsCarousel = ({posts, heading}) => {
               }
           }
           }
+          authors:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "author-page"}}}){
+            edges {
+                node{
+                  fields{
+                    slug
+                  }
+                frontmatter{
+                    name
+                }
+                }
+            }
+            }
       }
     `)
 
@@ -49,6 +61,10 @@ const BigPostsCarousel = ({posts, heading}) => {
             let category = data.allMarkdownRemark.edges.find(({node:category}) => post.frontmatter.category === category.frontmatter.title)
 
             let categorySlug = category.node.fields.slug
+            
+            let author = data.authors.edges.find(({node:author}) => post.frontmatter.author === author.frontmatter.name)
+
+            let authorSlug = author.node.fields.slug
 
             return(
               <SwiperSlide className={`${styles.slide} ${posts.length < 2 && styles.isOnlySlide} ${index === activeSlide ? styles.activeSlide : styles.inactiveSlide}`}>
@@ -61,6 +77,9 @@ const BigPostsCarousel = ({posts, heading}) => {
                   <div className={styles.postDetails}>
                     <Link to={categorySlug}>
                       <span className={styles.postCategory}>{post.frontmatter.category}</span>
+                    </Link>
+                    <Link to={authorSlug}>
+                      <p className={styles.postAuthor}>by <a>{post.frontmatter.author}</a></p>
                     </Link>
                   </div>
                   <Link to={post.fields.slug}>

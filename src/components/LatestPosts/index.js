@@ -21,6 +21,7 @@ let LatestPosts = () => {
             frontmatter{
                 title
                 category
+                author
                 coverImage{
                 childImageSharp {
                     fluid(maxWidth:1000, quality: 64){
