@@ -87,17 +87,29 @@
 
 // export default BlogPost
 
-// export const pageQuery = graphql`
-//   query BlogPostByID($id: String!) {
-//     markdownRemark(id: { eq: $id }) {
-//       id
-//       html
-//       frontmatter {
-//         date(formatString: "MMMM DD, YYYY")
-//         title
-//         description
-//         tags
-//       }
-//     }
-//   }
-// `
+
+import React from 'react'
+
+let BlogPost = ({data}) => {
+
+    return(
+            <div>{data.markdownRemark.frontmatter.title}</div>
+        )
+    }
+    
+    export const pageQuery = graphql`
+      query BlogPostByID($id: String!) {
+        markdownRemark(id: { eq: $id }) {
+          id
+          html
+          frontmatter {
+            author
+            category
+            date(formatString: "MMMM DD, YYYY")
+            title
+          }
+        }
+      }
+    `
+    export default BlogPost
+    
