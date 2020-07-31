@@ -89,11 +89,52 @@
 
 
 import React from 'react'
+import Image from 'gatsby-image'
+import {useStaticQuery, graphql, Link} from 'gatsby'
+
+import styles from './blog-post.module.scss'
+
+import Layout from '../../components/Layout'
+import {HTMLContent} from '../../components/Content'
 
 let BlogPost = ({data}) => {
+    console.log(data)
+    let category = data.categories.edges.find(({node:category}) => data.markdownRemark.frontmatter.category === category.frontmatter.title)
+
+    let categorySlug = category.node.fields.slug
+    
+    let author = data.authors.edges.find(({node:author}) => data.markdownRemark.frontmatter.author === author.frontmatter.name)
+
+    let authorSlug = author.node.fields.slug
+
 
     return(
-            <div>{data.markdownRemark.frontmatter.title}</div>
+      <Layout>
+        <main>
+          <h2>{data.markdownRemark.frontmatter.title}</h2>
+          <hr/>
+          <div className={styles.postDetails}>
+            <div className={styles.postCategory}>
+            <Link to={categorySlug}>
+              <span>{data.markdownRemark.frontmatter.category}</span>
+            </Link>
+            </div>
+            <p className={styles.postAuthor}>
+              <span>BY </span>
+              <Link to={authorSlug}>
+                {data.markdownRemark.frontmatter.author}
+              </Link> 
+            </p>
+            <p className={styles.postDate}>
+              {data.markdownRemark.frontmatter.date}
+            </p>
+          </div>
+          <div className={styles.postCover}>
+            <Image fluid={data.markdownRemark.frontmatter.coverImage.childImageSharp.fluid} alt=''/>
+          </div>
+          <HTMLContent content={data.markdownRemark.html} className={styles.postBody}/>
+        </main>
+      </Layout>
         )
     }
     
@@ -107,8 +148,39 @@ let BlogPost = ({data}) => {
             category
             date(formatString: "MMMM DD, YYYY")
             title
+            coverImage{
+              childImageSharp{
+                fluid(maxWidth:1000){
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
         }
+        categories:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "category-page"}}}){
+          edges {
+              node{
+                fields{
+                  slug
+                }
+              frontmatter{
+                  title
+              }
+              }
+          }
+          }
+          authors:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "author-page"}}}){
+            edges {
+                node{
+                  fields{
+                    slug
+                  }
+                frontmatter{
+                    name
+                }
+                }
+            }
+            }
       }
     `
     export default BlogPost
