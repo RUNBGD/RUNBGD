@@ -115,15 +115,58 @@ import NewsletterForm from '../NewsletterForm'
 
 const Header = () => {
 
-  let logo = useStaticQuery(graphql`
+  let data = useStaticQuery(graphql`
     query getFluidLogo{
-      file(relativePath:{eq:"logo.jpeg"}){
+      logo:file(relativePath:{eq:"logo.jpeg"}){
         childImageSharp{
           fluid(maxWidth: 300){
             ...GatsbyImageSharpFluid
           }
         }
       }
+      channels:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "category-page"}}}, sort: {fields: [frontmatter___orderNavbar]}){
+          edges {
+              node{
+                fields{
+                  slug
+                }
+              frontmatter{
+                  title
+                  orderNavbar
+              }
+              }
+            }
+          }
+      otherSites:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "other-sites-links"}}}){
+        edges {
+            node{
+              fields{
+                slug
+              }
+            frontmatter{
+                title
+                url
+            }
+            }
+          }
+        }
+      socialLinks:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "social-link"}}}, sort: {fields: [frontmatter___order], order: [ASC]}){
+        edges {
+            node{
+              fields{
+                slug
+              }
+            frontmatter{
+                title
+                url
+                iconLight{
+                  publicURL
+                }
+                order
+            }
+            }
+          }
+        }
     }
   `)
 
@@ -136,7 +179,7 @@ const Header = () => {
           <img src={menuOpened ? closeButton : menuButton} alt='mobile menu button' onClick={() => setMenuOpened(prevState => !prevState)}/>
         </div>
         <Link to='/' className={styles.logo}>
-          <Image fluid={logo.file.childImageSharp.fluid} alt='logo'/>
+          <Image fluid={data.logo.childImageSharp.fluid} alt='logo'/>
         </Link>
         <div className={styles.menuButtonContainer}>
           <img src={menuOpened ? searchButtonWhite : searchButton} alt='search website button' />
@@ -146,23 +189,23 @@ const Header = () => {
         <nav className={`${styles.headerMoreMenu} ${menuOpened && styles.headerMoreMenuOpened}`}>
           <div className={styles.linksBlock}>
             <p className={styles.linksGroupName}>Channels</p>
-            <a>THE CITY</a>
-            <a>TRAVEL</a>
-            <a>MUSIC</a>
-            <a>CULTURE</a>
-            <a>style</a>
-            <a>life</a>
-            <a>Food & Beverages</a>
+            {data.channels.edges.map(({node:channel}) => {
+              return <Link to={channel.fields.slug}>
+                {channel.frontmatter.title}
+              </Link>
+            })}
           </div>
           <div className={styles.linksBlock}>
             <p className={styles.linksGroupName}>Follow On</p>
-            <a><img src={instagramLogo}/> instagram</a>
-            <a><img src={facebookLogo}/> facebook</a>
-            <a><img src={twitterLogo}/> twitter</a>
+            {data.socialLinks.edges.map(({node:link}) => {
+              return <a href={link.fields.slug}><img src={link.frontmatter.iconLight.publicURL}/> {link.frontmatter.title}</a>
+            })}
           </div>
           <div className={styles.linksBlock}>
             <p className={styles.linksGroupName}>run bgd sites</p>
-            <a>RUN BGD</a>
+            {data.otherSites.edges.map(({node:site}) => {
+              return <a href={site.frontmatter.url} target='_blank'>{site.frontmatter.title}</a>
+            })}
           </div>
           <div className={styles.linksBlock}>
             <p className={styles.linksGroupName}>work with us</p>

@@ -115,7 +115,7 @@
 // export default Footer
 
 import React from 'react'
-import {Link} from 'gatsby'
+import {Link, useStaticQuery, graphql} from 'gatsby'
 
 import instagramLogo from '../../img/instagram-logo.svg'
 import facebookLogo from '../../img/facebook-logo.svg'
@@ -124,19 +124,36 @@ import twitterLogo from '../../img/twitter-logo.svg'
 import styles from './footer.module.scss'
 
 const Footer = () => {
+
+  let data = useStaticQuery(graphql`
+    query footerData{
+      socialLinks:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "social-link"}}}, sort: {fields: [frontmatter___order], order: [ASC]}){
+        edges {
+            node{
+              fields{
+                slug
+              }
+            frontmatter{
+                url
+                title
+                iconDark{
+                  publicURL
+                }
+                order
+            }
+            }
+          }
+        }
+    }
+  `)
+
   return(
     <footer className={styles.footer}>
       <p>Connect With Us</p>
       <div className={styles.socialIconsContainer}>
-        <a href='instagram.com' target='_blank'>
-          <img src={instagramLogo} alt='instagram logo'/>
-        </a>
-        <a href='facebook.com' target='_blank'>
-          <img src={facebookLogo} alt='facebook logo'/>
-        </a>
-        <a href='twitter.com' target='_blank'>
-          <img src={twitterLogo} alt='twitter logo'/>
-        </a>
+        {data.socialLinks.edges.map(({node:link}) => {
+          return <a href={link.fields.slug}><img src={link.frontmatter.iconDark.publicURL} alt={`${link.frontmatter.title} logo`}/></a>
+        })}
       </div>
       <hr/>
       <div className={styles.columnLinks}>

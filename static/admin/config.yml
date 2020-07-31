@@ -40,6 +40,7 @@ collections:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "category-page"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Order on home page", name: "order", widget: "number"}
+      - {label: "Order in navbar", name: "orderNavbar", widget: "number"}
 
   - name: "author"
     label: "Author"
@@ -50,6 +51,31 @@ collections:
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "author-page"}
       - {label: "Name", name: "name", widget: "string"}
+  
+  - name: "otherSites"
+    label: "Other Sites"
+    folder: "src/data/other-sites"
+    create: true
+    slug: "{{title}}"
+    identifier_field: name
+    fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "other-sites-links"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "URL Address", name: "url", widget: "string"}
+  
+  - name: "socialLinks"
+    label: "Social Links"
+    folder: "src/data/social-links"
+    create: true
+    slug: "{{title}}"
+    identifier_field: name
+    fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "social-link"}
+      - {label: 'Social Icon Dark', name: 'iconDark', widget: "image"}
+      - {label: 'Social Icon Light', name: 'iconLight', widget: "image"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "URL Address", name: "url", widget: "string"}
+      - {label: "Order", name: "order", widget: "number"}
 
   - name: "blog"
     label: "Blog"
@@ -69,26 +95,6 @@ collections:
   - name: "pages"
     label: "Pages"
     files:
-      - file: "src/pages/index.md"
-        label: "Landing Page"
-        name: "index"
-        fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "index-page"}
-          - {label: Title, name: title, widget: string}
-          - {label: Image, name: image, widget: image}
-          - {label: Heading, name: heading, widget: string}
-          - {label: Subheading, name: subheading, widget: string}
-          - {label: Mainpitch, name: mainpitch, widget: object, fields: [{label: Title, name: title, widget: string}, {label: Description, name: description, widget: text}]}
-          - {label: Description, name: description, widget: string}
-          - {label: Intro, name: intro, widget: object, fields: [{label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: text}, {label: Blurbs, name: blurbs, widget: list, fields: [{label: Image, name: image, widget: image}, {label: Text, name: text, widget: text}]}]}
-          - {label: Main, name: main, widget: object, fields: [{label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: text}, {label: Image1, name: image1, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}, {label: Image2, name: image2, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}, {label: Image3, name: image3, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}]}
-      - file: "src/pages/about/index.md"
-        label: "About"
-        name: "about"
-        fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "about-page"}
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Body", name: "body", widget: "markdown"}
       - file: "src/pages/products/index.md"
         label: "Products Page"
         name: "products"
