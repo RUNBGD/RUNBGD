@@ -2,6 +2,7 @@
 templateKey: social-link
 iconDark: /img/instagram-logo.svg
 iconLight: /img/instagram-logo-white.svg
-title: instagram
+title: Instagram
 url: https://instagram.com
+order: 1
 ---
