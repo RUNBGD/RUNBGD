@@ -1,10 +1,31 @@
 import React from 'react'
 import Image from 'gatsby-image'
-import {Link} from 'gatsby'
+import {Link, useStaticQuery, graphql} from 'gatsby'
 
 import styles from './post-cover.module.scss'
-const PostCover = ({post, categorySlug}) => {
+const PostCover = ({post}) => {
     
+    let data = useStaticQuery(graphql`
+    query data{
+        allCategories: allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "category-page"}}}){
+            edges {
+                node{
+                  fields{
+                    slug
+                  }
+                frontmatter{
+                    title
+                }
+                }
+            }
+            }
+    }
+    `)
+
+    let category = data.allCategories.edges.find(({node:category}) => post.frontmatter.category === category.frontmatter.title)
+
+    let categorySlug = category.node.fields.slug
+
     return(
         <div className={styles.post}> 
                 <div className={styles.postImage}>

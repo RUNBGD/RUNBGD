@@ -46,9 +46,9 @@ const BigPostsCarousel = ({posts, heading}) => {
         >
           {posts.map(({node:post}, index) => {
 
-            let category = data.allMarkdownRemark.edges.filter(({node:category}) => post.frontmatter.category === category.frontmatter.title)
+            let category = data.allMarkdownRemark.edges.find(({node:category}) => post.frontmatter.category === category.frontmatter.title)
 
-            let categorySlug = category[0].node.fields.slug
+            let categorySlug = category.node.fields.slug
 
             return(
               <SwiperSlide className={`${styles.slide} ${posts.length < 2 && styles.isOnlySlide} ${index === activeSlide ? styles.activeSlide : styles.inactiveSlide}`}>
