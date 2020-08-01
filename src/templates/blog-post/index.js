@@ -90,7 +90,7 @@
 
 import React from 'react'
 import Image from 'gatsby-image'
-import {useStaticQuery, graphql, Link} from 'gatsby'
+import {graphql, Link} from 'gatsby'
 
 import styles from './blog-post.module.scss'
 

@@ -1,12 +1,10 @@
 import React, {useState} from 'react'
-import {useStaticQuery, graphql} from 'gatsby'
 
 import InfiniteScroll from 'react-infinite-scroll-component';
 import PostCover from '../PostCover'
 
 
 let LatestPosts = ({posts}) => {
-    console.log(posts)
     
     let [numOfLatestPosts, setNumOfLatestPosts] = useState(5)
 

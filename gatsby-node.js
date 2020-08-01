@@ -3,12 +3,12 @@ const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
 const { fmImagesToRelative } = require('gatsby-remark-relative-images')
 
-exports.createPages = ({ actions, graphql }) => {
+exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions
 
-  return graphql(`
+  await graphql(`
     {
-      allMarkdownRemark(limit: 2000, filter:{frontmatter:{createPage:{eq: "true"}}}) {
+      allMarkdownRemark(limit: 2000, filter:{frontmatter:{createPage:{eq: "true"}, templateKey: {eq: "blog-post"}}}) {
         edges {
           node {
             id
@@ -34,7 +34,7 @@ exports.createPages = ({ actions, graphql }) => {
     posts.forEach((edge) => {
       const id = edge.node.id
       const category = edge.node.frontmatter.category
-      console.log(category)
+      
       createPage({
         path: edge.node.fields.slug,
         component: path.resolve(
@@ -44,6 +44,49 @@ exports.createPages = ({ actions, graphql }) => {
         context: {
           id,
           category
+        },
+      })
+    })
+  })
+
+    return graphql(`
+    {
+      allMarkdownRemark(limit: 2000, filter:{frontmatter:{createPage:{eq: "true"}, templateKey: {eq: "category-page"}}}) {
+        edges {
+          node {
+            id
+            fields {
+              slug
+            }
+            frontmatter {
+              templateKey
+              title
+            }
+          }
+        }
+      }
+    }
+  `).then((result) => {
+    if (result.errors) {
+      result.errors.forEach((e) => console.error(e.toString()))
+      return Promise.reject(result.errors)
+    }
+
+    const posts = result.data.allMarkdownRemark.edges
+
+    posts.forEach((edge) => {
+      const id = edge.node.id
+      const title = edge.node.frontmatter.title
+      
+      createPage({
+        path: edge.node.fields.slug,
+        component: path.resolve(
+          `src/templates/${String(edge.node.frontmatter.templateKey)}/index.js`
+        ),
+        // additional data can be passed via context
+        context: {
+          id,
+          title
         },
       })
     })

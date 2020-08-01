@@ -322,7 +322,7 @@ const IndexPage = () => {
 
   let featuredCategoriesInOrder = (featuredCategories) => {
     let filteredCategories = carouselPosts.categories.edges.filter(({node:category}) => {
-      console.log(category)
+
       if(featuredCategories.indexOf(category.frontmatter.title) !== -1){
         return true
       }
@@ -336,7 +336,7 @@ const IndexPage = () => {
   return (
     <Layout>
       <main>
-        <BigPostsCarousel posts={carouselPosts}/>
+        <BigPostsCarousel posts={carouselPosts.allMarkdownRemark}/>
         <SecondaryPostsCarousel posts={carouselPosts.trending.edges} heading="Trending"/>
         <NewsletterForm />
         <hr/>

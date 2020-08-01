@@ -57,7 +57,7 @@ const BigPostsCarousel = ({posts}) => {
           className={styles.carousel}
           onSlideChange={(swiper) => setActiveSlide(swiper.realIndex)}
         >
-          {posts.allMarkdownRemark.edges.map(({node: post}, index) => {
+          {posts.edges.map(({node: post}, index) => {
             
             let category = data.allMarkdownRemark.edges.find(({node:category}) => post.frontmatter.category === category.frontmatter.title)
 
