@@ -8,8 +8,6 @@ import BigPostsCarousel from '../../components/BigPostsCarousel'
 
 let CategoryPage = ({data}) => {
 
-    console.log(data)
-
     return(
         <Layout>
           <main>
