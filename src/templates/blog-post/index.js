@@ -96,9 +96,10 @@ import styles from './blog-post.module.scss'
 
 import Layout from '../../components/Layout'
 import {HTMLContent} from '../../components/Content'
+import LatestPosts from '../../components/LatestPosts'
 
 let BlogPost = ({data}) => {
-    console.log(data)
+    
     let category = data.categories.edges.find(({node:category}) => data.markdownRemark.frontmatter.category === category.frontmatter.title)
 
     let categorySlug = category.node.fields.slug
@@ -106,7 +107,6 @@ let BlogPost = ({data}) => {
     let author = data.authors.edges.find(({node:author}) => data.markdownRemark.frontmatter.author === author.frontmatter.name)
 
     let authorSlug = author.node.fields.slug
-
 
     return(
       <Layout>
@@ -133,13 +133,15 @@ let BlogPost = ({data}) => {
             <Image fluid={data.markdownRemark.frontmatter.coverImage.childImageSharp.fluid} alt=''/>
           </div>
           <HTMLContent content={data.markdownRemark.html} className={styles.postBody}/>
+          <h3>Latest In {data.markdownRemark.frontmatter.category}</h3>
+          <LatestPosts posts={data.categoryPosts}/>
         </main>
       </Layout>
         )
     }
     
     export const pageQuery = graphql`
-      query BlogPostByID($id: String!) {
+      query BlogPostByID($id: String!, $category: String!) {
         markdownRemark(id: { eq: $id }) {
           id
           html
@@ -181,6 +183,27 @@ let BlogPost = ({data}) => {
                 }
             }
             }
+            categoryPosts:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "blog-post"}, category: {eq: $category}}, id: {ne: $id}}){
+              edges {
+                  node{
+                    fields{
+                      slug
+                    }
+                  frontmatter{
+                      title
+                      category
+                      author
+                      coverImage{
+                      childImageSharp {
+                          fluid(maxWidth:1000, quality: 64){
+                          ...GatsbyImageSharpFluid
+                          }
+                      }
+                      }
+                  }
+                  }
+              }
+              }
       }
     `
     export default BlogPost

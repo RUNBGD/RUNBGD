@@ -286,6 +286,27 @@ const IndexPage = () => {
         }
       }
     }
+    latestPosts:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "blog-post"}}}){
+      edges {
+          node{
+            fields{
+              slug
+            }
+          frontmatter{
+              title
+              category
+              author
+              coverImage{
+              childImageSharp {
+                  fluid(maxWidth:1000, quality: 64){
+                  ...GatsbyImageSharpFluid
+                  }
+              }
+              }
+          }
+          }
+      }
+      }
   }
   `)
 
@@ -331,7 +352,7 @@ const IndexPage = () => {
         } )}
         <h2>Latest Stories</h2>
         <div style={{display:'relative'}}>
-          <LatestPosts />
+          <LatestPosts posts={carouselPosts.latestPosts}/>
         </div>
       </main>
     </Layout>
