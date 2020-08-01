@@ -122,7 +122,7 @@ exports.createPages = async ({ actions, graphql }) => {
       createPage({
         path: edge.node.fields.slug,
         component: path.resolve(
-          `src/templates/${String(edge.node.frontmatter.templateKey)}/index.js`
+          `src/templates/page-title-and-body/index.js`
         ),
         // additional data can be passed via context
         context: {
