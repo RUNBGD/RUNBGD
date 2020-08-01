@@ -1,10 +1,9 @@
 import React from 'react'
-import Image from 'gatsby-image'
 import {graphql} from 'gatsby'
 
 import Layout from '../../components/Layout'
-import LatestPosts from '../../components/LatestPosts'
-import BigPostsCarousel from '../../components/BigPostsCarousel'
+import {HTMLContent} from '../../components/Content'
+
 
 let PageTitleAndBody = ({data}) => {
 
@@ -13,7 +12,7 @@ let PageTitleAndBody = ({data}) => {
           <main>
             <h1>{data.markdownRemark.frontmatter.title}</h1>
             <hr/>
-            {data.markdownRemark.html}
+            <HTMLContent content={data.markdownRemark.html}/>
           </main>
         </Layout>
         )
