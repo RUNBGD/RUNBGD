@@ -5,3 +5,28 @@
 .post-cover > div{
   border-radius:5px;
 }
+
+.post-details{
+  display:flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.post-category{
+  width:100%;
+}
+
+.post-category > a {
+  background:#EE1C25;
+  text-transform: uppercase;
+  display:inline-block;
+  padding:2.5px 15px;
+  font-weight: 700;
+  border-radius: 5px;
+  color:white;
+  font-size:12px;
+}
+
+.post-author > a{
+  color:#EE1C25;
+}
