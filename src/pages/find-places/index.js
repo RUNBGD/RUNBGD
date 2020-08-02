@@ -121,7 +121,7 @@ const FindPlaces = () => {
                         <div className={`${styles.map} ${mapExpanded && styles.isExpanded}`}>
                             {
                                 typeof window !== 'undefined' &&
-                                <Map center={[currentY, currentX]} zoom={10}>
+                                <Map center={currentY == undefined ? [0, 0] : [currentY, currentX]} zoom={10}>
                                     <TileLayer
                                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                                     attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
@@ -135,7 +135,7 @@ const FindPlaces = () => {
                                             <Popup>{location.frontmatter.name}</Popup>
                                         </Marker>
                                     })}
-                                    <Marker position={[yCoord, xCoord]} icon={icon({iconUrl:data.currentLocationCategory.edges[0].node.frontmatter.categoryPin.publicURL, iconSize: [20, 28.57]})}>
+                                    <Marker position={yCoord == undefined ? [0, 0] : [yCoord, xCoord]} icon={icon({iconUrl:data.currentLocationCategory.edges[0].node.frontmatter.categoryPin.publicURL, iconSize: [20, 28.57]})}>
                                         <Popup>Current Location</Popup>
                                     </Marker>
                                 </Map>
