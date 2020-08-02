@@ -211,16 +211,28 @@ const Header = () => {
             <p className={styles.linksGroupName}>work with us</p>
             <a>careers</a>
             <a>advertise</a>
-            <a>contact us</a>
+            <Link to='contact-us'>
+              contact us
+            </Link>
           </div>
           <footer>
             <NewsletterForm dark={true}/>
             <div className={styles.navFooterLinks}>
-              <a>Terms of use</a>
-              <a>Privacy policy</a>
-              <a>Do not sell my info</a>
-              <a>Site map</a>
-              <a>Public Notice</a>
+              <Link to='terms-of-use'>
+                Terms of use
+              </Link>
+              <Link to='privacy-policy'>
+                Privacy policy
+              </Link>
+              <Link to='do-not-sell-my-info'>
+                Do not sell my info
+              </Link>
+              <Link to='site-map'>
+                Site map
+              </Link>
+              <Link to='public-notice'>
+                Public notice
+              </Link>
             </div>
             <hr/>
             <small className={styles.navFooterCopyright}>
