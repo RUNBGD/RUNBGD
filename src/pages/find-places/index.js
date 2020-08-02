@@ -1,14 +1,21 @@
-import React, {useEffect} from 'react'
+import React, {useState} from 'react'
+import {useStaticQuery, graphql} from 'gatsby'
 
 import Layout from '../../components/Layout'
 import styles from './find-places.module.scss'
 import { useQueryParam, NumberParam } from 'use-query-params'
+import {icon} from 'leaflet'
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet'
+
+import expandButton from '../../img/down-arrow.svg'
+import testIcon from '../../img/pin-test.svg'
 
 const FindPlaces = () => {
     
     const [xCoord, setXCoord] = useQueryParam('x', NumberParam)
     const [yCoord, setYCoord] = useQueryParam('y', NumberParam)
+
+    const [mapExpanded, setMapExpanded] = useState(false)
 
     function getLocation(){
         if(navigator.geolocation){
@@ -18,6 +25,24 @@ const FindPlaces = () => {
             })
         }
     }
+
+    const data = useStaticQuery(graphql`
+    query locationData{
+        locations:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "location"}}}){
+            edges {
+                node{
+                frontmatter{
+                    name
+                    address
+                    latitude
+                    longitude
+                }
+                }
+              }
+            }
+        }
+    `)
+
         return (
             <Layout>
                 <main>
@@ -33,7 +58,7 @@ const FindPlaces = () => {
                             <input type='text' placeholder='Enter location' className={styles.inputCardInput}></input>
                         </div>
                         :
-                        <div className={styles.map}>
+                        <div className={`${styles.map} ${mapExpanded && styles.isExpanded}`}>
                             {
                                 typeof window !== 'undefined' &&
                                 <Map center={[yCoord, xCoord]} zoom={10}>
@@ -41,13 +66,22 @@ const FindPlaces = () => {
                                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                                     attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
                                     />
-                                    <Marker position={[yCoord, xCoord]}>
-                                    <Popup>A pretty CSS3 popup.<br />Easily customizable.</Popup>
+                                    {data.locations.edges.map(({node:location}) => {
+                                        return <Marker position={[location.frontmatter.latitude, location.frontmatter.longitude]} icon={icon({iconUrl:testIcon, iconSize: [20, 28.57]})}>
+                                            <Popup>{location.frontmatter.name}</Popup>
+                                        </Marker>
+                                    })}
+                                    <Marker position={[yCoord, xCoord]} icon={icon({iconUrl:testIcon, iconSize: [20, 28.57]})}>
+                                        <Popup>Current Location</Popup>
                                     </Marker>
                                 </Map>
-                        }       
+                        }    
                         </div>
                         }
+                        <button className={styles.expandButton} onClick={() => setMapExpanded((prevState) => !prevState)}><img src={expandButton} alt='expand button'/></button>
+                        <div className={styles.mapInformationCard}>
+                            
+                        </div>   
                     </div>
                 </main>
             </Layout>
