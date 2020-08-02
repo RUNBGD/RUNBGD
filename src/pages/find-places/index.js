@@ -35,6 +35,8 @@ const FindPlaces = () => {
     const [currentX, setCurrentX] = useState(0)
     const [currentY, setCurrentY] = useState(0)
 
+    const [filterCategory, setFilterCategory] = useState('Select Category')
+
     useEffect(() => {
         setCurrentX(xCoord)
         setCurrentY(yCoord)
@@ -142,20 +144,33 @@ const FindPlaces = () => {
                         }
                         <button className={`${styles.expandButton} ${mapExpanded && styles.isActivated}`} onClick={() => setMapExpanded((prevState) => !prevState)}><img src={expandButton} alt='expand button'/></button>
                         <div className={styles.locationCards}>
+                            <select className={styles.filterSelect} onChange={(e) => {setFilterCategory(e.target.value)}}>
+                                <option value="Select Category">Select Category</option>
+                                {data.categories.edges.map(({node:category}) => {
+                                    if(category.frontmatter.title === "Current Location"){
+                                        return
+                                    }
+                                    return <option value={category.frontmatter.title}>{category.frontmatter.title}</option>
+                                })}
+                            </select>
 
                             {data.locations.edges.map(({node:location}, index) => {
-                            
-                                return <div className={styles.locationCard} key={index} onClick={() => {setCurrentX(0);setCurrentY(0);setTimeout(()=>{setCurrentX(location.frontmatter.longitude);setCurrentY(location.frontmatter.latitude)}, 100)}}>
+                                let distanceFromStart = distance(xCoord, yCoord, location.frontmatter.longitude, location.frontmatter.latitude, "K")
+
+                                if(distanceFromStart <= 105 && (location.frontmatter.category === filterCategory  || filterCategory === "Select Category")){
+                                return <div className={styles.locationCard} style={{order:Number(distanceFromStart).toFixed(0)}} key={index} onClick={() => {setCurrentX(0);setCurrentY(0);setTimeout(()=>{setCurrentX(location.frontmatter.longitude);setCurrentY(location.frontmatter.latitude)}, 100)}}>
                                     <div className={styles.cardCover}>
                                         <Image fluid={location.frontmatter.coverImage.childImageSharp.fluid} alt='' />
                                     </div>
                                     <div className={styles.cardText}>
                                         <p className={styles.cardTitle}>{location.frontmatter.name}</p>
                                         <p className={styles.cardAddress}>{location.frontmatter.address}</p>
-                                        <p className={styles.distance}>{distance(xCoord, yCoord, location.frontmatter.longitude, location.frontmatter.latitude, "K")} km</p>
+                                        <p className={styles.distance}>{distanceFromStart} km</p>
                                     </div>
                                 </div>
+                                }
                             })}
+
 
                         </div>   
                     </div>
