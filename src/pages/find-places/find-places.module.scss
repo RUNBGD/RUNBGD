@@ -1,9 +1,11 @@
 .location-items-container{
     height:90vh;
     display:flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap:wrap;
     align-items: center;
     justify-content: center;
+    overflow:hidden;
 }
 
 .input-card{
@@ -43,7 +45,9 @@
 .map{
     width:100%;
     height:40vh;
+
     transition:0.5s;
+    z-index:1;
 }
 
 .map > div:first-of-type{
@@ -56,14 +60,67 @@
     height:85vh;
 }
 
+.is-activated{
+    transform:rotate(180deg)
+}
+
 .expand-button{
     border:none;
     background:none;
+    transition:0.5s;
 }
 
-.map-information-card{
+.location-cards{
     height:40vh;
     width:100%;
+    padding:10px;
     
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+    overflow:scroll;
+    z-index:0;
+}
+
+.location-card{
+    display:flex;
+    flex-direction: row;
+}
+
+.card-cover{
+    width:50%;
+}
+
+.card-cover > div{
+    border-radius:5px;
+}
+
+.card-text{
+    width:50%;
+    padding:5px;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-title{
+    margin:0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow:ellipsis;
+
+    font-weight:600;
+}
+
+.card-address{
+    margin:0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow:ellipsis;
+
+    font-size:12px;
+}
+
+.distance{
+    margin:0;
+
+    font-size:12px;
 }

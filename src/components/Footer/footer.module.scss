@@ -1,7 +1,9 @@
 .footer{
-  box-shadow:0 -3px 6px rgba(0, 0, 0, 0.16);
-  padding:15px;
   padding:10px;
+
+  background:#ffffff;
+  box-shadow:0 -3px 6px rgba(0, 0, 0, 0.16);
+  z-index:2;
 }
 
 .footer > p {
