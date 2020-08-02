@@ -18,8 +18,6 @@ const FindPlaces = () => {
             })
         }
     }
-    if (typeof window !== 'undefined'){
-
         return (
             <Layout>
                 <main>
@@ -36,22 +34,24 @@ const FindPlaces = () => {
                         </div>
                         :
                         <div className={styles.map}>
-                            <Map center={[yCoord, xCoord]} zoom={10}>
-                                <TileLayer
-                                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                                attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
-                                />
-                                <Marker position={[yCoord, xCoord]}>
-                                <Popup>A pretty CSS3 popup.<br />Easily customizable.</Popup>
-                                </Marker>
-                            </Map>
+                            {
+                                typeof window !== 'undefined' &&
+                                <Map center={[yCoord, xCoord]} zoom={10}>
+                                    <TileLayer
+                                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                                    attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
+                                    />
+                                    <Marker position={[yCoord, xCoord]}>
+                                    <Popup>A pretty CSS3 popup.<br />Easily customizable.</Popup>
+                                    </Marker>
+                                </Map>
+                        }       
                         </div>
                         }
                     </div>
                 </main>
             </Layout>
         )
-    }
 }
 
 export default FindPlaces
