@@ -1,5 +1,6 @@
 ---
 templateKey: blog-post
+createPage: "true"
 title: "This is some example heading for post on RUN BGD website. "
 category: Culture
 author: Dragan Filovski
