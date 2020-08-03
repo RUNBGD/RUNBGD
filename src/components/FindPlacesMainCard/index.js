@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'gatsby'
 
 import styles from './find-places-main-card.module.scss'
 
@@ -9,7 +10,7 @@ const FindPlacesMainCard = () => {
     <div className={styles.findPlacesCard}>
       <h2>Find exciting places hand-picked by us at RUN BGD</h2>
       <img className={styles.findPlacesIcon} src={pinIcon} alt='pin icon'/>
-      <a className={styles.findPlacesButton}>Find Now</a>
+      <Link to={'find-places'} className={styles.findPlacesButton}>Find Now</Link>
     </div>
   )
 }

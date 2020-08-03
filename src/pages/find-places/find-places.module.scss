@@ -14,6 +14,7 @@
 
     box-shadow:0px 3px 6px rgba(0, 0, 0, 0.16);
     border-radius:5px;
+    transition:0.5s;
 }
 
 .input-card-button{
@@ -132,4 +133,30 @@
     width:100%;
     padding:5px;
     margin-bottom:20px;
+}
+
+.loading-indicator{
+    position:relative;
+    display:inline-block;
+    margin-top:30px;
+    left:50%;
+    transform: translate(-50%, -50%);
+    animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate{
+    from{
+        transform:translate(-50%, -50%) rotate(0deg)
+    }
+    to{
+        transform:translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+.fetch-message{
+    padding:5px;
+    border-radius:5px;
+
+    background-color:rgba(255, 0, 0, 0.1);
+    color:#EE1C25;
 }

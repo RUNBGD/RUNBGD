@@ -9,6 +9,7 @@ import {icon} from 'leaflet'
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet'
 
 import expandButton from '../../img/down-arrow.svg'
+import loadingIndicator from '../../img/loading-indicator.svg'
 
 function distance(lat1, lon1, lat2, lon2, unit) {
     var radlat1 = Math.PI * lat1/180
@@ -46,6 +47,8 @@ const FindPlaces = () => {
 
     const [fetchMessage, setFetchMessage] = useState(undefined)
 
+    const [fetching, setFetching] = useState(false)
+
     function getLocation(){
         if(navigator.geolocation){
             navigator.geolocation.getCurrentPosition(({coords}) => {
@@ -58,15 +61,22 @@ const FindPlaces = () => {
     function findGeocodeFromAddress(event){
         if (event.key === 'Enter') {
             setFetchMessage(undefined)
+            setFetching(true)
             fetch(`/.netlify/functions/getGeolocation?location=${event.target.value}`)
                 .then(response => response.json())
                 .then((data) => {
+                    console.log(data)
+                    setFetching(false)
                     if(data.msg){
                         return setFetchMessage(data.msg)
                     }
                     const coords = data.data.results[0].locations[0].latLng
                     setYCoord(coords.lat)
                     setXCoord(coords.lng)
+                })
+                .catch(error => {
+                    setFetching(false)
+                    setFetchMessage("There was some error while trying to find your location. Try later!")
                 })
           }
     }
@@ -134,6 +144,8 @@ const FindPlaces = () => {
                             >Search near me</button>
                             <p>or</p>
                             <input type='text' onKeyDown={findGeocodeFromAddress} placeholder='Enter location' className={styles.inputCardInput}></input>
+                            {fetching && <img src={loadingIndicator} className={styles.loadingIndicator} alt='Loading...'/>}
+                            {fetchMessage && <p className={styles.fetchMessage}>{fetchMessage}</p>}
                         </div>
                         :
                         <React.Fragment>
