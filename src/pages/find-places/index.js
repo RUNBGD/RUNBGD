@@ -44,6 +44,8 @@ const FindPlaces = () => {
 
     const [mapExpanded, setMapExpanded] = useState(false)
 
+    const [fetchMessage, setFetchMessage] = useState(undefined)
+
     function getLocation(){
         if(navigator.geolocation){
             navigator.geolocation.getCurrentPosition(({coords}) => {
@@ -55,10 +57,14 @@ const FindPlaces = () => {
 
     function findGeocodeFromAddress(event){
         if (event.key === 'Enter') {
+            setFetchMessage(undefined)
             fetch(`/.netlify/functions/getGeolocation?location=${event.target.value}`)
                 .then(response => response.json())
-                .then(({data}) => {
-                    const coords = data.results[0].locations[0].latLng
+                .then((data) => {
+                    if(data.msg){
+                        return setFetchMessage(data.msg)
+                    }
+                    const coords = data.data.results[0].locations[0].latLng
                     setYCoord(coords.lat)
                     setXCoord(coords.lng)
                 })
