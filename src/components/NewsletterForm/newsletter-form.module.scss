@@ -49,8 +49,30 @@
 
 .newsletter-form-dark > .newsletter-input-email{
   background:#000000;
+  color:white;
 }
 
 .newsletter-form-dark > .newsletter-input-email::placeholder{
+  color:white;
+}
+
+.error-message{
+  padding:5px;
+  border-radius:5px;
+  background-color:rgba(255, 0, 0, 0.1);
+  color:#EE1C25;
+  text-align:center;
+  width:100%;
+}
+
+.error-message a{
+  text-decoration: underline;
+}
+
+.success-message{
+  text-align: center;
+}
+
+.success-message-dark{
   color:white;
 }

@@ -87,7 +87,7 @@
   display:flex;
 }
 
-.header-more-menu-container{
+.header-more-menu-container, .header-search-container{
   max-height:0px;  
   overflow:hidden;
   transition:0.5s;
@@ -95,10 +95,30 @@
   z-index:3;
 }
 
-.header-more-menu-container-opened{
+.header-more-menu-container-opened, .header-search-container-opened{
   max-height: 100vh;
 }
 
 .header-more-menu-opened{
   background:black;
+}
+
+.search-input{
+  width:100%;
+  padding:5px;
+  margin:10px 0;
+  
+  border:unset;
+  border:1px solid #707070;
+  border-radius:5px;
+}
+
+.header-search-container-opened{
+  max-height:50vh;
+}
+
+.search-result > p{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow:ellipsis;
 }

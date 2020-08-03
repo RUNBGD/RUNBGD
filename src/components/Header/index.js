@@ -97,81 +97,124 @@
 
 // export default Navbar
 
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import Image from 'gatsby-image'
 import {useStaticQuery, graphql, Link} from 'gatsby'
+import * as JsSearch from 'js-search'
+import {useTransition, animated} from 'react-spring'
 
 import menuButton from '../../img/menu-icon.svg'
 import searchButton from '../../img/search-icon.svg'
 import searchButtonWhite from '../../img/search-icon-white.svg'
-import closeButton from '../../img/close-icon.svg'
-import instagramLogo from '../../img/instagram-logo-white.svg' 
-import facebookLogo from '../../img/facebook-logo-white.svg' 
-import twitterLogo from '../../img/twitter-logo-white.svg' 
+import closeButton from '../../img/close-icon.svg' 
 
 import styles from './navbar.module.scss'
 import NewsletterForm from '../NewsletterForm'
 
 
 const Header = () => {
-
+  
   let data = useStaticQuery(graphql`
-    query getFluidLogo{
-      logo:file(relativePath:{eq:"logo.jpeg"}){
-        childImageSharp{
-          fluid(maxWidth: 300){
-            ...GatsbyImageSharpFluid
+  query getFluidLogo{
+    logo:file(relativePath:{eq:"logo.jpeg"}){
+      childImageSharp{
+        fluid(maxWidth: 300){
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    channels:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "category-page"}}}, sort: {fields: [frontmatter___orderNavbar]}){
+      edges {
+        node{
+          fields{
+            slug
+          }
+          frontmatter{
+            title
+            orderNavbar
           }
         }
       }
-      channels:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "category-page"}}}, sort: {fields: [frontmatter___orderNavbar]}){
-          edges {
-              node{
-                fields{
-                  slug
-                }
-              frontmatter{
-                  title
-                  orderNavbar
-              }
-              }
-            }
-          }
-      otherSites:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "other-sites-links"}}}){
-        edges {
-            node{
-              fields{
-                slug
-              }
-            frontmatter{
-                title
-                url
-            }
-            }
-          }
-        }
-      socialLinks:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "social-link"}}}, sort: {fields: [frontmatter___order], order: [ASC]}){
-        edges {
-            node{
-              fields{
-                slug
-              }
-            frontmatter{
-                title
-                url
-                iconLight{
-                  publicURL
-                }
-                order
-            }
-            }
-          }
-        }
     }
+    otherSites:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "other-sites-links"}}}){
+      edges {
+        node{
+          fields{
+            slug
+          }
+          frontmatter{
+            title
+            url
+          }
+        }
+      }
+    }
+    socialLinks:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "social-link"}}}, sort: {fields: [frontmatter___order], order: [ASC]}){
+      edges {
+        node{
+          fields{
+            slug
+          }
+          frontmatter{
+            title
+            url
+            iconLight{
+              publicURL
+            }
+            order
+          }
+        }
+      }
+    }
+    allPosts:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "blog-post"}}}){
+      edges {
+        node{
+          fields{
+            slug
+          }
+          frontmatter{
+            title
+            category
+            author
+          }
+          html
+        }
+      }
+    }
+  }
   `)
+ 
+  var search = new JsSearch.Search(['fields','slug']);
+  search.addIndex(['frontmatter','title']);
+  search.addIndex(['frontmatter','category']);
+  search.addIndex('html');
+  search.addIndex(['frontmatter', 'author'])
 
+  let allPostsNewArray = data.allPosts.edges.map(({node}) => node)
+  
+  search.addDocuments(allPostsNewArray);
+  
   let [menuOpened, setMenuOpened] = useState(false)
+  let [searchOpened, setSearchOpened] = useState(false)
+  let [searchValue, setSearchValue] = useState('')
+  let [searchResults, setSearchResults] = useState([])
+  
+  const transitions = useTransition(searchResults, result => result.fields.slug, {
+    from: {transform: 'translate3d(-5px, 0px,0)', opacity:0},
+    enter: { transform: 'translate3d(0,0px,0)' , opacity: 1},
+    leave: { transform: 'translate3d(-5px,0px,0)', opacity: 0},
+  })
 
+  function searchHandler(e){
+    let searchValue = e.target.value
+    setSearchValue(searchValue)
+  }
+
+  useEffect(() => {
+    setSearchResults(search.search(searchValue))
+  }, [searchValue])
+
+  console.log(search.search('this'))
   return (
     <header class={`${styles.header} ${menuOpened && styles.headerDark}`}>
       <div className={styles.headerMainButtons}>
@@ -182,9 +225,27 @@ const Header = () => {
           <Image fluid={data.logo.childImageSharp.fluid} alt='logo'/>
         </Link>
         <div className={styles.menuButtonContainer}>
-          <img src={menuOpened ? searchButtonWhite : searchButton} alt='search website button' />
+          <img src={menuOpened ? searchButtonWhite : searchButton} alt='search website button' onClick={() => setSearchOpened(prevState => !prevState)}/>
         </div>
       </div>
+
+      <div className={`${styles.headerSearchContainer} ${searchOpened && styles.headerSearchContainerOpened}`}>
+        <div className={`${styles.headerSearch} ${searchOpened && styles.headerSearchOpened}`}>
+          <input className={styles.searchInput} type='text' placeholder='Search' onChange={searchHandler}></input>
+          <div className={styles.searchResults}>
+            {transitions.map(({item, props, key}) => {
+              console.log(item)
+              return <animated.div style={props} key={key} className={styles.searchResult}>
+                <Link to={item.fields.slug}>
+                  <p>{item.frontmatter.title}</p>
+                </Link>
+              </animated.div>
+            }
+            )}
+          </div>
+        </div>
+      </div>
+
       <div className={`${styles.headerMoreMenuContainer} ${menuOpened && styles.headerMoreMenuContainerOpened}`}>
         <nav className={`${styles.headerMoreMenu} ${menuOpened && styles.headerMoreMenuOpened}`}>
           <div className={styles.linksBlock}>
