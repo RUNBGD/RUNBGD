@@ -98,44 +98,61 @@ import Layout from '../../components/Layout'
 import {HTMLContent} from '../../components/Content'
 import LatestPosts from '../../components/LatestPosts'
 
+export const BlogPostTemplate = ({data}) => {
+  let authorSlug = ''
+  let categorySlug = ''
+  
+  if(data.categories && data.authors){
+    let category = data.categories.edges.find(({node:category}) => data.markdownRemark.frontmatter.category === category.frontmatter.title)
+    
+    categorySlug = category.node.fields.slug
+
+    let author = data.authors.edges.find(({node:author}) => data.markdownRemark.frontmatter.author === author.frontmatter.name)
+    
+    authorSlug = author.node.fields.slug
+  }
+  
+
+  return (
+    <main>
+      <h2>{data.markdownRemark.frontmatter.title}</h2>
+      <hr/>
+      <div className={styles.postDetails}>
+        <div className={styles.postCategory}>
+        <Link to={categorySlug}>
+          <span>{data.markdownRemark.frontmatter.category}</span>
+        </Link>
+        </div>
+        <p className={styles.postAuthor}>
+          <span>BY </span>
+          <Link to={authorSlug}>
+            {data.markdownRemark.frontmatter.author}
+          </Link> 
+        </p>
+        <p className={styles.postDate}>
+          {String(data.markdownRemark.frontmatter.date)}
+        </p>
+      </div>
+      <div className={styles.postCover}>
+        {data.markdownRemark.frontmatter.coverImage.childImageSharp ?
+          <Image fluid={data.markdownRemark.frontmatter.coverImage.childImageSharp.fluid} alt=''/>
+            :
+          <img src={data.markdownRemark.frontmatter.coverImage}/>
+        }
+      </div>
+      <HTMLContent content={data.markdownRemark.html} className={styles.postBody}/>
+      <h3>Latest In {data.markdownRemark.frontmatter.category}</h3>
+      {data.categoryPosts && <LatestPosts posts={data.categoryPosts}/>}
+    </main>
+  )
+}
+
 let BlogPost = ({data}) => {
     
-    let category = data.categories.edges.find(({node:category}) => data.markdownRemark.frontmatter.category === category.frontmatter.title)
-
-    let categorySlug = category.node.fields.slug
-    
-    let author = data.authors.edges.find(({node:author}) => data.markdownRemark.frontmatter.author === author.frontmatter.name)
-
-    let authorSlug = author.node.fields.slug
 
     return(
       <Layout>
-        <main>
-          <h2>{data.markdownRemark.frontmatter.title}</h2>
-          <hr/>
-          <div className={styles.postDetails}>
-            <div className={styles.postCategory}>
-            <Link to={categorySlug}>
-              <span>{data.markdownRemark.frontmatter.category}</span>
-            </Link>
-            </div>
-            <p className={styles.postAuthor}>
-              <span>BY </span>
-              <Link to={authorSlug}>
-                {data.markdownRemark.frontmatter.author}
-              </Link> 
-            </p>
-            <p className={styles.postDate}>
-              {data.markdownRemark.frontmatter.date}
-            </p>
-          </div>
-          <div className={styles.postCover}>
-            <Image fluid={data.markdownRemark.frontmatter.coverImage.childImageSharp.fluid} alt=''/>
-          </div>
-          <HTMLContent content={data.markdownRemark.html} className={styles.postBody}/>
-          <h3>Latest In {data.markdownRemark.frontmatter.category}</h3>
-          <LatestPosts posts={data.categoryPosts}/>
-        </main>
+        <BlogPostTemplate data={data}/>
       </Layout>
         )
     }

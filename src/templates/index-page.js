@@ -203,151 +203,6 @@ import PostCover from '../components/PostCover'
 import NewsletterForm from '../components/NewsletterForm';
 import FindPlacesMainCard from '../components/FindPlacesMainCard'
 
-const posts = [{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-},{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-},{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-}
-]
-
-const infiniteScrollPosts = [{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-},{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-},{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-},{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-},{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-},{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-},{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-},{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-},{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-},{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-},{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-},{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-},{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-},{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-},{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-},{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-},{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-},{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-},{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-},{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-},{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-},{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-},{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-},{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-},{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-},{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-},{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-},{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-},{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-},{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-},{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-},{
-  heading:'This is some blog entry that has meaning on home page.',
-  category:'style',
-  author:'Dragan Filovski'
-}]
-
 const IndexPage = () => {
 
   let [numOfLatestPosts, setNumOfLatestPosts] = useState(5)
@@ -358,7 +213,7 @@ const IndexPage = () => {
 
   return (
     <Layout>
-      <main>
+      {/* <main>
         <BigPostsCarousel posts={posts}/>
         <h2>Trending</h2>
         <SecondaryPostsCarousel posts={posts}/>
@@ -400,7 +255,7 @@ const IndexPage = () => {
           })}
           </InfiniteScroll>
         </div>
-      </main>
+      </main> */}
     </Layout>
   ) 
 }

@@ -65,7 +65,7 @@ let Sitemap = () => {
                     </Link>
                 )}
                 <p className={styles.groupParagraph}>Web Application</p>
-                <Link to='find-places'>
+                <Link to='./find-places'>
                     <p>Find Places</p>
                 </Link>
                 <p className={styles.groupParagraph}>Follow Us</p>
@@ -75,13 +75,13 @@ let Sitemap = () => {
                     </Link>
                 )}
                 <p className={styles.groupParagraph}>Info</p>
-                <Link to='privacy-policy'>
+                <Link to='./privacy-policy'>
                     <p>Privacy Policy</p>
                 </Link>
-                <Link to='terms-of-use'>
+                <Link to='./terms-of-use'>
                     <p>Terms of Use</p>
                 </Link>
-                <Link to='contact-us'>
+                <Link to='./contact-us'>
                     <p>Contact Us</p>
                 </Link>
             </div>
