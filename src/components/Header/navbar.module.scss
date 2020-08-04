@@ -117,8 +117,47 @@
   max-height:50vh;
 }
 
-.search-result > p{
+.search-result-text{
+  position:relative;
+
   white-space: nowrap;
   overflow: hidden;
   text-overflow:ellipsis;
+}
+
+.search-result-text > p{
+  margin:0;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow:ellipsis;
+}
+
+.search-result-thumbnail{
+  min-width:100px;
+  margin-right:5px;
+}
+
+.search-result-thumbnail > div{
+  border-radius:5px;
+}
+
+.search-results{
+  border-radius: 5px;
+  background-color:#ffffff;
+
+  overflow:scroll;
+  max-height:40vh;
+}
+
+.search-result-link{
+  display:flex;
+}
+
+.searchResultDate{
+  position:absolute;
+  bottom:0;
+  left:0;
+
+  font-size:12px;
 }

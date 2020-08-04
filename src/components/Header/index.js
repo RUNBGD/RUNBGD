@@ -176,6 +176,14 @@ const Header = () => {
             title
             category
             author
+            date(formatString: "MMMM DD, YYYY")
+            coverImage{
+              childImageSharp{
+                fluid(maxWidth:100){
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
           html
         }
@@ -199,10 +207,11 @@ const Header = () => {
   let [searchValue, setSearchValue] = useState('')
   let [searchResults, setSearchResults] = useState([])
   
-  const transitions = useTransition(searchResults, result => result.fields.slug, {
-    from: {transform: 'translate3d(-5px, 0px,0)', opacity:0},
-    enter: { transform: 'translate3d(0,0px,0)' , opacity: 1},
-    leave: { transform: 'translate3d(-5px,0px,0)', opacity: 0},
+  const transitions = useTransition(searchResults.slice(0, 10), result => result.fields.slug, {
+    from: {transform: 'translate3d(-5px, 0px,0)', opacity:0, maxHeight:'0vh', padding:'0px'},
+    enter: { transform: 'translate3d(0,0px,0)' , opacity: 1, maxHeight:'20vh', padding:'5px'},
+    leave: { transform: 'translate3d(-5px,0px,0)', opacity: 0, maxHeight:'0vh', padding:'0px'},
+    trail: 200
   })
 
   function searchHandler(e){
@@ -214,7 +223,6 @@ const Header = () => {
     setSearchResults(search.search(searchValue))
   }, [searchValue])
 
-  console.log(search.search('this'))
   return (
     <header class={`${styles.header} ${menuOpened && styles.headerDark}`}>
       <div className={styles.headerMainButtons}>
@@ -234,10 +242,16 @@ const Header = () => {
           <input className={styles.searchInput} type='text' placeholder='Search' onChange={searchHandler}></input>
           <div className={styles.searchResults}>
             {transitions.map(({item, props, key}) => {
-              console.log(item)
+              
               return <animated.div style={props} key={key} className={styles.searchResult}>
-                <Link to={item.fields.slug}>
-                  <p>{item.frontmatter.title}</p>
+                <Link to={item.fields.slug} className={styles.searchResultLink}>
+                  <div className={styles.searchResultThumbnail}>
+                    <Image fluid={item.frontmatter.coverImage.childImageSharp.fluid} alt=''/>
+                  </div>
+                  <div className={styles.searchResultText}>
+                    <p>{item.frontmatter.title}</p>
+                    <p className={styles.searchResultDate}>{item.frontmatter.date}</p>
+                  </div>
                 </Link>
               </animated.div>
             }

@@ -251,7 +251,7 @@ const IndexPage = () => {
       }
     }
 
-    categories:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "category-page"}}}) {
+    categories:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "category-page"}}}, sort: {fields: [frontmatter___order]}) {
       edges {
         node {
           fields{
@@ -328,9 +328,7 @@ const IndexPage = () => {
       }
     })
 
-    let sortedAndFilteredCategories = filteredCategories.sort((a, b) => a.node.frontmatter.order - b.node.frontmatter.order )
-
-    return sortedAndFilteredCategories
+    return filteredCategories
   }
 
   return (

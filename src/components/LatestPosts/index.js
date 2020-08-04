@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import {useTransition, animated} from 'react-spring'
 
 import InfiniteScroll from 'react-infinite-scroll-component';
 import PostCover from '../PostCover'
@@ -8,6 +9,12 @@ let LatestPosts = ({posts}) => {
     
     let [numOfLatestPosts, setNumOfLatestPosts] = useState(5)
 
+    const transitions = useTransition(posts.edges.slice(0, numOfLatestPosts), post => post.node.fields.slug, {
+      from:{transform:'translateX(-20px)', opacity:0},
+      enter:{transform:'scale(0px)', opacity:1},
+      leave:{transform:'scale(20px)', opacity:0},
+      trail:200
+    })
     
     function loadMoreLatestPosts(){
         setNumOfLatestPosts(prevState => prevState + 5)
@@ -25,11 +32,13 @@ let LatestPosts = ({posts}) => {
               </p>
             }
           >
-            {posts.edges.map(({node:post}, index) => {
+            {transitions.map(({item, props, key}, index) => {
               if(index < numOfLatestPosts){
-                return <PostCover post={post}/>
+                return <animated.div style={props} key={key}>
+                  <PostCover post={item.node}/>
+                </animated.div>
               }
-          })}
+            })}
           </InfiniteScroll>
     )
 }
