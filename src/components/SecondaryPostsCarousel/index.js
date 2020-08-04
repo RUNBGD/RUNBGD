@@ -12,7 +12,7 @@ console.log(swiperStyles, paginationSwiperStyles)
 
 SwiperCore.use([Pagination])
 
-const BigPostsCarousel = ({posts, heading}) => {
+const BigPostsCarousel = ({posts, heading, displayCategory, onlyMobile}) => {
 
   let data = useStaticQuery(graphql`
       query categories{
@@ -47,7 +47,7 @@ const BigPostsCarousel = ({posts, heading}) => {
     let [activeSlide, setActiveSlide] = useState(0)
 
     return(
-      <div>
+      <div className={onlyMobile && styles.onlyMobile}>
         <h2>{heading}</h2>
         <Swiper
           pagination={{ el:`.${styles.swiperPagination}`,clickable: true }}
@@ -75,11 +75,13 @@ const BigPostsCarousel = ({posts, heading}) => {
                     </Link>
                   </div>
                   <div className={styles.postDetails}>
-                    <Link to={categorySlug}>
-                      <span className={styles.postCategory}>{post.frontmatter.category}</span>
-                    </Link>
+                    {displayCategory && 
+                      <Link to={categorySlug}>
+                        <span className={styles.postCategory}>{post.frontmatter.category}</span>
+                      </Link>
+                    }
                     <Link to={authorSlug}>
-                      <p className={styles.postAuthor}>by <a>{post.frontmatter.author}</a></p>
+                      <p className={styles.postAuthor}>By <a>{post.frontmatter.author}</a></p>
                     </Link>
                   </div>
                   <Link to={post.fields.slug}>

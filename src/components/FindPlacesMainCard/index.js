@@ -8,7 +8,7 @@ import pinIcon from '../../img/pin-icon.svg'
 const FindPlacesMainCard = () => {
   return(
     <div className={styles.findPlacesCard}>
-      <h2>Find exciting places hand-picked by us at RUN BGD</h2>
+      <p className={styles.cardText}>Find exciting places hand-picked by us at RUN BGD.</p>
       <img className={styles.findPlacesIcon} src={pinIcon} alt='pin icon'/>
       <Link to={'find-places'} className={styles.findPlacesButton}>Find Now</Link>
     </div>

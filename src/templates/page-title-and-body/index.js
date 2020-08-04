@@ -4,16 +4,25 @@ import {graphql} from 'gatsby'
 import Layout from '../../components/Layout'
 import {HTMLContent} from '../../components/Content'
 
+export const PageTitleAndBodyTemplate = ({data}) => {
+  return(
+    <main>
+      <h1>{data.markdownRemark.frontmatter.title}</h1>
+      <hr/>
+      {data.html ? 
+        <div>{data.html}</div>
+          :
+        <HTMLContent content={data.markdownRemark.html}/>
+      }
+    </main>
+  )
+}
 
 let PageTitleAndBody = ({data}) => {
 
     return(
         <Layout>
-          <main>
-            <h1>{data.markdownRemark.frontmatter.title}</h1>
-            <hr/>
-            <HTMLContent content={data.markdownRemark.html}/>
-          </main>
+          <PageTitleAndBodyTemplate data={data}/>
         </Layout>
         )
     }

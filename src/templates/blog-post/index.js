@@ -96,6 +96,7 @@ import styles from './blog-post.module.scss'
 
 import Layout from '../../components/Layout'
 import {HTMLContent} from '../../components/Content'
+import Content from '../../components/Content'
 import LatestPosts from '../../components/LatestPosts'
 
 export const BlogPostTemplate = ({data}) => {
@@ -140,7 +141,12 @@ export const BlogPostTemplate = ({data}) => {
           <img src={data.markdownRemark.frontmatter.coverImage}/>
         }
       </div>
-      <HTMLContent content={data.markdownRemark.html} className={styles.postBody}/>
+      {data.html ? 
+        <Content content={data.html} className={styles.postBody}/>
+        :
+        <HTMLContent content={data.markdownRemark.html} className={styles.postBody}/>
+
+      }
       <h3>Latest In {data.markdownRemark.frontmatter.category}</h3>
       {data.categoryPosts && <LatestPosts posts={data.categoryPosts}/>}
     </main>

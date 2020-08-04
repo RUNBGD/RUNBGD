@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { BlogPostTemplate } from '../../templates/blog-post'
 
 const BlogPostPreview = ({ entry, widgetFor }) => {
-  // const tags = entry.getIn(['data', 'tags'])
   return (
     <BlogPostTemplate
       data={{
@@ -13,15 +12,11 @@ const BlogPostPreview = ({ entry, widgetFor }) => {
             coverImage:entry.getIn(['data', 'coverImage']),
             category:entry.getIn(['data', 'category']),
             author:entry.getIn(['data', 'author']),
-            date:entry.getIn(['data', 'date'])
+            date:entry.getIn(['data', 'date']),
           },
-          html:entry.getIn(['data', 'body'])
-        }
+        },
+        html:widgetFor('body')
       }}
-      // content={widgetFor('body')}
-      // description={entry.getIn(['data', 'description'])}
-      // tags={tags && tags.toJS()}
-      // title={entry.getIn(['data', 'title'])}
     />
   )
 }

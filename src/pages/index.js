@@ -203,6 +203,7 @@ import SecondaryPostsCarousel from '../components/SecondaryPostsCarousel'
 import NewsletterForm from '../components/NewsletterForm';
 import FindPlacesMainCard from '../components/FindPlacesMainCard'
 import LatestPosts from '../components/LatestPosts';
+import AsideContent from '../components/AsideContent'
 
 const IndexPage = () => {
   
@@ -335,7 +336,7 @@ const IndexPage = () => {
     <Layout>
       <main>
         <BigPostsCarousel posts={carouselPosts.allMarkdownRemark}/>
-        <SecondaryPostsCarousel posts={carouselPosts.trending.edges} heading="Trending"/>
+        <SecondaryPostsCarousel posts={carouselPosts.trending.edges} onlyMobile={true} heading="Trending" displayCategory={true}/>
         <NewsletterForm />
         <hr/>
         <FindPlacesMainCard />
@@ -353,6 +354,11 @@ const IndexPage = () => {
           <LatestPosts posts={carouselPosts.latestPosts}/>
         </div>
       </main>
+      <aside>
+        <div>
+          <AsideContent posts={carouselPosts.trending.edges} heading="Trending" displayCategory={true}/>
+        </div>
+      </aside>
     </Layout>
   ) 
 }

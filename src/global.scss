@@ -1,3 +1,5 @@
+@import './styles/breakpoints.scss';
+
 body{
   margin:0;
   font-family:"Saira Semi Condensed"
@@ -17,10 +19,42 @@ hr{
   margin:20px 0;
 }
 
-h3{
+h2{
   font-size:24px;
+  @include breakpoint('lg'){
+    font-size:48px;
+    line-height: 1.2;
+    margin:24px 0;
+  }
 }
 
 main{
   padding:0 10px;
+  @include breakpoint('lg'){
+    width:75%;
+    display: inline-block;
+  }
+}
+
+.content{
+  @include breakpoint('lg'){
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+aside{
+  display:none;
+  @include breakpoint('lg'){
+    display: inline-block;
+    width:20%;
+  }
+}
+
+aside > div{
+  position:sticky;
+  top:50px;
 }
