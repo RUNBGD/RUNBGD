@@ -22,9 +22,24 @@ hr{
 h2{
   font-size:24px;
   @include breakpoint('lg'){
+    font-size:42px;
+    line-height: 1.2;
+    margin:24px 0;
+  }
+}
+
+h1{
+  font-size:30px;
+  @include breakpoint('lg'){
     font-size:48px;
     line-height: 1.2;
     margin:24px 0;
+  }
+}
+
+h3{
+  @include breakpoint('lg'){
+    font-size:36px;
   }
 }
 
@@ -33,6 +48,8 @@ main{
   @include breakpoint('lg'){
     width:75%;
     display: inline-block;
+    min-height: 75vh;
+    margin:auto;
   }
 }
 

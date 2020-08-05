@@ -145,26 +145,31 @@ const Footer = () => {
 
   return(
     <footer className={styles.footer}>
-      <p>Connect With Us</p>
-      <div className={styles.socialIconsContainer}>
-        {data.socialLinks.edges.map(({node:link}) => {
-          return <a href={link.fields.slug}><img src={link.frontmatter.iconDark.publicURL} alt={`${link.frontmatter.title} logo`}/></a>
-        })}
-      </div>
-      <hr/>
-      <div className={styles.columnLinks}>
-        <Link to='/terms-of-use'>
-          Terms of Use
-        </Link>
-        <Link to='/advertise'>
-          Advertise
-        </Link>
-        <Link to='/contact-us'>
-          Contact Us
-        </Link>
-        <Link to='/sitemap'>
-          Sitemap
-        </Link>
+      <div className={styles.footerLinks}>
+
+        <div className={styles.socialContainer}>
+          <p>Connect With Us</p>
+          <div className={styles.socialIconsContainer}>
+            {data.socialLinks.edges.map(({node:link}) => {
+              return <a href={link.fields.slug}><img src={link.frontmatter.iconDark.publicURL} alt={`${link.frontmatter.title} logo`}/></a>
+            })}
+          </div>
+        </div>
+        <hr/>
+        <div className={styles.columnLinks}>
+          <Link to='/terms-of-use'>
+            Terms of Use
+          </Link>
+          <Link to='/advertise'>
+            Advertise
+          </Link>
+          <Link to='/contact-us'>
+            Contact Us
+          </Link>
+          <Link to='/sitemap'>
+            Sitemap
+          </Link>
+        </div>
       </div>
       <hr/>
       <small className={styles.copyrightText}>

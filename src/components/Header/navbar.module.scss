@@ -1,3 +1,5 @@
+@import '../../styles/breakpoints.scss';
+
 .logo{
   width: 36px;
   height:36px;
@@ -16,15 +18,59 @@
   z-index:2;
   border-width: 0px;
   transition:0.5s;
+  @include breakpoint(lg){
+    padding:20px 50px;
+  }
+}
+
+.header-links{
+  display:none;
+  @include breakpoint(lg){
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    font-weight: 600;
+  }
+}
+
+.header-links > a{
+  padding:0 15px;
 }
 
 .header-dark{
   background:black;
 }
 
+.header-dark > .header-main-buttons{
+  color:white;
+}
+
+.header-dark .header-links .menu-button-container{
+  border:1px solid white;
+}
+
 .header-main-buttons{
   display:flex;
   justify-content: space-between;
+}
+
+.header-main-buttons > .menu-button-container:first-of-type{
+  @include breakpoint(lg){
+    display:none;
+  }
+}
+
+.header-links > .menu-button-container{
+  @include breakpoint(lg){ 
+    width:auto;
+    border:1px solid black;
+    padding:5px;
+    border-radius: 5px;
+    cursor: pointer;
+    > img{
+      margin-left:5px;
+    }
+  }
 }
 
 .header-more-menu{
@@ -35,6 +81,12 @@
   height:100vh;
   overflow:scroll;
   transition:0.5s;
+  @include breakpoint(lg){
+    max-width:800px;
+    margin:auto;
+    overflow: hidden;
+    justify-content: center;
+  }
 }
 
 .links-block{
@@ -42,6 +94,30 @@
   padding-bottom:20px;
 
   color:white;
+  @include breakpoint(lg){
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:33.3333333%;
+  }
+}
+
+.links-block:nth-of-type(3), .links-block:nth-of-type(6){
+  align-items: flex-end;
+}
+
+.centered-container{
+  width:200px;
+}
+
+.link{
+  display:flex;
+  text-transform: uppercase;
+  font-size:23px;
+  font-weight:800;
+  > img{
+    margin-right:7.5px;
+  }
 }
 
 .links-group-name{
@@ -85,6 +161,9 @@
 .menu-button-container{
   width:20px;
   display:flex;
+  @include breakpoint(lg){
+    align-items: center;
+  }
 }
 
 .header-more-menu-container, .header-search-container{

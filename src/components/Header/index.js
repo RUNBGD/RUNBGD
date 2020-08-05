@@ -166,6 +166,18 @@ const Header = () => {
         }
       }
     }
+    authors:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "author-page"}}}){
+      edges {
+        node{
+          fields{
+            slug
+          }
+          frontmatter{
+            name
+          }
+        }
+      }
+    }
     allPosts:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "blog-post"}}}){
       edges {
         node{
@@ -191,6 +203,8 @@ const Header = () => {
     }
   }
   `)
+
+  console.log(data.authors)
  
   var search = new JsSearch.Search(['fields','slug']);
   search.addIndex(['frontmatter','title']);
@@ -232,6 +246,18 @@ const Header = () => {
         <Link to='/' className={styles.logo}>
           <Image fluid={data.logo.childImageSharp.fluid} alt='logo'/>
         </Link>
+        <div className={styles.headerLinks}>
+          {data.channels.edges.map(({node:channel}) => {
+            return <Link to={channel.fields.slug}>
+              {channel.frontmatter.title}
+            </Link>
+          })}
+          
+          <div className={styles.menuButtonContainer}  onClick={() => setMenuOpened(prevState => !prevState)}>
+            {menuOpened ? 'Less' : 'More'}
+            <img src={menuOpened ? closeButton : menuButton} alt='mobile menu button'/>
+          </div>
+        </div>
         <div className={styles.menuButtonContainer}>
           <img src={menuOpened ? searchButtonWhite : searchButton} alt='search website button' onClick={() => setSearchOpened(prevState => !prevState)}/>
         </div>
@@ -263,49 +289,77 @@ const Header = () => {
       <div className={`${styles.headerMoreMenuContainer} ${menuOpened && styles.headerMoreMenuContainerOpened}`}>
         <nav className={`${styles.headerMoreMenu} ${menuOpened && styles.headerMoreMenuOpened}`}>
           <div className={styles.linksBlock}>
-            <p className={styles.linksGroupName}>Channels</p>
-            {data.channels.edges.map(({node:channel}) => {
-              return <Link to={channel.fields.slug}>
-                {channel.frontmatter.title}
+            <div className={styles.centeredContainer}>
+              <p className={styles.linksGroupName}>Channels</p>
+              {data.channels.edges.map(({node:channel}) => {
+                return <Link to={channel.fields.slug} className={styles.link}>
+                  {channel.frontmatter.title}
+                </Link>
+              })}
+            </div>
+          </div>
+
+          <div className={styles.linksBlock}>
+            <div className={styles.centeredContainer}>
+              <p className={styles.linksGroupName}>Our Web App</p>
+                <Link to='/find-places' className={styles.link}>
+                  Find Places
+                </Link>
+            </div>
+          </div>
+
+          <div className={styles.linksBlock}>
+            <div className={styles.centeredContainer}>
+              <p className={styles.linksGroupName}>Follow On</p>
+              {data.socialLinks.edges.map(({node:link}) => {
+                return <a href={link.fields.slug} className={styles.link}><img src={link.frontmatter.iconLight.publicURL}/> {link.frontmatter.title}</a>
+              })}
+            </div>
+          </div>
+          <div className={styles.linksBlock}>
+            <div className={styles.centeredContainer}>
+              <p className={styles.linksGroupName}>run bgd sites</p>
+              {data.otherSites.edges.map(({node:site}) => {
+                return <a className={styles.link} href={site.frontmatter.url} target='_blank'>{site.frontmatter.title}</a>
+              })}
+            </div>
+          </div>
+
+          <div className={styles.linksBlock}>
+            <div className={styles.centeredContainer}>
+              <p className={styles.linksGroupName}>Authors</p>
+              {data.authors.edges.map(({node:author}) => {
+                return <Link className={styles.link} to={author.fields.slug} target='_blank'>{author.frontmatter.name}</Link>
+              })}
+            </div>
+          </div>
+
+          <div className={styles.linksBlock}>
+            <div className={styles.centeredContainer}>
+              <p className={styles.linksGroupName}>work with us</p>
+              <a className={styles.link}>careers</a>
+              <a className={styles.link}>advertise</a>
+              <Link className={styles.link} to='/contact-us'>
+                contact us
               </Link>
-            })}
-          </div>
-          <div className={styles.linksBlock}>
-            <p className={styles.linksGroupName}>Follow On</p>
-            {data.socialLinks.edges.map(({node:link}) => {
-              return <a href={link.fields.slug}><img src={link.frontmatter.iconLight.publicURL}/> {link.frontmatter.title}</a>
-            })}
-          </div>
-          <div className={styles.linksBlock}>
-            <p className={styles.linksGroupName}>run bgd sites</p>
-            {data.otherSites.edges.map(({node:site}) => {
-              return <a href={site.frontmatter.url} target='_blank'>{site.frontmatter.title}</a>
-            })}
-          </div>
-          <div className={styles.linksBlock}>
-            <p className={styles.linksGroupName}>work with us</p>
-            <a>careers</a>
-            <a>advertise</a>
-            <Link to='contact-us'>
-              contact us
-            </Link>
+            </div>
           </div>
           <footer>
             <NewsletterForm dark={true}/>
             <div className={styles.navFooterLinks}>
-              <Link to='terms-of-use'>
+              <Link to='/terms-of-use'>
                 Terms of use
               </Link>
-              <Link to='privacy-policy'>
+              <Link to='/privacy-policy'>
                 Privacy policy
               </Link>
-              <Link to='do-not-sell-my-info'>
+              <Link to='/do-not-sell-my-info'>
                 Do not sell my info
               </Link>
-              <Link to='site-map'>
+              <Link to='/sitemap'>
                 Site map
               </Link>
-              <Link to='public-notice'>
+              <Link to='/public-notice'>
                 Public notice
               </Link>
             </div>

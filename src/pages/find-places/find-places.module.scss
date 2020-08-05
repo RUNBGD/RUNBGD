@@ -1,3 +1,5 @@
+@import '../../styles//breakpoints.scss';
+
 .location-items-container{
     height:90vh;
     display:flex;
@@ -15,6 +17,9 @@
     box-shadow:0px 3px 6px rgba(0, 0, 0, 0.16);
     border-radius:5px;
     transition:0.5s;
+    @include breakpoint(lg){
+        width:300px;
+    }
 }
 
 .input-card-button{
@@ -81,12 +86,16 @@
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
     overflow:scroll;
     z-index:0;
+    @include breakpoint(lg){
+        overflow-x: hidden;
+    }
 }
 
 .location-card{
     display:flex;
     flex-direction: row;
     margin-bottom:20px;
+    cursor: pointer;
 }
 
 .card-cover{
@@ -103,6 +112,9 @@
     display:flex;
     flex-direction: column;
     justify-content: space-between;
+    @include breakpoint(lg){
+        padding:5px 20px;
+    }
 }
 
 .card-title{
@@ -112,6 +124,9 @@
     text-overflow:ellipsis;
 
     font-weight:600;
+    @include breakpoint(lg){
+        font-size:28px;
+    }
 }
 
 .card-address{
@@ -121,6 +136,9 @@
     text-overflow:ellipsis;
 
     font-size:12px;
+    @include breakpoint(lg){
+        font-size:16px;
+    }
 }
 
 .distance{

@@ -1,11 +1,26 @@
+@import '../../styles/breakpoints.scss';
+
 .group-paragraph{
     font-weight:700;
 }
 
-.group-paragraph{
+.group-paragraph, .sitemap-entries > a{
     text-align: center;
+    @include breakpoint(lg){
+        text-align: left;
+    }
 }
 
-.sitemap-entries > a{
-    text-align: center;
+.sitemap-entries{
+    @include breakpoint(lg){
+        display:flex;
+        justify-content: space-between;
+        flex-wrap:wrap;
+    }
+}
+
+.entry-group{
+    @include breakpoint(lg){
+        width:33.333333%;
+    }
 }

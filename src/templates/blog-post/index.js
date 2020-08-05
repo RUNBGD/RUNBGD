@@ -147,7 +147,8 @@ export const BlogPostTemplate = ({data}) => {
         <HTMLContent content={data.markdownRemark.html} className={styles.postBody}/>
 
       }
-      <h3>Latest In {data.markdownRemark.frontmatter.category}</h3>
+      <hr/>
+      <h2>Latest In {data.markdownRemark.frontmatter.category}</h2>
       {data.categoryPosts && <LatestPosts posts={data.categoryPosts}/>}
     </main>
   )
