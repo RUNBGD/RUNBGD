@@ -113,7 +113,9 @@
 }
 
 .centered-container{
-  width:200px;
+  @include breakpoint(lg){
+    width:200px;
+  }
 }
 
 .link{

@@ -1,10 +1,8 @@
 import React from 'react'
-import Image from 'gatsby-image'
 import {graphql} from 'gatsby'
 
 import Layout from '../../components/Layout'
 import LatestPosts from '../../components/LatestPosts'
-import BigPostsCarousel from '../../components/BigPostsCarousel'
 
 let AuthorPage = ({data}) => {
 
@@ -12,7 +10,7 @@ return(
     <Layout>
         <main>
             <h1>{data.markdownRemark.frontmatter.name}</h1>
-            <h2>Latest Stories</h2>
+            <h2>Latest Stories By {data.markdownRemark.frontmatter.name}</h2>
             <LatestPosts posts={data.categoryLatestPosts} />
         </main>
     </Layout>
