@@ -60,6 +60,12 @@
   }
 }
 
+.header-main-buttons > .menu-button-container:last-of-type{
+  @include breakpoint(lg){
+    cursor:pointer;
+  }
+}
+
 .header-links > .menu-button-container{
   @include breakpoint(lg){ 
     width:auto;
@@ -178,6 +184,13 @@
   max-height: 100vh;
 }
 
+.header-search{
+  @include breakpoint(lg){
+    max-width:400px;
+    margin:auto;
+  }
+}
+
 .header-more-menu-opened{
   background:black;
 }
@@ -227,6 +240,9 @@
 
   overflow:scroll;
   max-height:40vh;
+  @include breakpoint(lg){
+    overflow-x: hidden;
+  }
 }
 
 .search-result-link{

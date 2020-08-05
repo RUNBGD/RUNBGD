@@ -204,8 +204,6 @@ const Header = () => {
   }
   `)
 
-  console.log(data.authors)
- 
   var search = new JsSearch.Search(['fields','slug']);
   search.addIndex(['frontmatter','title']);
   search.addIndex(['frontmatter','category']);

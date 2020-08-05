@@ -1,0 +1,49 @@
+@import '../styles/breakpoints.scss';
+
+.animated-illustration{
+    max-width:200px;
+    margin:auto;
+    position:relative;
+    margin-bottom:50px;
+    @include breakpoint(lg){
+        max-width: 400px;
+    }
+}
+
+.illustration-globe{
+    max-width:200px;
+    @include breakpoint(lg){
+        max-width: 400px;
+    }
+}
+
+.rotating-container{
+    position:absolute;
+    transform:translate(-50%, -50%);
+    top:50%;
+    left:50%;
+    width:100%;
+    height: 100%;
+    animation:rotate linear 15s infinite;
+}
+
+@keyframes rotate{
+    from{
+        transform:translate(-50%, -50%) rotate(0deg) ;
+    }
+    to{
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+.illustration-moon{
+    max-width:20px;
+    position:absolute;
+    top:5px;
+    left:50%;
+    transform:translate(-50%, -50%);
+    animation:rotate linear 10s infinite reverse;
+    @include breakpoint(lg){
+        max-width: 50px;
+    }
+}
