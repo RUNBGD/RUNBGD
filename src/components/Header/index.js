@@ -8,6 +8,7 @@ import menuButton from '../../img/menu-icon.svg'
 import searchButton from '../../img/search-icon.svg'
 import searchButtonWhite from '../../img/search-icon-white.svg'
 import closeButton from '../../img/close-icon.svg' 
+import LinksBlock from '../LinksBlock'
 
 import styles from './navbar.module.scss'
 import NewsletterForm from '../NewsletterForm'
@@ -127,6 +128,12 @@ const Header = () => {
     trail: 200
   })
 
+  const [showNavbar, setShowNavbar] = useState(false)
+  const navbarTransition = useTransition(showNavbar, null, {
+    from:{transform:'translate(0px, -100%)'},
+    enter:{transform:'translate(0px, 0%)'}
+  })
+
   function searchHandler(e){
     let searchValue = e.target.value
     setSearchValue(searchValue)
@@ -136,141 +143,108 @@ const Header = () => {
     setSearchResults(search.search(searchValue))
   }, [searchValue])
 
-  return (
-    <header class={`${styles.header} ${menuOpened && styles.headerDark}`}>
-      <div className={styles.headerMainButtons}>
-        <div className={styles.menuButtonContainer}>
-          <img src={menuOpened ? closeButton : menuButton} alt='mobile menu button' onClick={() => setMenuOpened(prevState => !prevState)}/>
-        </div>
-        <Link to='/' className={styles.logo}>
-          <Image fluid={data.logo.childImageSharp.fluid} alt='logo'/>
-        </Link>
-        <div className={styles.headerLinks}>
-          {data.channels.edges.map(({node:channel}) => {
-            return <Link to={channel.fields.slug}>
-              {channel.frontmatter.title}
-            </Link>
-          })}
-          
-          <div className={styles.menuButtonContainer}  onClick={() => setMenuOpened(prevState => !prevState)}>
-            {menuOpened ? 'Less' : 'More'}
-            <img src={menuOpened ? closeButton : menuButton} alt='mobile menu button'/>
+  useEffect(() => {
+    setShowNavbar(true)
+  }, [])
+
+  
+      return navbarTransition.map(({item, key, props}) => 
+        item && <animated.header class={`${styles.header} ${menuOpened && styles.headerDark}`} key={key} style={props}>
+        <div className={styles.headerMainButtons}>
+          <div className={styles.menuButtonContainer}>
+            <img src={menuOpened ? closeButton : menuButton} alt='mobile menu button' onClick={() => setMenuOpened(prevState => !prevState)}/>
+          </div>
+          <Link to='/' className={styles.logo}>
+            <Image fluid={data.logo.childImageSharp.fluid} alt='logo'/>
+          </Link>
+          <div className={styles.headerLinks}>
+            {data.channels.edges.map(({node:channel}) => {
+              return <Link to={channel.fields.slug}>
+                {channel.frontmatter.title}
+              </Link>
+            })}
+            
+            <div className={styles.menuButtonContainer}  onClick={() => setMenuOpened(prevState => !prevState)}>
+              {menuOpened ? 'Less' : 'More'}
+              <img src={menuOpened ? closeButton : menuButton} alt='mobile menu button'/>
+            </div>
+          </div>
+          <div className={styles.menuButtonContainer}>
+            <img src={menuOpened ? searchButtonWhite : searchButton} alt='search website button' onClick={() => setSearchOpened(prevState => !prevState)}/>
           </div>
         </div>
-        <div className={styles.menuButtonContainer}>
-          <img src={menuOpened ? searchButtonWhite : searchButton} alt='search website button' onClick={() => setSearchOpened(prevState => !prevState)}/>
+  
+        <div className={`${styles.headerSearchContainer} ${searchOpened && styles.headerSearchContainerOpened}`}>
+          <div className={`${styles.headerSearch} ${searchOpened && styles.headerSearchOpened}`}>
+            <input className={styles.searchInput} type='text' placeholder='Search' onChange={searchHandler}></input>
+            <div className={styles.searchResults}>
+              {transitions.map(({item, props, key}) => {
+                
+                return <animated.div style={props} key={key} className={styles.searchResult}>
+                  <Link to={item.fields.slug} className={styles.searchResultLink}>
+                    <div className={styles.searchResultThumbnail}>
+                      <Image fluid={item.frontmatter.coverImage.childImageSharp.fluid} alt=''/>
+                    </div>
+                    <div className={styles.searchResultText}>
+                      <p>{item.frontmatter.title}</p>
+                      <p className={styles.searchResultDate}>{item.frontmatter.date}</p>
+                    </div>
+                  </Link>
+                </animated.div>
+              }
+              )}
+            </div>
+          </div>
         </div>
-      </div>
-
-      <div className={`${styles.headerSearchContainer} ${searchOpened && styles.headerSearchContainerOpened}`}>
-        <div className={`${styles.headerSearch} ${searchOpened && styles.headerSearchOpened}`}>
-          <input className={styles.searchInput} type='text' placeholder='Search' onChange={searchHandler}></input>
-          <div className={styles.searchResults}>
-            {transitions.map(({item, props, key}) => {
-              
-              return <animated.div style={props} key={key} className={styles.searchResult}>
-                <Link to={item.fields.slug} className={styles.searchResultLink}>
-                  <div className={styles.searchResultThumbnail}>
-                    <Image fluid={item.frontmatter.coverImage.childImageSharp.fluid} alt=''/>
-                  </div>
-                  <div className={styles.searchResultText}>
-                    <p>{item.frontmatter.title}</p>
-                    <p className={styles.searchResultDate}>{item.frontmatter.date}</p>
-                  </div>
-                </Link>
-              </animated.div>
+  
+        <div className={`${styles.headerMoreMenuContainer} ${menuOpened && styles.headerMoreMenuContainerOpened}`}>
+          <nav className={`${styles.headerMoreMenu} ${menuOpened && styles.headerMoreMenuOpened}`}>
+            
+            <LinksBlock groupName='Channels' linkArray={data.channels.edges} trigger={menuOpened}/>
+            <LinksBlock groupName='Our Web App' linkArray={[{node:{fields:{slug:'/find-places'}, frontmatter:{title:'Find Places'}}}]} trigger={menuOpened} />
+            <LinksBlock groupName='Follow On' linkArray={data.socialLinks.edges} trigger={menuOpened}/>
+            <LinksBlock groupName='run bgd sites' linkArray={data.otherSites.edges} trigger={menuOpened}/>
+            <LinksBlock groupName='Authors' linkArray={data.authors.edges} trigger={menuOpened}/>
+            <LinksBlock groupName='work with us' linkArray={
+              [
+                {node:{fields:{slug:'/work-with-us'}, frontmatter:{title:'Work With Us'}}},
+                {node:{fields:{slug:'/careers'}, frontmatter:{title:'Careers'}}},
+                {node:{fields:{slug:'/advertise'}, frontmatter:{title:'Advertise'}}},
+                {node:{fields:{slug:'/contact-us'}, frontmatter:{title:'Contact Us'}}},
+            ]
             }
-            )}
-          </div>
+            trigger={menuOpened}
+            />
+
+            <footer>
+              <NewsletterForm dark={true}/>
+              <div className={styles.navFooterLinks}>
+                <Link to='/terms-of-use'>
+                  Terms of use
+                </Link>
+                <Link to='/privacy-policy'>
+                  Privacy policy
+                </Link>
+                <Link to='/do-not-sell-my-info'>
+                  Do not sell my info
+                </Link>
+                <Link to='/sitemap'>
+                  Site map
+                </Link>
+                <Link to='/public-notice'>
+                  Public notice
+                </Link>
+              </div>
+              <hr/>
+              <small className={styles.navFooterCopyright}>
+                © 2020 RUN BGD, All Rights Reserved.
+              </small>
+            </footer>
+          </nav>
         </div>
-      </div>
-
-      <div className={`${styles.headerMoreMenuContainer} ${menuOpened && styles.headerMoreMenuContainerOpened}`}>
-        <nav className={`${styles.headerMoreMenu} ${menuOpened && styles.headerMoreMenuOpened}`}>
-          <div className={styles.linksBlock}>
-            <div className={styles.centeredContainer}>
-              <p className={styles.linksGroupName}>Channels</p>
-              {data.channels.edges.map(({node:channel}) => {
-                return <Link to={channel.fields.slug} className={styles.link}>
-                  {channel.frontmatter.title}
-                </Link>
-              })}
-            </div>
-          </div>
-
-          <div className={styles.linksBlock}>
-            <div className={styles.centeredContainer}>
-              <p className={styles.linksGroupName}>Our Web App</p>
-                <Link to='/find-places' className={styles.link}>
-                  Find Places
-                </Link>
-            </div>
-          </div>
-
-          <div className={styles.linksBlock}>
-            <div className={styles.centeredContainer}>
-              <p className={styles.linksGroupName}>Follow On</p>
-              {data.socialLinks.edges.map(({node:link}) => {
-                return <a href={link.fields.slug} className={styles.link}><img src={link.frontmatter.iconLight.publicURL}/> {link.frontmatter.title}</a>
-              })}
-            </div>
-          </div>
-          <div className={styles.linksBlock}>
-            <div className={styles.centeredContainer}>
-              <p className={styles.linksGroupName}>run bgd sites</p>
-              {data.otherSites.edges.map(({node:site}) => {
-                return <a className={styles.link} href={site.frontmatter.url} target='_blank'>{site.frontmatter.title}</a>
-              })}
-            </div>
-          </div>
-
-          <div className={styles.linksBlock}>
-            <div className={styles.centeredContainer}>
-              <p className={styles.linksGroupName}>Authors</p>
-              {data.authors.edges.map(({node:author}) => {
-                return <Link className={styles.link} to={author.fields.slug} target='_blank'>{author.frontmatter.name}</Link>
-              })}
-            </div>
-          </div>
-
-          <div className={styles.linksBlock}>
-            <div className={styles.centeredContainer}>
-              <p className={styles.linksGroupName}>work with us</p>
-              <a className={styles.link}>careers</a>
-              <a className={styles.link}>advertise</a>
-              <Link className={styles.link} to='/contact-us'>
-                contact us
-              </Link>
-            </div>
-          </div>
-          <footer>
-            <NewsletterForm dark={true}/>
-            <div className={styles.navFooterLinks}>
-              <Link to='/terms-of-use'>
-                Terms of use
-              </Link>
-              <Link to='/privacy-policy'>
-                Privacy policy
-              </Link>
-              <Link to='/do-not-sell-my-info'>
-                Do not sell my info
-              </Link>
-              <Link to='/sitemap'>
-                Site map
-              </Link>
-              <Link to='/public-notice'>
-                Public notice
-              </Link>
-            </div>
-            <hr/>
-            <small className={styles.navFooterCopyright}>
-              © 2020 RUN BGD, All Rights Reserved.
-            </small>
-          </footer>
-        </nav>
-      </div>
-    </header>
-  )
+      </animated.header>
+      )
+    
 }
 
 export default Header
