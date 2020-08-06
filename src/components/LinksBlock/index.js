@@ -12,7 +12,7 @@ const LinksBlock = ({groupName, linkArray,trigger}) => {
         from:{transform:'translate(-10px, 0px)'},
         enter:{transform:'translate(0px, 0px)'},
         leave:{transform:'translate(-10px, 0px)'},
-        trail:10
+        trail:100
     })
 
     return (
@@ -21,9 +21,13 @@ const LinksBlock = ({groupName, linkArray,trigger}) => {
             <p className={styles.linksGroupName}>{groupName}</p>
             {transitions.map(({item:link, key, props}) => {
                 if(link.node.frontmatter.url){
-                    return <animated.a key={key} style={props} className={styles.link} href={link.node.frontmatter.url} target='_blank'>{link.node.frontmatter.title}</animated.a>
+                    return <animated.a key={key} style={props} className={styles.link} href={link.node.frontmatter.url} target='_blank'>
+                        {link.node.frontmatter.iconLight && <img src={link.node.frontmatter.iconLight.publicURL} alt=''/>}
+                        {link.node.frontmatter.title}
+                        </animated.a>
                 }else{
                     return <AnimatedLink to={link.node.fields.slug} key={key} style={props} className={styles.link}>
+                        {link.node.frontmatter.iconLight && <img src={link.node.frontmatter.iconLight.publicURL} alt=''/>}
                         {link.node.frontmatter.title || link.node.frontmatter.name}
                     </AnimatedLink>
                 }

@@ -14,7 +14,9 @@
   }
   
   .links-block:nth-of-type(3), .links-block:nth-of-type(6){
-    align-items: flex-end;
+    @include breakpoint(lg){
+      align-items: flex-end;
+    }
   }
   
   .centered-container{
