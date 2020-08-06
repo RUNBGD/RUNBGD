@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'gatsby-image'
 import {graphql, Link} from 'gatsby'
+import {Helmet} from 'react-helmet'
 
 import styles from './blog-post.module.scss'
 
@@ -26,6 +27,10 @@ export const BlogPostTemplate = ({data}) => {
 
   return (
     <main>
+      <Helmet>
+          <title>{data.markdownRemark.frontmatter.title} | RUN BGD</title>
+          <meta name="description" content={`${data.markdownRemark.frontmatter.title} ${data.markdownRemark.html}`} />
+      </Helmet>
       <h2>{data.markdownRemark.frontmatter.title}</h2>
       <hr/>
       <div className={styles.postDetails}>

@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: 'Home | RUN BGD',
     description:
-      'This repo contains an example business website that is built with Gatsby, and Netlify CMS.It follows the JAMstack architecture by using Git as a single source of truth, and Netlify for continuous deployment, and CDN distribution.',
+      'Welcome to the RUN BGD home page where you can find juicy information about events and places in Serbia.',
   },
   plugins: [
     'gatsby-plugin-react-helmet',

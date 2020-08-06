@@ -1,5 +1,6 @@
 import React from 'react'
 import {graphql} from 'gatsby'
+import {Helmet} from 'react-helmet'
 
 import Layout from '../../components/Layout'
 import LatestPosts from '../../components/LatestPosts'
@@ -9,6 +10,10 @@ let CategoryPage = ({data}) => {
 
     return(
         <Layout>
+          <Helmet>
+            <title>{data.markdownRemark.frontmatter.title} | RUN BGD</title>
+            <meta name="description" content={`Find more interesting stories in category ${data.markdownRemark.frontmatter.title} at RUN BGD`} />
+          </Helmet>
           <main>
             <h1>{data.markdownRemark.frontmatter.title}</h1>
             <hr/>

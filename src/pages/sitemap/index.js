@@ -1,5 +1,6 @@
 import React from 'react'
 import {graphql, useStaticQuery, Link} from 'gatsby'
+import { Helmet } from 'react-helmet'
 
 import Layout from '../../components/Layout'
 import styles from './sitemap.module.scss'
@@ -48,6 +49,10 @@ let Sitemap = () => {
 
     return(
         <Layout>
+          <Helmet>
+              <title>Site Map | RUN BGD</title>
+              <meta name="description" content='Sitemap on RUN BGD with links to different sections of the site like channels, authors, social networks, our web app, and other links.' />
+          </Helmet>
             <main>
             <h1>Sitemap</h1>
             <hr/>

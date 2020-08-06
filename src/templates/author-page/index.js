@@ -1,5 +1,6 @@
 import React from 'react'
 import {graphql} from 'gatsby'
+import {Helmet} from 'react-helmet'
 
 import Layout from '../../components/Layout'
 import LatestPosts from '../../components/LatestPosts'
@@ -8,6 +9,10 @@ let AuthorPage = ({data}) => {
 
 return(
     <Layout>
+        <Helmet>
+            <title>Author {data.markdownRemark.frontmatter.name} | RUN BGD</title>
+            <meta name="description" content={`See all stories written by ${data.markdownRemark.frontmatter.name} sorted from newer to older ones.`} />
+        </Helmet>
         <main>
             <h1>{data.markdownRemark.frontmatter.name}</h1>
             <h2>Latest Stories By {data.markdownRemark.frontmatter.name}</h2>

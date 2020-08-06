@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import {useStaticQuery, graphql} from 'gatsby'
 import Image from 'gatsby-image'
+import {Helmet} from 'react-helmet'
 
 import Layout from '../../components/Layout'
 import styles from './find-places.module.scss'
@@ -133,6 +134,10 @@ const FindPlaces = () => {
 
         return (
             <Layout>
+                <Helmet>
+                    <title>Find Places | RUN BGD</title>
+                    <meta name="description" content='Find interesting places and see what is near you in Serbia with our web app at RUN BGD.' />
+                </Helmet>
                 <main>
                     <div className={styles.locationItemsContainer}>
                         {!xCoord ? 
