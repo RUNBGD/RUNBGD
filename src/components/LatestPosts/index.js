@@ -10,9 +10,9 @@ let LatestPosts = ({posts}) => {
     let [numOfLatestPosts, setNumOfLatestPosts] = useState(5)
 
     const transitions = useTransition(posts.edges.slice(0, numOfLatestPosts), post => post.node.fields.slug, {
-      from:{transform:'translateX(-20px)', opacity:0},
-      enter:{transform:'scale(0px)', opacity:1},
-      leave:{transform:'scale(20px)', opacity:0},
+      from:{transform:'translateX(-50px)', opacity:0},
+      enter:{transform:'translateX(0px)', opacity:1},
+      leave:{transform:'translateX(20px)', opacity:0},
       trail:200
     })
     
