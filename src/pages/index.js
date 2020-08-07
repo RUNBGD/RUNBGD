@@ -266,7 +266,7 @@ const IndexPage = () => {
       }
     }
 
-    trending:allMarkdownRemark(filter: {frontmatter: {categoryFeatured: {eq: true}}}) {
+    trending:allMarkdownRemark(filter: {frontmatter: {trending: {eq: true}}}) {
       edges {
         node {
           fields{
