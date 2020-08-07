@@ -1,16 +1,19 @@
 import React, {useState} from 'react'
-import SwiperCore, {Pagination} from 'swiper';
+import SwiperCore, {Pagination, Navigation} from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import swiperStyles from 'swiper/swiper.scss';
+import 'swiper/components/navigation/navigation.scss';
 import paginationSwiperStyles from 'swiper/components/pagination/pagination.scss'
 import Image from 'gatsby-image'
 import {Link, useStaticQuery, graphql} from 'gatsby'
 
 import styles from './secondary-posts-carousel.module.scss';
+import swiperArrow from '../../img/right-arrow.svg'
+import PostImage from '../PostImage';
 
 console.log(swiperStyles, paginationSwiperStyles)
 
-SwiperCore.use([Pagination])
+SwiperCore.use([Pagination, Navigation])
 
 const BigPostsCarousel = ({posts, heading, displayCategory, onlyMobile}) => {
 
@@ -55,6 +58,10 @@ const BigPostsCarousel = ({posts, heading, displayCategory, onlyMobile}) => {
           className={styles.carousel}
           onSlideChange={(swiper) => setActiveSlide(swiper.realIndex)}
           slidesPerView='auto'
+          navigation={{
+            nextEl: `.${styles.swiperNextEl}`,
+            prevEl: `.${styles.swiperPrevEl}`
+          }}
         >
           {posts.map(({node:post}, index) => {
 
@@ -69,11 +76,7 @@ const BigPostsCarousel = ({posts, heading, displayCategory, onlyMobile}) => {
             return(
               <SwiperSlide className={`${styles.slide} ${posts.length < 2 && styles.isOnlySlide} ${index === activeSlide ? styles.activeSlide : styles.inactiveSlide}`}>
                 <div className={styles.post}>
-                  <div className={styles.postImage}>
-                    <Link to={post.fields.slug}>
-                      <Image fluid={post.frontmatter.coverImage.childImageSharp.fluid} alt='' className={styles.postCover}/>
-                    </Link>
-                  </div>
+                  <PostImage slug={post.fields.slug} image={post.frontmatter.coverImage.childImageSharp.fluid}/>
                   <div className={styles.postDetails}>
                     {displayCategory && 
                       <Link to={categorySlug}>
@@ -94,6 +97,8 @@ const BigPostsCarousel = ({posts, heading, displayCategory, onlyMobile}) => {
             )
           })}
           <div className={styles.swiperPagination}></div>
+          <img className={styles.swiperPrevEl} src={swiperArrow} alt='prev slide' />
+          <img className={styles.swiperNextEl} src={swiperArrow} alt='next slide'/>
         </Swiper>
         <hr/>
       </div>

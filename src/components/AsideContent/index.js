@@ -1,16 +1,19 @@
 import React, {useState} from 'react'
-import SwiperCore, {Pagination, Autoplay} from 'swiper';
+import SwiperCore, {Pagination, Autoplay, Navigation} from 'swiper';
 import { Swiper, SwiperSlide} from 'swiper/react';
 import swiperStyles from 'swiper/swiper.scss';
+import 'swiper/components/navigation/navigation.scss';
 import paginationSwiperStyles from 'swiper/components/pagination/pagination.scss'
 import Image from 'gatsby-image'
 import {Link, useStaticQuery, graphql} from 'gatsby'
 
 import styles from './aside-content.module.scss';
+import swiperArrow from '../../img/right-arrow.svg'
+import PostImage from '../PostImage'
 
 console.log(swiperStyles, paginationSwiperStyles)
 
-SwiperCore.use([Pagination, Autoplay])
+SwiperCore.use([Pagination, Autoplay, Navigation])
 
 const AsideContent = ({posts, heading, displayCategory}) => {
 
@@ -55,6 +58,10 @@ const AsideContent = ({posts, heading, displayCategory}) => {
           className={styles.carousel}
           onSlideChange={(swiper) => setActiveSlide(swiper.realIndex)}
           slidesPerView={1}
+          navigation={{
+            nextEl: `.${styles.swiperNextEl}`,
+            prevEl: `.${styles.swiperPrevEl}`
+          }}
           autoplay={{
               delay:'5000'
           }}
@@ -74,11 +81,7 @@ const AsideContent = ({posts, heading, displayCategory}) => {
             return(
               <SwiperSlide className={`${styles.slide} ${posts.length < 2 && styles.isOnlySlide} ${index === activeSlide ? styles.activeSlide : styles.inactiveSlide}`}>
                 <div className={styles.post}>
-                  <div className={styles.postImage}>
-                    <Link to={post.fields.slug}>
-                      <Image fluid={post.frontmatter.coverImage.childImageSharp.fluid} alt='' className={styles.postCover}/>
-                    </Link>
-                  </div>
+                  <PostImage slug={post.fields.slug} image={post.frontmatter.coverImage.childImageSharp.fluid}/>
                   <div className={styles.postDetails}>
                     {displayCategory && 
                       <Link to={categorySlug}>
@@ -99,6 +102,8 @@ const AsideContent = ({posts, heading, displayCategory}) => {
             )
           })}
           <div className={styles.swiperPagination}></div>
+          <img className={styles.swiperPrevEl} src={swiperArrow} alt='prev slide' />
+          <img className={styles.swiperNextEl} src={swiperArrow} alt='next slide'/>
         </Swiper>
       </div>
     )

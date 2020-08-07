@@ -1,9 +1,16 @@
 import React from 'react'
 import {graphql} from 'gatsby'
 import {Helmet} from 'react-helmet'
+import remark from 'remark'
+import remarkHTML from 'remark-html'
 
 import Layout from '../../components/Layout'
 import LatestPosts from '../../components/LatestPosts'
+import { HTMLContent } from '../../components/Content'
+import styles from './author-page.module.scss'
+
+
+const toHTML = value => remark().use(remarkHTML).processSync(value).toString()
 
 let AuthorPage = ({data}) => {
 
@@ -15,6 +22,7 @@ return(
         </Helmet>
         <main>
             <h1>{data.markdownRemark.frontmatter.name}</h1>
+            <HTMLContent className={styles.authorInformation} content={toHTML(data.markdownRemark.frontmatter.information)}/>
             <h2>Latest Stories By {data.markdownRemark.frontmatter.name}</h2>
             <LatestPosts posts={data.categoryLatestPosts} />
         </main>
@@ -28,6 +36,7 @@ export const pageQuery = graphql`
         id
         frontmatter {
           name
+          information
         }
     }
     categoryLatestPosts:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "blog-post"}, author: {eq: $author}}}){

@@ -1,18 +1,21 @@
 import React, {useState} from 'react'
-import SwiperCore, {Pagination} from 'swiper';
+import SwiperCore, {Pagination, Navigation} from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import swiperStyles from 'swiper/swiper.scss';
+import 'swiper/components/navigation/navigation.scss';
 import paginationSwiperStyles from 'swiper/components/pagination/pagination.scss'
 import Image from 'gatsby-image'
 import {Link, useStaticQuery, graphql} from 'gatsby'
 
 import styles from './big-posts-carousel.module.scss';
+import swiperArrow from '../../img/right-arrow.svg'
+import PostImage from '../PostImage';
 
 console.log(swiperStyles, paginationSwiperStyles)
 
 
 
-SwiperCore.use([Pagination])
+SwiperCore.use([Pagination, Navigation])
 
 const BigPostsCarousel = ({posts}) => {
 
@@ -52,6 +55,10 @@ const BigPostsCarousel = ({posts}) => {
       <div>
         <Swiper
           spaceBetween={50}
+          navigation={{
+            nextEl: `.${styles.swiperNextEl}`,
+            prevEl: `.${styles.swiperPrevEl}`
+          }}
           pagination={{ el:`.${styles.swiperPagination}`,clickable: true }}
           loop={true}
           className={styles.carousel}
@@ -83,14 +90,14 @@ const BigPostsCarousel = ({posts}) => {
                       <p className={styles.postAuthor}>by <a>{post.frontmatter.author}</a></p>
                     </Link>
                   </div>
-                  <Link to={post.fields.slug}>
-                    <Image fluid={post.frontmatter.coverImage.childImageSharp.fluid} alt='' className={styles.postCover} />
-                  </Link>
+                  <PostImage slug={post.fields.slug} image={post.frontmatter.coverImage.childImageSharp.fluid}/>
                 </div>
               </SwiperSlide>
             )
           })}
           <div className={styles.swiperPagination}></div>
+          <img className={styles.swiperPrevEl} src={swiperArrow} alt='prev slide' />
+          <img className={styles.swiperNextEl} src={swiperArrow} alt='next slide'/>
         </Swiper>
         <hr/>
       </div>

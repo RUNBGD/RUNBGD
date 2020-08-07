@@ -3,6 +3,8 @@ import Image from 'gatsby-image'
 import {Link, useStaticQuery, graphql} from 'gatsby'
 
 import styles from './post-cover.module.scss'
+import PostImage from '../PostImage'
+
 const PostCover = ({post}) => {
     
     let data = useStaticQuery(graphql`
@@ -45,9 +47,7 @@ const PostCover = ({post}) => {
     return(
         <div className={styles.post}> 
                 <div className={styles.postImage}>
-                <Link to={post.fields.slug}>
-                    <Image fluid={post.frontmatter.coverImage.childImageSharp.fluid} alt=''/>
-                </Link>
+                    <PostImage slug={post.fields.slug} image={post.frontmatter.coverImage.childImageSharp.fluid} />
                 </div>
             <div className={styles.postText}>
                 <div className={styles.postDetails}>

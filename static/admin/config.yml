@@ -54,6 +54,7 @@ collections:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "author-page"}
       - {label: "Create Page", name: "createPage", required: true, widget: "hidden", default: "true"}
       - {label: "Name", name: "name", widget: "string"}
+      - {label: "Author Information", name: "information", widget: "markdown"}
   
   - name: "otherSites"
     label: "Other Sites"
