@@ -8,12 +8,14 @@ let AnimatedLink = animated(Link)
 
 const LinksBlock = ({groupName, linkArray,trigger}) => {
 
-    let transitions = useTransition(trigger ? linkArray : [], result => result.node.fields.slug, {
+    let transitions = useTransition(trigger ? linkArray : [], result => result.node.fields.slug, 
+        {
         from:{transform:'translate(-10px, 0px)'},
         enter:{transform:'translate(0px, 0px)'},
         leave:{transform:'translate(-10px, 0px)'},
         trail:100
-    })
+    }
+    )
 
     return (
         <div className={styles.linksBlock}>

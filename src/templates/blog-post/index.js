@@ -9,6 +9,7 @@ import Layout from '../../components/Layout'
 import {HTMLContent} from '../../components/Content'
 import Content from '../../components/Content'
 import LatestPosts from '../../components/LatestPosts'
+import PostCategoryTag from '../../components/PostCategoryTag'
 
 export const BlogPostTemplate = ({data}) => {
   let authorSlug = ''
@@ -35,9 +36,7 @@ export const BlogPostTemplate = ({data}) => {
       <hr/>
       <div className={styles.postDetails}>
         <div className={styles.postCategory}>
-        <Link to={categorySlug}>
-          <span>{data.markdownRemark.frontmatter.category}</span>
-        </Link>
+          <PostCategoryTag slug={categorySlug} text={data.markdownRemark.frontmatter.category} />
         </div>
         <p className={styles.postAuthor}>
           <span>BY </span>

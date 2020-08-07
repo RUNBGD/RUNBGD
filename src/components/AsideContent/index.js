@@ -4,12 +4,12 @@ import { Swiper, SwiperSlide} from 'swiper/react';
 import swiperStyles from 'swiper/swiper.scss';
 import 'swiper/components/navigation/navigation.scss';
 import paginationSwiperStyles from 'swiper/components/pagination/pagination.scss'
-import Image from 'gatsby-image'
 import {Link, useStaticQuery, graphql} from 'gatsby'
 
 import styles from './aside-content.module.scss';
 import swiperArrow from '../../img/right-arrow.svg'
 import PostImage from '../PostImage'
+import PostCategoryTag from '../PostCategoryTag';
 
 console.log(swiperStyles, paginationSwiperStyles)
 
@@ -83,10 +83,8 @@ const AsideContent = ({posts, heading, displayCategory}) => {
                 <div className={styles.post}>
                   <PostImage slug={post.fields.slug} image={post.frontmatter.coverImage.childImageSharp.fluid}/>
                   <div className={styles.postDetails}>
-                    {displayCategory && 
-                      <Link to={categorySlug}>
-                        <span className={styles.postCategory}>{post.frontmatter.category}</span>
-                      </Link>
+                    {displayCategory &&
+                      <PostCategoryTag slug={categorySlug} text={post.frontmatter.category}/> 
                     }
                     <Link to={authorSlug}>
                       <p className={styles.postAuthor}>By <a>{post.frontmatter.author}</a></p>
