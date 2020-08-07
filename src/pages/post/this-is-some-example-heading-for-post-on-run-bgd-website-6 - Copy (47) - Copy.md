@@ -2,7 +2,7 @@
 templateKey: blog-post
 createPage: "true"
 title: "This is some example heading for post on RUN BGD website. "
-category: The City
+category: Music
 author: Dragan Filovski
 date: 2020-07-31T14:38:06.127Z
 featuredPost: false
