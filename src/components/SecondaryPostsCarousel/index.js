@@ -58,6 +58,7 @@ const BigPostsCarousel = ({posts, heading, displayCategory, onlyMobile}) => {
           className={styles.carousel}
           onSlideChange={(swiper) => setActiveSlide(swiper.realIndex)}
           slidesPerView='auto'
+          onInit={(swiper) => {swiper.slideNext(100,() => swiper.slidePrev())}}
           navigation={{
             nextEl: `.${styles.swiperNextEl}`,
             prevEl: `.${styles.swiperPrevEl}`

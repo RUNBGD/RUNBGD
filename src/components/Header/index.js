@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import Image from 'gatsby-image'
 import {useStaticQuery, graphql, Link} from 'gatsby'
 import * as JsSearch from 'js-search'
-import {useTransition, animated} from 'react-spring'
+import {useTransition, useSpring, animated} from 'react-spring'
 
 import menuButton from '../../img/menu-icon.svg'
 import searchButton from '../../img/search-icon.svg'
@@ -128,10 +128,9 @@ const Header = () => {
     trail: 200
   })
 
-  const [showNavbar, setShowNavbar] = useState(false)
-  const navbarTransition = useTransition(showNavbar, null, {
+  const slideDown = useSpring({
     from:{transform:'translate(0px, -100%)'},
-    enter:{transform:'translate(0px, 0%)'}
+    to:{transform:'translate(0px, 0%)'}
   })
 
   function searchHandler(e){
@@ -143,13 +142,8 @@ const Header = () => {
     setSearchResults(search.search(searchValue))
   }, [searchValue])
 
-  useEffect(() => {
-    setShowNavbar(true)
-  }, [])
-
   
-      return navbarTransition.map(({item, key, props}) => 
-        item && <animated.header class={`${styles.header} ${menuOpened && styles.headerDark}`} key={key} style={props}>
+      return( <animated.header class={`${styles.header} ${menuOpened && styles.headerDark}`} style={slideDown}>
         <div className={styles.headerMainButtons}>
           <div className={styles.menuButtonContainer}>
             <img src={menuOpened ? closeButton : menuButton} alt='mobile menu button' onClick={() => setMenuOpened(prevState => !prevState)}/>
