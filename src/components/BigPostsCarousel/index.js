@@ -75,7 +75,7 @@ const BigPostsCarousel = ({posts}) => {
             let authorSlug = author.node.fields.slug
 
             return(
-              <SwiperSlide className={index === activeSlide ? styles.activeSlide : styles.notActiveSlide}>
+              <SwiperSlide className={`${styles.slide} ${index === activeSlide ? styles.activeSlide : styles.notActiveSlide}`}>
                 <div className={styles.post}>
                   <Link to={post.fields.slug}>
                     <h2>

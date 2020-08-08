@@ -45,6 +45,10 @@
     border-radius:5px;
 }
 
+.slide{
+    transition:0.5s;
+}
+
 .active-slide{
     opacity:1;
     transition:0.5s;
