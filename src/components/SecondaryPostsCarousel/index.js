@@ -47,7 +47,7 @@ const BigPostsCarousel = ({posts, heading, displayCategory, onlyMobile}) => {
     `)
 
 
-    let [activeSlide, setActiveSlide] = useState(0)
+    let [activeSlide, setActiveSlide] = useState()
 
     return(
       <div className={onlyMobile && styles.onlyMobile}>
@@ -56,9 +56,9 @@ const BigPostsCarousel = ({posts, heading, displayCategory, onlyMobile}) => {
           pagination={{ el:`.${styles.swiperPagination}`,clickable: true }}
           loop={posts.length > 1 ? true : false}
           className={styles.carousel}
-          onSlideChange={(swiper) => setActiveSlide(swiper.realIndex)}
+          onSlideChange={(swiper) => {setActiveSlide(swiper.realIndex)}}
           slidesPerView='auto'
-          onInit={(swiper) => {swiper.slideNext(100,() => swiper.slidePrev())}}
+          onInit={() => setActiveSlide(0)}
           navigation={{
             nextEl: `.${styles.swiperNextEl}`,
             prevEl: `.${styles.swiperPrevEl}`
