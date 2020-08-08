@@ -45,13 +45,13 @@
     border-radius:5px;
 }
 
-.carousel > div:nth-of-type(1) > div {
-    opacity:0.1;
+.active-slide{
+    opacity:1;
     transition:0.5s;
 }
 
-.carousel > div:nth-of-type(1) > .active-slide{
-    opacity:1;
+.not-active-slide{
+    opacity:0.1;
     transition:0.5s;
 }
 
