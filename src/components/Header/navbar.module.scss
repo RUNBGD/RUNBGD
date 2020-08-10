@@ -54,18 +54,6 @@
   justify-content: space-between;
 }
 
-.header-main-buttons > .menu-button-container:first-of-type{
-  @include breakpoint(lg){
-    display:none;
-  }
-}
-
-.header-main-buttons > .menu-button-container:last-of-type{
-  @include breakpoint(lg){
-    cursor:pointer;
-  }
-}
-
 .header-links > .menu-button-container{
   @include breakpoint(lg){ 
     width:auto;
@@ -121,7 +109,7 @@
 .link{
   display:flex;
   text-transform: uppercase;
-  font-size:23px;
+  font-size:1.4375rem;
   font-weight:800;
   > img{
     margin-right:7.5px;
@@ -129,7 +117,7 @@
 }
 
 .links-group-name{
-  font-size:12px;
+  font-size:0.75rem;
   opacity:0.7;
   text-transform: uppercase;
   margin:unset;
@@ -138,7 +126,7 @@
 .links-block > a{
   display:flex;
   text-transform: uppercase;
-  font-size:23px;
+  font-size:1.4375rem;
   font-weight:800;
 }
 
@@ -153,7 +141,7 @@
 .nav-footer-links > a {
   color:white;
   opacity:0.7;
-  font-size:12px;
+  font-size:0.75rem;
   font-weight: 800;
   padding:0 1vw;
 }
@@ -169,9 +157,55 @@
 .menu-button-container{
   width:20px;
   display:flex;
+  cursor: pointer;
   @include breakpoint(lg){
     align-items: center;
   }
+}
+
+.menu-button-container img {
+  width:20px;
+}
+
+.menu-button-container a{
+  display:flex;
+  align-items: center;
+}
+
+.misc-nav-items{
+  display:flex;
+  width:20%;
+  justify-content: flex-end;
+}
+
+.hamburger-nav-items{
+  width:20%;
+  display: flex;
+  justify-content: flex-start;
+  @include breakpoint(lg){
+    display:none;
+  }
+}
+
+.logo-nav-items{
+  width:20%;
+  display:flex;
+  justify-content: center;
+  @include breakpoint(lg){
+    justify-content: flex-start;
+  }
+}
+
+.nav-social-links{
+  display:none;
+  @include breakpoint(lg){
+    display:flex;
+    margin-left:30px;
+  }
+}
+
+.nav-social-links > .menu-button-container{
+  margin-left:10px;
 }
 
 .header-more-menu-container, .header-search-container{
@@ -205,6 +239,24 @@
   border:unset;
   border:1px solid #707070;
   border-radius:5px;
+  @include breakpoint(lg){
+    display:none;
+  }
+}
+
+.header-search-input{
+  width:100%;
+  padding:5px 5px;
+  display: none;
+  font-size:0.75rem;
+  margin-right:10px;
+  
+  border:unset;
+  border:1px solid #707070;
+  border-radius:5px;
+  @include breakpoint(lg){
+    display: block;
+  }
 }
 
 .header-search-container-opened{
@@ -256,5 +308,5 @@
   bottom:0;
   left:0;
 
-  font-size:12px;
+  font-size:0.75rem;
 }

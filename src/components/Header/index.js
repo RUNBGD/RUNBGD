@@ -63,6 +63,9 @@ const Header = () => {
             iconLight{
               publicURL
             }
+            iconDark{
+              publicURL
+            }
             order
           }
         }
@@ -129,7 +132,7 @@ const Header = () => {
   })
 
   const slideDown = useSpring({
-    from:{transform:'translate(0px, -100%)'},
+    from:{transform:'translate(0px, -200%)'},
     to:{transform:'translate(0px, 0%)'}
   })
 
@@ -145,12 +148,16 @@ const Header = () => {
   
       return( <animated.header class={`${styles.header} ${menuOpened && styles.headerDark}`} style={slideDown}>
         <div className={styles.headerMainButtons}>
-          <div className={styles.menuButtonContainer}>
-            <img src={menuOpened ? closeButton : menuButton} alt='mobile menu button' onClick={() => setMenuOpened(prevState => !prevState)}/>
+          <div className={styles.hamburgerNavItems}>
+            <div className={styles.menuButtonContainer}>
+              <img src={menuOpened ? closeButton : menuButton} alt='mobile menu button' onClick={() => setMenuOpened(prevState => !prevState)}/>
+            </div>
           </div>
-          <Link to='/' className={styles.logo}>
-            <Image fluid={data.logo.childImageSharp.fluid} alt='logo'/>
-          </Link>
+          <div className={styles.logoNavItems}>
+            <Link to='/' className={styles.logo}>
+              <Image fluid={data.logo.childImageSharp.fluid} alt='logo'/>
+            </Link>
+          </div>
           <div className={styles.headerLinks}>
             {data.channels.edges.map(({node:channel}) => {
               return <Link to={channel.fields.slug}>
@@ -163,8 +170,20 @@ const Header = () => {
               <img src={menuOpened ? closeButton : menuButton} alt='mobile menu button'/>
             </div>
           </div>
-          <div className={styles.menuButtonContainer}>
-            <img src={menuOpened ? searchButtonWhite : searchButton} alt='search website button' onClick={() => setSearchOpened(prevState => !prevState)}/>
+          <div className={styles.miscNavItems}>
+          {searchOpened && <input className={styles.headerSearchInput} type='text' placeholder='Search' onChange={searchHandler}></input>}
+            <div className={styles.menuButtonContainer}>
+              <img src={menuOpened ? searchButtonWhite : searchButton} alt='search website button' onClick={() => setSearchOpened(prevState => !prevState)}/>
+            </div>
+            <div className={styles.navSocialLinks}>
+              {data.socialLinks.edges.map(({node:link}) => {
+                return <div className={styles.menuButtonContainer}>
+                        <a href={link.frontmatter.url}>
+                          <img src={menuOpened ? link.frontmatter.iconLight.publicURL : link.frontmatter.iconDark.publicURL} alt={`${link.frontmatter.title} icon`}/>
+                        </a>
+                      </div>
+              })}
+            </div>
           </div>
         </div>
   

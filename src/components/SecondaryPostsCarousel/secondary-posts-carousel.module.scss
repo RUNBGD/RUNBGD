@@ -8,16 +8,16 @@
     font-weight: 700;
     border-radius: 5px;
     color:white;
-    font-size:12px;
+    font-size:0.75rem;
     margin-right:10px;
 }
 
 .post-author{
     display:inline-block;
-    font-size:10px;
+    font-size:0.625rem;
     margin:0;
     @include breakpoint(lg){
-        font-size:14px;
+        font-size:0.875rem;
     }
 }
 
@@ -44,11 +44,11 @@
 }
 
 .post-heading{
-    font-size:12px;
+    font-size:0.75rem;
     margin-top:10px;
     font-weight:700;
     @include breakpoint(lg){
-        font-size:20px;
+        font-size:1.25rem;
     }
 }
 
