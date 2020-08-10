@@ -144,6 +144,7 @@
   font-size:0.75rem;
   font-weight: 800;
   padding:0 1vw;
+  text-transform: uppercase;
 }
 
 .nav-footer-copyright{
@@ -176,6 +177,7 @@
   display:flex;
   width:20%;
   justify-content: flex-end;
+  align-items: center;
 }
 
 .hamburger-nav-items{
@@ -193,6 +195,7 @@
   justify-content: center;
   @include breakpoint(lg){
     justify-content: flex-start;
+    align-items: center;
   }
 }
 
@@ -249,7 +252,7 @@
   padding:5px 5px;
   display: none;
   font-size:0.75rem;
-  margin-right:10px;
+  margin:0 10px;
   
   border:unset;
   border:1px solid #707070;
@@ -303,7 +306,7 @@
   display:flex;
 }
 
-.searchResultDate{
+.search-result-date{
   position:absolute;
   bottom:0;
   left:0;
