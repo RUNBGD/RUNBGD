@@ -8,13 +8,13 @@ import useSiteMetadata from '../SiteMetadata'
 import logo from '../../img/logo.jpeg'
 
 
-const Layout = ({children}) => {
+const Layout = ({children, verticalSlider}) => {
 
   const { title, description } = useSiteMetadata()
 
 
   return (
-    <div>
+    <div style={{height:verticalSlider && '100vh', overflow: verticalSlider && 'hidden'}}>
       <Helmet>
       <html lang="en" />
       <title>{title}</title>
@@ -57,7 +57,7 @@ const Layout = ({children}) => {
       <div className='content'>
         {children}
       </div>
-      <Footer/>
+      {!verticalSlider && <Footer/>}
     </div>
   )
 }
