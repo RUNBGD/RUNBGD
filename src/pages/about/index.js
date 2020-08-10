@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {useTransition, useSpring, animated} from 'react-spring'
 
 
@@ -9,6 +9,8 @@ const AboutPage = () => {
 
     
     const [currentSlide, setCurrentSlide] = useState(1)
+    const [changedSlideTime, setChangedSlideTime] = useState(0)
+    const [touchMoves, setTouchMoves] = useState([])
     
     const appearTransition = useTransition(currentSlide == 1, null, {
         from:{opacity:0},
@@ -17,9 +19,9 @@ const AboutPage = () => {
     })
 
     const slideDownTransition = useTransition(currentSlide == 2, null, {
-        from:{transform:'translate(-50%, 100%)', opacity:0},
-        enter:{transform:'translate(-50%, -50%)', opacity:1},
-        leave:{transform:'translate(-50%, -100%)', opacity:0}
+        from:{transform:'translate(-50%, 100%)'},
+        enter:{transform:'translate(-50%, -50%)'},
+        leave:{transform:'translate(-50%, -100%)'}
     })
 
     const slideUp = useSpring({
@@ -29,24 +31,49 @@ const AboutPage = () => {
     })
 
     const nextSlide = () => {
-        if(currentSlide < 2){
-            setCurrentSlide(prevState => prevState + 1)
+        let date = new Date()
+        let currentTime = date.getTime()
+        if(currentTime - changedSlideTime >= 1000){
+            if(currentSlide < 2){
+                setCurrentSlide(prevState => prevState + 1)
+            }else{
+                setCurrentSlide(1)
+            }
+            setChangedSlideTime(currentTime)
         }else{
-            setCurrentSlide(1)
+            return
         }
     }
 
     const prevSlide = () => {
-        if(currentSlide > 1){
-            setCurrentSlide(prevState => prevState - 1)
+        let date = new Date()
+        let currentTime = date.getTime()
+        if(currentTime - changedSlideTime >= 1000){
+            if(currentSlide > 1){
+                setCurrentSlide(prevState => prevState - 1)
+            }else{
+                setCurrentSlide(2)
+            }
+            setChangedSlideTime(currentTime)
         }else{
-            setCurrentSlide(2)
+            return
         }
     }
 
+    useEffect(() => {
+        if(touchMoves[0] && touchMoves[1]){
+
+            if(touchMoves[0][0].screenY >= touchMoves[1][0].screenY){
+                nextSlide()
+            }else{
+                prevSlide()
+            }
+        }
+    }, [touchMoves])
+
     return(
         <Layout verticalSlider={true}>
-            <div className={styles.verticalSliderContainer} onDoubleClick={prevSlide} onClick={nextSlide}>
+            <div className={styles.verticalSliderContainer} onClick={nextSlide} onWheel={(e) => {return e.deltaY > 0 ? nextSlide() : prevSlide()}} onTouchMove={(e) => {e.persist(); setTouchMoves((prevState) => {return [...prevState, e.changedTouches]})}} onTouchEnd={() => setTouchMoves([])}>
                 {appearTransition.map(({item, key, props}) => {
                     return item && 
                         <animated.div style={props} className={styles.verticalSliderSlide}>

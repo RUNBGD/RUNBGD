@@ -204,6 +204,7 @@ import NewsletterForm from '../components/NewsletterForm';
 import FindPlacesMainCard from '../components/FindPlacesMainCard'
 import LatestPosts from '../components/LatestPosts';
 import AsideContent from '../components/AsideContent'
+import MapWithPlaces from '../components/MapWithPlaces'
 
 const IndexPage = () => {
   
@@ -339,6 +340,8 @@ const IndexPage = () => {
         <SecondaryPostsCarousel posts={carouselPosts.trending.edges} onlyMobile={true} heading="Trending" displayCategory={true}/>
         <NewsletterForm />
         <hr/>
+        <h2>Find Places</h2>
+        <MapWithPlaces/>
         <FindPlacesMainCard />
         <hr/>
         {featuredCategoriesInOrder(featuredCategories).map(({node: category}) => {
