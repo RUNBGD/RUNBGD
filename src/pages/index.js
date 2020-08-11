@@ -204,7 +204,7 @@ import NewsletterForm from '../components/NewsletterForm';
 import FindPlacesMainCard from '../components/FindPlacesMainCard'
 import LatestPosts from '../components/LatestPosts';
 import AsideContent from '../components/AsideContent'
-import MapWithPlaces from '../components/MapWithPlaces'
+import FindPlacesMap from '../components/FindPlacesMap'
 
 const IndexPage = () => {
   
@@ -309,6 +309,26 @@ const IndexPage = () => {
           }
       }
       }
+      locations:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "location"}}}){
+        edges {
+            node{
+            frontmatter{
+                name
+                coverImage{
+                    childImageSharp{
+                        fluid(maxWidth:1000){
+                            ...GatsbyImageSharpFluid
+                        }
+                    }
+                }
+                category
+                address
+                latitude
+                longitude
+            }
+            }
+          }
+        }
   }
   `)
 
@@ -341,7 +361,7 @@ const IndexPage = () => {
         <NewsletterForm />
         <hr/>
         <h2>Find Places</h2>
-        <MapWithPlaces/>
+        <FindPlacesMap locations={carouselPosts.locations.edges} zoom={6}/>
         <FindPlacesMainCard />
         <hr/>
         {featuredCategoriesInOrder(featuredCategories).map(({node: category}) => {

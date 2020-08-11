@@ -8,6 +8,8 @@ import styles from './find-places.module.scss'
 import { useQueryParam, NumberParam } from 'use-query-params'
 import {icon} from 'leaflet'
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet'
+import FindPlacesMap from '../../components/FindPlacesMap'
+import FindPlacesLocations from '../../components/FindPlacesLocations'
 
 import expandButton from '../../img/down-arrow.svg'
 import loadingIndicator from '../../img/loading-indicator.svg'
@@ -141,7 +143,7 @@ const FindPlaces = () => {
                 <main>
                     <div className={styles.locationItemsContainer}>
                         {!xCoord ? 
-                            <div className={styles.inputCard}>
+                        <div className={styles.inputCard}>
                             <p>Where are you looking to have fun?</p>
                             <button 
                                 className={styles.inputCardButton}
@@ -153,63 +155,17 @@ const FindPlaces = () => {
                             {fetchMessage && <p className={styles.fetchMessage}>{fetchMessage}</p>}
                         </div>
                         :
-                        <React.Fragment>
-
+                        <div className={styles.mapAndLocations}>
                             <div className={`${styles.map} ${mapExpanded && styles.isExpanded}`}>
-                                {
-                                    typeof window !== 'undefined' &&
-                                    <Map center={currentY == undefined ? [0, 0] : [currentY, currentX]} zoom={10}>
-                                        <TileLayer
-                                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                                        attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
-                                        />
-                                        {data.locations.edges.map(({node:location}) => {
-                                            
-                                            
-                                        let category = data.categories.edges.find(({node:category}) => location.frontmatter.category === category.frontmatter.title)
-                                            
-                                            return <Marker position={[location.frontmatter.latitude, location.frontmatter.longitude]} icon={icon({iconUrl:category.node.frontmatter.categoryPin.publicURL, iconSize: [20, 28.57]})}>
-                                                <Popup>{location.frontmatter.name}</Popup>
-                                            </Marker>
-                                        })}
-                                        <Marker position={yCoord == undefined ? [0, 0] : [yCoord, xCoord]} icon={icon({iconUrl:data.currentLocationCategory.edges[0].node.frontmatter.categoryPin.publicURL, iconSize: [20, 28.57]})}>
-                                            <Popup>Current Location</Popup>
-                                        </Marker>
-                                    </Map>
-                            }    
+                                <FindPlacesMap locations={data.locations.edges} expanded={mapExpanded} zoom={10} currentY={currentY} currentX={currentX} xCoord={xCoord} yCoord={yCoord}/>
                             </div>
-                            <button className={`${styles.expandButton} ${mapExpanded && styles.isActivated}`} onClick={() => setMapExpanded((prevState) => !prevState)}><img src={expandButton} alt='expand button'/></button>
-                            <div className={styles.locationCards}>
-                                <select className={styles.filterSelect} onChange={(e) => {setFilterCategory(e.target.value)}}>
-                                    <option value="Select Category">Select Category</option>
-                                    {data.categories.edges.map(({node:category}) => {
-                                        if(category.frontmatter.title === "Current Location"){
-                                            return
-                                        }
-                                        return <option value={category.frontmatter.title}>{category.frontmatter.title}</option>
-                                    })}
-                                </select>
-
-                                {data.locations.edges.map(({node:location}, index) => {
-                                    let distanceFromStart = distance(xCoord, yCoord, location.frontmatter.longitude, location.frontmatter.latitude, "K")
-
-                                    if(distanceFromStart <= 105 && (location.frontmatter.category === filterCategory  || filterCategory === "Select Category")){
-                                    return <div className={styles.locationCard} style={{order:Number(distanceFromStart).toFixed(0)}} key={index} onClick={() => {setCurrentX(0);setCurrentY(0);setTimeout(()=>{setCurrentX(location.frontmatter.longitude);setCurrentY(location.frontmatter.latitude)}, 100)}}>
-                                        <div className={styles.cardCover}>
-                                            <Image fluid={location.frontmatter.coverImage.childImageSharp.fluid} alt='' />
-                                        </div>
-                                        <div className={styles.cardText}>
-                                            <p className={styles.cardTitle}>{location.frontmatter.name}</p>
-                                            <p className={styles.cardAddress}>{location.frontmatter.address}</p>
-                                            <p className={styles.distance}>{distanceFromStart} km</p>
-                                        </div>
-                                    </div>
-                                    }
-                                })}
-
-
-                            </div>   
-                        </React.Fragment>
+                            <div className={styles.expandButtonContainer}>
+                                <button className={`${styles.expandButton} ${mapExpanded && styles.isActivated}`} onClick={() => setMapExpanded((prevState) => !prevState)}><img src={expandButton} alt='expand button'/></button>
+                            </div>
+                            <div className={styles.locations}>
+                                <FindPlacesLocations locations={data.locations.edges} xCoord={xCoord} yCoord={yCoord} setCurrentX={setCurrentX} setCurrentY={setCurrentY} filterCategory={filterCategory}/>
+                            </div>
+                        </div>
                         }
                     </div>
                 </main>
