@@ -1,5 +1,5 @@
 ---
 templateKey: location-category
-title: Interesting Spots
+title: The City
 categoryPin: /img/camera_alt-24px.svg
 ---

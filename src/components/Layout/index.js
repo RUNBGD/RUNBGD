@@ -12,7 +12,6 @@ const Layout = ({children, verticalSlider}) => {
 
   const { title, description } = useSiteMetadata()
 
-
   return (
     <div style={{height:verticalSlider && '100vh', overflow: verticalSlider && 'hidden'}}>
       <Helmet>
@@ -53,7 +52,9 @@ const Layout = ({children, verticalSlider}) => {
           content={logo}
         />
       </Helmet>
-      <Header/>
+      {
+        <Header/>
+      }
       <div className='content'>
         {children}
       </div>

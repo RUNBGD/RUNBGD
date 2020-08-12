@@ -1,12 +1,19 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {graphql} from 'gatsby'
 import {Helmet} from 'react-helmet'
 
 import Layout from '../../components/Layout'
 import LatestPosts from '../../components/LatestPosts'
 import BigPostsCarousel from '../../components/BigPostsCarousel'
+import FindPlacesMainCard from '../../components/FindPlacesMainCard'
+import FindPlacesLocations from '../../components/FindPlacesLocations'
+import FindPlacesMap from '../../components/FindPlacesMap'
+import styles from './category-page.module.scss'
 
 let CategoryPage = ({data}) => {
+
+  const [currentX, setCurrentX] = useState(data.locations.edges[0] && data.locations.edges[0].node.frontmatter.longitude)
+  const [currentY, setCurrentY] = useState(data.locations.edges[0] && data.locations.edges[0].node.frontmatter.latitude)
 
     return(
         <Layout>
@@ -18,6 +25,20 @@ let CategoryPage = ({data}) => {
             <h1>{data.markdownRemark.frontmatter.title}</h1>
             <hr/>
             <BigPostsCarousel posts={data.categoryFeaturedPosts} />
+            {data.locations.edges[0] && 
+            <React.Fragment>
+              <h2>Find Places</h2>
+              <div className={styles.mapAndLocations}>
+                <div className={styles.map}>
+                  <FindPlacesMap locations={data.locations.edges} zoom={6} currentX={currentX} currentY={currentY}/>
+                </div>
+                <div className={styles.locations}>
+                  <FindPlacesLocations locations={data.locations.edges} filterCategory={'Select Category'} horizontalOnMobile={true} setCurrentX={setCurrentX} setCurrentY={setCurrentY}/>
+                </div>
+              </div>
+              <FindPlacesMainCard />
+            </React.Fragment>
+          }
             <h2>Latest In {data.markdownRemark.frontmatter.title}</h2>
             <LatestPosts posts={data.categoryLatestPosts} />
           </main>
@@ -75,6 +96,26 @@ let CategoryPage = ({data}) => {
               }
           }
           }
+          locations:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "location"}, category: {eq:$title}}}){
+            edges {
+                node{
+                frontmatter{
+                    name
+                    coverImage{
+                        childImageSharp{
+                            fluid(maxWidth:1000){
+                                ...GatsbyImageSharpFluid
+                            }
+                        }
+                    }
+                    category
+                    address
+                    latitude
+                    longitude
+                }
+                }
+              }
+            }
       }
     `
     export default CategoryPage

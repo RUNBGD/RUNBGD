@@ -62,7 +62,7 @@
   padding:10px 0;
   @include breakpoint(lg){
     padding:10px 20px;
-    font-size:1.25rem;
+    font-size:1rem;
   }
 }
 
@@ -71,6 +71,6 @@
   width:100%;
   text-align:center;
   @include breakpoint(lg){
-    font-size:1.25rem;
+    font-size:1rem;
   }
 }
