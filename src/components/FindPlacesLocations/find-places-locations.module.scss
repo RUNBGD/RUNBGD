@@ -86,7 +86,6 @@
 .location-cards{
     height:100%;
     width:100%;
-    padding:10px;
     display:flex;
     flex-direction: column;
     
@@ -96,6 +95,14 @@
         overflow-x: hidden;
     }
 }
+
+.horizontal{
+    flex-direction: row;
+    @include breakpoint(lg){
+        flex-direction: column;
+    }
+}
+
 
 .location-card{
     display:flex;
@@ -108,6 +115,16 @@
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
 }
 
+.horizontal .location-card{
+    margin-right:2.5vw;
+    flex-basis: 85vw;
+    flex-grow: 0;
+    flex-shrink: 0;
+    height:fit-content;
+    @include breakpoint(lg){
+        flex-basis: unset;
+    }
+}
 .card-cover{
     width:50%;
 }
@@ -129,7 +146,6 @@
 
 .card-title{
     margin:0;
-
     font-weight:600;
     @include breakpoint(lg){
         font-size:0.75rem;
@@ -152,12 +168,6 @@
     margin:0;
 
     font-size:0.5rem;
-}
-
-.filter-select{
-    width:100%;
-    padding:5px;
-    margin-bottom:20px;
 }
 
 .loading-indicator{

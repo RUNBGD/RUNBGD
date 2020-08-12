@@ -205,6 +205,8 @@ import FindPlacesMainCard from '../components/FindPlacesMainCard'
 import LatestPosts from '../components/LatestPosts';
 import AsideContent from '../components/AsideContent'
 import FindPlacesMap from '../components/FindPlacesMap'
+import FindPlacesLocations from '../components/FindPlacesLocations'
+import styles from './index-page.module.scss'
 
 const IndexPage = () => {
   
@@ -332,6 +334,9 @@ const IndexPage = () => {
   }
   `)
 
+  const [currentX, setCurrentX] = useState(carouselPosts.locations.edges[0].node.frontmatter.longitude)
+  const [currentY, setCurrentY] = useState(carouselPosts.locations.edges[0].node.frontmatter.latitude)
+
   let featuredCategories = []
 
   carouselPosts.categoryFeaturedPosts.edges.forEach(({node}) => {
@@ -361,7 +366,14 @@ const IndexPage = () => {
         <NewsletterForm />
         <hr/>
         <h2>Find Places</h2>
-        <FindPlacesMap locations={carouselPosts.locations.edges} zoom={6}/>
+        <div className={styles.mapAndLocations}>
+          <div className={styles.map}>
+            <FindPlacesMap locations={carouselPosts.locations.edges} zoom={6} currentX={currentX} currentY={currentY}/>
+          </div>
+          <div className={styles.locations}>
+            <FindPlacesLocations locations={carouselPosts.locations.edges} filterCategory={'Select Category'} horizontalOnMobile={true} setCurrentX={setCurrentX} setCurrentY={setCurrentY}/>
+          </div>
+        </div>
         <FindPlacesMainCard />
         <hr/>
         {featuredCategoriesInOrder(featuredCategories).map(({node: category}) => {

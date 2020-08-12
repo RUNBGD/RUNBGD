@@ -21,9 +21,9 @@ function distance(lat1, lon1, lat2, lon2, unit) {
     return dist.toFixed(2)
 }
 
-const FindPlacesLocations = ({locations, xCoord, yCoord, setCurrentX, setCurrentY, filterCategory}) => {
+const FindPlacesLocations = ({locations, xCoord, yCoord, setCurrentX, setCurrentY, filterCategory, horizontalOnMobile}) => {
     return(
-        <div className={styles.locationCards}>
+        <div className={`${styles.locationCards} ${horizontalOnMobile && styles.horizontal}`}>
             {locations.map(({node:location}, index) => {
                 let distanceFromStart = undefined;
                 if(yCoord){

@@ -163,6 +163,15 @@ const FindPlaces = () => {
                                 <button className={`${styles.expandButton} ${mapExpanded && styles.isActivated}`} onClick={() => setMapExpanded((prevState) => !prevState)}><img src={expandButton} alt='expand button'/></button>
                             </div>
                             <div className={styles.locations}>
+                                <select onChange={(e) => setFilterCategory(e.target.value)} className={styles.categoryFilter}>
+                                    <option value='Select Category'>Select Category</option>
+                                    {data.categories.edges.map(({node:category}) => {
+                                        if(category.frontmatter.title == 'Current Location'){
+                                            return 
+                                        }
+                                        return <option value={category.frontmatter.title}>{category.frontmatter.title}</option>
+                                    })}
+                                </select>
                                 <FindPlacesLocations locations={data.locations.edges} xCoord={xCoord} yCoord={yCoord} setCurrentX={setCurrentX} setCurrentY={setCurrentY} filterCategory={filterCategory}/>
                             </div>
                         </div>
