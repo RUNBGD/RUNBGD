@@ -1,6 +1,8 @@
 import React, {useState} from 'react'
 import {graphql} from 'gatsby'
 import {Helmet} from 'react-helmet'
+import remark from 'remark'
+import remarkHTML from 'remark-html'
 
 import Layout from '../../components/Layout'
 import LatestPosts from '../../components/LatestPosts'
@@ -8,7 +10,11 @@ import BigPostsCarousel from '../../components/BigPostsCarousel'
 import FindPlacesMainCard from '../../components/FindPlacesMainCard'
 import FindPlacesLocations from '../../components/FindPlacesLocations'
 import FindPlacesMap from '../../components/FindPlacesMap'
+import { HTMLContent } from '../../components/Content'
 import styles from './category-page.module.scss'
+
+
+const toHTML = value => remark().use(remarkHTML).processSync(value).toString()
 
 let CategoryPage = ({data}) => {
 
@@ -23,6 +29,8 @@ let CategoryPage = ({data}) => {
           </Helmet>
           <main>
             <h1>{data.markdownRemark.frontmatter.title}</h1>
+            <hr/>
+            <HTMLContent content={toHTML(data.markdownRemark.frontmatter.description)}/>
             <hr/>
             <BigPostsCarousel posts={data.categoryFeaturedPosts} />
             {data.locations.edges[0] && 
@@ -52,6 +60,7 @@ let CategoryPage = ({data}) => {
           id
           frontmatter {
             title
+            description
           }
         }
         categoryFeaturedPosts:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "blog-post"}, category: {eq: $title}, categoryFeatured: {eq: true}}}){
