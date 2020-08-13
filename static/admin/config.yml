@@ -42,6 +42,7 @@ collections:
       - {label: "Create Page", name: "createPage", required: true, widget: "hidden", default: "true"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Description", name: "description", widget: "markdown"}
+      - {label: "Category Cover", name: "coverImage", widget: "image"}
       - {label: "Order on home page", name: "order", widget: "number"}
       - {label: "Order in navbar", name: "orderNavbar", widget: "number"}
 

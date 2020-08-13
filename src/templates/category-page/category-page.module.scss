@@ -29,3 +29,28 @@
         flex-direction: row;
     }
 }
+
+.category-cover{
+    position:absolute;
+    top:0%;
+    left:50%;
+    transform:translate(-50%, 0%);
+    width:100%;
+    z-index:-1;
+    filter: brightness(75%);
+}
+
+.category-cover-container{
+    position:relative;
+    overflow: hidden;
+    min-height: 20vh;
+    padding:5px;
+    @include breakpoint(lg){
+        min-height:40vh;
+        padding:50px;
+    }
+}
+
+.category-cover-heading{
+    color:white;
+}

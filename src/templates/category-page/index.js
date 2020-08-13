@@ -3,6 +3,7 @@ import {graphql} from 'gatsby'
 import {Helmet} from 'react-helmet'
 import remark from 'remark'
 import remarkHTML from 'remark-html'
+import Image from 'gatsby-image'
 
 import Layout from '../../components/Layout'
 import LatestPosts from '../../components/LatestPosts'
@@ -22,14 +23,24 @@ let CategoryPage = ({data}) => {
   const [currentY, setCurrentY] = useState(data.locations.edges[0] && data.locations.edges[0].node.frontmatter.latitude)
 
     return(
-        <Layout>
+        <Layout
+          fullWidthContent={
+            <React.Fragment>
+              <div className={styles.categoryCoverContainer}>
+                <h1 className={styles.categoryCoverHeading}>{data.markdownRemark.frontmatter.title}</h1>
+                <hr/>
+                <div className={styles.categoryCover}>
+                  <Image fluid={data.markdownRemark.frontmatter.coverImage.childImageSharp.fluid} alt=''/>
+                </div>
+              </div>
+            </React.Fragment>
+          }
+        >
           <Helmet>
             <title>{data.markdownRemark.frontmatter.title} | RUN BGD</title>
             <meta name="description" content={`Find more interesting stories in category ${data.markdownRemark.frontmatter.title} at RUN BGD`} />
           </Helmet>
           <main>
-            <h1>{data.markdownRemark.frontmatter.title}</h1>
-            <hr/>
             <HTMLContent content={toHTML(data.markdownRemark.frontmatter.description)}/>
             <hr/>
             <BigPostsCarousel posts={data.categoryFeaturedPosts} />
@@ -61,6 +72,13 @@ let CategoryPage = ({data}) => {
           frontmatter {
             title
             description
+            coverImage{
+              childImageSharp{
+                fluid(maxWidth:1920, quality: 64){
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
         }
         categoryFeaturedPosts:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "blog-post"}, category: {eq: $title}, categoryFeatured: {eq: true}}}){

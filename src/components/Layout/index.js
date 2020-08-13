@@ -8,7 +8,7 @@ import useSiteMetadata from '../SiteMetadata'
 import logo from '../../img/logo.jpeg'
 
 
-const Layout = ({children, verticalSlider}) => {
+const Layout = ({children, verticalSlider, fullWidthContent}) => {
 
   const { title, description } = useSiteMetadata()
 
@@ -55,6 +55,7 @@ const Layout = ({children, verticalSlider}) => {
       {
         <Header/>
       }
+      {fullWidthContent}
       <div className='content'>
         {children}
       </div>

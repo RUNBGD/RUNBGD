@@ -1,5 +1,6 @@
 import React from 'react'
 import {useStaticQuery, graphql} from 'gatsby'
+import Image from 'gatsby-image'
 
 import styles from './find-places-map.module.scss'
 import {icon} from 'leaflet'
@@ -50,7 +51,10 @@ const FindPlacesMap = ({locations, zoom, expanded, xCoord, yCoord, currentX, cur
                 let category = data.categories.edges.find(({node:category}) => location.frontmatter.category === category.frontmatter.title)
                     
                     return <Marker position={[location.frontmatter.latitude, location.frontmatter.longitude]} icon={icon({iconUrl:category.node.frontmatter.categoryPin.publicURL, iconSize: [20, 28.57]})}>
-                        <Popup>{location.frontmatter.name}</Popup>
+                        <Popup>
+                            <Image fluid={location.frontmatter.coverImage.childImageSharp.fluid}/>
+                            {location.frontmatter.name}
+                        </Popup>
                     </Marker>
                 })}
                 {

@@ -10,6 +10,7 @@ description: >-
 
 
   Grandiose coffee houses and smoky dives pepper Knez Mihailova, a lively pedestrian boulevard flanked by historical buildings all the way to the ancient Belgrade Fortress. The riverside Savamala quarter has gone from ruin to resurrection, and is the city's creative headquarters (for now). Deeper in Belgrade's bowels are museums guarding the cultural, religious and military heritage of the country.
+coverImage: /img/belgrade-5010494_1920.jpg
 order: 1
 orderNavbar: 1
 ---
