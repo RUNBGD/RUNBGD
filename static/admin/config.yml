@@ -30,7 +30,22 @@ collections:
       - {label: "Trending Post", name: "trending", widget: "boolean", default: false}
       - {label: "Cover Image", name: "coverImage", widget: "image"}
       - {label: "Body", name: "body", widget: "markdown"}
-  
+
+  - name: "tours"
+    label: "Tours"
+    folder: "src/pages/tours"
+    create: true
+    slug: "{{title}}"
+    identifier_field: name
+    fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "subcategory-item"}
+      - {label: "Create Page", name: "createPage", required: true, widget: "hidden", default: "true"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Category", name: "category", widget: "relation", collection: "category", searchFields: ["title"], valueField: "title", displayFields: ["title"]}
+      - {label: "Subcategory", name: "subcategory", widget: "relation", collection: "subcategory", searchFields: ["title"], valueField: "title", displayFields: ["title"]}
+      - {label: "Cover Image", name: "coverImage", widget: "image"}
+      - {label: "Body", name: "body", widget: "markdown"}
+
   - name: "category"
     label: "Category"
     folder: "src/pages/category"
@@ -45,6 +60,19 @@ collections:
       - {label: "Category Cover", name: "coverImage", widget: "image"}
       - {label: "Order on home page", name: "order", widget: "number"}
       - {label: "Order in navbar", name: "orderNavbar", widget: "number"}
+
+  - name: "subcategory"
+    label: "Subcategory"
+    folder: "src/data/subcategory"
+    create: true
+    slug: "{{title}}"
+    identifier_field: name
+    fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "category-subcategory"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Description", name: "description", widget: "markdown"}
+      - {label: "Subcategory Cover", name: "coverImage", widget: "image"}
+      - {label: "Category", name: "category", widget: "relation", collection: "category", searchFields: ["title"], valueField: "title", displayFields: ["title"]}
 
   - name: "author"
     label: "Author"

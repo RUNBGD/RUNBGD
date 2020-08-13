@@ -65,28 +65,37 @@ const BigPostsCarousel = ({posts, heading, displayCategory, onlyMobile}) => {
           }}
         >
           {posts.map(({node:post}, index) => {
+            let categorySlug = undefined;
+            let authorSlug = undefined;
 
             let category = data.allMarkdownRemark.edges.find(({node:category}) => post.frontmatter.category === category.frontmatter.title)
 
-            let categorySlug = category.node.fields.slug
+            if(category){
+              categorySlug = category.node.fields.slug
+            }
             
             let author = data.authors.edges.find(({node:author}) => post.frontmatter.author === author.frontmatter.name)
-
-            let authorSlug = author.node.fields.slug
+            
+            if(author){
+              authorSlug = author.node.fields.slug
+            }
 
             return(
               <SwiperSlide className={`${styles.slide} ${posts.length < 2 && styles.isOnlySlide} ${index === activeSlide ? styles.activeSlide : styles.inactiveSlide}`}>
                 <div className={styles.post}>
                   <PostImage slug={post.fields.slug} image={post.frontmatter.coverImage.childImageSharp.fluid}/>
                   <div className={styles.postDetails}>
-                    {displayCategory && 
+                    {(displayCategory && categorySlug) && 
                       <Link to={categorySlug}>
                         <span className={styles.postCategory}>{post.frontmatter.category}</span>
                       </Link>
                     }
-                    <Link to={authorSlug}>
-                      <p className={styles.postAuthor}>By <a>{post.frontmatter.author}</a></p>
-                    </Link>
+                    {
+                      authorSlug &&
+                      <Link to={authorSlug}>
+                        <p className={styles.postAuthor}>By <a>{post.frontmatter.author}</a></p>
+                      </Link>
+                    }
                   </div>
                   <Link to={post.fields.slug}>
                     <p className={styles.postHeading}>

@@ -12,6 +12,7 @@ import FindPlacesMainCard from '../../components/FindPlacesMainCard'
 import FindPlacesLocations from '../../components/FindPlacesLocations'
 import FindPlacesMap from '../../components/FindPlacesMap'
 import { HTMLContent } from '../../components/Content'
+import SecondaryPostsCarousel from '../../components/SecondaryPostsCarousel'
 import styles from './category-page.module.scss'
 
 
@@ -58,6 +59,19 @@ let CategoryPage = ({data}) => {
               <FindPlacesMainCard />
             </React.Fragment>
           }
+          <hr/>
+          {data.subCategories.edges[0] && 
+            data.subCategories.edges.map(({node:category}) => {
+              let filteredPosts = data.subCategoryItems.edges.filter(({node:item}) => {
+                return item.frontmatter.subcategory === category.frontmatter.title
+              })
+              return <React.Fragment>
+                <h2>{category.frontmatter.title}</h2>
+                <HTMLContent content={toHTML(category.frontmatter.description)}/>
+                <SecondaryPostsCarousel posts={filteredPosts}/>
+              </React.Fragment>
+            })
+          }
             <h2>Latest In {data.markdownRemark.frontmatter.title}</h2>
             <LatestPosts posts={data.categoryLatestPosts} />
           </main>
@@ -81,6 +95,26 @@ let CategoryPage = ({data}) => {
             }
           }
         }
+        subCategoryItems:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "subcategory-item"}, category: {eq:$title}}}){
+          edges {
+              node{
+              fields{
+                slug
+              }
+              frontmatter{
+                  title
+                  subcategory
+                  coverImage{
+                      childImageSharp{
+                          fluid(maxWidth:1000){
+                              ...GatsbyImageSharpFluid
+                          }
+                      }
+                  }
+              }
+              }
+            }
+          }
         categoryFeaturedPosts:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "blog-post"}, category: {eq: $title}, categoryFeatured: {eq: true}}}){
           edges {
               node{
@@ -139,6 +173,23 @@ let CategoryPage = ({data}) => {
                     address
                     latitude
                     longitude
+                }
+                }
+              }
+            }
+          subCategories:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "category-subcategory"}, category: {eq:$title}}}){
+            edges {
+                node{
+                frontmatter{
+                    title
+                    description
+                    coverImage{
+                        childImageSharp{
+                            fluid(maxWidth:1000){
+                                ...GatsbyImageSharpFluid
+                            }
+                        }
+                    }
                 }
                 }
               }

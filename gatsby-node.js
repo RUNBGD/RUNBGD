@@ -51,6 +51,46 @@ exports.createPages = async ({ actions, graphql }) => {
 
   await graphql(`
     {
+      allMarkdownRemark(limit: 2000, filter:{frontmatter:{createPage:{eq: "true"}, templateKey: {eq: "subcategory-item"}}}) {
+        edges {
+          node {
+            id
+            fields {
+              slug
+            }
+            frontmatter {
+              templateKey
+            }
+          }
+        }
+      }
+    }
+  `).then((result) => {
+    if (result.errors) {
+      result.errors.forEach((e) => console.error(e.toString()))
+      return Promise.reject(result.errors)
+    }
+
+    const items = result.data.allMarkdownRemark.edges
+
+    items.forEach((edge) => {
+      const id = edge.node.id
+      
+      createPage({
+        path: edge.node.fields.slug,
+        component: path.resolve(
+          `src/templates/${String(edge.node.frontmatter.templateKey)}/index.js`
+        ),
+        // additional data can be passed via context
+        context: {
+          id
+        },
+      })
+    })
+  })
+
+  await graphql(`
+    {
       allMarkdownRemark(limit: 2000, filter:{frontmatter:{createPage:{eq: "true"}, templateKey: {eq: "author-page"}}}) {
         edges {
           node {

@@ -1,0 +1,34 @@
+.post-body{
+    padding:0 15px;
+  }
+  
+  .post-body img{
+    width:100%;
+    border-radius: 5px;
+  }
+  
+  .post-body a{
+    color:#EE1C25;
+  }
+  
+  .post-body a:hover{
+    text-decoration: underline;
+  }
+  
+  .post-cover > div{
+    border-radius:5px;
+  }
+  
+  .post-details{
+    display:flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .post-category{
+    width:100%;
+  }
+  
+  .post-author > a{
+    color:#EE1C25;
+  }
