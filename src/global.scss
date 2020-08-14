@@ -1,6 +1,7 @@
 @import './styles/breakpoints.scss';
 
 html{
+  scroll-behavior: smooth;
   @include breakpoint(lg){
     font-size:20px;
   }

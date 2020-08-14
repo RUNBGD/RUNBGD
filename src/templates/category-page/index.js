@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {graphql} from 'gatsby'
+import {graphql, Link} from 'gatsby'
 import {Helmet} from 'react-helmet'
 import remark from 'remark'
 import remarkHTML from 'remark-html'
@@ -34,6 +34,13 @@ let CategoryPage = ({data}) => {
                   <Image fluid={data.markdownRemark.frontmatter.coverImage.childImageSharp.fluid} alt=''/>
                 </div>
               </div>
+              {data.subCategories.edges[0] && <div className={styles.subCategoriesNavigation}>
+                {data.subCategories.edges.map(({node:subcategory}) => {
+                  return <Link to={`#${subcategory.frontmatter.title}`}>
+                    {subcategory.frontmatter.title}
+                  </Link>
+                })}
+              </div>}
             </React.Fragment>
           }
         >
@@ -56,7 +63,6 @@ let CategoryPage = ({data}) => {
                   <FindPlacesLocations locations={data.locations.edges} filterCategory={'Select Category'} horizontalOnMobile={true} setCurrentX={setCurrentX} setCurrentY={setCurrentY}/>
                 </div>
               </div>
-              <FindPlacesMainCard />
             </React.Fragment>
           }
           <hr/>
@@ -65,11 +71,11 @@ let CategoryPage = ({data}) => {
               let filteredPosts = data.subCategoryItems.edges.filter(({node:item}) => {
                 return item.frontmatter.subcategory === category.frontmatter.title
               })
-              return <React.Fragment>
-                <h2>{category.frontmatter.title}</h2>
-                <HTMLContent content={toHTML(category.frontmatter.description)}/>
-                <SecondaryPostsCarousel posts={filteredPosts}/>
-              </React.Fragment>
+              return <div id={category.frontmatter.title}>
+                  <h2>{category.frontmatter.title}</h2>
+                  <HTMLContent content={toHTML(category.frontmatter.description)}/>
+                  <SecondaryPostsCarousel posts={filteredPosts}/>
+                </div>
             })
           }
             <h2>Latest In {data.markdownRemark.frontmatter.title}</h2>
