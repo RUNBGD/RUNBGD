@@ -170,6 +170,7 @@ let CategoryPage = ({data}) => {
                         }
                     }
                     category
+                    subcategory
                     address
                     latitude
                     longitude

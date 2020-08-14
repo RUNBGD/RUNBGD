@@ -22,6 +22,18 @@ const FindPlacesMap = ({locations, zoom, expanded, xCoord, yCoord, currentX, cur
                 }
               }
             }
+        subcategories:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "location-subcategory"}}}){
+            edges {
+                node{
+                frontmatter{
+                    title
+                    categoryPin{
+                        publicURL
+                    }
+                }
+                }
+              }
+            }
             currentLocationCategory:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "location-category"}, title: {eq: "Current Location"}}}){
                 edges {
                     node{
@@ -47,10 +59,17 @@ const FindPlacesMap = ({locations, zoom, expanded, xCoord, yCoord, currentX, cur
                 />
                 {locations.map(({node:location}) => {
                     
-                    
+                let iconUrl = undefined;
                 let category = data.categories.edges.find(({node:category}) => location.frontmatter.category === category.frontmatter.title)
-                    
-                    return <Marker position={[location.frontmatter.latitude, location.frontmatter.longitude]} icon={icon({iconUrl:category.node.frontmatter.categoryPin.publicURL, iconSize: [20, 28.57]})}>
+                let subcategory = data.subcategories.edges.find(({node:subcategory}) => subcategory.frontmatter.title === location.frontmatter.subcategory)
+                console.log(location.frontmatter.subcategory)
+                if(subcategory){
+                    iconUrl = subcategory.node.frontmatter.categoryPin.publicURL
+                }else if(category){
+                    iconUrl =  category.node.frontmatter.categoryPin.publicURL
+                }
+
+                    return <Marker position={[location.frontmatter.latitude, location.frontmatter.longitude]} icon={icon({iconUrl, iconSize: [20, 28.57]})}>
                         <Popup>
                             <Image fluid={location.frontmatter.coverImage.childImageSharp.fluid}/>
                             {location.frontmatter.name}
