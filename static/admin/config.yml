@@ -46,6 +46,7 @@ collections:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Category", name: "category", widget: "relation", collection: "category", searchFields: ["title"], valueField: "title", displayFields: ["title"]}
       - {label: "Subcategory", name: "subcategory", widget: "relation", collection: "subcategory", searchFields: ["title"], valueField: "title", displayFields: ["title"]}
+      - {label: "Subcategory Featured Post", name: "subcategoryFeatured", widget: "boolean", default: false}
       - {label: "Cover Image", name: "coverImage", widget: "image"}
       - {label: "Body", name: "body", widget: "markdown"}
 
@@ -69,12 +70,16 @@ collections:
 
   - name: "subcategory"
     label: "Subcategory"
-    folder: "src/data/subcategory"
+    folder: "src/pages/categories"
     create: true
-    slug: "{{title}}"
+    path: "{{category}}/{{title}}/{{slug}}"
+    media_folder: /static/img
+    public_folder: /img
+    slug: "index"
     identifier_field: name
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "category-subcategory"}
+      - {label: "Create Page", name: "createPage", required: true, widget: "hidden", default: "true"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Description", name: "description", widget: "markdown"}
       - {label: "Subcategory Cover", name: "coverImage", widget: "image"}

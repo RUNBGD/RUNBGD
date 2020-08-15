@@ -1,9 +1,16 @@
 ---
 templateKey: subcategory-item
 createPage: "true"
-title: "This is some example heading for post on RUN BGD website. "
+title: '"RUN BGD" NIGHTLIFE TOUR'
 category: The City
 subcategory: Tours
-coverImage: /img/airplane-1832699_1920.jpg
+subcategoryFeatured: true
+coverImage: /img/nightlife-tour.jpeg
 ---
-This is some example heading for post on RUN BGD website. This is some example heading for post on RUN BGD website. This is some example heading for post on RUN BGD website. This is some example heading for post on RUN BGD website. This is some example heading for post on RUN BGD website. This is some example heading for post on RUN BGD website. This is some example heading for post on RUN BGD website. This is some example heading for post on RUN BGD website. This is some example heading for post on RUN BGD website. This is some example heading for post on RUN BGD website. This is some example heading for post on RUN BGD website. This is some example heading for post on RUN BGD website. This is some example heading for post on RUN BGD website. This is some example heading for post on RUN BGD website. This is some example heading for post on RUN BGD website. This is some example heading for post on RUN BGD website.
+...diving into Belgrade's nightlife...
+(about 3 hours)
+Belgrade is a city that never sleeps and well-known for groovy & outgoing nightlife.
+
+We will take you to the journey from traditional tavern “kafana” with live Serbian music to flashy and wild floating river club “splav” or into the urban underground scene.
+
+Join the RUN BGD NIGHTLIFE TOUR!

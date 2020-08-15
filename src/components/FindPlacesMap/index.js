@@ -62,7 +62,7 @@ const FindPlacesMap = ({locations, zoom, expanded, xCoord, yCoord, currentX, cur
                 let iconUrl = undefined;
                 let category = data.categories.edges.find(({node:category}) => location.frontmatter.category === category.frontmatter.title)
                 let subcategory = data.subcategories.edges.find(({node:subcategory}) => subcategory.frontmatter.title === location.frontmatter.subcategory)
-                console.log(location.frontmatter.subcategory)
+                
                 if(subcategory){
                     iconUrl = subcategory.node.frontmatter.categoryPin.publicURL
                 }else if(category){

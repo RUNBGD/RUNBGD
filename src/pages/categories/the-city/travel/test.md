@@ -1,9 +1,9 @@
 ---
 templateKey: subcategory-item
 createPage: "true"
-title: This is an longer test text here in latest section
+title: Test
 category: The City
-subcategory: Recommendations
+subcategory: Travel
 subcategoryFeatured: true
 coverImage: /img/belgrade-5010494_1920.jpg
 ---

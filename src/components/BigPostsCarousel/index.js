@@ -65,14 +65,21 @@ const BigPostsCarousel = ({posts}) => {
           onSlideChange={(swiper) => setActiveSlide(swiper.realIndex)}
         >
           {posts.edges.map(({node: post}, index) => {
+
+            let categorySlug = undefined;
+            let authorSlug = undefined;
             
             let category = data.allMarkdownRemark.edges.find(({node:category}) => post.frontmatter.category === category.frontmatter.title)
 
-            let categorySlug = category.node.fields.slug
-            
             let author = data.authors.edges.find(({node:author}) => post.frontmatter.author === author.frontmatter.name)
+            
+            if(category){
+              categorySlug = category.node.fields.slug
+            }
+            if(author){
+              authorSlug = author.node.fields.slug
+            }
 
-            let authorSlug = author.node.fields.slug
 
             return(
               <SwiperSlide className={`${styles.slide} ${index === activeSlide ? styles.activeSlide : styles.notActiveSlide}`}>
@@ -83,10 +90,14 @@ const BigPostsCarousel = ({posts}) => {
                     </h2>
                   </Link> 
                   <div className={styles.postDetails}>
-                    <PostCategoryTag slug={categorySlug} text={post.frontmatter.category} />
-                    <Link to={authorSlug}>
-                      <p className={styles.postAuthor}>by <a>{post.frontmatter.author}</a></p>
-                    </Link>
+                    {post.frontmatter.category && 
+                      <PostCategoryTag slug={categorySlug} text={post.frontmatter.category} />
+                    }
+                    {post.frontmatter.author &&
+                      <Link to={authorSlug}>
+                        <p className={styles.postAuthor}>by <a>{post.frontmatter.author}</a></p>
+                      </Link>
+                    }
                   </div>
                   <PostImage slug={post.fields.slug} image={post.frontmatter.coverImage.childImageSharp.fluid}/>
                 </div>

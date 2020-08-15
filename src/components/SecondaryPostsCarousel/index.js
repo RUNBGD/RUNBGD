@@ -97,11 +97,11 @@ const BigPostsCarousel = ({posts, heading, displayCategory, onlyMobile}) => {
                       </Link>
                     }
                   </div>
-                  <Link to={post.fields.slug}>
-                    <p className={styles.postHeading}>
-                      {post.frontmatter.title}
-                    </p>
-                  </Link>
+                    <Link to={post.fields.slug}>
+                      <p className={styles.postHeading}>
+                        {post.frontmatter.title}
+                      </p>
+                    </Link>
                 </div>
               </SwiperSlide>
             )

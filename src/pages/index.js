@@ -206,6 +206,7 @@ import LatestPosts from '../components/LatestPosts';
 import AsideContent from '../components/AsideContent'
 import FindPlacesMap from '../components/FindPlacesMap'
 import FindPlacesLocations from '../components/FindPlacesLocations'
+import PostCategoryTag from '../components/PostCategoryTag'
 import styles from './index-page.module.scss'
 
 const IndexPage = () => {
@@ -324,6 +325,7 @@ const IndexPage = () => {
                     }
                 }
                 category
+                subcategory
                 address
                 latitude
                 longitude
@@ -382,7 +384,15 @@ const IndexPage = () => {
             return node.frontmatter.category === category.frontmatter.title
           })
 
-          return <SecondaryPostsCarousel posts={posts} heading={category.frontmatter.title}/>
+          return (
+            <React.Fragment>
+              <div className={styles.titleAndSeeMore}>
+                <h2>{category.frontmatter.title}</h2>
+                <PostCategoryTag slug={category.fields.slug} text={'See More'}/>
+              </div>
+              <SecondaryPostsCarousel posts={posts}/>
+            </React.Fragment>
+            )
         } )}
         <h2>Latest Stories</h2>
         <div style={{display:'relative'}}>

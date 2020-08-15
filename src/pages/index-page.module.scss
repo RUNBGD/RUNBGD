@@ -29,3 +29,9 @@
         flex-direction: row;
     }
 }
+
+.title-and-see-more{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+}

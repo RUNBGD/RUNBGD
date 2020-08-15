@@ -12,47 +12,39 @@ import FindPlacesMainCard from '../../components/FindPlacesMainCard'
 import FindPlacesLocations from '../../components/FindPlacesLocations'
 import FindPlacesMap from '../../components/FindPlacesMap'
 import { HTMLContent } from '../../components/Content'
-import PostCategoryTag from '../../components/PostCategoryTag'
 import SecondaryPostsCarousel from '../../components/SecondaryPostsCarousel'
-import styles from './category-page.module.scss'
+import styles from './subcategory-page.module.scss'
 
 
 const toHTML = value => remark().use(remarkHTML).processSync(value).toString()
 
-let CategoryPage = ({data}) => {
+let SubcategoryPage = ({data}) => {
 
   const [currentX, setCurrentX] = useState(data.locations.edges[0] && data.locations.edges[0].node.frontmatter.longitude)
   const [currentY, setCurrentY] = useState(data.locations.edges[0] && data.locations.edges[0].node.frontmatter.latitude)
 
     return(
         <Layout
-          fullWidthContent={
-            <React.Fragment>
-              <div className={styles.categoryCoverContainer}>
-                <h1 className={styles.categoryCoverHeading}>{data.markdownRemark.frontmatter.title}</h1>
-                <hr/>
-                <div className={styles.categoryCover}>
-                  <Image fluid={data.markdownRemark.frontmatter.coverImage.childImageSharp.fluid} alt=''/>
-                </div>
+        fullWidthContent={
+          <React.Fragment>
+            <div className={styles.categoryCoverContainer}>
+              <h1 className={styles.categoryCoverHeading}>{data.markdownRemark.frontmatter.title}</h1>
+              <hr/>
+              <div className={styles.categoryCover}>
+                <Image fluid={data.markdownRemark.frontmatter.coverImage.childImageSharp.fluid} alt=''/>
               </div>
-              {data.subCategories.edges[0] && <div className={styles.subCategoriesNavigation}>
-                {data.subCategories.edges.map(({node:subcategory}) => {
-                  return <Link to={`#${subcategory.frontmatter.title}`}>
-                    {subcategory.frontmatter.title}
-                  </Link>
-                })}
-              </div>}
-            </React.Fragment>
-          }
+            </div>
+          </React.Fragment>
+        }
         >
           <Helmet>
             <title>{data.markdownRemark.frontmatter.title} | RUN BGD</title>
-            <meta name="description" content={`Find more interesting stories in category ${data.markdownRemark.frontmatter.title} at RUN BGD`} />
+            <meta name="description" content={`Find more interesting stories in subcategory ${data.markdownRemark.frontmatter.title} at RUN BGD`} />
           </Helmet>
           <main>
             <HTMLContent content={toHTML(data.markdownRemark.frontmatter.description)}/>
             <hr/>
-            <BigPostsCarousel posts={data.categoryFeaturedPosts} />
+            <BigPostsCarousel posts={data.subcategoryFeaturedPosts} />
             {data.locations.edges[0] && 
             <React.Fragment>
               <h2>Find Places</h2>
@@ -67,30 +59,15 @@ let CategoryPage = ({data}) => {
               <hr/>
             </React.Fragment>
           }
-          {data.subCategories.edges[0] && 
-            data.subCategories.edges.map(({node:category}) => {
-              let filteredPosts = data.subCategoryItems.edges.filter(({node:item}) => {
-                return item.frontmatter.subcategory === category.frontmatter.title
-              })
-              return <div id={category.frontmatter.title}>
-                  <div className={styles.titleAndSeeMore}>
-                    <h2>{category.frontmatter.title}</h2>
-                    <PostCategoryTag slug={category.fields.slug} text={'See More'}/>
-                  </div>
-                  <HTMLContent content={toHTML(category.frontmatter.description)}/>
-                  <SecondaryPostsCarousel posts={filteredPosts}/>
-                </div>
-            })
-          }
             <h2>Latest In {data.markdownRemark.frontmatter.title}</h2>
-            <LatestPosts posts={data.categoryLatestPosts} />
+            <LatestPosts posts={data.subcategoryLatestPosts} />
           </main>
         </Layout>
         )
     }
     
     export const pageQuery = graphql`
-      query CategoryByID($id: String!, $title: String!) {
+      query SubcategoryByID($id: String!, $title: String!) {
         markdownRemark(id: { eq: $id }) {
           id
           frontmatter {
@@ -98,7 +75,7 @@ let CategoryPage = ({data}) => {
             description
             coverImage{
               childImageSharp{
-                fluid(maxWidth:1920, quality: 64){
+                fluid(maxWidth:1920, quality:64){
                   ...GatsbyImageSharpFluid
                 }
               }
@@ -125,7 +102,7 @@ let CategoryPage = ({data}) => {
               }
             }
           }
-        categoryFeaturedPosts:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "blog-post"}, category: {eq: $title}, categoryFeatured: {eq: true}}}){
+        subcategoryFeaturedPosts:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "subcategory-item"}, subcategory: {eq: $title}, subcategoryFeatured: {eq: true}}}){
           edges {
               node{
                 fields{
@@ -133,7 +110,26 @@ let CategoryPage = ({data}) => {
                 }
               frontmatter{
                   title
-                  category
+                  coverImage{
+                  childImageSharp {
+                      fluid(maxWidth:1000, quality: 64){
+                      ...GatsbyImageSharpFluid
+                      }
+                  }
+                  }
+              }
+              }
+          }
+          }
+        subcategoryLatestPosts:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "subcategory-item"}, subcategory: {eq: $title}}}){
+          edges {
+              node{
+                fields{
+                  slug
+                }
+              frontmatter{
+                  title
+                  subcategory
                   author
                   coverImage{
                   childImageSharp {
@@ -146,28 +142,7 @@ let CategoryPage = ({data}) => {
               }
           }
           }
-        categoryLatestPosts:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "blog-post"}, category: {eq: $title}}}){
-          edges {
-              node{
-                fields{
-                  slug
-                }
-              frontmatter{
-                  title
-                  category
-                  author
-                  coverImage{
-                  childImageSharp {
-                      fluid(maxWidth:1000, quality: 64){
-                      ...GatsbyImageSharpFluid
-                      }
-                  }
-                  }
-              }
-              }
-          }
-          }
-          locations:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "location"}, category: {eq:$title}}}){
+          locations:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "location"}, subcategory: {eq:$title}}}){
             edges {
                 node{
                 frontmatter{
@@ -191,9 +166,6 @@ let CategoryPage = ({data}) => {
           subCategories:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "category-subcategory"}, category: {eq:$title}}}){
             edges {
                 node{
-                  fields{
-                    slug
-                  }
                 frontmatter{
                     title
                     description
@@ -210,4 +182,4 @@ let CategoryPage = ({data}) => {
             }
       }
     `
-    export default CategoryPage
+    export default SubcategoryPage

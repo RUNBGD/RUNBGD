@@ -36,13 +36,20 @@ const PostCover = ({post}) => {
     }
     `)
 
+    let categorySlug = undefined;
+    let authorSlug = undefined;
+
     let category = data.allCategories.edges.find(({node:category}) => post.frontmatter.category === category.frontmatter.title)
 
-    let categorySlug = category.node.fields.slug
+    if(category){
+        categorySlug = category.node.fields.slug
+    }
 
     let author = data.authors.edges.find(({node:author}) => post.frontmatter.author === author.frontmatter.name)
 
-    let authorSlug = author.node.fields.slug
+    if(author){
+        authorSlug = author.node.fields.slug
+    }
 
     return(
         <div className={styles.post}> 
@@ -51,7 +58,9 @@ const PostCover = ({post}) => {
                 </div>
             <div className={styles.postText}>
                 <div className={styles.postDetails}>
-                    <PostCategoryTag slug={categorySlug} text={post.frontmatter.category} />
+                    {post.frontmatter.category && 
+                        <PostCategoryTag slug={categorySlug} text={post.frontmatter.category} />
+                    }
                     <Link to={authorSlug}>
                         <p className={styles.postAuthor}>by <a>{post.frontmatter.author}</a></p>
                     </Link>

@@ -49,8 +49,8 @@ export const TourTemplate = ({data}) => {
 
       }
       <hr/>
-      {/* <h2>Latest In {data.markdownRemark.frontmatter.category}</h2>
-      {data.categoryPosts && <LatestPosts posts={data.categoryPosts}/>} */}
+      <h2>Latest In {data.markdownRemark.frontmatter.subcategory}</h2>
+      {data.subcategoryLatestPosts && <LatestPosts posts={data.subcategoryLatestPosts}/>}
     </main>
   )
 }
@@ -66,12 +66,13 @@ let Tour = ({data}) => {
     }
     
     export const pageQuery = graphql`
-      query TourByID($id: String!) {
+      query SubcategoryItemByID($id: String!, $subcategory: String!) {
         markdownRemark(id: { eq: $id }) {
           id
           html
           frontmatter {
             title
+            subcategory
             coverImage{
               childImageSharp{
                 fluid(maxWidth:1000){
@@ -81,6 +82,27 @@ let Tour = ({data}) => {
             }
           }
         }
+        subcategoryLatestPosts:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "subcategory-item"}, subcategory: {eq: $subcategory}}, id:{ne: $id}}){
+          edges {
+              node{
+                fields{
+                  slug
+                }
+              frontmatter{
+                  title
+                  subcategory
+                  author
+                  coverImage{
+                  childImageSharp {
+                      fluid(maxWidth:1000, quality: 64){
+                      ...GatsbyImageSharpFluid
+                      }
+                  }
+                  }
+              }
+              }
+          }
+          }
       }
     `
     export default Tour

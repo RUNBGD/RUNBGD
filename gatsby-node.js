@@ -60,6 +60,7 @@ exports.createPages = async ({ actions, graphql }) => {
             }
             frontmatter {
               templateKey
+              subcategory
             }
           }
         }
@@ -75,6 +76,7 @@ exports.createPages = async ({ actions, graphql }) => {
 
     items.forEach((edge) => {
       const id = edge.node.id
+      const subcategory = edge.node.frontmatter.subcategory
       
       createPage({
         path: edge.node.fields.slug,
@@ -83,7 +85,8 @@ exports.createPages = async ({ actions, graphql }) => {
         ),
         // additional data can be passed via context
         context: {
-          id
+          id,
+          subcategory
         },
       })
     })
@@ -171,6 +174,50 @@ exports.createPages = async ({ actions, graphql }) => {
       })
     })
   })
+
+  await graphql(`
+    {
+      allMarkdownRemark(limit: 2000, filter:{frontmatter:{createPage:{eq: "true"}, templateKey: {eq: "category-subcategory"}}}) {
+        edges {
+          node {
+            id
+            fields {
+              slug
+            }
+            frontmatter {
+              templateKey
+              title
+            }
+          }
+        }
+      }
+    }
+  `).then((result) => {
+    if (result.errors) {
+      result.errors.forEach((e) => console.error(e.toString()))
+      return Promise.reject(result.errors)
+    }
+
+    const posts = result.data.allMarkdownRemark.edges
+
+    posts.forEach((edge) => {
+      const id = edge.node.id
+      const title = edge.node.frontmatter.title
+      
+      createPage({
+        path: edge.node.fields.slug,
+        component: path.resolve(
+          `src/templates/subcategory-page/index.js`
+        ),
+        // additional data can be passed via context
+        context: {
+          id,
+          title
+        },
+      })
+    })
+  })
+  
 
     return graphql(`
     {
