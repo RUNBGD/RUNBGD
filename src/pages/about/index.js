@@ -3,6 +3,8 @@ import {useTransition, useSpring, animated} from 'react-spring'
 
 
 import Layout from '../../components/Layout'
+import logo from '../../img/logo.jpeg'
+import nightlifeImage from '../../img/nightlife.jpg'
 import styles from './about-page.module.scss'
 
 const AboutPage = () => {
@@ -19,9 +21,27 @@ const AboutPage = () => {
     })
 
     const slideDownTransition = useTransition(currentSlide == 2, null, {
-        from:{transform:'translate(-50%, 100%)'},
+        from:{transform:'translate(-50%, 120%)'},
         enter:{transform:'translate(-50%, -50%)'},
-        leave:{transform:'translate(-50%, -100%)'}
+        leave:{transform:'translate(-50%, -120%)'}
+    })
+
+    const slideUpTransition = useTransition(currentSlide == 5, null, {
+        from:{transform:'translate(-50%, -150%)'},
+        enter:{transform:'translate(-50%, -50%)'},
+        leave:{transform:'translate(-50%, 150%)'}
+    })
+
+    const slideLeftTransition = useTransition(currentSlide == 3, null, {
+        from:{transform:'translate(-150%, -50%)'},
+        enter:{transform:'translate(-50%, -50%)'},
+        leave:{transform:'translate(150%, -50%)'}
+    })
+
+    const slideRightTransition = useTransition(currentSlide == 4, null, {
+        from:{transform:'translate(150%, -50%)'},
+        enter:{transform:'translate(-50%, -50%)'},
+        leave:{transform:'translate(-150%, -50%)'}
     })
 
     const slideUp = useSpring({
@@ -30,11 +50,30 @@ const AboutPage = () => {
         delay:100
     })
 
+    const slideDown = useSpring({
+        from:{transform:currentSlide == 5 ? 'translate(0%, -150%)' : 'translate(0%, 0%)'},
+        to:{transform:currentSlide == 5 ? 'translate(0%, 0%)' : 'translate(0%, -150%)'},
+        delay:100
+    })
+
+    const slideRight = useSpring({
+        from:{transform:currentSlide == 3 ? 'translate(150%, 0%)' : 'translate(0%, 0%)'},
+        to:{transform:currentSlide == 3 ? 'translate(0%, 0%)' : 'translate(150%, 0%)'},
+        delay:100
+    })
+
+    const slideLeft = useSpring({
+        from:{transform:currentSlide == 4 ? 'translate(-150%, 0%)' : 'translate(0%, 0%)'},
+        to:{transform:currentSlide == 4 ? 'translate(0%, 0%)' : 'translate(-150%, 0%)'},
+        delay:100
+    })
+
+
     const nextSlide = () => {
         let date = new Date()
         let currentTime = date.getTime()
         if(currentTime - changedSlideTime >= 1000){
-            if(currentSlide < 2){
+            if(currentSlide < 5){
                 setCurrentSlide(prevState => prevState + 1)
             }else{
                 setCurrentSlide(1)
@@ -52,7 +91,7 @@ const AboutPage = () => {
             if(currentSlide > 1){
                 setCurrentSlide(prevState => prevState - 1)
             }else{
-                setCurrentSlide(2)
+                setCurrentSlide(5)
             }
             setChangedSlideTime(currentTime)
         }else{
@@ -78,9 +117,12 @@ const AboutPage = () => {
                     return item && 
                         <animated.div style={props} className={styles.verticalSliderSlide}>
                             <div className={styles.slideBackground} style={{background:'#000', color:'white'}}>
-                                <animated.h2 style={slideUp} className={styles.centeredText}>
-                                    This is something about RUN BGD
-                                </animated.h2>
+                                <animated.div  style={slideUp} className={styles.lStack}>
+                                    <img src={logo} className={styles.logo} alt=''/>
+                                    <h2>
+                                        SCROLL OR CLICK TO READ ABOUT US
+                                    </h2>
+                                </animated.div>
                             </div>
                         </animated.div>
                 })}
@@ -89,8 +131,45 @@ const AboutPage = () => {
                         <animated.div style={props} className={styles.verticalSliderSlide}>
                             <div className={styles.slideBackground}>
                                 <h2 className={styles.centeredText}>
-                                    This is something more about RUN BGD
+                                    team of young and ambitious people
                                 </h2>
+                            </div>
+                        </animated.div>
+                })}
+                {slideLeftTransition.map(({item, key, props}) => {
+                    return item && 
+                        <animated.div style={props} className={styles.verticalSliderSlide}>
+                            <div className={styles.slideBackground} style={{background:'#000', color:'white'}}>
+                                <animated.div  style={slideRight} className={styles.lStack}>
+                                    <h2>
+                                        WE PRESENT BELGRADE AS TOURISTIC DESTINATION IN A LITTLE DIFFERENT LIGHT
+                                    </h2>
+                                </animated.div>
+                            </div>
+                        </animated.div>
+                })}
+                {slideRightTransition.map(({item, key, props}) => {
+                    return item && 
+                        <animated.div style={props} className={styles.verticalSliderSlide}>
+                            <div className={styles.slideBackground} style={{background:'#fff', color:'black'}}>
+                                <animated.div  style={slideLeft} className={styles.lStack}>
+                                    <h2>
+                                        WE MAINLY WANT TO INTRODUCE BELGRADE TO THE YOUNG PEOPLE OF EUROPE
+                                    </h2>
+                                </animated.div>
+                            </div>
+                        </animated.div>
+                })}
+                {slideUpTransition.map(({item, key, props}) => {
+                    return item && 
+                        <animated.div style={props} className={styles.verticalSliderSlide}>
+                            <div className={styles.slideBackground} style={{background:'#fff', color:'white'}}>
+                                <animated.div  style={slideDown} className={styles.lStack}>
+                                    <img src={nightlifeImage} alt='' className={styles.backgroundImage}/>
+                                    <h2>
+                                        NIGHTLIFE
+                                    </h2>
+                                </animated.div>
                             </div>
                         </animated.div>
                 })}

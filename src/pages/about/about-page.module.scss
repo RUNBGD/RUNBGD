@@ -1,5 +1,5 @@
 .vertical-slider-container{
-    height:90vh;
+    height:95vh;
     position:relative;
     width:100%;
 }
@@ -23,7 +23,35 @@
 
 .slide-background{
     width:100%;
-    height:90vh;
+    height:95vh;
     display:flex;
     align-items: center;
+    padding:0 5vw;
+}
+
+.slide-background h2{
+    text-align: center;
+}
+
+.l-stack{
+    width:100%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo{
+    width:100px;
+}
+
+.background-image{
+    object-fit: cover;
+    object-position: center;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    z-index:-1;
+    width:100vw;
+    filter: brightness(60%);
 }
