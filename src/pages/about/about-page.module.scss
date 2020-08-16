@@ -1,3 +1,5 @@
+@import '../../styles/breakpoints.scss';
+
 .vertical-slider-container{
     height:95vh;
     position:relative;
@@ -52,6 +54,9 @@
     left:50%;
     transform:translate(-50%, -50%);
     z-index:-1;
-    width:100vw;
     filter: brightness(60%);
+    @include breakpoint(lg){
+        width:100vw;
+        
+    }
 }
