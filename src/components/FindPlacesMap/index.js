@@ -71,7 +71,7 @@ const FindPlacesMap = ({locations, zoom, expanded, xCoord, yCoord, currentX, cur
 
                     return <Marker position={[location.frontmatter.latitude, location.frontmatter.longitude]} icon={icon({iconUrl, iconSize: [20, 28.57]})}>
                         <Popup>
-                            <Image fluid={location.frontmatter.coverImage.childImageSharp.fluid}/>
+                            <Image className={styles.popupImage} fluid={location.frontmatter.coverImage.childImageSharp.fluid}/>
                             {location.frontmatter.name}
                         </Popup>
                     </Marker>
