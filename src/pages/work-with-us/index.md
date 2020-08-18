@@ -5,7 +5,8 @@ slides:
   - coverImage: /img/image-000.jpg
     slideText: DON'T COME TO BE PART OF THE GAME, COME TO BE THE GAME
   - slideText: Od Beograda za Beograd!
-  - slideText: O NAMA
+  - coverImage: /img/image--002.jpg
+    slideText: O NAMA
   - slideText: RUN BGD je tim mladih i ambicioznih ljudi
   - slideText: |-
       okupljenih oko ideje da Beograd predstave kao turističku
@@ -44,11 +45,6 @@ slides:
       Zbog toga pozivamo različita lokalna preduzeća,
       umetnike i brendove da još snažnije pokrenemo Beograd!
 ---
-
-
-![](/img/0002.jpg)
-
-![](/img/0003.jpg)
 
 ## O NAMA
 

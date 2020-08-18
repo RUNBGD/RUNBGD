@@ -182,8 +182,11 @@ collections:
         label: "Work With Us Page"
         name: "workWithUsPage"
         fields:
-          - {label: "Cover Image", name: "coverImage", widget: image}
-          - {label: Body, name: body, widget: markdown}
+          - {label: "Slides", name: "slides", widget: list, fields: [
+              {label: "Cover Image", required: false ,name: "coverImage", widget: image},
+              {label: "Slide Text", name: "slideText", widget: markdown}
+          ]
+            }
           - {label: "Template Key", name: "templateKey", widget: "string", default: "work-with-us-page"}
 
       - file: "src/pages/terms-of-use/index.md"
