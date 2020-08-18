@@ -6,19 +6,27 @@ import logoImg from '../../img/logo.jpeg'
 
 const AdvertisePage = () => {
   return(
-    <Layout>
+    <Layout
+      fullWidthContent={
+        <div className={styles.background}>
+
+        </div>
+      }
+    >
       <main>
         <div className={styles.advertiseCard}>
-          <div className={styles.lRow}>
-            <h1 className={styles.title}>ADVERTISE WITH US</h1>
-            <img className={styles.logo} src={logoImg} alt=''/>
+          <div>
+            <div className={styles.lRow}>
+              <h1 className={styles.title}>ADVERTISE WITH US</h1>
+              <img className={styles.logo} src={logoImg} alt=''/>
+            </div>
+            <p>
+              The world is changing quickly, and connecting with a younger audience is becoming more challenging than ever. We're here to share our learnings from working with some of the top marketers in the world in how we've helped them future-proof their business.
+            </p>
+            <a className={styles.actionButton} href='mailto:advertise@runbgd.com'>
+              GET IN TOUCH
+            </a>
           </div>
-          <p>
-            The world is changing quickly, and connecting with a younger audience is becoming more challenging than ever. We're here to share our learnings from working with some of the top marketers in the world in how we've helped them future-proof their business.
-          </p>
-          <a className={styles.actionButton} href='mailto:advertise@runbgd.com'>
-            GET IN TOUCH
-          </a>
         </div>
       </main>
     </Layout>
