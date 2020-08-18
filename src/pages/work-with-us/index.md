@@ -1,6 +1,48 @@
 ---
 templateKey: work-with-us-page
 coverImage: /img/0001.jpg
+slides:
+  - coverImage: /img/image-000.jpg
+    slideText: DON'T COME TO BE PART OF THE GAME, COME TO BE THE GAME
+  - slideText: Od Beograda za Beograd!
+  - slideText: O NAMA
+  - slideText: RUN BGD je tim mladih i ambicioznih ljudi
+  - slideText: |-
+      okupljenih oko ideje da Beograd predstave kao turističku
+      destinaciju u malo drugačijem svetlu
+  - slideText: |-
+      mi želimo da Beograd
+      približimo mladim ljudima Evrope
+  - slideText: pokažemo im urbani duh grada kroz...
+  - slideText: |-
+      noćni život uz kvalitetnu dnevnu
+      i noćnu zabavu u našoj organizaciji
+  - slideText: odabrane manje poznate kulturne i umetničke događaje
+  - slideText: restorane
+  - slideText: domaću kuhinju
+  - slideText: “street food”
+  - slideText: kafiće
+  - slideText: klubove
+  - slideText: prodavnice
+  - slideText: |-
+      Doživljaj Beograda sa iskustvom
+      Beograđana - **\#RUNBGD**
+  - slideText: Iz godine u godinu sve je više turista koji otkrivaju Beograd
+  - slideText: |-
+      koji se lagano vraća na mapu najzanimljivijih
+      gradova Evrope
+  - slideText: >-
+      Uprkos tome, malo je online platformi koji strancima na Engleskom jeziku
+      mogu ponuditi
+
+      celokupnu ponudu na jednom mestu
+  - slideText: upravo to je naš glavni cilj kojem stremimo
+  - slideText: Potencijal i talenat koji posedujemo u sverama muzike, umetnosti,
+      dizajna i kreativnosti
+  - slideText: glavni su aduti koje zajedničkim snagama možemo predstaviti svetu.
+  - slideText: |-
+      Zbog toga pozivamo različita lokalna preduzeća,
+      umetnike i brendove da još snažnije pokrenemo Beograd!
 ---
 
 
