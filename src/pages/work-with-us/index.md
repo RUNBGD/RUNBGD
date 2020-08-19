@@ -19,15 +19,19 @@ slides:
       noćni život uz kvalitetnu dnevnu
       i noćnu zabavu u našoj organizaciji
   - slideText: odabrane manje poznate kulturne i umetničke događaje
-  - slideText: restorane
+  - coverImage: /img/restaurant-449952_1920.jpg
+    slideText: restorane
   - slideText: domaću kuhinju
   - slideText: “street food”
-  - slideText: kafiće
-  - slideText: klubove
-  - slideText: prodavnice
+  - coverImage: /img/bar-984527_1920.jpg
+    slideText: kafiće
+  - coverImage: /img/crowd-789652_1920.jpg
+    slideText: klubove
+  - coverImage: /img/clothing-store-984396_1920.jpg
+    slideText: prodavnice
   - slideText: |-
       Doživljaj Beograda sa iskustvom
-      Beograđana - **\#RUNBGD**
+      Beograđana - #RUNBGD
   - slideText: Iz godine u godinu sve je više turista koji otkrivaju Beograd
   - slideText: |-
       koji se lagano vraća na mapu najzanimljivijih

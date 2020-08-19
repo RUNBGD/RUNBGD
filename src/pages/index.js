@@ -376,6 +376,7 @@ const IndexPage = () => {
             <FindPlacesLocations locations={carouselPosts.locations.edges} filterCategory={'Select Category'} horizontalOnMobile={true} setCurrentX={setCurrentX} setCurrentY={setCurrentY}/>
           </div>
         </div>
+        <hr/>
         <FindPlacesMainCard />
         <hr/>
         {featuredCategoriesInOrder(featuredCategories).map(({node: category}) => {
