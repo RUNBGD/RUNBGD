@@ -8,6 +8,8 @@ import Layout from '../../components/Layout'
 import logo from '../../img/logo.jpeg'
 import nightlifeImage from '../../img/nightlife.jpg'
 import styles from './work-with-us.module.scss'
+import VerticalSliderSlide from '../../components/VerticalSliderSlide'
+import AnimatedContainer from '../../components/AnimatedContainer'
 
 const WorkWithUsPage = () => {
 
@@ -40,67 +42,50 @@ const WorkWithUsPage = () => {
     const [currentSlide, setCurrentSlide] = useState(1)
     const [changedSlideTime, setChangedSlideTime] = useState(0)
     const [touchMoves, setTouchMoves] = useState([])
-    
-    const appearTransition = useTransition(currentSlide == 1, null, {
-        from:{opacity:0},
-        enter:{opacity:1},
-        leave:{opacity:0}
-    })
 
-    const slideDownTransition = useTransition(currentSlide == 2, null, {
-        from:{transform:'translate(-50%, 120%)'},
-        enter:{transform:'translate(-50%, -50%)'},
-        leave:{transform:'translate(-50%, -120%)'}
-    })
-
-    const slideUpTransition = useTransition(currentSlide == 5, null, {
-        from:{transform:'translate(-50%, -150%)'},
-        enter:{transform:'translate(-50%, -50%)'},
-        leave:{transform:'translate(-50%, 150%)'}
-    })
-
-    const slideLeftTransition = useTransition(currentSlide == 3, null, {
-        from:{transform:'translate(-150%, -50%)'},
-        enter:{transform:'translate(-50%, -50%)'},
-        leave:{transform:'translate(150%, -50%)'}
-    })
-
-    const slideRightTransition = useTransition(currentSlide == 4, null, {
-        from:{transform:'translate(150%, -50%)'},
-        enter:{transform:'translate(-50%, -50%)'},
-        leave:{transform:'translate(-150%, -50%)'}
-    })
-
-    const slideUp = useSpring({
-        from:{transform:currentSlide == 1 ? 'scale(0)' : 'scale(1)'},
-        to:{transform:currentSlide == 1 ? 'scale(1)' : 'scale(0)'},
-        delay:100
-    })
-
-    const slideDown = useSpring({
-        from:{transform:currentSlide == 5 ? 'translate(0%, -150%)' : 'translate(0%, 0%)'},
-        to:{transform:currentSlide == 5 ? 'translate(0%, 0%)' : 'translate(0%, -150%)'},
-        delay:100
-    })
-
-    const slideRight = useSpring({
-        from:{transform:currentSlide == 3 ? 'translate(150%, 0%)' : 'translate(0%, 0%)'},
-        to:{transform:currentSlide == 3 ? 'translate(0%, 0%)' : 'translate(150%, 0%)'},
-        delay:100
-    })
-
-    const slideLeft = useSpring({
-        from:{transform:currentSlide == 4 ? 'translate(-150%, 0%)' : 'translate(0%, 0%)'},
-        to:{transform:currentSlide == 4 ? 'translate(0%, 0%)' : 'translate(-150%, 0%)'},
-        delay:100
-    })
-
+    const transitions ={
+        appear:{
+            from:{opacity:0},
+            enter:{opacity:1},
+            leave:{opacity:0},
+            delay:100
+        },
+        slideDown:{
+            from:{transform:'translate(0%, 120%)', opacity:0},
+            enter:{transform:'translate(0%, 0%)', opacity:1},
+            leave:{transform:'translate(0%, -120%)', opacity:0},
+            delay:100
+        },
+        slideUp:{
+            from:{transform:'translate(0%, -150%)', opacity:0},
+            enter:{transform:'translate(0%, 0%)', opacity:1},
+            leave:{transform:'translate(0%, 150%)', opacity:0},
+            delay:100
+        },
+        slideLeft:{
+            from:{transform:'translate(-150%, 0%)', opacity:0},
+            enter:{transform:'translate(0%, 0%)', opacity:1},
+            leave:{transform:'translate(150%, 0%)', opacity:0},
+            delay:100
+        },
+        slideRight:{
+            from:{transform:'translate(150%, 0%)', opacity:0},
+            enter:{transform:'translate(0%, 0%)', opacity:1},
+            leave:{transform:'translate(-150%, 0%)', opacity:0},
+            delay:100
+        },
+        scale:{
+            from:{transform:'scale(0)', opacity:0},
+            enter:{transform:'scale(1)', opacity:1},
+            leave:{transform:'scale(0)', opacity:0}
+        }
+    }
 
     const nextSlide = () => {
         let date = new Date()
         let currentTime = date.getTime()
         if(currentTime - changedSlideTime >= 1000){
-            if(currentSlide < 5){
+            if(currentSlide < data.slidesData.frontmatter.slides.length){
                 setCurrentSlide(prevState => prevState + 1)
             }else{
                 setCurrentSlide(1)
@@ -118,7 +103,7 @@ const WorkWithUsPage = () => {
             if(currentSlide > 1){
                 setCurrentSlide(prevState => prevState - 1)
             }else{
-                setCurrentSlide(5)
+                setCurrentSlide(data.slidesData.frontmatter.slides.length)
             }
             setChangedSlideTime(currentTime)
         }else{
@@ -142,71 +127,395 @@ const WorkWithUsPage = () => {
     return(
         <Layout verticalSlider={true}>
             <div className={styles.verticalSliderContainer} onClick={nextSlide} onWheel={(e) => {return e.deltaY > 0 ? nextSlide() : prevSlide()}} onTouchMove={(e) => {e.persist(); setTouchMoves((prevState) => {return [...prevState, e.changedTouches]})}} onTouchEnd={() => setTouchMoves([])}>
-                {appearTransition.map(({item, key, props}) => {
-                    return item && 
-                        <animated.div style={props} className={styles.verticalSliderSlide}>
-                            <div className={styles.slideBackground} style={{background:'#000', color:'white'}}>
-                                <animated.div  style={slideUp} className={styles.lStack}>
-                                    <div className={styles.backgroundImage}>
-                                        <Image fluid={data.slidesData.frontmatter.slides[0].coverImage.childImageSharp.fluid} alt=''/>
-                                    </div>
-                                    <img src={logo} className={styles.logo} alt=''/>
-                                    <h2>
-                                        {data.slidesData.frontmatter.slides[0].slideText}
-                                    </h2>
-                                </animated.div>
-                            </div>
-                        </animated.div>
-                })}
-                {slideDownTransition.map(({item, key, props}) => {
-                    return item && 
-                        <animated.div style={props} className={styles.verticalSliderSlide}>
-                            <div className={styles.slideBackground}>
-                                <h2 className={styles.centeredText}>
-                                    {data.slidesData.frontmatter.slides[1].slideText}
+                <VerticalSliderSlide 
+                    active={currentSlide == 1}
+                    transition={transitions.appear}
+                    >
+                    <div className={styles.slideBackground} style={{background:'#000', color:'white'}}>
+                            <div className={styles.lStack}>
+                                <div className={styles.backgroundImage}>
+                                    <Image fluid={data.slidesData.frontmatter.slides[0].coverImage.childImageSharp.fluid} alt=''/>
+                                </div>
+                                <AnimatedContainer 
+                                    active={currentSlide == 1} 
+                                    className={styles.lStack} 
+                                    transition={transitions.scale}
+                                >
+                                <img src={logo} className={styles.logo} alt=''/>
+                                <h2>
+                                    {data.slidesData.frontmatter.slides[0].slideText}
                                 </h2>
+                                </AnimatedContainer>
                             </div>
-                        </animated.div>
-                })}
-                {slideLeftTransition.map(({item, key, props}) => {
-                    return item && 
-                        <animated.div style={props} className={styles.verticalSliderSlide}>
-                            <div className={styles.slideBackground} style={{background:'#000', color:'white'}}>
-                                <animated.div  style={slideRight} className={styles.lStack}>
-                                    <div className={styles.backgroundImage}>
-                                        <Image fluid={data.slidesData.frontmatter.slides[2].coverImage.childImageSharp.fluid} alt=''/>
-                                    </div>
-                                    <h2>
-                                        {data.slidesData.frontmatter.slides[2].slideText}
-                                    </h2>
-                                </animated.div>
+                    </div>
+                </VerticalSliderSlide>
+                <VerticalSliderSlide
+                    active={currentSlide == 2}
+                    transition={
+                        transitions.slideDown
+                    }
+                >
+                    <div className={styles.slideBackground}>
+                        <h2 className={styles.centeredText}>
+                            {data.slidesData.frontmatter.slides[1].slideText}
+                        </h2>
+                    </div>
+                </VerticalSliderSlide>
+                <VerticalSliderSlide 
+                    transition={transitions.slideLeft}
+                    active={currentSlide == 3}
+                >
+                    <div className={styles.slideBackground} style={{background:'#000', color:'white'}}>
+                        <AnimatedContainer 
+                                active={currentSlide == 3} 
+                                className={styles.lStack} 
+                                transition={transitions.appear}
+                            >
+                            <div className={styles.backgroundImage}>
+                                <Image fluid={data.slidesData.frontmatter.slides[2].coverImage.childImageSharp.fluid} alt=''/>
                             </div>
-                        </animated.div>
-                })}
-                {slideRightTransition.map(({item, key, props}) => {
-                    return item && 
-                        <animated.div style={props} className={styles.verticalSliderSlide}>
-                            <div className={styles.slideBackground} style={{background:'#fff', color:'black'}}>
-                                <animated.div  style={slideLeft} className={styles.lStack}>
-                                    <h2>
-                                        {data.slidesData.frontmatter.slides[3].slideText}
-                                    </h2>
-                                </animated.div>
-                            </div>
-                        </animated.div>
-                })}
-                {slideUpTransition.map(({item, key, props}) => {
-                    return item && 
-                        <animated.div style={props} className={styles.verticalSliderSlide}>
-                            <div className={styles.slideBackground} style={{background:'#fff', color:'black'}}>
-                                <animated.div  style={slideDown} className={styles.lStack}>
-                                    <h2>
-                                        {data.slidesData.frontmatter.slides[4].slideText}
-                                    </h2>
-                                </animated.div>
-                            </div>
-                        </animated.div>
-                })}
+                            <h2>
+                                {data.slidesData.frontmatter.slides[2].slideText}
+                            </h2>
+                        </AnimatedContainer>
+                    </div>
+                </VerticalSliderSlide>
+                <VerticalSliderSlide
+                    active={currentSlide == 4}
+                    transition={transitions.slideRight}
+                >
+                    <div className={styles.slideBackground} style={{background:'#fff', color:'black'}}>
+                        <AnimatedContainer 
+                            transition={transitions.slideLeft} 
+                            active={currentSlide == 4}
+                            className={styles.lStack} 
+                            >
+                            <h2>
+                                {data.slidesData.frontmatter.slides[3].slideText}
+                            </h2>
+                        </AnimatedContainer>
+                    </div>
+                </VerticalSliderSlide>
+                <VerticalSliderSlide
+                    transition={transitions.slideUp}
+                    active={currentSlide == 5}
+                >
+                    <div className={styles.slideBackground} style={{background:'#fff', color:'black'}}>
+                        <AnimatedContainer 
+                            transition={transitions.slideDown} 
+                            active={currentSlide == 5}
+                            className={styles.lStack} 
+                        >
+                            <h2>
+                                {data.slidesData.frontmatter.slides[4].slideText}
+                            </h2>
+                        </AnimatedContainer>
+                    </div>
+                </VerticalSliderSlide>
+                <VerticalSliderSlide
+                    transition={transitions.appear}
+                    active={currentSlide == 6}
+                >
+                    <div className={styles.slideBackground} style={{background:'#000', color:'white'}}>
+                            <AnimatedContainer 
+                                transition={transitions.slideUp} 
+                                active={currentSlide == 6}
+                                className={styles.lStack} 
+                            >
+                                <h2>
+                                    {data.slidesData.frontmatter.slides[5].slideText}
+                                </h2>
+                            </AnimatedContainer>
+                    </div>
+                </VerticalSliderSlide>
+                <VerticalSliderSlide
+                    transition={transitions.slideDown}
+                    active={currentSlide == 7}
+                >
+                    <div className={styles.slideBackground} style={{background:'#000', color:'white'}}>
+                        <AnimatedContainer 
+                            transition={transitions.scale} 
+                            active={currentSlide == 7}
+                            className={styles.lStack} 
+                        >
+                            <h2>
+                                {data.slidesData.frontmatter.slides[6].slideText}
+                            </h2>
+                        </AnimatedContainer>
+                    </div>
+                </VerticalSliderSlide>
+                <VerticalSliderSlide
+                    transition={transitions.slideLeft}
+                    active={currentSlide == 8}
+                >
+                    <div className={styles.slideBackground} style={{background:'#fff', color:'black'}}>
+                        <AnimatedContainer 
+                            transition={transitions.slideRight} 
+                            active={currentSlide == 8}
+                            className={styles.lStack} 
+                        >
+                            <h2>
+                                {data.slidesData.frontmatter.slides[7].slideText}
+                            </h2>
+                        </AnimatedContainer>
+                    </div>
+                </VerticalSliderSlide>
+                <VerticalSliderSlide
+                    transition={transitions.slideRight}
+                    active={currentSlide == 9}
+                >
+                    <div className={styles.slideBackground} style={{background:'#fff', color:'black'}}>
+                        <AnimatedContainer 
+                            transition={transitions.slideLeft} 
+                            active={currentSlide == 9}
+                            className={styles.lStack} 
+                        >
+                            <h2>
+                                {data.slidesData.frontmatter.slides[8].slideText}
+                            </h2>
+                        </AnimatedContainer>
+                    </div>
+                </VerticalSliderSlide>
+                <VerticalSliderSlide
+                    transition={transitions.slideUp}
+                    active={currentSlide == 10}
+                >
+                    <div className={styles.slideBackground} style={{background:'#000', color:'white'}}>
+                        <AnimatedContainer 
+                            transition={transitions.slideDown} 
+                            active={currentSlide == 10}
+                            className={styles.lStack} 
+                        >
+                            <h2>
+                                {data.slidesData.frontmatter.slides[9].slideText}
+                            </h2>
+                        </AnimatedContainer>
+                    </div>
+                </VerticalSliderSlide>
+                <VerticalSliderSlide
+                    transition={transitions.appear}
+                    active={currentSlide == 11}
+                >
+                    <div className={styles.slideBackground} style={{background:'#fff', color:'black'}}>
+                        <AnimatedContainer 
+                            transition={transitions.scale} 
+                            active={currentSlide == 11}
+                            className={styles.lStack} 
+                        >
+                            <h2>
+                                {data.slidesData.frontmatter.slides[10].slideText}
+                            </h2>
+                        </AnimatedContainer>
+                    </div>
+                </VerticalSliderSlide>
+                <VerticalSliderSlide
+                    transition={transitions.scale}
+                    active={currentSlide == 12}
+                >
+                    <div className={styles.slideBackground} style={{background:'#000', color:'white'}}>
+                        <AnimatedContainer 
+                            transition={transitions.appear} 
+                            active={currentSlide == 12}
+                            className={styles.lStack} 
+                        >
+                            <h2>
+                                {data.slidesData.frontmatter.slides[11].slideText}
+                            </h2>
+                        </AnimatedContainer>
+                    </div>
+                </VerticalSliderSlide>
+                <VerticalSliderSlide
+                    transition={transitions.slideLeft}
+                    active={currentSlide == 13}
+                >
+                    <div className={styles.slideBackground} style={{background:'#000', color:'white'}}>
+                        <AnimatedContainer 
+                            transition={transitions.slideLeft} 
+                            active={currentSlide == 13}
+                            className={styles.lStack} 
+                        >
+                            <h2>
+                                {data.slidesData.frontmatter.slides[12].slideText}
+                            </h2>
+                        </AnimatedContainer>
+                    </div>
+                </VerticalSliderSlide>
+                <VerticalSliderSlide
+                    transition={transitions.slideDown}
+                    active={currentSlide == 14}
+                >
+                    <div className={styles.slideBackground} style={{background:'#fff', color:'black'}}>
+                        <AnimatedContainer 
+                            transition={transitions.slideDown} 
+                            active={currentSlide == 14}
+                            className={styles.lStack} 
+                        >
+                            <h2>
+                                {data.slidesData.frontmatter.slides[13].slideText}
+                            </h2>
+                        </AnimatedContainer>
+                    </div>
+                </VerticalSliderSlide>
+                <VerticalSliderSlide
+                    transition={transitions.slideUp}
+                    active={currentSlide == 15}
+                >
+                    <div className={styles.slideBackground} style={{background:'#000', color:'white'}}>
+                        <AnimatedContainer 
+                            transition={transitions.slideUp} 
+                            active={currentSlide == 15}
+                            className={styles.lStack} 
+                        >
+                            <h2>
+                                {data.slidesData.frontmatter.slides[14].slideText}
+                            </h2>
+                        </AnimatedContainer>
+                    </div>
+                </VerticalSliderSlide>
+                <VerticalSliderSlide
+                    transition={transitions.slideRight}
+                    active={currentSlide == 16}
+                >
+                    <div className={styles.slideBackground} style={{background:'#000', color:'white'}}>
+                        <AnimatedContainer 
+                            transition={transitions.slideRight} 
+                            active={currentSlide == 16}
+                            className={styles.lStack} 
+                        >
+                            <h2>
+                                {data.slidesData.frontmatter.slides[15].slideText}
+                            </h2>
+                        </AnimatedContainer>
+                    </div>
+                </VerticalSliderSlide>
+                <VerticalSliderSlide
+                    transition={transitions.appear}
+                    active={currentSlide == 17}
+                >
+                    <div className={styles.slideBackground} style={{background:'#fff', color:'black'}}>
+                        <AnimatedContainer 
+                            transition={transitions.appear} 
+                            active={currentSlide == 17}
+                            className={styles.lStack} 
+                        >
+                            <h2>
+                                {data.slidesData.frontmatter.slides[16].slideText}
+                            </h2>
+                        </AnimatedContainer>
+                    </div>
+                </VerticalSliderSlide>
+                <VerticalSliderSlide
+                    transition={transitions.scale}
+                    active={currentSlide == 18}
+                >
+                    <div className={styles.slideBackground} style={{background:'#000', color:'white'}}>
+                        <AnimatedContainer 
+                            transition={transitions.scale} 
+                            active={currentSlide == 18}
+                            className={styles.lStack} 
+                        >
+                            <h2>
+                                {data.slidesData.frontmatter.slides[17].slideText}
+                            </h2>
+                        </AnimatedContainer>
+                    </div>
+                </VerticalSliderSlide>
+                <VerticalSliderSlide
+                    transition={transitions.scale}
+                    active={currentSlide == 19}
+                >
+                    <div className={styles.slideBackground} style={{background:'#000', color:'white'}}>
+                        <AnimatedContainer 
+                            transition={transitions.appear} 
+                            active={currentSlide == 19}
+                            className={styles.lStack} 
+                        >
+                            <h2>
+                                {data.slidesData.frontmatter.slides[18].slideText}
+                            </h2>
+                        </AnimatedContainer>
+                    </div>
+                </VerticalSliderSlide>
+                <VerticalSliderSlide
+                    transition={transitions.appear}
+                    active={currentSlide == 20}
+                >
+                    <div className={styles.slideBackground} style={{background:'#000', color:'white'}}>
+                        <AnimatedContainer 
+                            transition={transitions.scale} 
+                            active={currentSlide == 20}
+                            className={styles.lStack} 
+                        >
+                            <h2>
+                                {data.slidesData.frontmatter.slides[19].slideText}
+                            </h2>
+                        </AnimatedContainer>
+                    </div>
+                </VerticalSliderSlide>
+                <VerticalSliderSlide
+                    transition={transitions.slideLeft}
+                    active={currentSlide == 21}
+                >
+                    <div className={styles.slideBackground} style={{background:'#000', color:'white'}}>
+                        <AnimatedContainer 
+                            transition={transitions.slideRight} 
+                            active={currentSlide == 21}
+                            className={styles.lStack} 
+                        >
+                            <h2>
+                                {data.slidesData.frontmatter.slides[20].slideText}
+                            </h2>
+                        </AnimatedContainer>
+                    </div>
+                </VerticalSliderSlide>
+                <VerticalSliderSlide
+                    transition={transitions.slideDown}
+                    active={currentSlide == 22}
+                >
+                    <div className={styles.slideBackground} style={{background:'#000', color:'white'}}>
+                        <AnimatedContainer 
+                            transition={transitions.slideRight} 
+                            active={currentSlide == 22}
+                            className={styles.lStack} 
+                        >
+                            <h2>
+                                {data.slidesData.frontmatter.slides[21].slideText}
+                            </h2>
+                        </AnimatedContainer>
+                    </div>
+                </VerticalSliderSlide>
+                <VerticalSliderSlide
+                    transition={transitions.slideDown}
+                    active={currentSlide == 23}
+                >
+                    <div className={styles.slideBackground} style={{background:'#000', color:'white'}}>
+                        <AnimatedContainer 
+                            transition={transitions.scale} 
+                            active={currentSlide == 23}
+                            className={styles.lStack} 
+                        >
+                            <h2>
+                                {data.slidesData.frontmatter.slides[22].slideText}
+                            </h2>
+                        </AnimatedContainer>
+                    </div>
+                </VerticalSliderSlide>
+                {/* <VerticalSliderSlide
+                    transition={transitions.slideDown}
+                    active={currentSlide == 24}
+                >
+                    <div className={styles.slideBackground} style={{background:'#000', color:'white'}}>
+                        <AnimatedContainer 
+                            transition={transitions.scale} 
+                            active={currentSlide == 24}
+                            className={styles.lStack} 
+                        >
+                            <h2>
+                                {data.slidesData.frontmatter.slides[23].slideText}
+                            </h2>
+                        </AnimatedContainer>
+                    </div>
+                </VerticalSliderSlide> */}
             </div>
         </Layout>
     )
