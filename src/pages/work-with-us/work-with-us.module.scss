@@ -54,9 +54,14 @@
     left:50%;
     transform:translate(-50%, -50%);
     z-index:-1;
+    width:100vw;
+    height:100vh;
     filter: brightness(60%);
     @include breakpoint(lg){
         width:100vw;
-        
     }
+}
+
+.background-image div{
+    height:100%;
 }
