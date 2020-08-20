@@ -13,6 +13,11 @@ import styles from './work-with-us.module.scss'
 import { HTMLContent } from '../../components/Content'
 import VerticalSliderSlide from '../../components/VerticalSliderSlide'
 import AnimatedContainer from '../../components/AnimatedContainer'
+import logoNetworks from '../../img/logo-runbgd-networks.png'
+import logoTours from '../../img/logo-runbgd-tours.png'
+import logoShop from '../../img/logo-runbgd-shop.png'
+import logoJam from '../../img/logo-runbgd-jam.png'
+import logoMinus1 from '../../img/logo-runbgd-minus1.png'
 
 const toHTML = value => remark().use(remarkHTML).processSync(value).toString()
 
@@ -152,6 +157,19 @@ const WorkWithUsPage = () => {
                                 <h2>
                                     {data.slidesData.frontmatter.slides[0].slideText}
                                 </h2>
+                                </AnimatedContainer>
+                                <AnimatedContainer 
+                                    active={currentSlide == 1} 
+                                    className={styles.lStack} 
+                                    transition={transitions.slideDown}
+                                >
+                                    <div className={styles.allLogos}>
+                                        <img src={logoNetworks} alt=''/>
+                                        <img src={logoTours} alt=''/>
+                                        <img src={logoShop} alt=''/>
+                                        <img src={logoJam} alt=''/>
+                                        <img src={logoMinus1} alt=''/>
+                                    </div>
                                 </AnimatedContainer>
                             </div>
                     </div>

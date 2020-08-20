@@ -65,3 +65,14 @@
 .background-image div{
     height:100%;
 }
+
+.all-logos{
+    width:100%;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.all-logos > img{
+    width:10%;
+}
