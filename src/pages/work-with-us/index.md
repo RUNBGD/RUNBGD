@@ -56,7 +56,7 @@ slides:
   - slideText: " u paru ili sa prijateljima"
   - slideText: uz lokalnog vodiča i RUNBGD Beograđane ćete imati priliku da doživite
       ono što tokom klasično organizovanih tura nije moguće
-  - slideText: Svaki osnovni paket kod nas uključuje
+  - slideText: Svaki osnovni paket kod nas uključuje...
   - slideText: " prevoz"
   - slideText: " smeštaj"
   - slideText: vodiča
@@ -92,7 +92,7 @@ slides:
   - slideText: " umetnost"
   - slideText: " sport"
   - slideText: modu
-  - slideText: " Prostor bi sadržao"
+  - slideText: " Prostor bi sadržao..."
   - slideText: umetničku galeriju
   - slideText: bar
   - slideText: prodavnicu

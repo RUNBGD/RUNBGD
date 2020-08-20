@@ -160,6 +160,17 @@ collections:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Category Pin", name: "categoryPin", widget: "image"}
   
+  - name: "logos"
+    label: "Logos"
+    folder: "src/data/logos"
+    create: true
+    slug: "{{title}}"
+    identifier_field: name
+    fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "logos"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Logo Image", name: "logoImage", widget: "image"}
+
   - name: "pages"
     label: "Pages"
     files:

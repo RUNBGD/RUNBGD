@@ -18,13 +18,6 @@ const Header = () => {
   
   let data = useStaticQuery(graphql`
   query getFluidLogo{
-    logo:file(relativePath:{eq:"logo.jpeg"}){
-      childImageSharp{
-        fluid(maxWidth: 300){
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
     channels:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "category-page"}}}, sort: {fields: [frontmatter___orderNavbar]}){
       edges {
         node{
@@ -106,6 +99,17 @@ const Header = () => {
         }
       }
     }
+    mainLogo: markdownRemark(frontmatter:{templateKey:{eq: "logos"}, title:{eq: "RUNBGD"}}){
+      frontmatter{
+          logoImage{
+              childImageSharp{
+                  fluid(maxWidth:300, quality: 64){
+                      ...GatsbyImageSharpFluid
+                  }
+              }
+          }
+      }
+  }
   }
   `)
 
@@ -155,7 +159,7 @@ const Header = () => {
           </div>
           <div className={styles.logoNavItems}>
             <Link to='/' className={styles.logo}>
-              <Image fluid={data.logo.childImageSharp.fluid} alt='logo'/>
+              <Image fluid={data.mainLogo.frontmatter.logoImage.childImageSharp.fluid} alt='logo'/>
             </Link>
           </div>
           <div className={styles.headerLinks}>

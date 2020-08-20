@@ -46,6 +46,33 @@ const WorkWithUsPage = () => {
                     }
                 }
             }
+            logos: allMarkdownRemark(filter:{frontmatter:{templateKey:{eq: "logos"}}}){
+                edges{
+                    node{
+                        frontmatter{
+                            title
+                            logoImage{
+                                childImageSharp{
+                                    fluid(maxWidth:200, quality:64){
+                                        ...GatsbyImageSharpFluid
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            mainLogo: markdownRemark(frontmatter:{templateKey:{eq: "logos"}, title:{eq: "RUNBGD"}}){
+                frontmatter{
+                    logoImage{
+                        childImageSharp{
+                            fluid(maxWidth:300, quality: 64){
+                                ...GatsbyImageSharpFluid
+                            }
+                        }
+                    }
+                }
+            }
         }
     `)
     
@@ -153,7 +180,7 @@ const WorkWithUsPage = () => {
                                     className={styles.lStack} 
                                     transition={transitions.scale}
                                 >
-                                <img src={logo} className={styles.logo} alt=''/>
+                                <Image fluid={data.mainLogo.frontmatter.logoImage.childImageSharp.fluid} alt='' className={styles.logo}/>
                                 <h2>
                                     {data.slidesData.frontmatter.slides[0].slideText}
                                 </h2>
@@ -164,11 +191,11 @@ const WorkWithUsPage = () => {
                                     transition={transitions.slideDown}
                                 >
                                     <div className={styles.allLogos}>
-                                        <img src={logoNetworks} alt=''/>
-                                        <img src={logoTours} alt=''/>
-                                        <img src={logoShop} alt=''/>
-                                        <img src={logoJam} alt=''/>
-                                        <img src={logoMinus1} alt=''/>
+                                        {data.logos.edges.map(({node:logo}) => {
+                                            if(logo.frontmatter.title !== 'RUNBGD'){
+                                                return <Image fluid={logo.frontmatter.logoImage.childImageSharp.fluid} alt={logo.frontmatter.title}/>
+                                            }
+                                        })}
                                     </div>
                                 </AnimatedContainer>
                             </div>
@@ -208,7 +235,7 @@ const WorkWithUsPage = () => {
                             className={styles.lStack} 
                             transition={transitions.slideRight}
                         >
-                            <img src={logo} className={styles.logo} alt=''/>
+                            <Image className={styles.logo} fluid={data.mainLogo.frontmatter.logoImage.childImageSharp.fluid} alt='' />
                             <h2>
                                 {data.slidesData.frontmatter.slides[2].slideText}
                             </h2>
@@ -650,7 +677,7 @@ const WorkWithUsPage = () => {
                             active={currentSlide == 24}
                             className={styles.lStack} 
                         >
-                            <img src={logo} className={styles.logo} alt=''/>
+                            <Image className={styles.logo} fluid={data.mainLogo.frontmatter.logoImage.childImageSharp.fluid} alt='' />
                             <h2>
                                 {data.slidesData.frontmatter.slides[23].slideText}
                             </h2>
@@ -1008,7 +1035,7 @@ const WorkWithUsPage = () => {
                             active={currentSlide == 41}
                             className={styles.lStack} 
                         >
-                            <img src={logo} className={styles.logo} alt=''/>
+                            <Image className={styles.logo} fluid={data.mainLogo.frontmatter.logoImage.childImageSharp.fluid} alt='' />
                             <h2>
                                 {data.slidesData.frontmatter.slides[40].slideText}
                             </h2>
@@ -1219,7 +1246,7 @@ const WorkWithUsPage = () => {
                             active={currentSlide == 51}
                             className={styles.lStack} 
                         >
-                            <img src={logo} className={styles.logo} alt=''/>
+                            <Image className={styles.logo} fluid={data.mainLogo.frontmatter.logoImage.childImageSharp.fluid} alt='' />
                             <h2>
                                 {data.slidesData.frontmatter.slides[50].slideText}
                             </h2>
@@ -1808,7 +1835,7 @@ const WorkWithUsPage = () => {
                             active={currentSlide == 79}
                             className={styles.lStack} 
                         >
-                            <img src={logo} className={styles.logo} alt=''/>
+                            <Image className={styles.logo} fluid={data.mainLogo.frontmatter.logoImage.childImageSharp.fluid} alt='' />
                             <h2>
                             <HTMLContent content={toHTML(data.slidesData.frontmatter.slides[78].slideText)}/>
                             </h2>

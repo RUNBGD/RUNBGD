@@ -74,7 +74,7 @@
     flex-wrap:wrap;
 }
 
-.all-logos > img{
+.all-logos > div{
     width:20%;
     margin:0 5%;
     @include breakpoint(lg){
