@@ -71,8 +71,13 @@
     display:flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap:wrap;
 }
 
 .all-logos > img{
-    width:10%;
+    width:20%;
+    margin:0 5%;
+    @include breakpoint(lg){
+        width:10%;
+    }
 }
