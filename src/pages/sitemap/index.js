@@ -22,6 +22,19 @@ let Sitemap = () => {
               }
             }
           }
+        subchannels:allMarkdownRemark(filter:{frontmatter:{templateKey:{eq:"category-subcategory"}}}){
+          edges{
+            node{
+              fields{
+                slug
+              }
+              frontmatter{
+                title
+                category
+              }
+            }
+          }
+        }
         authors:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "author-page"}}}) {
             edges {
               node {
@@ -59,10 +72,28 @@ let Sitemap = () => {
             <div className={styles.sitemapEntries}>
               <div className={styles.entryGroup}>
                 <p className={styles.groupParagraph}>Channels</p>
-                {data.channels.edges.map(({node:channel}) => 
+                {data.channels.edges.map(({node:channel}) => {
+                  console.log(data.subchannels)
+                let subchannels = data.subchannels.edges.filter(({node:subchannel}) => {
+                  return channel.frontmatter.title === subchannel.frontmatter.category
+                })
+                return <React.Fragment>
                     <Link to={channel.fields.slug}>
                         <p>{channel.frontmatter.title}</p>
                     </Link>
+                    {subchannels &&
+                    <ul>
+                      {subchannels.map(({node:subchannel}) => {
+                        return <li>
+                          <Link to={subchannel.fields.slug}>
+                            {subchannel.frontmatter.title}
+                          </Link>
+                        </li>
+                      })}
+                    </ul>
+                    }
+                </React.Fragment>
+                }
                 )}
               </div>
               <div className={styles.entryGroup}>
