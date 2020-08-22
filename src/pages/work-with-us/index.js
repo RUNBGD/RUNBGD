@@ -82,6 +82,7 @@ const WorkWithUsPage = () => {
     const [autoplayDirection, setAutoplayDirection] = useState(undefined)
     const [forwardInterval, setForwardInterval] = useState(undefined)
     const [backwardInterval, setBackwardInterval] = useState(undefined)
+    const [slideIntervalTime, setSlideIntervalTime] = useState(2500)
 
     const transitions ={
         appear:{
@@ -184,20 +185,136 @@ const WorkWithUsPage = () => {
             clearInterval(backwardInterval)
             setForwardInterval(setInterval(() => {
                 nextSlide()
-            }, 5000))
+            }, slideIntervalTime))
         }else if(autoplayDirection === 'backward'){
             clearInterval(forwardInterval)
             clearInterval(backwardInterval)
             setBackwardInterval(setInterval(() => {
                 prevSlide()
-            }, 5000))
+            }, slideIntervalTime))
         }
         else{
             clearInterval(forwardInterval)
             clearInterval(backwardInterval)
         }
         
-    }, [autoplayDirection])
+    }, [autoplayDirection, slideIntervalTime])
+
+    useEffect(() => {
+        switch (currentSlide) {
+            case 4:
+                setSlideIntervalTime(3000)
+                break;
+            case 5:
+                setSlideIntervalTime(5000)
+                break;
+            case 6:
+                setSlideIntervalTime(4000)
+                break;
+            case 7:
+                setSlideIntervalTime(3000)
+                break;
+            case 8:
+                setSlideIntervalTime(4000)
+                break;
+            case 9:
+                setSlideIntervalTime(4000)
+                break;
+            case 16:
+                setSlideIntervalTime(3000)
+                break;
+            case 17:
+                setSlideIntervalTime(3000)
+                break;
+            case 18:
+                setSlideIntervalTime(3000)
+                break;
+            case 19:
+                setSlideIntervalTime(5000)
+                break;
+            case 20:
+                setSlideIntervalTime(3000)
+                break;
+            case 21:
+                setSlideIntervalTime(4000)
+                break;
+            case 22:
+                setSlideIntervalTime(4000)
+                break;
+            case 23:
+                setSlideIntervalTime(5000)
+                break;
+            case 25:
+                setSlideIntervalTime(5000)
+                break;
+            case 27:
+                setSlideIntervalTime(3000)
+                break;
+            case 28:
+                setSlideIntervalTime(5000)
+                break;
+            case 29:
+                setSlideIntervalTime(3000)
+                break;
+            case 33:
+                setSlideIntervalTime(3000)
+                break;
+            case 38:
+                setSlideIntervalTime(6000)
+                break;
+            case 39:
+                setSlideIntervalTime(3000)
+                break;
+            case 40:
+                setSlideIntervalTime(5000)
+                break;
+            case 42:
+                setSlideIntervalTime(4000)
+                break;
+            case 43:
+                setSlideIntervalTime(3000)
+                break;
+            case 52:
+                setSlideIntervalTime(4000)
+                break;
+            case 53:
+                setSlideIntervalTime(3000)
+                break;
+            case 54:
+                setSlideIntervalTime(4000)
+                break;
+            case 59:
+                setSlideIntervalTime(3000)
+                break;
+            case 63:
+                setSlideIntervalTime(3000)
+                break;
+            case 64:
+                setSlideIntervalTime(4000)
+                break;
+            case 65:
+                setSlideIntervalTime(6000)
+                break;
+            case 71:
+                setSlideIntervalTime(4000)
+                break;
+            case 72:
+                setSlideIntervalTime(4000)
+                break;
+            case 73:
+                setSlideIntervalTime(3000)
+                break;
+            case 77:
+                setSlideIntervalTime(4000)
+                break;
+            case 79:
+                setSlideIntervalTime(20000)
+                break;
+            default:
+                setSlideIntervalTime(2000)
+                break;
+        }
+    }, [currentSlide])
 
     return(
         <Layout verticalSlider={true}>
