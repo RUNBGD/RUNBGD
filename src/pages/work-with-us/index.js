@@ -62,7 +62,7 @@ const WorkWithUsPage = () => {
                     }
                 }
             }
-            mainLogo: markdownRemark(frontmatter:{templateKey:{eq: "logos"}, title:{eq: "RUNBGD"}}){
+            networksLogo: markdownRemark(frontmatter:{templateKey:{eq: "logos"}, title:{eq: "Networks"}}){
                 frontmatter{
                     logoImage{
                         childImageSharp{
@@ -79,6 +79,9 @@ const WorkWithUsPage = () => {
     const [currentSlide, setCurrentSlide] = useState(1)
     const [changedSlideTime, setChangedSlideTime] = useState(0)
     const [touchMoves, setTouchMoves] = useState([])
+    const [autoplayDirection, setAutoplayDirection] = useState(undefined)
+    const [forwardInterval, setForwardInterval] = useState(undefined)
+    const [backwardInterval, setBackwardInterval] = useState(undefined)
 
     const transitions ={
         appear:{
@@ -120,6 +123,7 @@ const WorkWithUsPage = () => {
     }
 
     const nextSlide = () => {
+        
         let date = new Date()
         let currentTime = date.getTime()
         if(currentTime - changedSlideTime >= 1000){
@@ -153,17 +157,81 @@ const WorkWithUsPage = () => {
         if(touchMoves[0] && touchMoves[1]){
 
             if(touchMoves[0][0].screenY >= touchMoves[1][0].screenY){
-                nextSlide()
+                nextSlide(); setAutoplayDirection(prevState => {
+                    if(prevState === 'forward'){
+                        return undefined
+                    }
+                    else if(prevState !== 'forward'){
+                        return 'forward'
+                    }
+                })
             }else{
-                prevSlide()
+                prevSlide(); setAutoplayDirection(prevState => {
+                    if(prevState === 'backward'){
+                        return undefined
+                    }
+                    else if(prevState !== 'backward'){
+                        return 'backward'
+                    }
+                })
             }
         }
     }, [touchMoves])
 
-    console.log(data)
+    useEffect(() => {
+        if(autoplayDirection === 'forward'){
+            clearInterval(forwardInterval)
+            clearInterval(backwardInterval)
+            setForwardInterval(setInterval(() => {
+                nextSlide()
+            }, 5000))
+        }else if(autoplayDirection === 'backward'){
+            clearInterval(forwardInterval)
+            clearInterval(backwardInterval)
+            setBackwardInterval(setInterval(() => {
+                prevSlide()
+            }, 5000))
+        }
+        else{
+            clearInterval(forwardInterval)
+            clearInterval(backwardInterval)
+        }
+        
+    }, [autoplayDirection])
+
     return(
         <Layout verticalSlider={true}>
-            <div className={styles.verticalSliderContainer} onClick={nextSlide} onWheel={(e) => {return e.deltaY > 0 ? nextSlide() : prevSlide()}} onTouchMove={(e) => {e.persist(); setTouchMoves((prevState) => {return [...prevState, e.changedTouches]})}} onTouchEnd={() => setTouchMoves([])}>
+            <div className={styles.verticalSliderContainer} 
+            onClick={() => {if(autoplayDirection == undefined){nextSlide()}; setAutoplayDirection(prevState => {
+                        if(prevState === 'forward'){
+                            return undefined
+                        }
+                        else if(prevState !== 'forward'){
+                            return 'forward'
+                        }
+                    })
+                }} 
+                onWheel={(e) => {
+                if(e.deltaY > 0){
+                    nextSlide(); setAutoplayDirection(prevState => {
+                        if(prevState === 'forward'){
+                            return undefined
+                        }
+                        else if(prevState !== 'forward'){
+                            return 'forward'
+                        }
+                    })
+                }else{
+                    prevSlide(); setAutoplayDirection(prevState => {
+                        if(prevState === 'backward'){
+                            return undefined
+                        }
+                        else if(prevState !== 'backward'){
+                            return 'backward'
+                        }
+                    })
+                }
+                }} onTouchMove={(e) => {e.persist(); setTouchMoves((prevState) => {return [...prevState, e.changedTouches]})}} onTouchEnd={() => setTouchMoves([])}>
                 <VerticalSliderSlide 
                     active={currentSlide == 1}
                     transition={transitions.appear}
@@ -180,7 +248,7 @@ const WorkWithUsPage = () => {
                                     className={styles.lStack} 
                                     transition={transitions.scale}
                                 >
-                                <Image fluid={data.mainLogo.frontmatter.logoImage.childImageSharp.fluid} alt='' className={styles.logo}/>
+                                <Image fluid={data.networksLogo.frontmatter.logoImage.childImageSharp.fluid} alt='' className={styles.logo}/>
                                 <h2>
                                     {data.slidesData.frontmatter.slides[0].slideText}
                                 </h2>
@@ -192,7 +260,7 @@ const WorkWithUsPage = () => {
                                 >
                                     <div className={styles.allLogos}>
                                         {data.logos.edges.map(({node:logo}) => {
-                                            if(logo.frontmatter.title !== 'RUNBGD'){
+                                            if(logo.frontmatter.title !== 'Networks'){
                                                 return <Image fluid={logo.frontmatter.logoImage.childImageSharp.fluid} alt={logo.frontmatter.title}/>
                                             }
                                         })}
@@ -235,7 +303,7 @@ const WorkWithUsPage = () => {
                             className={styles.lStack} 
                             transition={transitions.slideRight}
                         >
-                            <Image className={styles.logo} fluid={data.mainLogo.frontmatter.logoImage.childImageSharp.fluid} alt='' />
+                            <Image className={styles.logo} fluid={data.networksLogo.frontmatter.logoImage.childImageSharp.fluid} alt='' />
                             <h2>
                                 {data.slidesData.frontmatter.slides[2].slideText}
                             </h2>
@@ -677,7 +745,7 @@ const WorkWithUsPage = () => {
                             active={currentSlide == 24}
                             className={styles.lStack} 
                         >
-                            <Image className={styles.logo} fluid={data.mainLogo.frontmatter.logoImage.childImageSharp.fluid} alt='' />
+                            <Image className={styles.logo} fluid={data.networksLogo.frontmatter.logoImage.childImageSharp.fluid} alt='' />
                             <h2>
                                 {data.slidesData.frontmatter.slides[23].slideText}
                             </h2>
@@ -1035,7 +1103,7 @@ const WorkWithUsPage = () => {
                             active={currentSlide == 41}
                             className={styles.lStack} 
                         >
-                            <Image className={styles.logo} fluid={data.mainLogo.frontmatter.logoImage.childImageSharp.fluid} alt='' />
+                            <Image className={styles.logo} fluid={data.networksLogo.frontmatter.logoImage.childImageSharp.fluid} alt='' />
                             <h2>
                                 {data.slidesData.frontmatter.slides[40].slideText}
                             </h2>
@@ -1246,7 +1314,7 @@ const WorkWithUsPage = () => {
                             active={currentSlide == 51}
                             className={styles.lStack} 
                         >
-                            <Image className={styles.logo} fluid={data.mainLogo.frontmatter.logoImage.childImageSharp.fluid} alt='' />
+                            <Image className={styles.logo} fluid={data.networksLogo.frontmatter.logoImage.childImageSharp.fluid} alt='' />
                             <h2>
                                 {data.slidesData.frontmatter.slides[50].slideText}
                             </h2>
@@ -1835,7 +1903,7 @@ const WorkWithUsPage = () => {
                             active={currentSlide == 79}
                             className={styles.lStack} 
                         >
-                            <Image className={styles.logo} fluid={data.mainLogo.frontmatter.logoImage.childImageSharp.fluid} alt='' />
+                            <Image className={styles.logo} fluid={data.networksLogo.frontmatter.logoImage.childImageSharp.fluid} alt='' />
                             <h2>
                             <HTMLContent content={toHTML(data.slidesData.frontmatter.slides[78].slideText)}/>
                             </h2>

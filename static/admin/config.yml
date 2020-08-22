@@ -35,10 +35,10 @@ collections:
     label: "Subcategory item"
     folder: "src/pages/categories"
     create: true
-    path: "{{category}}/{{subcategory}}/{{slug}}"
+    path: "{{category}}/{{subcategory}}/{{title}}/{{slug}}"
     media_folder: /static/img
     public_folder: /img
-    slug: "{{title}}"
+    slug: "index"
     identifier_field: name
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "subcategory-item"}
