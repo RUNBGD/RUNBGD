@@ -17,8 +17,6 @@ Starih Ratnika 18
 
 11250 Belgrade
 
-
-
 Fon: (bice jos definisan)
 
 Mail: [contact@runbgd.com](contact@runbgd.com)
