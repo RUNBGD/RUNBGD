@@ -7,8 +7,7 @@ Do you have a question, comment, concern, suggestion or news tip to pass along t
 \
 If you are a photographer/model/stylist and have been unexpectedly solicited to work for RUN BGD, please verify the credentials of the hiring individual or company by **[contacting us](contact@runbgd.com)** or call the number below.
 
-
-
+\
 Mailing address:
 
 RUN BGD

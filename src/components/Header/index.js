@@ -218,10 +218,6 @@ const Header = () => {
           <nav className={`${styles.headerMoreMenu} ${menuOpened && styles.headerMoreMenuOpened}`}>
             
             <LinksBlock groupName='Channels' linkArray={data.channels.edges} trigger={menuOpened}/>
-            <LinksBlock groupName='Our Web App' linkArray={[{node:{fields:{slug:'/find-places'}, frontmatter:{title:'Find Places'}}}]} trigger={menuOpened} />
-            <LinksBlock groupName='Follow On' linkArray={data.socialLinks.edges} trigger={menuOpened}/>
-            <LinksBlock groupName='run bgd sites' linkArray={data.otherSites.edges} trigger={menuOpened}/>
-            <LinksBlock groupName='Authors' linkArray={data.authors.edges} trigger={menuOpened}/>
             <LinksBlock groupName='work with us' linkArray={
               [
                 {node:{fields:{slug:'/work-with-us'}, frontmatter:{title:'Work With Us'}}},
@@ -232,6 +228,10 @@ const Header = () => {
             }
             trigger={menuOpened}
             />
+            <LinksBlock groupName='Follow On' linkArray={data.socialLinks.edges} trigger={menuOpened}/>
+            <LinksBlock groupName='run bgd sites' linkArray={data.otherSites.edges} trigger={menuOpened}/>
+            <LinksBlock groupName='Our Web App' linkArray={[{node:{fields:{slug:'/find-places'}, frontmatter:{title:'Find Places'}}}]} trigger={menuOpened} />
+            <LinksBlock groupName='Authors' linkArray={data.authors.edges} trigger={menuOpened}/>
 
             <footer>
               <NewsletterForm dark={true}/>
@@ -242,8 +242,8 @@ const Header = () => {
                 <Link to='/privacy-policy'>
                   Privacy policy
                 </Link>
-                <Link to='/do-not-sell-my-info'>
-                  Do not sell my info
+                <Link to='/contact-us'>
+                  Contact us
                 </Link>
                 <Link to='/sitemap'>
                   Site map

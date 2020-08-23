@@ -79,12 +79,12 @@ let Sitemap = () => {
                 })
                 return <React.Fragment>
                     <Link to={channel.fields.slug}>
-                        <p>{channel.frontmatter.title}</p>
+                        <p className={styles.entry}>{channel.frontmatter.title}</p>
                     </Link>
                     {subchannels &&
-                    <ul>
+                    <ul className={styles.subentryList}>
                       {subchannels.map(({node:subchannel}) => {
-                        return <li>
+                        return <li className={styles.subentry}>
                           <Link to={subchannel.fields.slug}>
                             {subchannel.frontmatter.title}
                           </Link>
@@ -97,37 +97,37 @@ let Sitemap = () => {
                 )}
               </div>
               <div className={styles.entryGroup}>
-                <p className={styles.groupParagraph}>Authors</p>
-                {data.authors.edges.map(({node:author}) => 
-                    <Link to={author.fields.slug}>
-                        <p>{author.frontmatter.name}</p>
-                    </Link>
-                )}
-              </div>
-              <div className={styles.entryGroup}>
-                <p className={styles.groupParagraph}>Web Application</p>
-                <Link to='/find-places'>
-                    <p>Find Places</p>
-                </Link>
-              </div>
-              <div className={styles.entryGroup}>
                 <p className={styles.groupParagraph}>Follow Us</p>
                 {data.socialLinks.edges.map(({node:social}) => 
                     <Link to={social.frontmatter.url}>
-                        <p>Follow us on {social.frontmatter.title}</p>
+                        <p className={styles.entry}>Follow us on {social.frontmatter.title}</p>
                     </Link>
                 )}
               </div>
               <div className={styles.entryGroup}>
                 <p className={styles.groupParagraph}>Info</p>
                 <Link to='/privacy-policy'>
-                    <p>Privacy Policy</p>
+                    <p className={styles.entry}>Privacy Policy</p>
                 </Link>
                 <Link to='/terms-of-use'>
-                    <p>Terms of Use</p>
+                    <p className={styles.entry}>Terms of Use</p>
                 </Link>
                 <Link to='/contact-us'>
-                    <p>Contact Us</p>
+                    <p className={styles.entry}>Contact Us</p>
+                </Link>
+              </div>
+              <div className={styles.entryGroup}>
+                <p className={styles.groupParagraph}>Authors</p>
+                {data.authors.edges.map(({node:author}) => 
+                    <Link to={author.fields.slug}>
+                        <p className={styles.entry}>{author.frontmatter.name}</p>
+                    </Link>
+                )}
+              </div>
+              <div className={styles.entryGroup}>
+                <p className={styles.groupParagraph}>Web Application</p>
+                <Link to='/find-places'>
+                    <p className={styles.entry}>Find Places</p>
                 </Link>
               </div>
             </div>

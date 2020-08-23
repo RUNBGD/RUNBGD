@@ -2,6 +2,9 @@
 
 .group-paragraph{
     font-weight:700;
+    text-transform: uppercase;
+    margin:5px 0;
+    font-size:1.5rem;
 }
 
 .group-paragraph, .sitemap-entries > a{
@@ -12,6 +15,7 @@
 }
 
 .sitemap-entries{
+    padding-bottom:50px;
     @include breakpoint(lg){
         display:flex;
         justify-content: space-between;
@@ -20,13 +24,37 @@
 }
 
 .entry-group{
+    margin-bottom:50px;
     @include breakpoint(lg){
         width:33.333333%;
     }
 }
 
-.entry-group > ul{
+.entry{
+    margin:0;
+    text-transform: uppercase;
+    font-size:1.25rem;
+    font-weight: 600;
+    text-align: center;
+    @include breakpoint(lg){
+        text-align: unset;
+    }
+}
+
+.subentry-list{
+    margin:0;
+    margin-bottom:5px;
+    padding-left:0;
+    text-align: center;
     list-style-type: none;
-    padding-left:15px;
     opacity:0.65;
+    @include breakpoint(lg){
+        padding-left:15px;
+        text-align: unset;
+    }
+}
+
+.subentry{
+    text-transform: uppercase;
+    font-weight: 500;
 }

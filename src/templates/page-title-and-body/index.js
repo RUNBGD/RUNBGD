@@ -4,6 +4,7 @@ import {Helmet} from 'react-helmet'
 
 import Layout from '../../components/Layout'
 import {HTMLContent} from '../../components/Content'
+import styles from './page-title-and-body.module.scss'
 
 export const PageTitleAndBodyTemplate = ({data}) => {
   return(
@@ -15,9 +16,9 @@ export const PageTitleAndBodyTemplate = ({data}) => {
       <h1>{data.markdownRemark.frontmatter.title}</h1>
       <hr/>
       {data.html ? 
-        <div>{data.html}</div>
+        <div className={styles.body}>{data.html}</div>
           :
-        <HTMLContent content={data.markdownRemark.html}/>
+        <HTMLContent className={styles.body} content={data.markdownRemark.html}/>
       }
     </main>
   )

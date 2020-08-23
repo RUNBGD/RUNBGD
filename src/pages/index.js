@@ -363,6 +363,11 @@ const IndexPage = () => {
   return (
     <Layout>
       <main>
+        <h1>RUN BGD</h1>
+        <p>
+        RUN BGD is a team of young and ambitious people gathered around the idea to present Belgrade as destination in a little different light, unlike agencies and other organisations.
+        </p>
+        <hr/>
         <BigPostsCarousel posts={carouselPosts.allMarkdownRemark}/>
         <SecondaryPostsCarousel posts={carouselPosts.trending.edges} onlyMobile={true} heading="Trending" displayCategory={true}/>
         <NewsletterForm />
