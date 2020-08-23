@@ -4,6 +4,7 @@ import {useStaticQuery, graphql} from 'gatsby'
 import Image from 'gatsby-image'
 import remark from 'remark'
 import remarkHTML from 'remark-html'
+import Typist from 'react-typist'
 
 
 import Layout from '../../components/Layout'
@@ -366,9 +367,11 @@ const WorkWithUsPage = () => {
                                     transition={transitions.scale}
                                 >
                                 <Image fluid={data.networksLogo.frontmatter.logoImage.childImageSharp.fluid} alt='' className={styles.logo}/>
-                                <h2>
-                                    {data.slidesData.frontmatter.slides[0].slideText}
-                                </h2>
+                                    <h2>
+                                        <Typist cursor={{show:false}}>
+                                        {data.slidesData.frontmatter.slides[0].slideText}
+                                        </Typist>
+                                    </h2>
                                 </AnimatedContainer>
                                 <AnimatedContainer 
                                     active={currentSlide == 1} 
@@ -449,7 +452,7 @@ const WorkWithUsPage = () => {
                     </div>
                 </VerticalSliderSlide>
                 <VerticalSliderSlide
-                    transition={transitions.slideUp}
+                    transition={transitions.appear}
                     active={currentSlide == 5}
                 >
                     <div className={styles.slideBackground} style={{background:'#fff', color:'black'}}>
@@ -554,7 +557,7 @@ const WorkWithUsPage = () => {
                     </div>
                 </VerticalSliderSlide>
                 <VerticalSliderSlide
-                    transition={transitions.slideUp}
+                    transition={transitions.appear}
                     active={currentSlide == 10}
                 >
                     <div className={styles.slideBackground} style={{background:'#000', color:'white'}}>
@@ -659,7 +662,7 @@ const WorkWithUsPage = () => {
                     </div>
                 </VerticalSliderSlide>
                 <VerticalSliderSlide
-                    transition={transitions.slideUp}
+                    transition={transitions.appear}
                     active={currentSlide == 15}
                 >
                     <div className={styles.slideBackground} style={{background:'#000', color:'white'}}>
@@ -743,7 +746,7 @@ const WorkWithUsPage = () => {
                     </div>
                 </VerticalSliderSlide>
                 <VerticalSliderSlide
-                    transition={transitions.scale}
+                    transition={transitions.appear}
                     active={currentSlide == 19}
                 >
                     <div className={styles.slideBackground} style={{background:'#000', color:'white'}}>
@@ -774,7 +777,7 @@ const WorkWithUsPage = () => {
                                 </div>
                             }
                         <AnimatedContainer 
-                            transition={transitions.scale} 
+                            transition={transitions.slideDown} 
                             active={currentSlide == 20}
                             className={styles.lStack} 
                         >
@@ -816,7 +819,7 @@ const WorkWithUsPage = () => {
                                 </div>
                             }
                         <AnimatedContainer 
-                            transition={transitions.slideRight} 
+                            transition={transitions.slideLeft} 
                             active={currentSlide == 22}
                             className={styles.lStack} 
                         >
@@ -837,7 +840,7 @@ const WorkWithUsPage = () => {
                                 </div>
                             }
                         <AnimatedContainer 
-                            transition={transitions.scale} 
+                            transition={transitions.slideDown} 
                             active={currentSlide == 23}
                             className={styles.lStack} 
                         >
@@ -912,7 +915,7 @@ const WorkWithUsPage = () => {
                     </div>
                 </VerticalSliderSlide>
                 <VerticalSliderSlide
-                    transition={transitions.slideDown}
+                    transition={transitions.appear}
                     active={currentSlide == 27}
                 >
                     <div className={styles.slideBackground} style={{background:'#000', color:'white'}}>
@@ -933,7 +936,7 @@ const WorkWithUsPage = () => {
                     </div>
                 </VerticalSliderSlide>
                 <VerticalSliderSlide
-                    transition={transitions.slideDown}
+                    transition={transitions.appear}
                     active={currentSlide == 28}
                 >
                     <div className={styles.slideBackground} style={{background:'#000', color:'white'}}>
@@ -943,7 +946,7 @@ const WorkWithUsPage = () => {
                                 </div>
                             }
                         <AnimatedContainer 
-                            transition={transitions.scale} 
+                            transition={transitions.slideDown} 
                             active={currentSlide == 28}
                             className={styles.lStack} 
                         >
@@ -954,7 +957,7 @@ const WorkWithUsPage = () => {
                     </div>
                 </VerticalSliderSlide>
                 <VerticalSliderSlide
-                    transition={transitions.slideDown}
+                    transition={transitions.appear}
                     active={currentSlide == 29}
                 >
                     <div className={styles.slideBackground} style={{background:'#000', color:'white'}}>
@@ -964,7 +967,7 @@ const WorkWithUsPage = () => {
                                 </div>
                             }
                         <AnimatedContainer 
-                            transition={transitions.scale} 
+                            transition={transitions.slideUp} 
                             active={currentSlide == 29}
                             className={styles.lStack} 
                         >
@@ -975,7 +978,7 @@ const WorkWithUsPage = () => {
                     </div>
                 </VerticalSliderSlide>
                 <VerticalSliderSlide
-                    transition={transitions.slideDown}
+                    transition={transitions.appear}
                     active={currentSlide == 30}
                 >
                     <div className={styles.slideBackground} style={{background:'#000', color:'white'}}>
@@ -985,7 +988,7 @@ const WorkWithUsPage = () => {
                                 </div>
                             }
                         <AnimatedContainer 
-                            transition={transitions.scale} 
+                            transition={transitions.slideLeft} 
                             active={currentSlide == 30}
                             className={styles.lStack} 
                         >
@@ -996,7 +999,7 @@ const WorkWithUsPage = () => {
                     </div>
                 </VerticalSliderSlide>
                 <VerticalSliderSlide
-                    transition={transitions.slideDown}
+                    transition={transitions.appear}
                     active={currentSlide == 31}
                 >
                     <div className={styles.slideBackground} style={{background:'#000', color:'white'}}>
@@ -1006,7 +1009,7 @@ const WorkWithUsPage = () => {
                                 </div>
                             }
                         <AnimatedContainer 
-                            transition={transitions.scale} 
+                            transition={transitions.slideRight} 
                             active={currentSlide == 31}
                             className={styles.lStack} 
                         >
@@ -1017,7 +1020,7 @@ const WorkWithUsPage = () => {
                     </div>
                 </VerticalSliderSlide>
                 <VerticalSliderSlide
-                    transition={transitions.slideDown}
+                    transition={transitions.appear}
                     active={currentSlide == 32}
                 >
                     <div className={styles.slideBackground} style={{background:'#000', color:'white'}}>
@@ -1038,7 +1041,7 @@ const WorkWithUsPage = () => {
                     </div>
                 </VerticalSliderSlide>
                 <VerticalSliderSlide
-                    transition={transitions.slideDown}
+                    transition={transitions.appear}
                     active={currentSlide == 33}
                 >
                     <div className={styles.slideBackground} style={{background:'#000', color:'white'}}>
@@ -1048,7 +1051,7 @@ const WorkWithUsPage = () => {
                                 </div>
                             }
                         <AnimatedContainer 
-                            transition={transitions.scale} 
+                            transition={transitions.slideUp} 
                             active={currentSlide == 33}
                             className={styles.lStack} 
                         >
@@ -1059,7 +1062,7 @@ const WorkWithUsPage = () => {
                     </div>
                 </VerticalSliderSlide>
                 <VerticalSliderSlide
-                    transition={transitions.slideDown}
+                    transition={transitions.appear}
                     active={currentSlide == 34}
                 >
                     <div className={styles.slideBackground} style={{background:'#000', color:'white'}}>
@@ -1069,7 +1072,7 @@ const WorkWithUsPage = () => {
                                 </div>
                             }
                         <AnimatedContainer 
-                            transition={transitions.scale} 
+                            transition={transitions.slideDown} 
                             active={currentSlide == 34}
                             className={styles.lStack} 
                         >
@@ -1080,7 +1083,7 @@ const WorkWithUsPage = () => {
                     </div>
                 </VerticalSliderSlide>
                 <VerticalSliderSlide
-                    transition={transitions.slideDown}
+                    transition={transitions.appear}
                     active={currentSlide == 35}
                 >
                     <div className={styles.slideBackground} style={{background:'#000', color:'white'}}>
@@ -1090,7 +1093,7 @@ const WorkWithUsPage = () => {
                                 </div>
                             }
                         <AnimatedContainer 
-                            transition={transitions.scale} 
+                            transition={transitions.slideRight} 
                             active={currentSlide == 35}
                             className={styles.lStack} 
                         >
@@ -1101,7 +1104,7 @@ const WorkWithUsPage = () => {
                     </div>
                 </VerticalSliderSlide>
                 <VerticalSliderSlide
-                    transition={transitions.slideDown}
+                    transition={transitions.appear}
                     active={currentSlide == 36}
                 >
                     <div className={styles.slideBackground} style={{background:'#000', color:'white'}}>
@@ -1111,7 +1114,7 @@ const WorkWithUsPage = () => {
                                 </div>
                             }
                         <AnimatedContainer 
-                            transition={transitions.scale} 
+                            transition={transitions.slideLeft} 
                             active={currentSlide == 36}
                             className={styles.lStack} 
                         >
@@ -1122,7 +1125,7 @@ const WorkWithUsPage = () => {
                     </div>
                 </VerticalSliderSlide>
                 <VerticalSliderSlide
-                    transition={transitions.slideDown}
+                    transition={transitions.appear}
                     active={currentSlide == 37}
                 >
                     <div className={styles.slideBackground} style={{background:'#000', color:'white'}}>
@@ -1132,7 +1135,7 @@ const WorkWithUsPage = () => {
                                 </div>
                             }
                         <AnimatedContainer 
-                            transition={transitions.scale} 
+                            transition={transitions.slideUp} 
                             active={currentSlide == 37}
                             className={styles.lStack} 
                         >
@@ -1143,7 +1146,7 @@ const WorkWithUsPage = () => {
                     </div>
                 </VerticalSliderSlide>
                 <VerticalSliderSlide
-                    transition={transitions.slideDown}
+                    transition={transitions.appear}
                     active={currentSlide == 38}
                 >
                     <div className={styles.slideBackground} style={{background:'#000', color:'white'}}>
@@ -1153,7 +1156,7 @@ const WorkWithUsPage = () => {
                                 </div>
                             }
                         <AnimatedContainer 
-                            transition={transitions.scale} 
+                            transition={transitions.slideLeft} 
                             active={currentSlide == 38}
                             className={styles.lStack} 
                         >
@@ -1164,7 +1167,7 @@ const WorkWithUsPage = () => {
                     </div>
                 </VerticalSliderSlide>
                 <VerticalSliderSlide
-                    transition={transitions.slideDown}
+                    transition={transitions.appear}
                     active={currentSlide == 39}
                 >
                     <div className={styles.slideBackground} style={{background:'#000', color:'white'}}>
@@ -1174,7 +1177,7 @@ const WorkWithUsPage = () => {
                                 </div>
                             }
                         <AnimatedContainer 
-                            transition={transitions.scale} 
+                            transition={transitions.slideDown} 
                             active={currentSlide == 39}
                             className={styles.lStack} 
                         >
@@ -1185,7 +1188,7 @@ const WorkWithUsPage = () => {
                     </div>
                 </VerticalSliderSlide>
                 <VerticalSliderSlide
-                    transition={transitions.slideDown}
+                    transition={transitions.appear}
                     active={currentSlide == 40}
                 >
                     <div className={styles.slideBackground} style={{background:'#000', color:'white'}}>
@@ -1195,7 +1198,7 @@ const WorkWithUsPage = () => {
                                 </div>
                             }
                         <AnimatedContainer 
-                            transition={transitions.scale} 
+                            transition={transitions.slideRight} 
                             active={currentSlide == 40}
                             className={styles.lStack} 
                         >
@@ -1206,7 +1209,7 @@ const WorkWithUsPage = () => {
                     </div>
                 </VerticalSliderSlide>
                 <VerticalSliderSlide
-                    transition={transitions.slideDown}
+                    transition={transitions.appear}
                     active={currentSlide == 41}
                 >
                     <div className={styles.slideBackground} style={{background:'#000', color:'white'}}>
@@ -1216,7 +1219,7 @@ const WorkWithUsPage = () => {
                                 </div>
                             }
                         <AnimatedContainer 
-                            transition={transitions.scale} 
+                            transition={transitions.slideUp} 
                             active={currentSlide == 41}
                             className={styles.lStack} 
                         >
@@ -1228,7 +1231,7 @@ const WorkWithUsPage = () => {
                     </div>
                 </VerticalSliderSlide>
                 <VerticalSliderSlide
-                    transition={transitions.slideDown}
+                    transition={transitions.appear}
                     active={currentSlide == 42}
                 >
                     <div className={styles.slideBackground} style={{background:'#000', color:'white'}}>
@@ -1238,7 +1241,7 @@ const WorkWithUsPage = () => {
                                 </div>
                             }
                         <AnimatedContainer 
-                            transition={transitions.scale} 
+                            transition={transitions.slideRight} 
                             active={currentSlide == 42}
                             className={styles.lStack} 
                         >
@@ -1249,7 +1252,7 @@ const WorkWithUsPage = () => {
                     </div>
                 </VerticalSliderSlide>
                 <VerticalSliderSlide
-                    transition={transitions.slideDown}
+                    transition={transitions.appear}
                     active={currentSlide == 43}
                 >
                     <div className={styles.slideBackground} style={{background:'#000', color:'white'}}>
@@ -1259,7 +1262,7 @@ const WorkWithUsPage = () => {
                                 </div>
                             }
                         <AnimatedContainer 
-                            transition={transitions.scale} 
+                            transition={transitions.slideDown} 
                             active={currentSlide == 43}
                             className={styles.lStack} 
                         >
@@ -1270,7 +1273,7 @@ const WorkWithUsPage = () => {
                     </div>
                 </VerticalSliderSlide>
                 <VerticalSliderSlide
-                    transition={transitions.slideDown}
+                    transition={transitions.appear}
                     active={currentSlide == 44}
                 >
                     <div className={styles.slideBackground} style={{background:'#000', color:'white'}}>
@@ -1280,7 +1283,7 @@ const WorkWithUsPage = () => {
                                 </div>
                             }
                         <AnimatedContainer 
-                            transition={transitions.scale} 
+                            transition={transitions.slideLeft} 
                             active={currentSlide == 44}
                             className={styles.lStack} 
                         >
@@ -1291,7 +1294,7 @@ const WorkWithUsPage = () => {
                     </div>
                 </VerticalSliderSlide>
                 <VerticalSliderSlide
-                    transition={transitions.slideDown}
+                    transition={transitions.appear}
                     active={currentSlide == 45}
                 >
                     <div className={styles.slideBackground} style={{background:'#000', color:'white'}}>
@@ -1312,7 +1315,7 @@ const WorkWithUsPage = () => {
                     </div>
                 </VerticalSliderSlide>
                 <VerticalSliderSlide
-                    transition={transitions.slideDown}
+                    transition={transitions.appear}
                     active={currentSlide == 46}
                 >
                     <div className={styles.slideBackground} style={{background:'#000', color:'white'}}>
@@ -1322,7 +1325,7 @@ const WorkWithUsPage = () => {
                                 </div>
                             }
                         <AnimatedContainer 
-                            transition={transitions.scale} 
+                            transition={transitions.appear} 
                             active={currentSlide == 46}
                             className={styles.lStack} 
                         >
@@ -1333,7 +1336,7 @@ const WorkWithUsPage = () => {
                     </div>
                 </VerticalSliderSlide>
                 <VerticalSliderSlide
-                    transition={transitions.slideDown}
+                    transition={transitions.appear}
                     active={currentSlide == 47}
                 >
                     <div className={styles.slideBackground} style={{background:'#000', color:'white'}}>
@@ -1343,7 +1346,7 @@ const WorkWithUsPage = () => {
                                 </div>
                             }
                         <AnimatedContainer 
-                            transition={transitions.scale} 
+                            transition={transitions.slideDown} 
                             active={currentSlide == 47}
                             className={styles.lStack} 
                         >
@@ -1354,7 +1357,7 @@ const WorkWithUsPage = () => {
                     </div>
                 </VerticalSliderSlide>
                 <VerticalSliderSlide
-                    transition={transitions.slideDown}
+                    transition={transitions.appear}
                     active={currentSlide == 48}
                 >
                     <div className={styles.slideBackground} style={{background:'#000', color:'white'}}>
@@ -1364,7 +1367,7 @@ const WorkWithUsPage = () => {
                                 </div>
                             }
                         <AnimatedContainer 
-                            transition={transitions.scale} 
+                            transition={transitions.slideUp} 
                             active={currentSlide == 48}
                             className={styles.lStack} 
                         >
@@ -1375,7 +1378,7 @@ const WorkWithUsPage = () => {
                     </div>
                 </VerticalSliderSlide>
                 <VerticalSliderSlide
-                    transition={transitions.slideDown}
+                    transition={transitions.appear}
                     active={currentSlide == 49}
                 >
                     <div className={styles.slideBackground} style={{background:'#000', color:'white'}}>
@@ -1385,7 +1388,7 @@ const WorkWithUsPage = () => {
                                 </div>
                             }
                         <AnimatedContainer 
-                            transition={transitions.scale} 
+                            transition={transitions.slideLeft} 
                             active={currentSlide == 49}
                             className={styles.lStack} 
                         >
@@ -1396,7 +1399,7 @@ const WorkWithUsPage = () => {
                     </div>
                 </VerticalSliderSlide>
                 <VerticalSliderSlide
-                    transition={transitions.slideDown}
+                    transition={transitions.appear}
                     active={currentSlide == 50}
                 >
                     <div className={styles.slideBackground} style={{background:'#000', color:'white'}}>
@@ -1406,7 +1409,7 @@ const WorkWithUsPage = () => {
                                 </div>
                             }
                         <AnimatedContainer 
-                            transition={transitions.scale} 
+                            transition={transitions.slideRight} 
                             active={currentSlide == 50}
                             className={styles.lStack} 
                         >
@@ -1417,7 +1420,7 @@ const WorkWithUsPage = () => {
                     </div>
                 </VerticalSliderSlide>
                 <VerticalSliderSlide
-                    transition={transitions.slideDown}
+                    transition={transitions.appear}
                     active={currentSlide == 51}
                 >
                     <div className={styles.slideBackground} style={{background:'#000', color:'white'}}>
@@ -1439,7 +1442,7 @@ const WorkWithUsPage = () => {
                     </div>
                 </VerticalSliderSlide>
                 <VerticalSliderSlide
-                    transition={transitions.slideDown}
+                    transition={transitions.appear}
                     active={currentSlide == 52}
                 >
                     <div className={styles.slideBackground} style={{background:'#000', color:'white'}}>
@@ -1449,7 +1452,7 @@ const WorkWithUsPage = () => {
                                 </div>
                             }
                         <AnimatedContainer 
-                            transition={transitions.scale} 
+                            transition={transitions.slideRight} 
                             active={currentSlide == 52}
                             className={styles.lStack} 
                         >
@@ -1460,7 +1463,7 @@ const WorkWithUsPage = () => {
                     </div>
                 </VerticalSliderSlide>
                 <VerticalSliderSlide
-                    transition={transitions.slideDown}
+                    transition={transitions.appear}
                     active={currentSlide == 53}
                 >
                     <div className={styles.slideBackground} style={{background:'#000', color:'white'}}>
@@ -1470,7 +1473,7 @@ const WorkWithUsPage = () => {
                                 </div>
                             }
                         <AnimatedContainer 
-                            transition={transitions.scale} 
+                            transition={transitions.slideLeft} 
                             active={currentSlide == 53}
                             className={styles.lStack} 
                         >
@@ -1481,7 +1484,7 @@ const WorkWithUsPage = () => {
                     </div>
                 </VerticalSliderSlide>
                 <VerticalSliderSlide
-                    transition={transitions.slideDown}
+                    transition={transitions.appear}
                     active={currentSlide == 54}
                 >
                     <div className={styles.slideBackground} style={{background:'#000', color:'white'}}>
@@ -1491,7 +1494,7 @@ const WorkWithUsPage = () => {
                                 </div>
                             }
                         <AnimatedContainer 
-                            transition={transitions.scale} 
+                            transition={transitions.slideUp} 
                             active={currentSlide == 54}
                             className={styles.lStack} 
                         >
@@ -1502,7 +1505,7 @@ const WorkWithUsPage = () => {
                     </div>
                 </VerticalSliderSlide>
                 <VerticalSliderSlide
-                    transition={transitions.slideDown}
+                    transition={transitions.appear}
                     active={currentSlide == 55}
                 >
                     <div className={styles.slideBackground} style={{background:'#000', color:'white'}}>
@@ -1512,7 +1515,7 @@ const WorkWithUsPage = () => {
                                 </div>
                             }
                         <AnimatedContainer 
-                            transition={transitions.scale} 
+                            transition={transitions.slideDown} 
                             active={currentSlide == 55}
                             className={styles.lStack} 
                         >
@@ -1533,7 +1536,7 @@ const WorkWithUsPage = () => {
                                 </div>
                             }
                         <AnimatedContainer 
-                            transition={transitions.slideUp} 
+                            transition={transitions.appear} 
                             active={currentSlide == 56}
                             className={styles.lStack} 
                         >
@@ -1575,7 +1578,7 @@ const WorkWithUsPage = () => {
                                 </div>
                             }
                         <AnimatedContainer 
-                            transition={transitions.slideUp} 
+                            transition={transitions.slideLeft} 
                             active={currentSlide == 58}
                             className={styles.lStack} 
                         >
@@ -1596,7 +1599,7 @@ const WorkWithUsPage = () => {
                                 </div>
                             }
                         <AnimatedContainer 
-                            transition={transitions.slideUp} 
+                            transition={transitions.slideRight} 
                             active={currentSlide == 59}
                             className={styles.lStack} 
                         >
@@ -1617,7 +1620,7 @@ const WorkWithUsPage = () => {
                                 </div>
                             }
                         <AnimatedContainer 
-                            transition={transitions.slideUp} 
+                            transition={transitions.slideDown} 
                             active={currentSlide == 60}
                             className={styles.lStack} 
                         >
@@ -1638,7 +1641,7 @@ const WorkWithUsPage = () => {
                                 </div>
                             }
                         <AnimatedContainer 
-                            transition={transitions.slideUp} 
+                            transition={transitions.appear} 
                             active={currentSlide == 61}
                             className={styles.lStack} 
                         >
@@ -1659,7 +1662,7 @@ const WorkWithUsPage = () => {
                                 </div>
                             }
                         <AnimatedContainer 
-                            transition={transitions.slideUp} 
+                            transition={transitions.slideDown} 
                             active={currentSlide == 62}
                             className={styles.lStack} 
                         >
@@ -1701,7 +1704,7 @@ const WorkWithUsPage = () => {
                                 </div>
                             }
                         <AnimatedContainer 
-                            transition={transitions.slideUp} 
+                            transition={transitions.slideLeft} 
                             active={currentSlide == 64}
                             className={styles.lStack} 
                         >
@@ -1722,7 +1725,7 @@ const WorkWithUsPage = () => {
                                 </div>
                             }
                         <AnimatedContainer 
-                            transition={transitions.slideUp} 
+                            transition={transitions.slideRight} 
                             active={currentSlide == 65}
                             className={styles.lStack} 
                         >
@@ -1743,7 +1746,7 @@ const WorkWithUsPage = () => {
                                 </div>
                             }
                         <AnimatedContainer 
-                            transition={transitions.slideUp} 
+                            transition={transitions.scale} 
                             active={currentSlide == 66}
                             className={styles.lStack} 
                         >
@@ -1764,7 +1767,7 @@ const WorkWithUsPage = () => {
                                 </div>
                             }
                         <AnimatedContainer 
-                            transition={transitions.slideUp} 
+                            transition={transitions.appear} 
                             active={currentSlide == 67}
                             className={styles.lStack} 
                         >
@@ -1785,7 +1788,7 @@ const WorkWithUsPage = () => {
                                 </div>
                             }
                         <AnimatedContainer 
-                            transition={transitions.slideUp} 
+                            transition={transitions.slideRight} 
                             active={currentSlide == 68}
                             className={styles.lStack} 
                         >
@@ -1806,7 +1809,7 @@ const WorkWithUsPage = () => {
                                 </div>
                             }
                         <AnimatedContainer 
-                            transition={transitions.slideUp} 
+                            transition={transitions.slideLeft} 
                             active={currentSlide == 69}
                             className={styles.lStack} 
                         >
@@ -1848,7 +1851,7 @@ const WorkWithUsPage = () => {
                                 </div>
                             }
                         <AnimatedContainer 
-                            transition={transitions.slideUp} 
+                            transition={transitions.slideDown} 
                             active={currentSlide == 71}
                             className={styles.lStack} 
                         >
@@ -1869,7 +1872,7 @@ const WorkWithUsPage = () => {
                                 </div>
                             }
                         <AnimatedContainer 
-                            transition={transitions.slideUp} 
+                            transition={transitions.slideLeft} 
                             active={currentSlide == 72}
                             className={styles.lStack} 
                         >
@@ -1890,7 +1893,7 @@ const WorkWithUsPage = () => {
                                 </div>
                             }
                         <AnimatedContainer 
-                            transition={transitions.slideUp} 
+                            transition={transitions.slideDown} 
                             active={currentSlide == 73}
                             className={styles.lStack} 
                         >
@@ -1911,7 +1914,7 @@ const WorkWithUsPage = () => {
                                 </div>
                             }
                         <AnimatedContainer 
-                            transition={transitions.slideUp} 
+                            transition={transitions.slideRight} 
                             active={currentSlide == 74}
                             className={styles.lStack} 
                         >
@@ -1953,7 +1956,7 @@ const WorkWithUsPage = () => {
                                 </div>
                             }
                         <AnimatedContainer 
-                            transition={transitions.slideUp} 
+                            transition={transitions.slideDown} 
                             active={currentSlide == 76}
                             className={styles.lStack} 
                         >
@@ -1995,7 +1998,7 @@ const WorkWithUsPage = () => {
                                 </div>
                             }
                         <AnimatedContainer 
-                            transition={transitions.slideUp} 
+                            transition={transitions.slideLeft} 
                             active={currentSlide == 78}
                             className={styles.lStack} 
                         >
@@ -2016,7 +2019,7 @@ const WorkWithUsPage = () => {
                                 </div>
                             }
                         <AnimatedContainer 
-                            transition={transitions.slideUp} 
+                            transition={transitions.slideRight} 
                             active={currentSlide == 79}
                             className={styles.lStack} 
                         >
