@@ -200,6 +200,22 @@ collections:
             }
           - {label: "Template Key", name: "templateKey", widget: "string", default: "work-with-us-page"}
 
+      - file: "src/pages/careers/index.md"
+        label: "Careers Page"
+        name: "careersPage"
+        fields:
+          - {label: Hero Image, name: heroImage, widget: image}
+          - {label: "Slides", name: "slides", widget: list, fields: [
+              {label: "Image",name: "image", widget: image}
+          ]
+            }
+          - {label: "Benefits", name: "benefits", widget: list, fields: [
+              {label: "Image" ,name: "image", widget: image},
+              {label: "Text", name: "text", widget: markdown}
+          ]
+            }
+          - {label: "Template Key", name: "templateKey", widget: "string", default: "careers-page"}
+
       - file: "src/pages/terms-of-use/index.md"
         label: "Terms Of Use Page"
         name: "termsOfUse"
