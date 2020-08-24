@@ -1,0 +1,104 @@
+@import '../../styles/breakpoints.scss';
+
+.hero{
+    width:100%;
+}
+
+.heroImage{
+    @include breakpoint(lg){
+        height:80vh;
+        width:auto;
+    }
+}
+
+.fullWidth{
+    width:100%;
+    padding:0;
+}
+
+.kicker-text{
+    padding:0 10px;
+    text-align: center;
+    margin:auto;
+    > p{
+        font-size:1.5rem;
+        margin:0;
+    }
+    @include breakpoint(lg){
+        font-size:2.5rem;
+        max-width:760px;
+    }
+
+}
+
+.logos{
+    margin:auto;
+    padding:0 10px;
+    margin-top:40px;
+    @include breakpoint(lg){
+        max-width:760px;
+    }
+}
+
+.main-logo{
+    width:200px;
+    margin:auto;
+}
+
+.other-logos{
+    margin-top:20px;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    @include breakpoint(lg){
+    }
+}
+
+.slider-slide{
+    width:70%;
+    height:70vh;
+    overflow:hidden;
+    padding:0 5vw;
+}
+
+.slider-slide > div{
+    height:100%;
+    width:auto;
+}
+
+.slider-container{
+    margin-top:30px;
+}
+
+
+.l-row{
+    display:flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.benefits-section{
+    margin:auto;
+    @include breakpoint(lg){
+        max-width:760px;
+    }
+}
+
+.benefits-section > h2{
+    text-align: center;
+}
+
+.benefit{
+    text-align: center;
+    p {
+        margin:0;
+    }
+}
+
+.benefit-image{
+    width:100px;
+    margin:auto;
+    margin-bottom:15px;
+}

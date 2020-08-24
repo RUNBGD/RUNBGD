@@ -1,0 +1,31 @@
+.swiper-next-el, .swiper-prev-el{
+    position:absolute;
+    bottom:0;
+    width:25px;
+    height:25px;
+    cursor:pointer;
+}
+
+.swiper-next-el{
+    right:0;
+}
+
+.swiper-prev-el{
+    left:0;
+    transform:rotate(180deg);
+}
+
+.carousel{
+    padding-bottom:5vh;
+}
+
+.swiper-pagination{
+    text-align:center
+}
+
+.swiper-pagination > span{
+    background-color: black;
+    width:12px;
+    height:12px;
+    margin:0 4.5px;
+}
