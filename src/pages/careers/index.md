@@ -35,4 +35,21 @@ benefits:
         Fertility & Wellness services
 
         Parental leave
+positions:
+    - title: Content Manager
+      type: Distribution
+      place: Beograd
+      link: https://halooglasi.com
+    - title: Content Manager
+      type: Distribution
+      place: Beograd
+      link: https://halooglasi.com
+    - title: Content Manager
+      type: Distribution
+      place: Beograd
+      link: https://halooglasi.com
+    - title: Content Manager
+      type: Distribution
+      place: Beograd
+      link: https://halooglasi.com
 ---

@@ -56,10 +56,14 @@
 }
 
 .slider-slide{
-    width:70%;
-    height:70vh;
+    width:85%;
+    height:20vh;
     overflow:hidden;
     padding:0 5vw;
+    @include breakpoint(lg){
+        width:70%;
+        height:70vh;
+    }
 }
 
 .slider-slide > div{
@@ -92,6 +96,7 @@
 
 .benefit{
     text-align: center;
+    margin-bottom:20px;
     p {
         margin:0;
     }
@@ -101,4 +106,49 @@
     width:100px;
     margin:auto;
     margin-bottom:15px;
+}
+
+.openings-section{
+    margin:auto;
+    margin-bottom:50px;
+    padding:0 5px;
+    @include breakpoint(lg){
+        max-width:760px;
+    }
+}
+
+.openings-section > h2{
+    text-align: center;
+}
+
+.position{
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+    border-radius: 5px;
+    margin-bottom:20px;
+    padding:5px;
+}
+
+.position-title{
+    margin:0;
+    font-size:1.2rem;
+    line-height:1.2rem;
+    font-weight: 800;
+}
+
+.position-type{
+    margin:0;
+    display: inline-block;
+    font-size:0.8rem;
+    font-weight:700;
+}
+
+.position-place{
+    margin:0;
+    display:inline-block;
+    border-left:2px solid black;
+    font-size:0.8rem;
+    line-height:0.8rem;
+    font-weight:700;
+    padding-left:5px;
+    margin-left:5px;
 }

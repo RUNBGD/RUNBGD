@@ -9,6 +9,7 @@ import Layout from '../../components/Layout'
 import FullWidthSlider from '../../components/FullWidthSlider'
 import styles from './careers.module.scss'
 import {HTMLContent} from '../../components/Content'
+import PostCategoryTag from '../../components/PostCategoryTag'
 
 const toHTML = value => remark().use(remarkHTML).processSync(value).toString()
 
@@ -43,6 +44,12 @@ const Careers = () => {
                             }
                         }
                         text
+                    }
+                    positions{
+                        title
+                        type
+                        place
+                        link
                     }
                 }
             }
@@ -120,6 +127,24 @@ const Careers = () => {
                             return <div className={styles.benefit}>
                                 <Image className={styles.benefitImage} fluid={benefit.image.childImageSharp.fluid} alt=''/>
                                 <HTMLContent content={toHTML(benefit.text)} />
+                            </div>
+                        })}
+                    </div>
+                    <hr/>
+                </div>
+                <div className={styles.openingsSection}>
+                    <h2>RECENT OPENINGS</h2>
+                    <div>
+                        {data.page.frontmatter.positions.map((position) => {
+                            return <div className={`${styles.position} ${styles.lRow}`}>
+                                <div>
+                                    <p className={styles.positionTitle}>{position.title}</p>
+                                    <p className={styles.positionType}>{position.type}</p>
+                                    <p className={styles.positionPlace}>{position.place}</p>
+                                </div>
+                                <div>
+                                    <PostCategoryTag slug={position.link} text={'Apply'}/>
+                                </div>
                             </div>
                         })}
                     </div>
