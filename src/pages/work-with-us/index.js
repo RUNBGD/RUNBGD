@@ -5,7 +5,6 @@ import Image from 'gatsby-image'
 import remark from 'remark'
 import remarkHTML from 'remark-html'
 import Typist from 'react-typist'
-import {Video} from 'gatsby-video'
 
 
 import Layout from '../../components/Layout'
@@ -19,19 +18,6 @@ const WorkWithUsPage = () => {
 
     const data = useStaticQuery(graphql`
         query WorkWithUsData{
-            video:file(relativePath: {eq: "test.mp4"}) {
-                  childVideoFfmpeg {
-                    mp4: transcode(maxWidth: 1920, maxHeight: 1080, fileExtension: "mp4", codec: "libx264", options:[["-profile:v", "main"], ["-pix_fmt", "yuv420p"]], outputOptions: ["-movflags faststart"]) {
-                      width
-                      src
-                      presentationMaxWidth
-                      presentationMaxHeight
-                      originalName
-                      height
-                      aspectRatio
-                    }
-                  }
-                }
             slidesData: markdownRemark(frontmatter:{templateKey: {eq: "work-with-us-page"}}){
                 frontmatter{
                     coverImage{
@@ -199,7 +185,7 @@ const WorkWithUsPage = () => {
                         * This is 100% true, but everyone tries to make that claim... keep scrolling to learn more about what makes Complex Networks the exception.
                         </q>
                     </div>
-                    <a  className={styles.scrollActionArrow}>
+                    <a href='#about'  className={styles.scrollActionArrow}>
                         <img src={downArrow} alt=''/>
                     </a>
                     <div className={styles.allLogos}>
@@ -211,7 +197,7 @@ const WorkWithUsPage = () => {
                     </div>
                 </div>
             </section>
-            <section className={styles.aboutSection}>
+            <section className={styles.aboutSection} id='about'>
                 <div className={styles.background}>
                     <Image className={styles.fullWidthImage} fluid={data.slidesData.frontmatter.slides[0].coverImage.childImageSharp.fluid}/>
                     <div className={styles.overlay}>

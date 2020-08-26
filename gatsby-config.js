@@ -101,7 +101,6 @@ module.exports = {
         linkStyles: true // (default: true) Enable/disable loading stylesheets via CDN
       }
     },
-    "gatsby-transformer-ffmpeg",
     "gatsby-plugin-use-query-params",
     // {
     //   resolve: 'gatsby-plugin-purgecss', // purges all unused/unreferenced css rules
