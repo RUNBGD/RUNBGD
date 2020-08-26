@@ -5,20 +5,13 @@ import Image from 'gatsby-image'
 import remark from 'remark'
 import remarkHTML from 'remark-html'
 import Typist from 'react-typist'
+import {Video} from 'gatsby-video'
 
 
 import Layout from '../../components/Layout'
-import logo from '../../img/logo.jpeg'
-import nightlifeImage from '../../img/nightlife.jpg'
 import styles from './work-with-us.module.scss'
-import { HTMLContent } from '../../components/Content'
-import VerticalSliderSlide from '../../components/VerticalSliderSlide'
-import AnimatedContainer from '../../components/AnimatedContainer'
-import logoNetworks from '../../img/logo-runbgd-networks.png'
-import logoTours from '../../img/logo-runbgd-tours.png'
-import logoShop from '../../img/logo-runbgd-shop.png'
-import logoJam from '../../img/logo-runbgd-jam.png'
-import logoMinus1 from '../../img/logo-runbgd-minus1.png'
+import downArrow from '../../img/down-arrow.svg'
+import backgroundVideo from '../../img/test.mp4'
 
 const toHTML = value => remark().use(remarkHTML).processSync(value).toString()
 
@@ -26,6 +19,19 @@ const WorkWithUsPage = () => {
 
     const data = useStaticQuery(graphql`
         query WorkWithUsData{
+            video:file(relativePath: {eq: "test.mp4"}) {
+                  childVideoFfmpeg {
+                    mp4: transcode(maxWidth: 1920, maxHeight: 1080, fileExtension: "mp4", codec: "libx264", options:[["-profile:v", "main"], ["-pix_fmt", "yuv420p"]], outputOptions: ["-movflags faststart"]) {
+                      width
+                      src
+                      presentationMaxWidth
+                      presentationMaxHeight
+                      originalName
+                      height
+                      aspectRatio
+                    }
+                  }
+                }
             slidesData: markdownRemark(frontmatter:{templateKey: {eq: "work-with-us-page"}}){
                 frontmatter{
                     coverImage{
@@ -34,6 +40,7 @@ const WorkWithUsPage = () => {
                                 ...GatsbyImageSharpFluid
                             }
                         }
+                        publicURL
                     }
                     slides{
                         coverImage{
@@ -59,6 +66,14 @@ const WorkWithUsPage = () => {
                                     }
                                 }
                             }
+                            coverImage{
+                                childImageSharp{
+                                    fluid(maxWidth:1000, quality:64){
+                                        ...GatsbyImageSharpFluid
+                                    }
+                                }
+                            }
+                            description
                         }
                     }
                 }
@@ -80,10 +95,6 @@ const WorkWithUsPage = () => {
     const [currentSlide, setCurrentSlide] = useState(1)
     const [changedSlideTime, setChangedSlideTime] = useState(0)
     const [touchMoves, setTouchMoves] = useState([])
-    const [autoplayDirection, setAutoplayDirection] = useState(undefined)
-    const [forwardInterval, setForwardInterval] = useState(undefined)
-    const [backwardInterval, setBackwardInterval] = useState(undefined)
-    const [slideIntervalTime, setSlideIntervalTime] = useState(2500)
 
     const transitions ={
         appear:{
@@ -159,195 +170,99 @@ const WorkWithUsPage = () => {
         if(touchMoves[0] && touchMoves[1]){
 
             if(touchMoves[0][0].screenY >= touchMoves[1][0].screenY){
-                nextSlide(); setAutoplayDirection(prevState => {
-                    if(prevState === 'forward'){
-                        return undefined
-                    }
-                    else if(prevState !== 'forward'){
-                        return 'forward'
-                    }
-                })
+                nextSlide();
             }else{
-                prevSlide(); setAutoplayDirection(prevState => {
-                    if(prevState === 'backward'){
-                        return undefined
-                    }
-                    else if(prevState !== 'backward'){
-                        return 'backward'
-                    }
-                })
+                prevSlide();
             }
         }
     }, [touchMoves])
 
-    useEffect(() => {
-        if(autoplayDirection === 'forward'){
-            clearInterval(forwardInterval)
-            clearInterval(backwardInterval)
-            setForwardInterval(setInterval(() => {
-                nextSlide()
-            }, slideIntervalTime))
-        }else if(autoplayDirection === 'backward'){
-            clearInterval(forwardInterval)
-            clearInterval(backwardInterval)
-            setBackwardInterval(setInterval(() => {
-                prevSlide()
-            }, slideIntervalTime))
-        }
-        else{
-            clearInterval(forwardInterval)
-            clearInterval(backwardInterval)
-        }
-        
-    }, [autoplayDirection, slideIntervalTime])
-
-    useEffect(() => {
-        switch (currentSlide) {
-            case 4:
-                setSlideIntervalTime(3000)
-                break;
-            case 5:
-                setSlideIntervalTime(5000)
-                break;
-            case 6:
-                setSlideIntervalTime(4000)
-                break;
-            case 7:
-                setSlideIntervalTime(3000)
-                break;
-            case 8:
-                setSlideIntervalTime(4000)
-                break;
-            case 9:
-                setSlideIntervalTime(4000)
-                break;
-            case 16:
-                setSlideIntervalTime(3000)
-                break;
-            case 17:
-                setSlideIntervalTime(3000)
-                break;
-            case 18:
-                setSlideIntervalTime(3000)
-                break;
-            case 19:
-                setSlideIntervalTime(5000)
-                break;
-            case 20:
-                setSlideIntervalTime(3000)
-                break;
-            case 21:
-                setSlideIntervalTime(4000)
-                break;
-            case 22:
-                setSlideIntervalTime(4000)
-                break;
-            case 23:
-                setSlideIntervalTime(5000)
-                break;
-            case 25:
-                setSlideIntervalTime(5000)
-                break;
-            case 27:
-                setSlideIntervalTime(3000)
-                break;
-            case 28:
-                setSlideIntervalTime(5000)
-                break;
-            case 29:
-                setSlideIntervalTime(3000)
-                break;
-            case 33:
-                setSlideIntervalTime(3000)
-                break;
-            case 38:
-                setSlideIntervalTime(6000)
-                break;
-            case 39:
-                setSlideIntervalTime(3000)
-                break;
-            case 40:
-                setSlideIntervalTime(5000)
-                break;
-            case 42:
-                setSlideIntervalTime(4000)
-                break;
-            case 43:
-                setSlideIntervalTime(3000)
-                break;
-            case 52:
-                setSlideIntervalTime(4000)
-                break;
-            case 53:
-                setSlideIntervalTime(3000)
-                break;
-            case 54:
-                setSlideIntervalTime(4000)
-                break;
-            case 59:
-                setSlideIntervalTime(3000)
-                break;
-            case 63:
-                setSlideIntervalTime(3000)
-                break;
-            case 64:
-                setSlideIntervalTime(4000)
-                break;
-            case 65:
-                setSlideIntervalTime(6000)
-                break;
-            case 71:
-                setSlideIntervalTime(4000)
-                break;
-            case 72:
-                setSlideIntervalTime(4000)
-                break;
-            case 73:
-                setSlideIntervalTime(3000)
-                break;
-            case 77:
-                setSlideIntervalTime(4000)
-                break;
-            case 79:
-                setSlideIntervalTime(20000)
-                break;
-            default:
-                setSlideIntervalTime(2000)
-                break;
-        }
-    }, [currentSlide])
-
     return(
-        <Layout verticalSlider={true}>
-            <div className={styles.verticalSliderContainer} 
-            onClick={() => {if(autoplayDirection == undefined){nextSlide()}; setAutoplayDirection(prevState => {
-                        if(prevState === 'forward'){
-                            return undefined
+        <Layout fullWidth={true}>
+            <section class={styles.videoSection}>
+                <div className={styles.background}>
+                    <video className={styles.fullWidthImage} autoPlay muted loop={true}>
+                        <source src={backgroundVideo} type="video/mp4" />
+                    </video>
+                    <div className={styles.overlay}>
+                    </div>
+                    {/* <Image className={styles.fullWidthImage} fluid={data.slidesData.frontmatter.slides[0].coverImage.childImageSharp.fluid}/> */}
+                </div>
+                <div className={styles.lSpacedContent}>
+                    <Image fluid={data.networksLogo.frontmatter.logoImage.childImageSharp.fluid} alt='' className={styles.mainLogo}/>
+                    <h1 className={styles.heroHeading}>Where <span className={styles.highlightedText}>the next</span> begins</h1>
+                    <div className={styles.heroText}>
+                        <p>
+                            We're a global youth entertainment network with unparalleled reach to millennials and Gen Z across big pop culture categories including streetwear and style, food, music, sneakers and sports. *
+                        </p>
+                        <q className={styles.heroQuote}>
+                        * This is 100% true, but everyone tries to make that claim... keep scrolling to learn more about what makes Complex Networks the exception.
+                        </q>
+                    </div>
+                    <a  className={styles.scrollActionArrow}>
+                        <img src={downArrow} alt=''/>
+                    </a>
+                    <div className={styles.allLogos}>
+                        {data.logos.edges.map(({node:logo}) => {
+                            if(logo.frontmatter.title !== 'Networks'){
+                                return <Image fluid={logo.frontmatter.logoImage.childImageSharp.fluid} alt={logo.frontmatter.title}/>
+                            }
+                        })}
+                    </div>
+                </div>
+            </section>
+            <section className={styles.aboutSection}>
+                <div className={styles.background}>
+                    <Image className={styles.fullWidthImage} fluid={data.slidesData.frontmatter.slides[0].coverImage.childImageSharp.fluid}/>
+                    <div className={styles.overlay}>
+                    </div>
+                </div>
+                <div className={styles.aboutText}>
+                    <p>Complex Networks champions the people, brands and new trends you need to know now, will obsess over next, and we build consumer universes around them.</p>
+                    <p>We’re what a modern entertainment company looks like and what others have followed since 2002.</p>
+                </div>
+                <div className={styles.allLogos}>
+                    {data.logos.edges.map(({node:logo}) => {
+                        if(logo.frontmatter.title !== 'Networks'){
+                            return <Image fluid={logo.frontmatter.logoImage.childImageSharp.fluid} alt={logo.frontmatter.title}/>
                         }
-                        else if(prevState !== 'forward'){
-                            return 'forward'
+                    })}
+                </div>
+            </section>
+            <section className={styles.ourBrandsSection}>
+                <h2>
+                    Our Brands
+                </h2>
+                <div className={styles.brandsContainer}>
+                    {data.logos.edges.map(({node:logo}) => {
+                        if(logo.frontmatter.title !== 'Networks'){
+                            return <div className={styles.brand}>
+                                <div className={styles.background}>
+                                    {logo.frontmatter.coverImage && 
+                                        <Image className={styles.fullHeightImage} fluid={logo.frontmatter.coverImage.childImageSharp.fluid}/>
+                                    }
+                                    <div className={styles.overlay}></div>
+                                </div>
+                                <div className={styles.brandLogo}>
+                                    <Image  fluid={logo.frontmatter.logoImage.childImageSharp.fluid} alt={logo.frontmatter.title}/>
+                                </div>
+                                <div className={styles.brandText}>
+                                    <h3 className={styles.brandTitle}>{logo.frontmatter.title}</h3>
+                                    <p className={styles.brandDescription}>{logo.frontmatter.description}</p>
+                                </div>
+                            </div> 
                         }
-                    })
-                }} 
+                    })}
+                </div>
+            </section>
+            {/* verticalSlider={true} */}
+            {/* <div className={styles.verticalSliderContainer} 
+            onClick={() => {nextSlide()}}
                 onWheel={(e) => {
                 if(e.deltaY > 0){
-                    nextSlide(); setAutoplayDirection(prevState => {
-                        if(prevState === 'forward'){
-                            return undefined
-                        }
-                        else if(prevState !== 'forward'){
-                            return 'forward'
-                        }
-                    })
+                    nextSlide();
                 }else{
-                    prevSlide(); setAutoplayDirection(prevState => {
-                        if(prevState === 'backward'){
-                            return undefined
-                        }
-                        else if(prevState !== 'backward'){
-                            return 'backward'
-                        }
-                    })
+                    prevSlide()
                 }
                 }} onTouchMove={(e) => {e.persist(); setTouchMoves((prevState) => {return [...prevState, e.changedTouches]})}} onTouchEnd={() => setTouchMoves([])}>
                 <VerticalSliderSlide 
@@ -494,7 +409,7 @@ const WorkWithUsPage = () => {
                     </div>
                 </VerticalSliderSlide>
                 <VerticalSliderSlide
-                    transition={transitions.slideDown}
+                    transition={transitions.appear}
                     active={currentSlide == 7}
                 >
                     <div className={styles.slideBackground} style={{background:'#000', color:'white'}}>
@@ -513,8 +428,8 @@ const WorkWithUsPage = () => {
                             </h2>
                         </AnimatedContainer>
                     </div>
-                </VerticalSliderSlide>
-                <VerticalSliderSlide
+                </VerticalSliderSlide> */}
+                {/* <VerticalSliderSlide
                     transition={transitions.slideLeft}
                     active={currentSlide == 8}
                 >
@@ -2029,8 +1944,8 @@ const WorkWithUsPage = () => {
                             </h2>
                         </AnimatedContainer>
                     </div>
-                </VerticalSliderSlide>
-            </div>
+                </VerticalSliderSlide> */}
+            {/* </div> */}
         </Layout>
     )
 }

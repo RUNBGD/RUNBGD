@@ -193,6 +193,7 @@ collections:
         label: "Work With Us Page"
         name: "workWithUsPage"
         fields:
+          - {label: "Hero Video", name: "heroVideo", widget: file}
           - {label: "Slides", name: "slides", widget: list, fields: [
               {label: "Cover Image", required: false ,name: "coverImage", widget: image},
               {label: "Slide Text", name: "slideText", widget: markdown}

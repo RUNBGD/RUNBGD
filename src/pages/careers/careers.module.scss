@@ -51,6 +51,9 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    background:black;
+    padding:15px;
+    border-radius: 5px;
     @include breakpoint(lg){
     }
 }

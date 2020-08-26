@@ -76,8 +76,158 @@
 
 .all-logos > div{
     width:20%;
-    margin:0 5%;
+    margin:0 2%;
     @include breakpoint(lg){
-        width:10%;
+        width:8%;
     }
+}
+
+
+
+.video-section{
+    height:90vh;
+    overflow: hidden;
+    position:relative;
+    padding:5vh 15vw 5vh;
+    color:white;
+}
+
+.full-width-image{
+    width:100%;
+}
+
+.full-height-image{
+    height:100%;
+}
+
+.background{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    width:100%;
+    height:100%;
+    z-index:-1;
+}
+
+.main-logo{
+    width:190px;
+}
+
+.l-spaced-content{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height:100%;
+}
+
+.hero-heading{
+    font-size:4rem;
+    text-transform: uppercase;
+    width:100%;
+    margin:0;
+}
+
+.highlighted-text{
+    color:#EE1C25;
+}
+
+.hero-text{
+    width:50%;
+    margin:auto;
+    margin-top:0;
+    margin-bottom:40px;
+    font-weight: 700;
+}
+
+.hero-text > p{
+    margin:0;
+}
+
+.scroll-action-arrow{
+    animation: bounce 3s infinite;
+    margin-left:auto;
+    margin-right: auto;
+}
+
+@keyframes bounce{
+    0%{
+        transform: translate(0, 10px);
+    }
+    50%{
+        transform: translate(0, -10px);
+    }
+    100%{
+        transform: translate(0, 10px);
+    }
+}
+
+.hero-quote{
+    font-size:0.65rem;
+    line-height: 0.65rem;
+}
+
+.overlay{
+    width:100%;
+    height:100%;
+    position:absolute;
+    top:0;
+    background-color:rgba(0, 0, 0, 0.5);
+    z-index:1;
+}
+
+.about-section{
+    height:auto;
+    overflow: hidden;
+    position:relative;
+    padding:20vh 15vw 10vh;
+    color:white;
+}
+
+.about-text{
+    width:60%;
+    > p {
+        font-size:1.5rem;
+    }
+}
+
+.brand-logo{
+    width:75px;
+}
+
+.brand-text{
+    color:white;
+}
+
+.our-brands-section{
+    padding:15vh 15vw 10vh;
+    > h2 {
+        text-transform:uppercase ;
+    }
+}
+
+.brands-container{
+    display:flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.brand{
+    width:32%;
+    position:relative;
+    margin-bottom:1.25vw;
+    border-radius: 5px;
+    overflow: hidden;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding:25px;
+}
+
+.brand-title{
+    font-size:1rem;
+}
+
+.brand-description{
+    font-size:0.7rem;
 }
