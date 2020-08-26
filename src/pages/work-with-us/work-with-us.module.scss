@@ -75,25 +75,42 @@
 }
 
 .all-logos > div{
-    width:20%;
-    margin:0 2%;
+    width:21%;
+    margin:0 5%;
     @include breakpoint(lg){
         width:8%;
+        margin:0 2%;
     }
 }
 
 
 
 .video-section{
-    height:95vh;
+    min-height:95vh;
+    max-height:110vh;
     overflow: hidden;
     position:relative;
-    padding:5vh 15vw 5vh;
+    padding:5vh 7.5vw;
     color:white;
+    @include breakpoint(lg){
+        height:95vh;
+        max-height:unset;
+        padding:5vh 15vw 5vh;
+    }
 }
 
 .full-width-image{
-    width:100%;
+    height:100%;
+    object-fit: cover;
+    object-position: center center;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    @include breakpoint(lg){
+        height:unset;
+        width:100%;
+    }
 }
 
 .full-height-image{
@@ -111,7 +128,12 @@
 }
 
 .main-logo{
-    width:190px;
+    width:130px;
+    margin-bottom:20px;
+    @include breakpoint(lg){
+        width:190px;
+        margin-bottom:unset;
+    }
 }
 
 .l-spaced-content{
@@ -122,10 +144,17 @@
 }
 
 .hero-heading{
-    font-size:4rem;
     text-transform: uppercase;
     width:100%;
     margin:0;
+    font-size:2.5rem;
+    line-height: 3.2rem;
+    margin-bottom:15px;
+    @include breakpoint(lg){
+        font-size:4rem;
+        line-height:4rem;
+        margin-bottom:0;
+    }
 }
 
 .highlighted-text{
@@ -133,11 +162,14 @@
 }
 
 .hero-text{
-    width:50%;
+    width:100%;
     margin:auto;
     margin-top:0;
     margin-bottom:40px;
     font-weight: 700;
+    @include breakpoint(lg){
+        width:50%;
+    }
 }
 
 .hero-text > p{
