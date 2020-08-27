@@ -67,6 +67,25 @@ let CategoryPage = ({data}) => {
               <hr/>
             </React.Fragment>
           }
+          {data.packages && 
+            <div className={styles.packageSection}>
+              <h2>{data.packages.frontmatter.title}</h2>
+              <div className={styles.packageContainer}>
+                {data.packages.frontmatter.packages.map(item => {
+                  return <div className={styles.package}>
+                    <div className={styles.background}>
+                      <Image className={styles.fullHeightImage} fluid={item.background.childImageSharp.fluid}/>
+                      <div className={styles.overlay}>
+                      </div>
+                  </div>
+                    <p className={styles.packageTitle}>{item.title}</p>
+                    <HTMLContent className={styles.packageDescription} content={toHTML(item.description)}/>
+                  </div>
+                })}
+              </div>
+              <HTMLContent className={styles.packageBody} content={toHTML(data.packages.frontmatter.bottomText)} />
+            </div>
+          }
           {data.subCategories.edges[0] && 
             data.subCategories.edges.map(({node:category}) => {
               let filteredPosts = data.subCategoryItems.edges.filter(({node:item}) => {
@@ -208,6 +227,24 @@ let CategoryPage = ({data}) => {
                 }
               }
             }
+          packages: markdownRemark(frontmatter:{templateKey: {eq: "packages"}, category: {eq:$title}}){
+            frontmatter{
+              title
+              description
+              packages{
+                title
+                description
+                background{
+                  childImageSharp{
+                    fluid(maxHeight:1000, quality:64){
+                      ...GatsbyImageSharpFluid
+                    }
+                  }
+                }
+              }
+              bottomText
+            }
+          }
       }
     `
     export default CategoryPage

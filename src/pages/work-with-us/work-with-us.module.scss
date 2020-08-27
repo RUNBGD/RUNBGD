@@ -204,7 +204,7 @@
     height:100%;
     position:absolute;
     top:0;
-    background-color:rgba(0, 0, 0, 0.5);
+    background-color:rgba(0, 0, 0, 0.65);
     z-index:1;
 }
 
@@ -217,9 +217,12 @@
 }
 
 .about-text{
-    width:60%;
+    width:100%;
     > p {
         font-size:1.5rem;
+    }
+    @include breakpoint(lg){
+        width:60%;
     }
 }
 
@@ -232,9 +235,13 @@
 }
 
 .our-brands-section{
-    padding:15vh 15vw 10vh;
+    padding:5vh 15vw 10vh;
     > h2 {
         text-transform:uppercase ;
+    }
+    @include breakpoint(lg){
+        
+        padding:15vh 15vw 10vh;
     }
 }
 
@@ -245,7 +252,7 @@
 }
 
 .brand{
-    width:32%;
+    width:100%;
     position:relative;
     margin-bottom:1.25vw;
     border-radius: 5px;
@@ -254,6 +261,9 @@
     flex-direction: column;
     justify-content: space-between;
     padding:25px;
+    @include breakpoint(lg){
+        width:32%;
+    }
 }
 
 .brand-title{
@@ -262,4 +272,12 @@
 
 .brand-description{
     font-size:0.7rem;
+}
+
+.long-text-section{
+    height:auto;
+    overflow: hidden;
+    position:relative;
+    padding:20vh 15vw 10vh;
+    color:white;
 }
