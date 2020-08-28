@@ -10,7 +10,7 @@ const ShopProduct = ({images, title, price, availableSizes}) => {
 
     return(
         <div className={styles.productContainer} onMouseEnter={() =>setHovered(true)} onMouseLeave={() => setHovered(false)}>
-            {(!hovered | images.length < 2)? <div className={styles.mainInformation}>
+            <div className={`${styles.mainInformation} ${hovered && styles.invisible}`}>
                 <div className={styles.image}>
                     <Image className={styles.fullHeightImage} fluid={images[0].image.childImageSharp.fluid} alt=''/>
                 </div>
@@ -19,10 +19,14 @@ const ShopProduct = ({images, title, price, availableSizes}) => {
                     <p className={styles.price}>€{price}</p>
                 </div>
             </div>
-            :
-            <div className={styles.miscInformation}>
+            <div className={`${styles.miscInformation} ${hovered && styles.visible}`}>
                 <div className={styles.image}>
-                    <Image className={styles.fullHeightImage} fluid={currentImage} alt=''/>
+                    {
+                        currentImage ?
+                        <Image className={styles.fullHeightImage} fluid={currentImage} alt=''/>
+                        :
+                        <Image className={styles.fullHeightImage} fluid={images[0].image.childImageSharp.fluid} alt=''/>
+                    }
                 </div>
                 <div className={styles.thumbnailsContainer}>
                     {images.map((image, index) => {
@@ -40,8 +44,6 @@ const ShopProduct = ({images, title, price, availableSizes}) => {
                     </p>
                 </div>
             </div>
-            }
-            
         </div>
     )
 }

@@ -4,8 +4,19 @@
 }
 
 .product-container{
-    cursor:pointer;
     transition:0.5s;
+    position:relative;
+}
+
+.main-information{
+    position:absolute;
+    width:100%;
+    transition:0.3s;
+}
+
+.misc-information{
+    opacity:0;
+    transition:0.3s;
 }
 
 .misc-text{
@@ -19,12 +30,33 @@
     display:flex;
     height:30px;
     overflow: hidden;
+    justify-content: center;
 }
 
 .thumbnail{
     width:25%;
+    position:relative;
+}
+
+.thumbnail > div{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
 }
 
 .full-height-image{
     height:100%;
+}
+
+.image > div{
+    border-radius:5px;
+}
+
+.visible{
+    opacity:1;
+}
+
+.invisible{
+    opacity:0;
 }

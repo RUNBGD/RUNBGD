@@ -1,9 +1,10 @@
 @import '../../styles/breakpoints.scss';
 
-.product-container{
-    width:80%;
+.products{
+    width:75%;
     display:flex;
     flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .filter-container{
@@ -11,6 +12,82 @@
 }
 
 .product{
+    width:21%;
+    margin:0 4% 3vw 0;
+}
+
+.full-width{
+    width:100%;
+    padding:0;
+}
+
+.shop-banners-container{
+    height:75vh;
+    display:flex;
+    margin-bottom:50px;
+}
+
+.carousel{
+    border-radius: 5px;
+}
+
+.banner-text-container{
     width:25%;
-    margin:0 1vw 3vw;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding:3%;
+}
+
+
+.banner-text > a{
+    background:black;
+    color:white;
+    padding:10px 20px;
+    border-radius:5px;
+    font-weight: 700;
+}
+
+.banner-images{
+    width:75%;
+    height: 100%;
+}
+
+.carousel{
+    height:100%;
+}
+
+.slide{
+    max-height:75vh;
+    display:relative;
+}
+
+.slide > img{
+    position:absolute;
+    width:100%; 
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%, -50%);
+}
+
+.product-container{
+    display:flex;
+}
+
+.filter-container{
+    width:25%;
+    height:100%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.filters{
+    box-shadow:0 3px 6px rgba(0, 0, 0, 0.16);
+    border-radius: 5px;
+    width:80%;
+    display: flex;
+    flex-direction: column;
+    padding:15px;
 }
