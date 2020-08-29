@@ -29,6 +29,40 @@
 
 .carousel{
     border-radius: 5px;
+    position: relative;
+}
+
+.navigation{
+    position:absolute;
+    bottom:0;
+    z-index:1;
+    display:flex;
+    padding:10px;
+}
+
+.navigation > img {
+    width:100%;
+}
+
+.swiper-prev-el, .swiper-next-el{
+    background:black;
+    border-radius:5px;
+    padding:5px;
+    margin:5px;
+    width:50px;
+    height:50px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    cursor:pointer;
+}
+
+.swiper-prev-el{
+    transform:rotate(90deg);
+}
+
+.swiper-next-el{
+    transform:rotate(-90deg);
 }
 
 .banner-text-container{
@@ -61,6 +95,7 @@
 .slide{
     max-height:75vh;
     display:relative;
+    width:90%;
 }
 
 .slide > img{
@@ -90,4 +125,14 @@
     display: flex;
     flex-direction: column;
     padding:15px;
+}
+
+.filter{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.filter > input{
+    color:black;
 }

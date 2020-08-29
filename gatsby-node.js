@@ -217,6 +217,49 @@ exports.createPages = async ({ actions, graphql }) => {
       })
     })
   })
+
+  await graphql(`
+    {
+      allMarkdownRemark(limit: 2000, filter:{frontmatter:{templateKey: {eq: "shop-product"}}}) {
+        edges {
+          node {
+            id
+            fields {
+              slug
+            }
+            frontmatter {
+              templateKey
+              category
+            }
+          }
+        }
+      }
+    }
+  `).then((result) => {
+    if (result.errors) {
+      result.errors.forEach((e) => console.error(e.toString()))
+      return Promise.reject(result.errors)
+    }
+
+    const products = result.data.allMarkdownRemark.edges
+
+    products.forEach((edge) => {
+      const id = edge.node.id
+      const category = edge.node.frontmatter.category
+      
+      createPage({
+        path: edge.node.fields.slug,
+        component: path.resolve(
+          `src/templates/shop-product/index.js`
+        ),
+        // additional data can be passed via context
+        context: {
+          id,
+          category
+        },
+      })
+    })
+  });
   
 
     return graphql(`

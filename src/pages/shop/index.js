@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import {useStaticQuery, graphql} from 'gatsby'
+import {useStaticQuery, graphql, Link} from 'gatsby'
 import SwiperCore, {Pagination, Navigation} from 'swiper'
 import {Swiper, SwiperSlide} from 'swiper/react'
 import swiperStyles from 'swiper/swiper.scss'
@@ -13,8 +13,11 @@ import ShopProduct from '../../components/ShopProduct'
 
 import shopBanner1 from '../../img/shop-banner-1.jpeg'
 import shopBanner2 from '../../img/shop-banner-2.jpeg'
+import downArrow from '../../img/down-arrow-white.svg'
 
 console.log(swiperStyles, paginationSwiperStyles)
+
+SwiperCore.use([Pagination, Navigation])
 
 
 const Shop = () => {
@@ -59,11 +62,13 @@ const Shop = () => {
     const dummyBanners = [
         {
             image:shopBanner1,
-            text:'First Short Heading'
+            text:'First Short Heading',
+            description: 'This is short description'
         },
         {
             image:shopBanner2,
-            text:'Second Short Heading'
+            text:'Second Short Heading',
+            description:'This is another short description'
         }
     ]
     
@@ -138,11 +143,16 @@ const Shop = () => {
                             <h2>
                                 {dummyBanners[activeSlide].text}
                             </h2>
+                            <p className={styles.bannerDescription}>
+                                {dummyBanners[activeSlide].description}
+                            </p>
                             <a href=''>See Product</a>
                         </div>
                     </div>
                     <div className={styles.bannerImages}>
                         <Swiper
+                            spaceBetween={10}
+                            grabCursor={true}
                             navigation={{
                                 nextEl:`.${styles.swiperNextEl}`,
                                 prevEl: `.${styles.swiperPrevEl}`
@@ -161,6 +171,11 @@ const Shop = () => {
                                     <img className={styles.banner} src={banner.image} alt=''/>
                                 </SwiperSlide>
                             })}
+                            <div className={styles.navigation}>
+                                <div className={styles.swiperPrevEl}><img src={downArrow} alt=''/></div>
+                                <div className={styles.swiperNextEl}><img src={downArrow} alt=''/></div>
+                            </div>
+                            <div className={styles.swiperPagination}></div>
                         </Swiper>
                     </div>
                 </div>
@@ -176,7 +191,9 @@ const Shop = () => {
                         {
                             transitionProducts.map(({item: product, key, props}) => {
                                     return <animated.div style={props} key={key} className={styles.product}>
-                                        <ShopProduct title={product.node.frontmatter.title} images={product.node.frontmatter.images} price={product.node.frontmatter.price} availableSizes={product.node.frontmatter.sizes}/>
+                                        <Link to={product.node.fields.slug}>
+                                            <ShopProduct title={product.node.frontmatter.title} images={product.node.frontmatter.images} price={product.node.frontmatter.price} availableSizes={product.node.frontmatter.sizes}/>
+                                        </Link>
                                     </animated.div>
                             })
                         }
