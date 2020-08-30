@@ -6,7 +6,7 @@ import 'swiper/components/navigation/navigation.scss'
 import thumbsStyles from 'swiper/components/thumbs/thumbs.scss'
 import paginationSwiperStyles from 'swiper/components/pagination/pagination.scss'
 import Image from 'gatsby-image'
-
+import {useDispatch} from 'react-redux'
 
 import styles from './shop-product-page.module.scss'
 import Layout from '../../components/Layout'
@@ -18,9 +18,39 @@ console.log(swiperStyles, paginationSwiperStyles, thumbsStyles);
 SwiperCore.use([Pagination, Navigation, Thumbs]);
 
 const ShopProductPage = ({data}) => {
+    const dispatch = useDispatch()
 
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
     const [selectedSize, setSelectedSize] = useState(undefined);
+    const [alreadyAddedToCartMessage, setAlreadyAddedToCartMessage] = useState(undefined)
+
+    useEffect(() => {
+        addToStateFromLocalStorage()
+    }, [])
+
+    function addToStateFromLocalStorage(){
+        if(JSON.parse(localStorage.getItem('cartItems'))){
+            dispatch({type:'ADD_FROM_LOCAL_STORAGE', payload:JSON.parse(localStorage.getItem('cartItems'))})
+        }
+    }
+
+    const addProductToCart = () => {
+        if(JSON.parse(localStorage.getItem('cartItems'))){
+            if(JSON.parse(localStorage.getItem('cartItems')).findIndex(product => {
+                if(product.id == data.product.fields.slug && product.size == selectedSize){
+                    return true
+                }
+            }) == -1){
+                setAlreadyAddedToCartMessage(undefined)
+                return dispatch({type:'ADD_PRODUCT', payload:{product:data.product, size:selectedSize, quantity: 1, id:data.product.fields.slug}})
+            }else{
+                setAlreadyAddedToCartMessage('You have already added that item to cart!')
+            }
+        }else{
+            setAlreadyAddedToCartMessage(undefined)
+            return dispatch({type:'ADD_PRODUCT', payload:{product:data.product, size:selectedSize, quantity: 1, id:data.product.fields.slug}})
+        }
+    }
 
     return <Layout fullWidth={true}>
         <main className={styles.fullWidth}>
@@ -81,8 +111,20 @@ const ShopProductPage = ({data}) => {
                                 {size.size}
                             </div>
                         })}
-                    </div>
-                    <button class={styles.callToActionButton}>Add to bag</button>
+                    </div> 
+                    <button class={styles.callToActionButton} onClick={() => {
+                        if(selectedSize != undefined){
+                        setAlreadyAddedToCartMessage(undefined)
+                        addProductToCart()
+                    }else{
+                        setAlreadyAddedToCartMessage('Please choose size.')
+                    }
+                    }}>Add to bag</button>
+                    {alreadyAddedToCartMessage && 
+                        <div className={styles.error}>
+                            {alreadyAddedToCartMessage}
+                        </div>
+                    }
                     <hr/>
                     <h3>Description</h3>
                     <p className={styles.productDescription}>{data.product.frontmatter.description}</p>

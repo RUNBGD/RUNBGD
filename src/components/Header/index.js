@@ -3,11 +3,13 @@ import Image from 'gatsby-image'
 import {useStaticQuery, graphql, Link} from 'gatsby'
 import * as JsSearch from 'js-search'
 import {useTransition, useSpring, animated} from 'react-spring'
+import {useSelector} from 'react-redux'
 
 import menuButton from '../../img/menu-icon.svg'
 import searchButton from '../../img/search-icon.svg'
 import searchButtonWhite from '../../img/search-icon-white.svg'
-import closeButton from '../../img/close-icon.svg' 
+import closeButton from '../../img/close-icon.svg'
+import cartIcon from '../../img/cart-icon.svg' 
 import LinksBlock from '../LinksBlock'
 
 import styles from './navbar.module.scss'
@@ -127,7 +129,14 @@ const Header = () => {
   let [searchOpened, setSearchOpened] = useState(false)
   let [searchValue, setSearchValue] = useState('')
   let [searchResults, setSearchResults] = useState([])
-  
+  let [numOfItemsInCart, setNumOfItemsInCart] = useState(JSON.parse(localStorage.getItem('cartItems')) ? JSON.parse(localStorage.getItem('cartItems')).length : 0)
+
+  useEffect(() => {
+    if(JSON.parse(localStorage.getItem('cartItems'))){
+      setNumOfItemsInCart(JSON.parse(localStorage.getItem('cartItems')).length)
+    }
+  }, [useSelector(state => state)])
+
   const transitions = useTransition(searchResults.slice(0, 10), result => result.fields.slug, {
     from: {transform: 'translate3d(-5px, 0px,0)', opacity:0, maxHeight:'0vh', padding:'0px'},
     enter: { transform: 'translate3d(0,0px,0)' , opacity: 1, maxHeight:'20vh', padding:'5px'},
@@ -168,7 +177,9 @@ const Header = () => {
                 {channel.frontmatter.title}
               </Link>
             })}
-            
+            <Link to={'/shop'}>
+              Shop
+            </Link>
             <div className={styles.menuButtonContainer}  onClick={() => setMenuOpened(prevState => !prevState)}>
               {menuOpened ? 'Less' : 'More'}
               <img src={menuOpened ? closeButton : menuButton} alt='mobile menu button'/>
@@ -178,6 +189,14 @@ const Header = () => {
           {searchOpened && <input className={styles.headerSearchInput} type='text' placeholder='Search' onChange={searchHandler}></input>}
             <div className={styles.menuButtonContainer}>
               <img src={menuOpened ? searchButtonWhite : searchButton} alt='search website button' onClick={() => setSearchOpened(prevState => !prevState)}/>
+            </div>
+            <div className={styles.shoppingCart}>
+              <Link to={'/shop/cart'}>
+                <img src={cartIcon} alt='checkout cart'/>
+              </Link>
+              <div className={styles.numOfItemsInCart}>
+                {numOfItemsInCart}
+              </div>
             </div>
             <div className={styles.navSocialLinks}>
               {data.socialLinks.edges.map(({node:link}) => {

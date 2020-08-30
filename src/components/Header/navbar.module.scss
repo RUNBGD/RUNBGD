@@ -314,3 +314,27 @@
 
   font-size:0.75rem;
 }
+
+.shopping-cart{
+  margin-left:15px;
+  height:25px;
+  position:relative;
+  img{
+    height:100%;
+  }
+}
+
+.num-of-items-in-cart{
+  position:absolute;
+  background:black;
+  color:white;
+  border-radius:50%;
+  width:15px;
+  height:15px;
+  font-size:0.5rem;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  top:-5px;
+  right:-5px;
+}
