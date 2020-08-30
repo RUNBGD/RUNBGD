@@ -129,11 +129,13 @@ const Header = () => {
   let [searchOpened, setSearchOpened] = useState(false)
   let [searchValue, setSearchValue] = useState('')
   let [searchResults, setSearchResults] = useState([])
-  let [numOfItemsInCart, setNumOfItemsInCart] = useState(JSON.parse(localStorage.getItem('cartItems')) ? JSON.parse(localStorage.getItem('cartItems')).length : 0)
+  let [numOfItemsInCart, setNumOfItemsInCart] = useState(typeof window !== 'undefined' && (JSON.parse(localStorage.getItem('cartItems')) ? JSON.parse(localStorage.getItem('cartItems')).length : 0))
 
   useEffect(() => {
-    if(JSON.parse(localStorage.getItem('cartItems'))){
-      setNumOfItemsInCart(JSON.parse(localStorage.getItem('cartItems')).length)
+    if (typeof window !== 'undefined'){
+      if(JSON.parse(localStorage.getItem('cartItems'))){
+        setNumOfItemsInCart(JSON.parse(localStorage.getItem('cartItems')).length)
+      }
     }
   }, [useSelector(state => state)])
 
