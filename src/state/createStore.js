@@ -5,14 +5,18 @@ function cartItems(state = [], action){
         case 'ADD_FROM_LOCAL_STORAGE':
             return [...action.payload]
         case 'ADD_PRODUCT':
-            localStorage.setItem('cartItems', JSON.stringify([...state, action.payload]))
+            if (typeof window !== 'undefined'){
+                localStorage.setItem('cartItems', JSON.stringify([...state, action.payload]))
+            }
             return [...state, action.payload]
         case 'REMOVE_PRODUCT':
             let indexOfItem = [...state].findIndex(product => {return action.payload == product.id})
             let newState = [...state]
             newState.splice(indexOfItem, 1)
             
-            localStorage.setItem('cartItems', JSON.stringify(newState))
+            if (typeof window !== 'undefined'){
+                localStorage.setItem('cartItems', JSON.stringify(newState))
+            }
             
             return newState
         case 'CHANGE_QUANTITY':
@@ -24,7 +28,9 @@ function cartItems(state = [], action){
                         return product
                     }
                 })
-                localStorage.setItem('cartItems', JSON.stringify(changedQuantityArray))
+                if (typeof window !== 'undefined'){
+                    localStorage.setItem('cartItems', JSON.stringify(changedQuantityArray))
+                }
                 return changedQuantityArray
             }
         default:

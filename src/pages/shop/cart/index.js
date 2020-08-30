@@ -15,8 +15,10 @@ const Cart = () => {
     }, [])
 
     function addToStateFromLocalStorage(){
-        if(JSON.parse(localStorage.getItem('cartItems'))){
-            dispatch({type:'ADD_FROM_LOCAL_STORAGE', payload:JSON.parse(localStorage.getItem('cartItems'))})
+        if (typeof window !== 'undefined'){
+            if(JSON.parse(localStorage.getItem('cartItems'))){
+                dispatch({type:'ADD_FROM_LOCAL_STORAGE', payload:JSON.parse(localStorage.getItem('cartItems'))})
+            }
         }
     }
 
