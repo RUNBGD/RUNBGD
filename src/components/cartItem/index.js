@@ -37,7 +37,7 @@ const CartItem = ({item:product}) => {
                 <button onClick={() => setQuantity(prevState => prevState + 1)}>+</button>
             </div>
             <div className={styles.itemPrice}>
-            €{quantity * product.product.frontmatter.price}
+                €{quantity * product.product.frontmatter.price}
             </div>
         </div>
     )
