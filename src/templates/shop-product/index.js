@@ -6,6 +6,7 @@ import 'swiper/components/navigation/navigation.scss'
 import thumbsStyles from 'swiper/components/thumbs/thumbs.scss'
 import paginationSwiperStyles from 'swiper/components/pagination/pagination.scss'
 import Image from 'gatsby-image'
+import {graphql} from 'gatsby'
 import {useDispatch} from 'react-redux'
 
 import styles from './shop-product-page.module.scss'
@@ -58,9 +59,16 @@ const ShopProductPage = ({data}) => {
                 <div className={styles.productSlider}>
                     <div className={styles.thumbsSliderContainer}>
                         <Swiper
-                            direction='vertical'
+                            direction='horizontal'
+                            breakpoints={{
+                                1200:{
+                                    direction:'vertical',
+                                    spaceBetween:20
+                                }
+                            }
+                            }
                             slidesPerView={4}
-                            spaceBetween={20}
+                            spaceBetween={10}
                             loop={false}
                             navigation={{
                                 nextEl:`.${styles.swiperNextEl}`,
@@ -86,7 +94,15 @@ const ShopProductPage = ({data}) => {
                     </div>
                     <div className={styles.mainSliderContainer}>
                         <Swiper
-                            direction='vertical'
+                            direction='horizontal'
+                            breakpoints={{
+                                1200:{
+                                    direction:'vertical',
+                                    spaceBetween:0
+                                }
+                            }
+                            }
+                            spaceBetween={20}
                             thumbs={{swiper: thumbsSwiper}}
                             slidesPerView={1}
                             loop={true}
@@ -104,16 +120,21 @@ const ShopProductPage = ({data}) => {
                     <h2 className={styles.productTitle}>{data.product.frontmatter.title}</h2>
                     <p className={styles.productPrice}>€{data.product.frontmatter.price}</p>
                     <hr/>
-                    <p>Sizes</p>
-                    <div className={styles.sizes}>
-                        {data.product.frontmatter.sizes.map((size, index) => {
-                            return <div onClick={() => {size.available && setSelectedSize(index)}} className={`${styles.size} ${!size.available && styles.notAvailable} ${selectedSize === index && styles.selected}`} key={index}>
-                                {size.size}
-                            </div>
-                        })}
-                    </div> 
+                    {
+                        data.product.frontmatter.sizes != undefined &&
+                        <React.Fragment>
+                            <p>Sizes</p>
+                            <div className={styles.sizes}>
+                                {data.product.frontmatter.sizes.map((size, index) => {
+                                    return <div onClick={() => {size.available && setSelectedSize(index)}} className={`${styles.size} ${!size.available && styles.notAvailable} ${selectedSize === index && styles.selected}`} key={index}>
+                                        {size.size}
+                                    </div>
+                                })}
+                            </div> 
+                        </React.Fragment>
+                    }
                     <button class={styles.callToActionButton} onClick={() => {
-                        if(selectedSize != undefined){
+                        if(selectedSize != undefined || data.product.frontmatter.sizes == undefined){
                         setAlreadyAddedToCartMessage(undefined)
                         addProductToCart()
                     }else{

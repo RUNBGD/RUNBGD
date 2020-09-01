@@ -29,7 +29,9 @@ const CartItem = ({item:product}) => {
                     {product.product.frontmatter.title}
                 </h2>
                 <p className={styles.itemDescription}>{product.product.frontmatter.description}</p>
-                <p className={styles.itemSize}>Size: {product.product.frontmatter.sizes[product.size].size}</p>
+                {product.size !== undefined && 
+                    <p className={styles.itemSize}>Size: {product.product.frontmatter.sizes[product.size].size}</p>
+                }
             </div>
             <div className={styles.quantity}>
                 <button onClick={() => setQuantity(prevState => prevState - 1)}>-</button>

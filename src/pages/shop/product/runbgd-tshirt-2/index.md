@@ -9,9 +9,5 @@ images:
     - image: /img/product2-3.png
 price: 25
 sizes:
-    - size: S
-      available: true
-    - size: M
-      available: false
 available: true
 ---

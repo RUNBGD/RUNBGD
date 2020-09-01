@@ -10,6 +10,7 @@ import searchButton from '../../img/search-icon.svg'
 import searchButtonWhite from '../../img/search-icon-white.svg'
 import closeButton from '../../img/close-icon.svg'
 import cartIcon from '../../img/cart-icon.svg' 
+import cartIconWhite from '../../img/cart-icon-white.svg'
 import LinksBlock from '../LinksBlock'
 
 import styles from './navbar.module.scss'
@@ -194,7 +195,7 @@ const Header = () => {
             </div>
             <div className={styles.shoppingCart}>
               <Link to={'/shop/cart'}>
-                <img src={cartIcon} alt='checkout cart'/>
+                <img src={menuOpened ? cartIconWhite : cartIcon} alt='checkout cart'/>
               </Link>
               <div className={styles.numOfItemsInCart}>
                 {numOfItemsInCart}

@@ -38,10 +38,14 @@ const ShopProduct = ({images, title, price, availableSizes}) => {
                     })}
                 </div>
                 <div>
-                    <p className={styles.miscText}>Available Sizes</p>
-                    <p className={styles.miscText}>
-                        {availableSizes.filter(size => size.available).map(size => size.size).join(',')}
-                    </p>
+                    {availableSizes && 
+                    <React.Fragment>
+                        <p className={styles.miscText}>Available Sizes</p>
+                        <p className={styles.miscText}>
+                            {availableSizes.filter(size => size.available).map(size => size.size).join(',')}
+                        </p>
+                    </React.Fragment>
+                    }
                 </div>
             </div>
         </div>

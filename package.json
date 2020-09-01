@@ -41,6 +41,7 @@
     "react-helmet": "^6.0.0",
     "react-infinite-scroll-component": "^5.0.5",
     "react-leaflet": "^2.7.0",
+    "react-paypal-button-v2": "^2.6.2",
     "react-redux": "^7.2.1",
     "react-spring": "^8.0.27",
     "react-typist": "^2.0.5",

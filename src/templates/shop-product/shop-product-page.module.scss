@@ -1,3 +1,5 @@
+@import '../../styles/breakpoints.scss';
+
 .product-title{
     font-size:2rem;
     text-transform: uppercase;
@@ -11,18 +13,32 @@
 
 .product{
     display:flex;
+    flex-direction: column;
+    @include breakpoint(lg){
+        flex-direction: row;
+    }
 }
 
 .product-slider{
-    height:85vh;
-    width:60%;
+    width:100%;
     display:flex;
-    justify-content: space-between;
+    flex-direction: column-reverse;
+    @include breakpoint(lg){
+        flex-direction: row;
+        justify-content: space-between;
+        height:85vh;
+        width:60%;
+    }
 }
 
 .thumbs-slider-container{
     height:100%;
-    width:20%;
+    width:100%;
+    margin-top:10px;
+    @include breakpoint(lg){
+        width:20%;
+        margin-top:0;
+    }
 }
 
 .thumbnail-slide{
@@ -38,7 +54,10 @@
 
 .thumbnail-slider{
     height:100%;
-    padding:35px 40px 35px;
+    padding:0 35px 0;
+    @include breakpoint(lg){
+        padding:35px 40px 35px;
+    }
 }
 
 .thumbnail-image{
@@ -47,14 +66,21 @@
     position:absolute;
     top:50%;
     left:50%;
-    transform:translate(-50%,-50%);
+    transform:translate(-50%,0%);
     border-radius:5px;
+    @include breakpoint(lg){
+        transform:translate(-50%,-50%);
+
+    }
 }
 
 .main-slider-container{
     height:100%;
-    width:65vh;
+    width:100%;
     margin:auto;
+    @include breakpoint(lg){
+        width:65vh;
+    }
 }
 
 .main-slider{
@@ -65,37 +91,58 @@
 
 .main-image{
     border-radius:5px;
+    @include breakpoint(lg){
+        width:100%;
+    }
 }
 
 .swiper-next-el{
     position:absolute;
-    bottom:0;
-    left:50%;
-    transform:translate(-50%, 0) rotate(90deg);
+    top:50%;
+    right:0;
+    transform:translate(0%, -50%);
     width:35px;
     height:35px;
     z-index:1;
     > img{
         height:100%;
+    }
+    @include breakpoint(lg){
+        bottom:0;
+        left:50%;
+        top:unset;
+        right:unset;
+        transform:translate(-50%, 0) rotate(90deg);
     }
 }
 
 .swiper-prev-el{
     position:absolute;
-    top:0;
-    left:50%;
-    transform:translate(-50%, 0) rotate(-90deg);
+    top:50%;
+    left:0;
+    transform:translate(0%, -50%) rotate(180deg);
     width:35px;
     height:35px;
     z-index:1;
     > img{
         height:100%;
     }
+    @include breakpoint(lg){
+        top:0;
+        left:50%;
+        bottom:unset;
+        right:unset;
+        transform:translate(-50%, 0) rotate(-90deg);
+    }
 }
 
 .product-information{
     flex-grow:1;
-    padding:0 10% 0 0;
+    margin:20px 0 20px;
+    @include breakpoint(lg){
+        margin-top:0;
+        padding:0 10% 0 0;
+    }
 }
 
 .sizes{

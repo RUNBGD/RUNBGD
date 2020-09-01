@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import Image from 'gatsby-image'
+import {PayPalButton} from 'react-paypal-button-v2'
 
 import Layout from '../../../components/Layout'
 import styles from './cart.module.scss'
@@ -56,8 +57,22 @@ const Cart = () => {
                     <p className={styles.totalPriceAmount}>
                         €{products && products.reduce((a, b) => {console.log(a);return (a  + b.quantity * b.product.frontmatter.price)}, 0)}
                     </p>
-                    <button>PayPal</button>
-                    <button>Credit Card</button>
+                    <div className={styles.paymentMethodsContainer}>
+                        <PayPalButton
+                            amount='10'
+                            onSuccess={
+                                (details, data) => {
+                                    alert("Transaction completed by " + details.payer.name.given_name)
+                                }
+                            }
+                            options={{
+                                currency:"EUR",
+                                clientId: "AboCmFGTRBEiShVijJzFLGiSo5P0L-hZcD0BKbNqxalY6APNo10R_td8yWa2arHA0xSeIQOAz7kS-eKQ"
+                              }}
+                        />
+                        <button>PayPal</button>
+                        <button>Credit Card</button>
+                    </div>
                 </div>
             </div>
             </main>
