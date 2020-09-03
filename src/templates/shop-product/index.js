@@ -39,18 +39,18 @@ const ShopProductPage = ({data}) => {
     const addProductToCart = () => {
         if(JSON.parse(localStorage.getItem('cartItems'))){
             if(JSON.parse(localStorage.getItem('cartItems')).findIndex(product => {
-                if(product.id == data.product.fields.slug && product.size == selectedSize){
+                if(product.id == (data.product.fields.slug + `${selectedSize}`) && product.size == selectedSize){
                     return true
                 }
             }) == -1){
                 setAlreadyAddedToCartMessage(undefined)
-                return dispatch({type:'ADD_PRODUCT', payload:{product:data.product, size:selectedSize, quantity: 1, id:data.product.fields.slug}})
+                return dispatch({type:'ADD_PRODUCT', payload:{product:data.product, size:selectedSize, quantity: 1, id:data.product.fields.slug + `${selectedSize}`}})
             }else{
                 setAlreadyAddedToCartMessage('You have already added that item to cart!')
             }
         }else{
             setAlreadyAddedToCartMessage(undefined)
-            return dispatch({type:'ADD_PRODUCT', payload:{product:data.product, size:selectedSize, quantity: 1, id:data.product.fields.slug}})
+            return dispatch({type:'ADD_PRODUCT', payload:{product:data.product, size:selectedSize, quantity: 1, id:data.product.fields.slug + `${selectedSize}`}})
         }
     }
 
@@ -163,6 +163,7 @@ const ShopProductPage = ({data}) => {
 export const pageQuery = graphql`
       query ShopProductByID($id: String!) {
         product: markdownRemark(id: { eq: $id }) {
+            id
             fields{
                 slug
             }

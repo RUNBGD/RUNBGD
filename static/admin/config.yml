@@ -151,7 +151,7 @@ collections:
     
   - name: "locationSubcategories"
     label: "Location Subcategories"
-    folder: "src/data/location-subcategories"
+    folder: "src/data/location-subcategory"
     create: true
     slug: "{{title}}"
     identifier_field: name
