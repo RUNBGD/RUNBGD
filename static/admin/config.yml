@@ -148,7 +148,7 @@ collections:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "location-category"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Category Pin", name: "categoryPin", widget: "image"}
-
+    
   - name: "locationSubcategories"
     label: "Location Subcategories"
     folder: "src/data/location-subcategories"
@@ -160,6 +160,40 @@ collections:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Category Pin", name: "categoryPin", widget: "image"}
   
+  - name: "shopProduct"
+    label: "Shop Product"
+    folder: "src/pages/shop/product"
+    create: true
+    path: "{{title}}/{{slug}}"
+    media_folder: /static/img
+    public_folder: /img
+    slug: "index"
+    identifier_field: name
+    fields: 
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "shop-product"}
+      - {label: "Title", name: "title", widget: string}
+      - {label: "Description", name: "description", widget: string}
+      - {label: "Category", name: "category", widget: relation, collection: "productCategory", searchFields: ["title"], valueField: "title", displayFields: ["title"]}
+      - {label: "Images", name: "images", widget: list, fields: [
+          {label: "Image", name: "image", widget: image}
+      ]}
+      - {label: "Price", name: "price", widget: number}
+      - {label: "Sizes", name: "sizes", widget: list, fields: [
+          {label: "Size", name: "size", widget: string},
+          {label: "Size Available", name: "available", widget: boolean}
+      ]}
+      - {label: "Product Available", name: "available", widget: boolean}
+
+  - name: "productCategory"
+    label: "Product Category"
+    folder: "src/data/product-category"
+    create: true
+    slug: "{{title}}"
+    identifier_field: name
+    fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "product-category"}
+      - {label: "Title", name: "title", widget: "string"}
+    
   - name: "logos"
     label: "Logos"
     folder: "src/data/logos"
@@ -174,31 +208,35 @@ collections:
   - name: "pages"
     label: "Pages"
     files:
-      - file: "src/pages/products/index.md"
-        label: "Products Page"
-        name: "products"
+      - file: "src/pages/shop/index.md"
+        label: "Shop Page"
+        name: "shopPage"
         fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "product-page"}
-          - {label: Title, name: title, widget: string}
-          - {label: Image, name: image, widget: image}
-          - {label: Heading, name: heading, widget: string}
-          - {label: Description, name: description, widget: string}
-          - {label: Intro, name: intro, widget: object, fields: [{label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: text}, {label: Blurbs, name: blurbs, widget: list, fields: [{label: Image, name: image, widget: image}, {label: Text, name: text, widget: text}]}]}
-          - {label: Main, name: main, widget: object, fields: [{label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: text}, {label: Image1, name: image1, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}, {label: Image2, name: image2, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}, {label: Image3, name: image3, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}]}
-          - {label: Testimonials, name: testimonials, widget: list, fields: [{label: Quote, name: quote, widget: string}, {label: Author, name: author, widget: string}]}
-          - {label: Full_image, name: full_image, widget: image}
-          - {label: Pricing, name: pricing, widget: object, fields: [{label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: string}, {label: Plans, name: plans, widget: list, fields: [{label: Plan, name: plan, widget: string}, {label: Price, name: price, widget: string}, {label: Description, name: description, widget: string}, {label: Items, name: items, widget: list}]}]}
-      
+          - {label: Banners, name: banners, widget: list, fields: [
+              {label: "Banner Image", name: "bannerImage", widget: image},
+              {label: "Banner Heading", name: "bannerHeading", widget: string},
+              {label: "Banner Description", name: "bannerDescription", widget: string},
+              {label: "Banner Button", name: "bannerButton", widget: list, fields: [
+                {label: "Button Text", name: "buttonText", widget: string},
+                {label: "Button Link", name: "buttonLink", widget: string}
+              ]}
+          ]}
+
       - file: "src/pages/work-with-us/index.md"
         label: "Work With Us Page"
         name: "workWithUsPage"
         fields:
-          - {label: "Hero Video", name: "heroVideo", widget: file}
-          - {label: "Slides", name: "slides", widget: list, fields: [
-              {label: "Cover Image", required: false ,name: "coverImage", widget: image},
-              {label: "Slide Text", name: "slideText", widget: markdown}
-          ]
-            }
+          - {label: "Hero Video", name: "heroVideoCover", widget: file}
+          - {label: "Hero Heading", name: heroHeading, widget: string}
+          - {label: "Hero Text", name: "heroText", widget: string}
+          - {label: "Hero Quote", name: "heroQuote", widget: string}
+          - {label: "About Section Cover", name: "aboutImageCover", widget: image}
+          - {label: "About Text", name: "aboutText", widget: markdown}
+          - {label: "sections", name: "sections", widget: list, fields: [
+              {label: "Section Cover", name: "coverImage", widget: image},
+              {label: "Section Heading", name: "sectionHeading", widget: string},
+              {label: "Section Text", name: "sectionText", widget: markdown}
+          ]}
           - {label: "Template Key", name: "templateKey", widget: "string", default: "work-with-us-page"}
 
       - file: "src/pages/careers/index.md"

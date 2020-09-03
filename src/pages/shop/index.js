@@ -6,13 +6,12 @@ import swiperStyles from 'swiper/swiper.scss'
 import 'swiper/components/navigation/navigation.scss'
 import paginationSwiperStyles from 'swiper/components/pagination/pagination.scss'
 import {animated, useTransition} from 'react-spring'
+import {Helmet} from 'react-helmet'
+import Image from 'gatsby-image'
 
 import Layout from '../../components/Layout'
 import styles from './shop.module.scss'
 import ShopProduct from '../../components/ShopProduct'
-
-import shopBanner1 from '../../img/shop-banner-1.jpeg'
-import shopBanner2 from '../../img/shop-banner-2.jpeg'
 import downArrow from '../../img/down-arrow-white.svg'
 
 console.log(swiperStyles, paginationSwiperStyles)
@@ -24,6 +23,25 @@ const Shop = () => {
 
     const data = useStaticQuery(graphql`
         query Shop{
+            page:markdownRemark(frontmatter:{templateKey:{eq: "shop-page"}}){
+                frontmatter{
+                    banners{
+                        bannerImage{
+                            childImageSharp{
+                                fluid(maxWidth:1600, quality:64){
+                                    ...GatsbyImageSharpFluid
+                                }
+                            }
+                        }
+                        bannerHeading
+                        bannerDescription
+                        bannerButton{
+                            buttonText
+                            buttonLink
+                        }
+                    }
+                }
+            }
             products:allMarkdownRemark(filter:{frontmatter:{templateKey:{eq:"shop-product"}}}){
                 edges{
                     node{
@@ -57,20 +75,6 @@ const Shop = () => {
     const [activeSlide, setActiveSlide] = useState(0)
     const [filters, setFilters] = useState([])
     const [filteredProducts, setFilteredProducts] = useState(data.products.edges)
-
-    
-    const dummyBanners = [
-        {
-            image:shopBanner1,
-            text:'First Short Heading',
-            description: 'This is short description'
-        },
-        {
-            image:shopBanner2,
-            text:'Second Short Heading',
-            description:'This is another short description'
-        }
-    ]
     
     const changeFilter = (event) => {
         event.persist()
@@ -136,17 +140,23 @@ const Shop = () => {
     )
     return(
         <Layout fullWidth={true}>
+            <Helmet>
+                <title>Shop | RUN BGD</title>
+                <meta name="description" content={`Official RUN BGD Shop. Buy anything from t-shirts to miscellaneous accessories.`} />
+            </Helmet>
             <main className={styles.fullWidth}>
                 <div className={styles.shopBannersContainer}>
                     <div className={styles.bannerTextContainer}>
                         <div className={styles.bannerText}>
                             <h2>
-                                {dummyBanners[activeSlide].text}
+                                {data.page.frontmatter.banners[activeSlide].bannerHeading}
                             </h2>
                             <p className={styles.bannerDescription}>
-                                {dummyBanners[activeSlide].description}
+                                {data.page.frontmatter.banners[activeSlide].bannerDescription}
                             </p>
-                            <a href=''>See Product</a>
+                            <Link to={data.page.frontmatter.banners[activeSlide].bannerButton.buttonLink}>
+                                {data.page.frontmatter.banners[activeSlide].bannerButton.buttonText}
+                            </Link>
                         </div>
                     </div>
                     <div className={styles.bannerImages}>
@@ -166,9 +176,9 @@ const Shop = () => {
                             className={styles.carousel}
                             onSlideChange={(swiper) => setActiveSlide(swiper.realIndex)}
                         >
-                            {dummyBanners.map(banner => {
+                            {data.page.frontmatter.banners.map(banner => {
                                 return <SwiperSlide className={styles.slide}>
-                                    <img className={styles.banner} src={banner.image} alt=''/>
+                                    <Image className={styles.banner} fluid={banner.bannerImage.childImageSharp.fluid} alt=''/>
                                 </SwiperSlide>
                             })}
                             <div className={styles.navigation}>

@@ -61,7 +61,7 @@
     margin-bottom:10px;
     transform:translate(-50%, 0%);
     max-height: 50vh;
-    overflow-y:scroll;
+    overflow-y: scroll;
     > p{
         margin:0;
     }
@@ -98,5 +98,28 @@
     width:100%;
     @include breakpoint(lg){
         width:70%;
+    }
+}
+
+.empty-cart-container{
+    text-transform: uppercase;
+    width:100%;
+    >p{
+        font-size:1rem;
+        text-align: center;
+        font-weight: 600;
+        > a{
+            color:#EE1C25;
+            text-decoration:underline;
+        }
+    }
+}
+
+.empty-cart-image-container{
+    height:30vh;
+    display:flex;
+    justify-content: center;
+    >img{
+        height:100%;
     }
 }

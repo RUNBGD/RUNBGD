@@ -8,6 +8,7 @@ import paginationSwiperStyles from 'swiper/components/pagination/pagination.scss
 import Image from 'gatsby-image'
 import {graphql} from 'gatsby'
 import {useDispatch} from 'react-redux'
+import {Helmet} from 'react-helmet'
 
 import styles from './shop-product-page.module.scss'
 import Layout from '../../components/Layout'
@@ -54,6 +55,10 @@ const ShopProductPage = ({data}) => {
     }
 
     return <Layout fullWidth={true}>
+        <Helmet>
+            <title>{data.product.frontmatter.title} | RUN BGD</title>
+            <meta name="description" content={`Official RUN BGD Shop. Buy anything from t-shirts to miscellaneous accessories.`} />
+        </Helmet>
         <main className={styles.fullWidth}>
             <div className={styles.product}>
                 <div className={styles.productSlider}>

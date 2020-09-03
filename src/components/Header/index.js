@@ -253,7 +253,13 @@ const Header = () => {
             <LinksBlock groupName='Follow On' linkArray={data.socialLinks.edges} trigger={menuOpened}/>
             <LinksBlock groupName='run bgd sites' linkArray={data.otherSites.edges} trigger={menuOpened}/>
             <LinksBlock groupName='Our Web App' linkArray={[{node:{fields:{slug:'/find-places'}, frontmatter:{title:'Find Places'}}}]} trigger={menuOpened} />
-            <LinksBlock groupName='Authors' linkArray={data.authors.edges} trigger={menuOpened}/>
+            <LinksBlock groupName='merch' linkArray={
+              [
+                {node:{fields:{slug:'/shop'}, frontmatter:{title:'Shop'}}},
+            ]
+            }
+            trigger={menuOpened}
+            />
 
             <footer>
               <NewsletterForm dark={true}/>

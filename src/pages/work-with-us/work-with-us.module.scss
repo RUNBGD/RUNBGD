@@ -150,6 +150,9 @@
     font-size:2.5rem;
     line-height: 3.2rem;
     margin-bottom:15px;
+    strong{
+        color:#EE1C25;
+    }
     @include breakpoint(lg){
         font-size:4rem;
         line-height:4rem;
@@ -218,7 +221,7 @@
 
 .about-text{
     width:100%;
-    > p {
+    p {
         font-size:1.5rem;
     }
     @include breakpoint(lg){

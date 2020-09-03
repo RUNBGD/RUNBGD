@@ -1,7 +1,7 @@
 @import '../../styles/breakpoints.scss';
 
 .products{
-    width:80%;
+    width:90%;
     display:flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -95,6 +95,12 @@
     }
 }
 
+.banner-text{
+    margin-bottom:20px;
+    @include breakpoint(lg){
+        margin-bottom:0;
+    }
+}
 
 .banner-text > a{
     background:black;
@@ -155,10 +161,13 @@
 .filters{
     box-shadow:0 3px 6px rgba(0, 0, 0, 0.16);
     border-radius: 5px;
-    width:80%;
+    width:90%;
     display: flex;
     flex-direction: column;
     padding:15px;
+    @include breakpoint(lg){
+        width:80%;
+    }
 }
 
 .filter{
