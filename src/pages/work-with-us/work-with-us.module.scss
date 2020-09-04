@@ -144,19 +144,21 @@
 }
 
 .hero-heading{
-    text-transform: uppercase;
-    width:100%;
-    margin:0;
-    font-size:2.5rem;
-    line-height: 3.2rem;
-    margin-bottom:15px;
-    strong{
-        color:#EE1C25;
-    }
-    @include breakpoint(lg){
-        font-size:4rem;
-        line-height:4rem;
-        margin-bottom:0;
+    h1{
+        text-transform: uppercase;
+        width:100%;
+        margin:0;
+        font-size:2.5rem;
+        line-height: 3.2rem;
+        margin-bottom:15px;
+        strong{
+            color:#EE1C25;
+        }
+        @include breakpoint(lg){
+            font-size:4rem;
+            line-height:4rem;
+            margin-bottom:0;
+        }
     }
 }
 

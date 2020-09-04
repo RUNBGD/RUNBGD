@@ -183,7 +183,7 @@ const WorkWithUsPage = () => {
                 </div>
                 <div className={styles.lSpacedContent}>
                     <Image fluid={data.networksLogo.frontmatter.logoImage.childImageSharp.fluid} alt='' className={styles.mainLogo}/>
-                    <h1 className={styles.heroHeading}>{data.page.frontmatter.heroHeading}</h1>
+                    <HTMLContent className={styles.heroHeading} content={toHTML(data.page.frontmatter.heroHeading)}/>
                     <div className={styles.heroText}>
                         <p>
                             {data.page.frontmatter.heroText}

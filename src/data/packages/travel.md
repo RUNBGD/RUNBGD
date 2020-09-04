@@ -2,7 +2,7 @@
 templateKey: packages
 category: Travel
 title: RUN BGD Travel Packages
-description: >-
+description: |-
     RUN BGD Travel Packages are especially for people who arrive by own means and want to enjoy the unity of the People of Belgrade. You can stay at one of the hotels chosen by RUN BGD Travel. 
 
     A Package always includes: Flight/Ride,  accommodation & Ticket for the Party that weekend. You can additionaly book tours or buy tickets for sport events, concerts or any kond of happening while you're in Belgrade. 
@@ -33,7 +33,7 @@ packages:
         - Accommodation in a RUN BGD selected Hotel/Hostel
         - Ticket for a Party that weekend
       background: /img/bronze.jpg
-bottomText: >-
+bottomText: |-
     ### Friends & Family Package
 
     RUN BGD Travel offers you the ultimate way to experience Belgrade with a group of friends. You will have your own private accommodation with 6 to 12 friends. A RUN BGD host will welcome you the day you arrive and a shuttle will make sure you and your friends will get to your accommodation and back.

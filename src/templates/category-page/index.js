@@ -70,6 +70,7 @@ let CategoryPage = ({data}) => {
           {data.packages && 
             <div className={styles.packageSection}>
               <h2>{data.packages.frontmatter.title}</h2>
+              <HTMLContent className={styles.packageDescription} content={toHTML(data.packages.frontmatter.description)}/>
               <div className={styles.packageContainer}>
                 {data.packages.frontmatter.packages.map(item => {
                   return <div className={styles.package}>

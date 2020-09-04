@@ -38,6 +38,8 @@ collections:
     path: "{{category}}/{{subcategory}}/{{title}}/{{slug}}"
     media_folder: /static/img
     public_folder: /img
+    nested:
+      depth: 4
     slug: "index"
     identifier_field: name
     fields:
@@ -68,6 +70,25 @@ collections:
       - {label: "Order on home page", name: "order", widget: "number"}
       - {label: "Order in navbar", name: "orderNavbar", widget: "number"}
 
+  - name: "categoryPackages"
+    label: "Category Packages"
+    folder: "src/data/packages"
+    create: true
+    slug: "{{title}}"
+    identifier_field: name
+    fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "packages"}
+      - {label: "Category", name: "category", widget: "relation", collection: "category", searchFields: ["title"], valueField: "title", displayFields: ["title"]}
+      - {label: "Title", name: "title", widget: string}
+      - {label: "Description", name: "description", widget: markdown}
+      - {label: "Packages", name: "packages", widget: list, fields: [
+          {label: "Title", name: "title", widget: string},
+          {label: "Description", name: "description", widget: markdown},
+          {label: "Background Image", name: "background", widget: image}
+      ]}
+      - {label: "Bottom Text", name: "bottomText", widget: markdown}
+
+
   - name: "subcategory"
     label: "Subcategory"
     folder: "src/pages/categories"
@@ -75,6 +96,8 @@ collections:
     path: "{{category}}/{{title}}/{{slug}}"
     media_folder: /static/img
     public_folder: /img
+    nested: 
+      depth: 3
     slug: "index"
     identifier_field: name
     fields:
@@ -227,7 +250,7 @@ collections:
         name: "workWithUsPage"
         fields:
           - {label: "Hero Video", name: "heroVideoCover", widget: file}
-          - {label: "Hero Heading", name: heroHeading, widget: string}
+          - {label: "Hero Heading", name: heroHeading, widget: markdown}
           - {label: "Hero Text", name: "heroText", widget: string}
           - {label: "Hero Quote", name: "heroQuote", widget: string}
           - {label: "About Section Cover", name: "aboutImageCover", widget: image}
