@@ -24,8 +24,6 @@ let CategoryPage = ({data}) => {
   const [currentX, setCurrentX] = useState(data.locations.edges[0] && data.locations.edges[0].node.frontmatter.longitude)
   const [currentY, setCurrentY] = useState(data.locations.edges[0] && data.locations.edges[0].node.frontmatter.latitude)
 
-  console.log(data.packages.frontmatter.actionButton.link)
-
     return(
         <Layout
           fullWidthContent={
