@@ -2,7 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { BlogPostTemplate } from '../../templates/blog-post'
 
-const BlogPostPreview = ({ entry, widgetFor }) => {
+const BlogPostPreview = ({ entry, widgetFor}) => {
+ 
   return (
     <BlogPostTemplate
       data={{
@@ -13,6 +14,7 @@ const BlogPostPreview = ({ entry, widgetFor }) => {
             category:entry.getIn(['data', 'category']),
             author:entry.getIn(['data', 'author']),
             date:entry.getIn(['data', 'date']),
+            icons:entry.getIn(['data']).toJS().icons
           },
         },
         html:widgetFor('body')

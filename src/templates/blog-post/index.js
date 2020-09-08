@@ -61,6 +61,24 @@ export const BlogPostTemplate = ({data}) => {
         <HTMLContent content={data.markdownRemark.html} className={styles.postBody}/>
 
       }
+      {
+        data.markdownRemark.frontmatter.icons != undefined &&
+        <div className={styles.iconsContainer}>
+          {data.markdownRemark.frontmatter.icons.map((icon, index) => {
+            return <div className={styles.icon} key={index}>
+                <h3>{icon.heading}</h3>
+                <div>
+                {data.markdownRemark.frontmatter.coverImage.childImageSharp ?
+                  <Image className={styles.iconImage} fixed={icon.icon.childImageSharp.fixed} alt=''/>
+                    :
+                  <img src={icon.icon}/>
+                }
+                </div>
+                <p>{icon.iconDescription}</p>
+              </div>
+          })}
+        </div>
+      }
       <hr/>
       <h2>Latest In {data.markdownRemark.frontmatter.category}</h2>
       {data.categoryPosts && <LatestPosts posts={data.categoryPosts}/>}
@@ -94,6 +112,17 @@ let BlogPost = ({data}) => {
                   ...GatsbyImageSharpFluid
                 }
               }
+            }
+            icons{
+              heading
+              icon{
+                childImageSharp{
+                  fixed(height:65, quality:64){
+                    ...GatsbyImageSharpFixed
+                  }
+                }
+              }
+              iconDescription
             }
           }
         }

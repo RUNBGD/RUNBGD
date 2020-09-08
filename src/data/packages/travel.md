@@ -37,4 +37,8 @@ bottomText: |-
     ### Friends & Family Package
 
     RUN BGD Travel offers you the ultimate way to experience Belgrade with a group of friends. You will have your own private accommodation with 6 to 12 friends. A RUN BGD host will welcome you the day you arrive and a shuttle will make sure you and your friends will get to your accommodation and back.
+
+actionButton:
+  text: Contact US
+  link: "contact-us"
 ---

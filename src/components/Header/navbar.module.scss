@@ -29,12 +29,15 @@
     display:flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
     font-weight: 600;
+    flex-grow:1;
   }
 }
 
 .header-links > a{
   padding:0 15px;
+  width:max-content;
 }
 
 .header-dark{
@@ -179,6 +182,10 @@
   width:20%;
   justify-content: flex-end;
   align-items: center;
+  @include breakpoint(lg){
+    flex-basis:20%;
+    min-width: 300px;
+  }
 }
 
 .hamburger-nav-items{
@@ -195,8 +202,11 @@
   display:flex;
   justify-content: center;
   @include breakpoint(lg){
+    flex-basis:20%;
+    max-width: 20%;
     justify-content: flex-start;
     align-items: center;
+    flex-shrink: 1;
   }
 }
 
@@ -259,6 +269,7 @@
   border:1px solid #707070;
   border-radius:5px;
   @include breakpoint(lg){
+    min-width:100px;
     display: block;
   }
 }

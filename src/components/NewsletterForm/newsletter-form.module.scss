@@ -10,14 +10,21 @@
   border-radius:5px;
 
   @include breakpoint(lg){
-    width:300px;
+    width:100%;
+    max-width:700px;
     margin:30px auto;
+    text-align: center;
   }
 }
 
 .newsletter-text{
   font-size:0.75rem;
   font-weight:700;
+  @include breakpoint(lg){
+    max-width: 300px;
+    display:inline-block;
+    margin:auto;
+  }
 }
 
 .newsletter-text > span{
@@ -29,6 +36,10 @@
 
   border-radius:5px;
   border:1px solid #707070;
+  @include breakpoint(lg){
+    width: 300px;
+    margin:auto;
+  }
 }
 
 .newsletter-submit-button{
@@ -40,6 +51,10 @@
   color:white;
   font-weight:800;
   font-size:0.75rem;
+  @include breakpoint(lg){
+    width: 300px;
+    margin:auto;
+  }
 }
 
 .newsletter-text ,.newsletter-input-email, .newsletter-submit-button{

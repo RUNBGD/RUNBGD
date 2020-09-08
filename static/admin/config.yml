@@ -30,6 +30,11 @@ collections:
       - {label: "Trending Post", name: "trending", widget: "boolean", default: false}
       - {label: "Cover Image", name: "coverImage", widget: "image"}
       - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Icons", name: "icons", widget: list, fields: [
+        {label: "Heading", name: "heading", widget: string},
+        {label: "Icon Image", name: "icon", widget: image},
+        {label: "Icon Description", name: "icon Description", widget: string}
+      ]}
 
   - name: "subcategory-item"
     label: "Subcategory item"
@@ -87,6 +92,12 @@ collections:
           {label: "Background Image", name: "background", widget: image}
       ]}
       - {label: "Bottom Text", name: "bottomText", widget: markdown}
+      - {label: "Action Button", name: "actionButton", widget: object, fields: [
+        {label: "Button Text", name: "text", widget: string},
+        {label: "Button Link", name: "link", widget: string}
+
+      ]
+      }
 
 
   - name: "subcategory"
