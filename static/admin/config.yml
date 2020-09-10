@@ -31,10 +31,20 @@ collections:
       - {label: "Cover Image", name: "coverImage", widget: "image"}
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Icons", name: "icons", widget: list, fields: [
-        {label: "Heading", name: "heading", widget: string},
-        {label: "Icon Image", name: "icon", widget: image},
-        {label: "Icon Description", name: "icon Description", widget: string}
+        {label: "Icon", name: "icon", widget: relation, collection: "tags", searchFields: ["iconDescription"], valueField: "iconDescription", displayFields: ["iconDescription", "heading"]}
       ]}
+
+  - name: "tags"
+    label: "Tags"
+    folder: "src/data/tags"
+    create: true
+    slug: "{{iconDescription}}"
+    identifier_field: name
+    fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "tag"}
+      - {label: "Title", name: "heading", widget: "string"}
+      - {label: "Icon Image", name: "icon", widget: "image"}
+      - {label: "Icon Description", name: "iconDescription", widget: string}
 
   - name: "subcategory-item"
     label: "Subcategory item"

@@ -10,15 +10,9 @@ categoryFeatured: true
 trending: true
 coverImage: /img/belgrade-1348159_1920.jpg
 icons:
-    - heading: Price
-      icon: /img/budget.png
-      iconDescription: Budget
-    - heading: Group
-      icon: /img/family.png
-      iconDescription: Family
-    - heading: Quality
-      icon: /img/quality.png
-      iconDescription: Approved
+    - icon: Budget
+    - icon: Family
+    - icon: Approved
 ---
 This is some example heading for post on RUN BGD website. This is some example heading for post on RUN BGD website. This is some example heading for post on RUN BGD website. This is some example heading for post on RUN BGD website. This is some example heading for post on RUN BGD website. This is some example heading for post on RUN BGD website. This is some example heading for post on RUN BGD website. This is some example heading for post on RUN BGD website. This is some example heading for post on RUN BGD website. This is some example heading for post on RUN BGD website. This is some example heading for post on RUN BGD website. This is some example heading for post on RUN BGD website. This is some example heading for post on RUN BGD website. This is some example heading for post on RUN BGD website. This is some example heading for post on RUN BGD website. This is some example heading for post on RUN BGD website. This is some example heading for post on RUN BGD website. This is some example heading for post on RUN BGD website. This is some example heading for post on RUN BGD website. This is some example heading for post on RUN BGD website.
 

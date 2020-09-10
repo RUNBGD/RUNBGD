@@ -12,6 +12,9 @@ import LatestPosts from '../../components/LatestPosts'
 import PostCategoryTag from '../../components/PostCategoryTag'
 
 export const BlogPostTemplate = ({data}) => {
+
+  console.log(data.icons)
+
   let authorSlug = ''
   let categorySlug = ''
   
@@ -62,20 +65,22 @@ export const BlogPostTemplate = ({data}) => {
 
       }
       {
-        data.markdownRemark.frontmatter.icons != undefined &&
+        data.icons.edges != undefined &&
         <div className={styles.iconsContainer}>
-          {data.markdownRemark.frontmatter.icons.map((icon, index) => {
-            return <div className={styles.icon} key={index}>
-                <h3>{icon.heading}</h3>
+          {data.icons.edges.map(({node:icon}, index) => {
+            return <Link to={`/tag/${icon.frontmatter.iconDescription.toLowerCase()}`}>
+              <div className={styles.icon} key={index}>
+                <h3>{icon.frontmatter.heading}</h3>
                 <div>
                 {data.markdownRemark.frontmatter.coverImage.childImageSharp ?
-                  <Image className={styles.iconImage} fixed={icon.icon.childImageSharp.fixed} alt=''/>
+                  <Image className={styles.iconImage} fixed={icon.frontmatter.icon.childImageSharp.fixed} alt=''/>
                     :
                   <img src={icon.icon}/>
                 }
                 </div>
-                <p>{icon.iconDescription}</p>
+                <p>{icon.frontmatter.iconDescription}</p>
               </div>
+              </Link>
           })}
         </div>
       }
@@ -97,7 +102,7 @@ let BlogPost = ({data}) => {
     }
     
     export const pageQuery = graphql`
-      query BlogPostByID($id: String!, $category: String!) {
+      query BlogPostByID($id: String!, $category: String!, $tagArray: [String]!) {
         markdownRemark(id: { eq: $id }) {
           id
           html
@@ -113,19 +118,28 @@ let BlogPost = ({data}) => {
                 }
               }
             }
-            icons{
-              heading
-              icon{
-                childImageSharp{
-                  fixed(height:65, quality:64){
-                    ...GatsbyImageSharpFixed
-                  }
-                }
-              }
-              iconDescription
-            }
           }
         }
+        icons:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "tag"}, iconDescription: {in: $tagArray}}}){
+          edges {
+              node{
+                fields{
+                  slug
+                }
+              frontmatter{
+                  heading
+                  icon{
+                    childImageSharp{
+                      fixed(height:65, quality:64){
+                        ...GatsbyImageSharpFixed
+                      }
+                    }
+                  }
+                  iconDescription
+              }
+              }
+          }
+          }
         categories:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "category-page"}}}){
           edges {
               node{

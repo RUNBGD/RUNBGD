@@ -18,6 +18,9 @@ exports.createPages = async ({ actions, graphql }) => {
             frontmatter {
               templateKey
               category
+              icons{
+                icon
+              }
             }
           }
         }
@@ -34,6 +37,7 @@ exports.createPages = async ({ actions, graphql }) => {
     posts.forEach((edge) => {
       const id = edge.node.id
       const category = edge.node.frontmatter.category
+      const tagArray = edge.node.frontmatter.icons.map(icon => icon.icon)
       
       createPage({
         path: edge.node.fields.slug,
@@ -43,7 +47,47 @@ exports.createPages = async ({ actions, graphql }) => {
         // additional data can be passed via context
         context: {
           id,
-          category
+          category,
+          tagArray
+        },
+      })
+    })
+  })
+
+  await graphql(`
+    {
+      allMarkdownRemark(limit: 2000, filter:{frontmatter: {templateKey: {eq: "tag"}}}) {
+        edges {
+          node {
+            id
+            frontmatter {
+              iconDescription
+            }
+          }
+        }
+      }
+    }
+  `).then((result) => {
+    if (result.errors) {
+      result.errors.forEach((e) => console.error(e.toString()))
+      return Promise.reject(result.errors)
+    }
+
+    const posts = result.data.allMarkdownRemark.edges
+
+    posts.forEach((edge) => {
+      const id = edge.node.id
+      const tag = edge.node.frontmatter.iconDescription
+      
+      createPage({
+        path: `/tag/${tag.toLowerCase()}`,
+        component: path.resolve(
+          `src/templates/tags-page/index.js`
+        ),
+        // additional data can be passed via context
+        context: {
+          id,
+          tag
         },
       })
     })
