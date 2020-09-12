@@ -21,8 +21,59 @@ const toHTML = value => remark().use(remarkHTML).processSync(value).toString()
 
 let CategoryPage = ({data}) => {
 
+  const [selectedPackage, setSelectedPackage] = useState(undefined)
+  const [firstName, setFirstName] = useState(undefined)
+  const [lastName, setLastName] = useState(undefined)
+  const [email, setEmail] = useState(undefined)
+  const [message, setMessage] = useState(undefined)
+  const [errorMessage, setErrorMessage] = useState(undefined)
+  const [successMessage, setSuccessMessage] = useState(undefined)
+  const [fetching, setFetching] = useState(false)
+
   const [currentX, setCurrentX] = useState(data.locations.edges[0] && data.locations.edges[0].node.frontmatter.longitude)
   const [currentY, setCurrentY] = useState(data.locations.edges[0] && data.locations.edges[0].node.frontmatter.latitude)
+  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setErrorMessage('')
+    setSuccessMessage('')
+    if(!selectedPackage || !firstName || !(email && email.match(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/))){
+      setErrorMessage('Required fields not filled!')
+    }else{
+      setErrorMessage(undefined)
+      setFetching(true)
+      fetch(`/.netlify/functions/contactForm`, {
+        headers:{
+          'Accept':'application/json',
+          'Content-Type':'application/json'
+        },
+        method:'POST',
+        mode:'cors',
+        body:JSON.stringify({
+          package:data.packages.frontmatter.title,
+          selectedPackage:selectedPackage,
+
+          firstName:firstName,
+          lastName:lastName,
+          email:email,
+          message:message
+        })
+      })
+        .then((data) => {
+            setFetching(false)
+            if(data.status == 'success'){
+                return setSuccessMessage(data.message)
+            }else if(data.status == 'error'){
+              return setErrorMessage(data.message)
+            }
+        })
+        .catch(error => {
+          console.log(error)
+            setFetching(false)
+            setErrorMessage("There was some error while trying to send your email. Try later!")
+        })
+    }
+  }
 
     return(
         <Layout
@@ -85,11 +136,56 @@ let CategoryPage = ({data}) => {
                 })}
               </div>
               <HTMLContent className={styles.packageBody} content={toHTML(data.packages.frontmatter.bottomText)} />
-                <div className={styles.actionButtonContainer}>
-                  <Link className={styles.actionButton} to={`/${data.packages.frontmatter.actionButton.link}`}>
-                    {data.packages.frontmatter.actionButton.text}
-                  </Link>
-                </div>
+              {data.packages.frontmatter.form && 
+                <React.Fragment>
+                  <h3>Contact Us About {data.packages.frontmatter.title}</h3>
+                  <form className={styles.packagesContactForm}>
+                    <p className={styles.packageLabel}>Select Package*</p>
+                    {data.packages.frontmatter.packages.map(item => {
+                      return <div className={styles.packageInput} onChange={(e) => setSelectedPackage(e.target.value)}>
+                        <label>{item.title}</label>
+                        <input type='radio' name='package' value={item.title}/>
+                      </div>
+                    })}
+                    <div className={styles.fullNameInput}>
+                      <div onChange={(e) => setFirstName(e.target.value)}>
+                        <label>First Name*</label>
+                        <input type='text' name='firstName'/>
+                      </div>
+                      <div onChange={(e) => setLastName(e.target.value)}>
+                        <label>Last Name</label>
+                        <input type='text' name='lastName'/>
+                      </div>
+                    </div>
+                    <div className={styles.emailInput} onChange={(e) => setEmail(e.target.value)}>
+                      <label>Email*</label>
+                      <input type='email' name='email'/>
+                    </div>
+                    <div className={styles.messageInput} onChange={(e) => setMessage(e.target.value)}>
+                      <label>Message</label>
+                      <textarea name='message'></textarea>
+                    </div>
+                    <div className={styles.actionButtonContainer}>
+                      <button className={styles.actionButton} onClick={(e) => handleSubmit(e)}>Send</button>
+                    </div>
+                    {
+                      successMessage && <p className={styles.successMessage}>
+                        {successMessage}
+                      </p>
+                    }
+                    {
+                      errorMessage && <p className={styles.errorMessage}>
+                        {errorMessage}
+                      </p>
+                    }
+                    {
+                      fetching && <div className={styles.loadingIndicatorContainer}>
+                        <div className={styles.loadingIndicator}></div>
+                      </div>
+                    }
+                  </form>
+                </React.Fragment>
+              }
             </div>
           }
           {data.subCategories.edges[0] && 
@@ -249,10 +345,7 @@ let CategoryPage = ({data}) => {
                 }
               }
               bottomText
-              actionButton{
-                text
-                link
-              }
+              form
             }
           }
       }

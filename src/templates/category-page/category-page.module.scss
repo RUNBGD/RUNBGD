@@ -169,6 +169,62 @@
     padding:15px 15px;
 }
 
+.packages-contact-form{
+    width:600px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+    margin:auto;
+    border-radius:5px;
+    padding:15px;
+}
+
+.package-input{
+    display:flex;
+    justify-content: space-between;
+    label {
+        font-weight: 700;
+    }
+}
+
+.full-name-input{
+    margin:10px 0;
+    display:flex;
+    justify-content: space-between;
+    > div{
+        display:flex;
+        flex-direction: column;
+        width:47.5%;
+    }
+    input{
+        padding:5px;
+        border-radius: 5px;
+        border:1px solid #343434;
+    }
+}
+
+.email-input{
+    margin:10px 0;
+    display:flex;
+    flex-direction: column;
+    input{
+        padding:5px;
+        border-radius: 5px;
+        border:1px solid #343434;
+    }
+}
+
+.message-input{
+    margin:10px 0;
+    display: flex;
+    flex-direction: column;
+    textarea{
+        min-height:150px;
+        resize: none;
+        padding:5px;
+        border-radius: 5px;
+        border:1px solid #343434;
+    }
+}
+
 .action-button-container{
     display:flex;
     align-items: center;
@@ -183,4 +239,56 @@
     background-color:#EE1C25;
     padding:10px 15px;
     border-radius: 5px;
+    border:none;
+}
+
+.error-message, .success-message{
+    padding:15px;
+    margin:0;
+    margin-top:10px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.error-message{
+    background:rgba(255, 0, 0, 0.5);
+}
+
+.success-message{
+    background:rgba(0, 255, 0, 0.5);
+}
+
+.loading-indicator-container{
+    position:relative;
+    height:50px;
+    width:100%;
+}
+
+.loading-indicator{
+    border-radius: 50%;
+    width:25px;
+    height:25px;
+    background:black;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    animation: loading 1s infinite;
+}
+
+.package-label{
+    margin:0;
+    font-weight: 700;
+}
+
+@keyframes loading{
+    0%{
+        transform: translate(-50%, -50%) scale(0.7);
+    }
+    50%{
+        transform: translate(-50%, -50%) scale(1.3);
+    }
+    100%{
+        transform: translate(-50%, -50%) scale(0.7);
+    }
 }
