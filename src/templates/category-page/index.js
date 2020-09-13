@@ -42,22 +42,12 @@ let CategoryPage = ({data}) => {
     }else{
       setErrorMessage(undefined)
       setFetching(true)
-      fetch(`/.netlify/functions/contactForm`, {
+      fetch(`/.netlify/functions/contactForm?package=${data.packages.frontmatter.title}&selectedPackage=${selectedPackage}&firstName=${firstName}&lastName=${lastName}&email=${email}&message=${message}`, {
         headers:{
           'Accept':'application/json',
           'Content-Type':'application/json'
         },
-        method:'POST',
-        mode:'cors',
-        body:JSON.stringify({
-          package:data.packages.frontmatter.title,
-          selectedPackage:selectedPackage,
-
-          firstName:firstName,
-          lastName:lastName,
-          email:email,
-          message:message
-        })
+        method:"POST"
       })
         .then((data) => {
             setFetching(false)
