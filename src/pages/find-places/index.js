@@ -13,6 +13,7 @@ import FindPlacesLocations from '../../components/FindPlacesLocations'
 
 import expandButton from '../../img/down-arrow.svg'
 import loadingIndicator from '../../img/loading-indicator.svg'
+import videoBackground from '../../img/find-places.mp4'
 
 function distance(lat1, lon1, lat2, lon2, unit) {
     var radlat1 = Math.PI * lat1/180
@@ -135,12 +136,19 @@ const FindPlaces = () => {
 
 
         return (
-            <Layout>
+            <Layout fullWidth={true}>
                 <Helmet>
                     <title>Find Places | RUN BGD</title>
                     <meta name="description" content='Find interesting places and see what is near you in Serbia with our web app at RUN BGD.' />
                 </Helmet>
-                <main>
+                    <main style={{width:'100%'}}>
+                    <div className={styles.background}>
+                        <video className={styles.fullWidthImage} autoPlay muted loop={true}>
+                            <source src={videoBackground} type="video/mp4" />
+                        </video>
+                        <div className={styles.overlay}>
+                        </div>
+                    </div>
                     <div className={styles.locationItemsContainer}>
                         {!xCoord ? 
                         <div className={styles.inputCard}>

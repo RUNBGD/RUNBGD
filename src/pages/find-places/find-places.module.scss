@@ -10,15 +10,17 @@
     width:100%;
     padding:30px 0;
     align-items: center;
+    margin:auto;
 }
 
 .input-card{
+    background:rgba(255,255,255,0.15);
+    backdrop-filter: blur(5px);
     width:100%;
     padding:20px 10px;
 
     box-shadow:0px 3px 6px rgba(0, 0, 0, 0.16);
     border-radius:5px;
-    transition:0.5s;
     @include breakpoint(lg){
         width:300px;
     }
@@ -40,6 +42,7 @@
 
 .input-card > p {
     text-align:center;
+    color:white;
 }
 
 .input-card-input{
@@ -83,7 +86,7 @@
     @include breakpoint(lg){
         width:40%;
         height:100%;
-        padding-bottom:0;
+        padding:0 10px 0;
     }
 }
 
@@ -105,7 +108,7 @@
     padding:10px;
     display:flex;
     flex-direction: column;
-    
+
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
     overflow:scroll;
     z-index:0;
@@ -210,8 +213,42 @@
     width:100%;
     height:95%;
     @include breakpoint(lg){
+        width:80%;
         flex-direction: row;
         align-items: flex-start;
         justify-content: center;
     }
+}
+
+.background{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    width:100%;
+    height:100%;
+    z-index:-1;
+}
+
+.full-width-image{
+    height:100%;
+    object-fit: cover;
+    object-position: center center;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    @include breakpoint(lg){
+        height:unset;
+        width:100%;
+    }
+}
+
+.overlay{
+    width:100%;
+    height:100%;
+    position:absolute;
+    top:0;
+    background-color:rgba(0, 0, 0, 0.65);
+    z-index:1;
 }

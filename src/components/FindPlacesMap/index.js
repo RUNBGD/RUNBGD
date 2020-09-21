@@ -54,8 +54,8 @@ const FindPlacesMap = ({locations, zoom, expanded, xCoord, yCoord, currentX, cur
             typeof window !== 'undefined' &&
             <Map center={currentY == undefined ? [44.823070, 20.453420] : [currentY, currentX]} zoom={zoom}>
                 <TileLayer
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
+                url="https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png"
+                attribution='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
                 />
                 {locations.map(({node:location}) => {
                     
