@@ -32,6 +32,7 @@
     flex-direction:row;
     justify-content: flex-start;
     align-items: center;
+    width:max-content;
     font-size:1.4375rem;
     font-weight:800;
     margin-bottom: 10px;
@@ -39,10 +40,34 @@
     > img{
       margin-right:7.5px;
       width:24px;
+      height:24px;
     }
     > p{
+      position: relative;
       margin:0;
     }
+  }
+
+  .link:hover{
+    > p{
+      color:black;
+    }
+    .highlight-background{
+      background:white;
+      color:black;
+      width:100%;
+    }
+  }
+  
+  .highlight-background{
+    position:absolute;
+    width:0%;
+    height:100%;
+    background: white;
+    top:0;
+    left:0;
+    z-index:-1;
+    transition:0.25s;
   }
   
   .links-group-name{

@@ -25,12 +25,18 @@ const LinksBlock = ({groupName, linkArray,trigger}) => {
                 if(link.node.frontmatter.url){
                     return <animated.a key={key} style={props} className={styles.link} href={link.node.frontmatter.url} target='_blank'>
                         {link.node.frontmatter.iconLight && <img src={link.node.frontmatter.iconLight.publicURL} alt=''/>}
-                        <p>{link.node.frontmatter.title}</p>
+                        <p>
+                            {link.node.frontmatter.title}
+                            <div className={styles.highlightBackground}></div>    
+                        </p>
                         </animated.a>
                 }else{
                     return <AnimatedLink to={link.node.fields.slug} key={key} style={props} className={styles.link}>
                         {link.node.frontmatter.iconLight && <img src={link.node.frontmatter.iconLight.publicURL} alt=''/>}
-                        <p>{link.node.frontmatter.title || link.node.frontmatter.name}</p>
+                        <p>
+                            {link.node.frontmatter.title || link.node.frontmatter.name}
+                            <div className={styles.highlightBackground}></div>
+                        </p>
                     </AnimatedLink>
                 }
             })}

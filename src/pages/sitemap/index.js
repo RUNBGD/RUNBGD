@@ -115,6 +115,15 @@ let Sitemap = () => {
                 <Link to='/contact-us'>
                     <p className={styles.entry}>Contact Us</p>
                 </Link>
+                <Link to='/advertise'>
+                    <p className={styles.entry}>Advertise</p>
+                </Link>
+                <Link to='/work-with-us'>
+                    <p className={styles.entry}>Work with us</p>
+                </Link>
+                <Link to='/careers'>
+                    <p className={styles.entry}>Careers</p>
+                </Link>
               </div>
               <div className={styles.entryGroup}>
                 <p className={styles.groupParagraph}>Authors</p>
@@ -128,6 +137,15 @@ let Sitemap = () => {
                 <p className={styles.groupParagraph}>Web Application</p>
                 <Link to='/find-places'>
                     <p className={styles.entry}>Find Places</p>
+                </Link>
+              </div>
+              <div className={styles.entryGroup}>
+                <p className={styles.groupParagraph}>Merch</p>
+                <Link to='/shop'>
+                    <p className={styles.entry}>Shop</p>
+                </Link>
+                <Link to='/shop'>
+                    <p className={styles.entry}>Cart</p>
                 </Link>
               </div>
             </div>
