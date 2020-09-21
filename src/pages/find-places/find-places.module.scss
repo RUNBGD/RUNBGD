@@ -1,7 +1,7 @@
 @import '../../styles//breakpoints.scss';
 
 .location-items-container{
-    height:80vh;
+    height:90vh;
     display:flex;
     flex-direction: row;
     flex-wrap:wrap;
@@ -11,6 +11,9 @@
     padding:30px 0;
     align-items: center;
     margin:auto;
+    @include breakpoint(lg){
+        height:80vh;
+    }
 }
 
 .input-card{
@@ -64,7 +67,7 @@
 }
 
 .is-expanded{
-    height:70vh;
+    height:80vh;
 }
 
 .is-activated{
@@ -79,6 +82,11 @@
 }
 
 .locations{
+    > div > div{
+        color:white;
+        background:rgba(255,255,255,0.15);
+        backdrop-filter: blur(5px);
+    }
     width:100%;
     height:40vh;
     padding:10px;
@@ -94,6 +102,13 @@
     width:100%;
     padding:5px;
     margin-bottom:5px;
+    border-radius: 5px;
+    background:rgba(255,255,255,0.15);
+    backdrop-filter: blur(5px);
+    color:white;
+    > option{
+        color:black;
+    }
 }
 
 .expand-button{
@@ -228,6 +243,7 @@
     width:100%;
     height:100%;
     z-index:-1;
+    overflow:hidden;
 }
 
 .full-width-image{
@@ -251,4 +267,11 @@
     top:0;
     background-color:rgba(0, 0, 0, 0.65);
     z-index:1;
+}
+
+.find-places-wrapper{
+    min-height: 90vh;
+    @include breakpoint(lg){
+        min-height: 80vh;
+    }
 }

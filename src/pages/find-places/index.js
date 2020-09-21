@@ -141,7 +141,7 @@ const FindPlaces = () => {
                     <title>Find Places | RUN BGD</title>
                     <meta name="description" content='Find interesting places and see what is near you in Serbia with our web app at RUN BGD.' />
                 </Helmet>
-                    <main style={{width:'100%'}}>
+                    <main style={{width:'100%'}} className={styles.findPlacesWrapper}>
                     <div className={styles.background}>
                         <video className={styles.fullWidthImage} autoPlay muted loop={true}>
                             <source src={videoBackground} type="video/mp4" />
