@@ -29,6 +29,9 @@
   .link{
     display:flex;
     text-transform: uppercase;
+    flex-direction:row;
+    justify-content: flex-start;
+    align-items: center;
     font-size:1.4375rem;
     font-weight:800;
     margin-bottom: 10px;
@@ -36,6 +39,9 @@
     > img{
       margin-right:7.5px;
       width:24px;
+    }
+    > p{
+      margin:0;
     }
   }
   

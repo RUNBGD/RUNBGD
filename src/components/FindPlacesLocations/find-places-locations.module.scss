@@ -88,9 +88,9 @@
     width:100%;
     display:flex;
     flex-direction: column;
-    
-    overflow:scroll;
+    overflow:auto;
     z-index:0;
+    padding:10px 0 30px;
     @include breakpoint(lg){
         overflow-x: hidden;
     }
@@ -108,6 +108,8 @@
     display:flex;
     flex-direction: row;
     margin-bottom:20px;
+    height:calc(102px + 0.2vw);
+    height:fit-content;
     padding:5px;
     cursor: pointer;
     border-radius: 5px;
