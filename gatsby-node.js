@@ -8,7 +8,7 @@ exports.createPages = async ({ actions, graphql }) => {
 
   await graphql(`
     {
-      allMarkdownRemark(limit: 2000, filter:{frontmatter:{createPage:{eq: "true"}, templateKey: {eq: "blog-post"}}}) {
+      posts:allMarkdownRemark(limit: 2000, filter:{frontmatter:{createPage:{eq: "true"}, templateKey: {eq: "blog-post"}}}) {
         edges {
           node {
             id
@@ -25,6 +25,99 @@ exports.createPages = async ({ actions, graphql }) => {
           }
         }
       }
+      tags:allMarkdownRemark(limit: 2000, filter:{frontmatter: {templateKey: {eq: "tag"}}}) {
+        edges {
+          node {
+            id
+            frontmatter {
+              iconDescription
+            }
+          }
+        }
+      }
+      subcategoryItems:allMarkdownRemark(limit: 2000, filter:{frontmatter:{createPage:{eq: "true"}, templateKey: {eq: "subcategory-item"}}}) {
+        edges {
+          node {
+            id
+            fields {
+              slug
+            }
+            frontmatter {
+              templateKey
+              subcategory
+            }
+          }
+        }
+      }
+      authors:allMarkdownRemark(limit: 2000, filter:{frontmatter:{createPage:{eq: "true"}, templateKey: {eq: "author-page"}}}) {
+        edges {
+          node {
+            id
+            fields {
+              slug
+            }
+            frontmatter {
+              templateKey
+              name
+            }
+          }
+        }
+      }
+      titleAndBodyPages:allMarkdownRemark(limit: 2000, filter:{frontmatter:{templateKey: {eq: "page-title-and-body"}}}) {
+        edges {
+          node {
+            id
+            fields {
+              slug
+            }
+            frontmatter {
+              templateKey
+            }
+          }
+        }
+      }
+      categorySubcategories:allMarkdownRemark(limit: 2000, filter:{frontmatter:{createPage:{eq: "true"}, templateKey: {eq: "category-subcategory"}}}) {
+        edges {
+          node {
+            id
+            fields {
+              slug
+            }
+            frontmatter {
+              templateKey
+              title
+            }
+          }
+        }
+      }
+      shopProducts:allMarkdownRemark(limit: 2000, filter:{frontmatter:{templateKey: {eq: "shop-product"}}}) {
+        edges {
+          node {
+            id
+            fields {
+              slug
+            }
+            frontmatter {
+              templateKey
+              category
+            }
+          }
+        }
+      }
+      categories:allMarkdownRemark(limit: 2000, filter:{frontmatter:{createPage:{eq: "true"}, templateKey: {eq: "category-page"}}}) {
+        edges {
+          node {
+            id
+            fields {
+              slug
+            }
+            frontmatter {
+              templateKey
+              title
+            }
+          }
+        }
+      }
     }
   `).then((result) => {
     if (result.errors) {
@@ -32,7 +125,7 @@ exports.createPages = async ({ actions, graphql }) => {
       return Promise.reject(result.errors)
     }
 
-    const posts = result.data.allMarkdownRemark.edges
+    const posts = result.data.posts.edges
 
     posts.forEach((edge) => {
       const id = edge.node.id
@@ -52,30 +145,10 @@ exports.createPages = async ({ actions, graphql }) => {
         },
       })
     })
-  })
 
-  await graphql(`
-    {
-      allMarkdownRemark(limit: 2000, filter:{frontmatter: {templateKey: {eq: "tag"}}}) {
-        edges {
-          node {
-            id
-            frontmatter {
-              iconDescription
-            }
-          }
-        }
-      }
-    }
-  `).then((result) => {
-    if (result.errors) {
-      result.errors.forEach((e) => console.error(e.toString()))
-      return Promise.reject(result.errors)
-    }
+    const tags = result.data.tags.edges
 
-    const posts = result.data.allMarkdownRemark.edges
-
-    posts.forEach((edge) => {
+    tags.forEach((edge) => {
       const id = edge.node.id
       const tag = edge.node.frontmatter.iconDescription
       
@@ -91,34 +164,10 @@ exports.createPages = async ({ actions, graphql }) => {
         },
       })
     })
-  })
 
-  await graphql(`
-    {
-      allMarkdownRemark(limit: 2000, filter:{frontmatter:{createPage:{eq: "true"}, templateKey: {eq: "subcategory-item"}}}) {
-        edges {
-          node {
-            id
-            fields {
-              slug
-            }
-            frontmatter {
-              templateKey
-              subcategory
-            }
-          }
-        }
-      }
-    }
-  `).then((result) => {
-    if (result.errors) {
-      result.errors.forEach((e) => console.error(e.toString()))
-      return Promise.reject(result.errors)
-    }
+    const subcategoryItems = result.data.subcategoryItems.edges
 
-    const items = result.data.allMarkdownRemark.edges
-
-    items.forEach((edge) => {
+    subcategoryItems.forEach((edge) => {
       const id = edge.node.id
       const subcategory = edge.node.frontmatter.subcategory
       
@@ -134,34 +183,10 @@ exports.createPages = async ({ actions, graphql }) => {
         },
       })
     })
-  })
 
-  await graphql(`
-    {
-      allMarkdownRemark(limit: 2000, filter:{frontmatter:{createPage:{eq: "true"}, templateKey: {eq: "author-page"}}}) {
-        edges {
-          node {
-            id
-            fields {
-              slug
-            }
-            frontmatter {
-              templateKey
-              name
-            }
-          }
-        }
-      }
-    }
-  `).then((result) => {
-    if (result.errors) {
-      result.errors.forEach((e) => console.error(e.toString()))
-      return Promise.reject(result.errors)
-    }
+    const authors = result.data.authors.edges
 
-    const posts = result.data.allMarkdownRemark.edges
-
-    posts.forEach((edge) => {
+    authors.forEach((edge) => {
       const id = edge.node.id
       const author = edge.node.frontmatter.name
       
@@ -177,33 +202,10 @@ exports.createPages = async ({ actions, graphql }) => {
         },
       })
     })
-  })
 
-    await graphql(`
-    {
-      allMarkdownRemark(limit: 2000, filter:{frontmatter:{templateKey: {eq: "page-title-and-body"}}}) {
-        edges {
-          node {
-            id
-            fields {
-              slug
-            }
-            frontmatter {
-              templateKey
-            }
-          }
-        }
-      }
-    }
-  `).then((result) => {
-    if (result.errors) {
-      result.errors.forEach((e) => console.error(e.toString()))
-      return Promise.reject(result.errors)
-    }
+    const titleAndBodyPages = result.data.titleAndBodyPages.edges
 
-    const posts = result.data.allMarkdownRemark.edges
-
-    posts.forEach((edge) => {
+    titleAndBodyPages.forEach((edge) => {
       const id = edge.node.id
       
       createPage({
@@ -217,34 +219,10 @@ exports.createPages = async ({ actions, graphql }) => {
         },
       })
     })
-  })
 
-  await graphql(`
-    {
-      allMarkdownRemark(limit: 2000, filter:{frontmatter:{createPage:{eq: "true"}, templateKey: {eq: "category-subcategory"}}}) {
-        edges {
-          node {
-            id
-            fields {
-              slug
-            }
-            frontmatter {
-              templateKey
-              title
-            }
-          }
-        }
-      }
-    }
-  `).then((result) => {
-    if (result.errors) {
-      result.errors.forEach((e) => console.error(e.toString()))
-      return Promise.reject(result.errors)
-    }
+    const categorySubcategories = result.data.categorySubcategories.edges
 
-    const posts = result.data.allMarkdownRemark.edges
-
-    posts.forEach((edge) => {
+    categorySubcategories.forEach((edge) => {
       const id = edge.node.id
       const title = edge.node.frontmatter.title
       
@@ -260,34 +238,10 @@ exports.createPages = async ({ actions, graphql }) => {
         },
       })
     })
-  })
 
-  await graphql(`
-    {
-      allMarkdownRemark(limit: 2000, filter:{frontmatter:{templateKey: {eq: "shop-product"}}}) {
-        edges {
-          node {
-            id
-            fields {
-              slug
-            }
-            frontmatter {
-              templateKey
-              category
-            }
-          }
-        }
-      }
-    }
-  `).then((result) => {
-    if (result.errors) {
-      result.errors.forEach((e) => console.error(e.toString()))
-      return Promise.reject(result.errors)
-    }
+    const shopProducts = result.data.shopProducts.edges
 
-    const products = result.data.allMarkdownRemark.edges
-
-    products.forEach((edge) => {
+    shopProducts.forEach((edge) => {
       const id = edge.node.id
       const category = edge.node.frontmatter.category
       
@@ -303,35 +257,10 @@ exports.createPages = async ({ actions, graphql }) => {
         },
       })
     })
-  });
-  
 
-    return graphql(`
-    {
-      allMarkdownRemark(limit: 2000, filter:{frontmatter:{createPage:{eq: "true"}, templateKey: {eq: "category-page"}}}) {
-        edges {
-          node {
-            id
-            fields {
-              slug
-            }
-            frontmatter {
-              templateKey
-              title
-            }
-          }
-        }
-      }
-    }
-  `).then((result) => {
-    if (result.errors) {
-      result.errors.forEach((e) => console.error(e.toString()))
-      return Promise.reject(result.errors)
-    }
+    const categories = result.data.categories.edges
 
-    const posts = result.data.allMarkdownRemark.edges
-
-    posts.forEach((edge) => {
+    categories.forEach((edge) => {
       const id = edge.node.id
       const title = edge.node.frontmatter.title
       
@@ -347,32 +276,29 @@ exports.createPages = async ({ actions, graphql }) => {
         },
       })
     })
-
-    // // Tag pages:
-    // let tags = []
-    // // Iterate through each post, putting all found tags into `tags`
-    // posts.forEach((edge) => {
-    //   if (_.get(edge, `node.frontmatter.tags`)) {
-    //     tags = tags.concat(edge.node.frontmatter.tags)
-    //   }
-    // })
-    // // Eliminate duplicate tags
-    // tags = _.uniq(tags)
-
-    // // Make tag pages
-    // tags.forEach((tag) => {
-    //   const tagPath = `/tags/${_.kebabCase(tag)}/`
-
-    //   createPage({
-    //     path: tagPath,
-    //     component: path.resolve(`src/templates/tags.js`),
-    //     context: {
-    //       tag,
-    //     },
-    //   })
-    // })
+  })
 
 
+
+
+
+
+
+
+
+
+
+  
+
+    return graphql(`
+    {
+      
+    }
+  `).then((result) => {
+    if (result.errors) {
+      result.errors.forEach((e) => console.error(e.toString()))
+      return Promise.reject(result.errors)
+    }
 
   })
 }
