@@ -124,6 +124,9 @@ let Sitemap = () => {
                 <Link to='/careers'>
                     <p className={styles.entry}>Careers</p>
                 </Link>
+                <Link to='/agency'>
+                    <p className={styles.entry}>Agency</p>
+                </Link>
               </div>
               <div className={styles.entryGroup}>
                 <p className={styles.groupParagraph}>Authors</p>
