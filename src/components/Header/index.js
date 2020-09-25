@@ -246,6 +246,7 @@ const Header = () => {
                 {node:{fields:{slug:'/careers'}, frontmatter:{title:'Careers'}}},
                 {node:{fields:{slug:'/advertise'}, frontmatter:{title:'Advertise'}}},
                 {node:{fields:{slug:'/contact-us'}, frontmatter:{title:'Contact Us'}}},
+                {node:{fields:{slug:'/agency'}, frontmatter:{title:'Agency'}}},
             ]
             }
             trigger={menuOpened}
