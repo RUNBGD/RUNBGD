@@ -1,6 +1,6 @@
 ---
 templateKey: agency-page
-heroBannerImage: /img/hero-banner-image.jpg
+heroBannerImage: /img/hero-banner-image-1.png
 heroBannerHeading: RUN BGD Agency
 sections:
     - image: /img/section-image.png

@@ -6,12 +6,12 @@ const PageTitleAndBodyPreview = ({ entry, widgetFor }) => {
   return (
     <PageTitleAndBodyTemplate
       data={{
-        markdownRemark:{
-          frontmatter:{
-            title:entry.getIn(['data', 'title']),
+        markdownRemark: {
+          frontmatter: {
+            title: entry.getIn(['data', 'title']),
           },
         },
-        html:widgetFor('body')
+        html: widgetFor('body'),
       }}
     />
   )

@@ -192,17 +192,16 @@
 //   }
 // `
 
-import React, {useState} from 'react'
-import {graphql, useStaticQuery} from 'gatsby'
-
+import React, { useState } from 'react'
+import { graphql, useStaticQuery } from 'gatsby'
 
 import Layout from '../components/Layout'
 
 import BigPostsCarousel from '../components/BigPostsCarousel'
 import SecondaryPostsCarousel from '../components/SecondaryPostsCarousel'
-import NewsletterForm from '../components/NewsletterForm';
+import NewsletterForm from '../components/NewsletterForm'
 import FindPlacesMainCard from '../components/FindPlacesMainCard'
-import LatestPosts from '../components/LatestPosts';
+import LatestPosts from '../components/LatestPosts'
 import AsideContent from '../components/AsideContent'
 import FindPlacesMap from '../components/FindPlacesMap'
 import FindPlacesLocations from '../components/FindPlacesLocations'
@@ -210,152 +209,168 @@ import PostCategoryTag from '../components/PostCategoryTag'
 import styles from './index-page.module.scss'
 
 const IndexPage = () => {
-  
-   let carouselPosts = useStaticQuery( graphql`
-  query MyQuery {
-    allMarkdownRemark(filter: {frontmatter: {featuredPost: {eq: true}}}) {
-      edges {
-        node{
-          fields{
-            slug
-          }
-          frontmatter{
-            title
-            author
-            category
-            coverImage{
-              childImageSharp {
-                fluid(maxWidth:1000, quality: 64){
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-    categoryFeaturedPosts:allMarkdownRemark(filter: {frontmatter: {categoryFeatured: {eq: true}}}) {
-      edges {
-        node {
-          fields{
-            slug
-          }
-          frontmatter {
-            title
-            category
-            author
-            coverImage {
-              childImageSharp {
-                fluid(maxWidth: 1000, quality: 64) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-
-    categories:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "category-page"}}}, sort: {fields: [frontmatter___order]}) {
-      edges {
-        node {
-          fields{
-            slug
-          }
-          frontmatter {
-            title
-            order
-          }
-        }
-      }
-    }
-
-    trending:allMarkdownRemark(filter: {frontmatter: {trending: {eq: true}}}) {
-      edges {
-        node {
-          fields{
-            slug
-          }
-          frontmatter {
-            title
-            author
-            category
-            coverImage{
-              childImageSharp {
-                fluid(maxWidth: 1000, quality: 64) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-    latestPosts:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "blog-post"}}}){
-      edges {
-          node{
-            fields{
+  let carouselPosts = useStaticQuery(graphql`
+    query MyQuery {
+      allMarkdownRemark(
+        filter: { frontmatter: { featuredPost: { eq: true } } }
+      ) {
+        edges {
+          node {
+            fields {
               slug
             }
-          frontmatter{
+            frontmatter {
+              title
+              author
+              category
+              coverImage {
+                childImageSharp {
+                  fluid(maxWidth: 1000, quality: 64) {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      categoryFeaturedPosts: allMarkdownRemark(
+        filter: { frontmatter: { categoryFeatured: { eq: true } } }
+      ) {
+        edges {
+          node {
+            fields {
+              slug
+            }
+            frontmatter {
               title
               category
               author
-              coverImage{
-              childImageSharp {
-                  fluid(maxWidth:1000, quality: 64){
-                  ...GatsbyImageSharpFluid
+              coverImage {
+                childImageSharp {
+                  fluid(maxWidth: 1000, quality: 64) {
+                    ...GatsbyImageSharpFluid
                   }
-              }
-              }
-          }
-          }
-      }
-      }
-      locations:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "location"}}}){
-        edges {
-            node{
-            frontmatter{
-                name
-                coverImage{
-                    childImageSharp{
-                        fluid(maxWidth:1000){
-                            ...GatsbyImageSharpFluid
-                        }
-                    }
                 }
-                category
-                subcategory
-                address
-                latitude
-                longitude
-            }
+              }
             }
           }
         }
-  }
+      }
+
+      categories: allMarkdownRemark(
+        filter: { frontmatter: { templateKey: { eq: "category-page" } } }
+        sort: { fields: [frontmatter___order] }
+      ) {
+        edges {
+          node {
+            fields {
+              slug
+            }
+            frontmatter {
+              title
+              order
+            }
+          }
+        }
+      }
+
+      trending: allMarkdownRemark(
+        filter: { frontmatter: { trending: { eq: true } } }
+      ) {
+        edges {
+          node {
+            fields {
+              slug
+            }
+            frontmatter {
+              title
+              author
+              category
+              coverImage {
+                childImageSharp {
+                  fluid(maxWidth: 1000, quality: 64) {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      latestPosts: allMarkdownRemark(
+        filter: { frontmatter: { templateKey: { eq: "blog-post" } } }
+      ) {
+        edges {
+          node {
+            fields {
+              slug
+            }
+            frontmatter {
+              title
+              category
+              author
+              coverImage {
+                childImageSharp {
+                  fluid(maxWidth: 1000, quality: 64) {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      locations: allMarkdownRemark(
+        filter: { frontmatter: { templateKey: { eq: "location" } } }
+      ) {
+        edges {
+          node {
+            frontmatter {
+              name
+              coverImage {
+                childImageSharp {
+                  fluid(maxWidth: 1000) {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
+              category
+              subcategory
+              address
+              latitude
+              longitude
+            }
+          }
+        }
+      }
+    }
   `)
 
-  const [currentX, setCurrentX] = useState(carouselPosts.locations.edges[0].node.frontmatter.longitude)
-  const [currentY, setCurrentY] = useState(carouselPosts.locations.edges[0].node.frontmatter.latitude)
+  const [currentX, setCurrentX] = useState(
+    carouselPosts.locations.edges[0].node.frontmatter.longitude
+  )
+  const [currentY, setCurrentY] = useState(
+    carouselPosts.locations.edges[0].node.frontmatter.latitude
+  )
 
   let featuredCategories = []
 
-  carouselPosts.categoryFeaturedPosts.edges.forEach(({node}) => {
+  carouselPosts.categoryFeaturedPosts.edges.forEach(({ node }) => {
     let categoryName = node.frontmatter.category
-    if(featuredCategories.indexOf(categoryName) == -1){
+    if (featuredCategories.indexOf(categoryName) == -1) {
       featuredCategories.push(categoryName)
     }
   })
 
-
   let featuredCategoriesInOrder = (featuredCategories) => {
-    let filteredCategories = carouselPosts.categories.edges.filter(({node:category}) => {
-
-      if(featuredCategories.indexOf(category.frontmatter.title) !== -1){
-        return true
+    let filteredCategories = carouselPosts.categories.edges.filter(
+      ({ node: category }) => {
+        if (featuredCategories.indexOf(category.frontmatter.title) !== -1) {
+          return true
+        }
       }
-    })
+    )
 
     return filteredCategories
   }
@@ -365,53 +380,81 @@ const IndexPage = () => {
       <main>
         <h1>RUN BGD</h1>
         <p>
-        RUN BGD is a team of young and ambitious people gathered around the idea to present Belgrade as destination in a little different light, unlike agencies and other organisations.
+          RUN BGD is a team of young and ambitious people gathered around the
+          idea to present Belgrade as destination in a little different light,
+          unlike agencies and other organisations.
         </p>
-        <hr/>
-        <BigPostsCarousel posts={carouselPosts.allMarkdownRemark}/>
-        <SecondaryPostsCarousel posts={carouselPosts.trending.edges} onlyMobile={true} heading="Trending" displayCategory={true}/>
+        <hr />
+        <BigPostsCarousel posts={carouselPosts.allMarkdownRemark} />
+        <SecondaryPostsCarousel
+          posts={carouselPosts.trending.edges}
+          onlyMobile={true}
+          heading="Trending"
+          displayCategory={true}
+        />
         <NewsletterForm />
-        <hr/>
+        <hr />
         <h2>Find Places</h2>
         <div className={styles.mapAndLocations}>
           <div className={styles.map}>
-            <FindPlacesMap locations={carouselPosts.locations.edges} zoom={6} currentX={currentX} currentY={currentY}/>
+            <FindPlacesMap
+              locations={carouselPosts.locations.edges}
+              zoom={6}
+              currentX={currentX}
+              currentY={currentY}
+            />
           </div>
           <div className={styles.locations}>
-            <FindPlacesLocations locations={carouselPosts.locations.edges} filterCategory={'Select Category'} horizontalOnMobile={true} setCurrentX={setCurrentX} setCurrentY={setCurrentY}/>
+            <FindPlacesLocations
+              locations={carouselPosts.locations.edges}
+              filterCategory={'Select Category'}
+              horizontalOnMobile={true}
+              setCurrentX={setCurrentX}
+              setCurrentY={setCurrentY}
+            />
           </div>
         </div>
-        <hr/>
+        <hr />
         <FindPlacesMainCard />
-        <hr/>
-        {featuredCategoriesInOrder(featuredCategories).map(({node: category}) => {
-
-          let posts = carouselPosts.categoryFeaturedPosts.edges.filter(({node}) => {
-            return node.frontmatter.category === category.frontmatter.title
-          })
-
-          return (
-            <React.Fragment>
-              <div className={styles.titleAndSeeMore}>
-                <h2>{category.frontmatter.title}</h2>
-                <PostCategoryTag slug={category.fields.slug} text={'See More'}/>
-              </div>
-              <SecondaryPostsCarousel posts={posts}/>
-            </React.Fragment>
+        <hr />
+        {featuredCategoriesInOrder(featuredCategories).map(
+          ({ node: category }) => {
+            let posts = carouselPosts.categoryFeaturedPosts.edges.filter(
+              ({ node }) => {
+                return node.frontmatter.category === category.frontmatter.title
+              }
             )
-        } )}
+
+            return (
+              <React.Fragment>
+                <div className={styles.titleAndSeeMore}>
+                  <h2>{category.frontmatter.title}</h2>
+                  <PostCategoryTag
+                    slug={category.fields.slug}
+                    text={'See More'}
+                  />
+                </div>
+                <SecondaryPostsCarousel posts={posts} />
+              </React.Fragment>
+            )
+          }
+        )}
         <h2>Latest Stories</h2>
-        <div style={{display:'relative'}}>
-          <LatestPosts posts={carouselPosts.latestPosts}/>
+        <div style={{ display: 'relative' }}>
+          <LatestPosts posts={carouselPosts.latestPosts} />
         </div>
       </main>
       <aside>
         <div>
-          <AsideContent posts={carouselPosts.trending.edges} heading="Trending" displayCategory={true}/>
+          <AsideContent
+            posts={carouselPosts.trending.edges}
+            heading="Trending"
+            displayCategory={true}
+          />
         </div>
       </aside>
     </Layout>
-  ) 
+  )
 }
 
 export default IndexPage

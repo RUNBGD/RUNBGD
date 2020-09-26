@@ -31,8 +31,9 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-mailchimp',
       options: {
-          endpoint: 'https://gmail.us17.list-manage.com/subscribe/post?u=227b75dbef5e1ad264bf79071&amp;id=1eb48a7878', // string; add your MC list endpoint here; see instructions below
-          timeout: 3500, // number; the amount of time, in milliseconds, that you want to allow mailchimp to respond to your request before timing out. defaults to 3500
+        endpoint:
+          'https://gmail.us17.list-manage.com/subscribe/post?u=227b75dbef5e1ad264bf79071&amp;id=1eb48a7878', // string; add your MC list endpoint here; see instructions below
+        timeout: 3500, // number; the amount of time, in milliseconds, that you want to allow mailchimp to respond to your request before timing out. defaults to 3500
       },
     },
     {
@@ -111,23 +112,23 @@ module.exports = {
         fonts: [
           `Saira Semi Condensed\:100,200,300,400,500,600,700,800`, // you can also specify font weights and styles
         ],
-        display: 'swap'
-      }
+        display: 'swap',
+      },
     },
     {
       resolve: 'gatsby-plugin-react-leaflet',
       options: {
-        linkStyles: true // (default: true) Enable/disable loading stylesheets via CDN
-      }
+        linkStyles: true, // (default: true) Enable/disable loading stylesheets via CDN
+      },
     },
-    "gatsby-plugin-use-query-params",
+    'gatsby-plugin-use-query-params',
     // {
     //   resolve: 'gatsby-plugin-purgecss', // purges all unused/unreferenced css rules
     //   options: {
     //     develop: true, // Activates purging in npm run develop
     //     purgeOnly: ['/all.sass'], // applies purging only on the bulma css file
     //   },
-    // }, 
+    // },
     // must be after other CSS plugins
     'gatsby-plugin-netlify', // make sure to keep it last in the array
   ],

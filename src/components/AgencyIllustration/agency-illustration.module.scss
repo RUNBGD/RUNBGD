@@ -1,0 +1,11 @@
+@import '../../styles/breakpoints.scss';
+
+.agency-illustration{
+    > svg{
+        width:75vw;
+        height:auto;
+        @include breakpoint(lg){
+            width:450px;
+        }
+    }
+}

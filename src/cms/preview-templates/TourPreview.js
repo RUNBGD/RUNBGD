@@ -6,15 +6,15 @@ const TourPreview = ({ entry, widgetFor }) => {
   return (
     <TourTemplate
       data={{
-        markdownRemark:{
-          frontmatter:{
-            title:entry.getIn(['data', 'title']),
-            coverImage:entry.getIn(['data', 'coverImage']),
-            category:entry.getIn(['data', 'category']),
-            subcategory:entry.getIn(['data', 'subcategory']),
+        markdownRemark: {
+          frontmatter: {
+            title: entry.getIn(['data', 'title']),
+            coverImage: entry.getIn(['data', 'coverImage']),
+            category: entry.getIn(['data', 'category']),
+            subcategory: entry.getIn(['data', 'subcategory']),
           },
         },
-        html:widgetFor('body')
+        html: widgetFor('body'),
       }}
     />
   )

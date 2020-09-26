@@ -1,118 +1,148 @@
-import React, {useState} from 'react'
-import SwiperCore, {Pagination, Navigation} from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import swiperStyles from 'swiper/swiper.scss';
-import 'swiper/components/navigation/navigation.scss';
+import React, { useState } from 'react'
+import SwiperCore, { Pagination, Navigation } from 'swiper'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import swiperStyles from 'swiper/swiper.scss'
+import 'swiper/components/navigation/navigation.scss'
 import paginationSwiperStyles from 'swiper/components/pagination/pagination.scss'
 import Image from 'gatsby-image'
-import {Link, useStaticQuery, graphql} from 'gatsby'
+import { Link, useStaticQuery, graphql } from 'gatsby'
 
-import styles from './secondary-posts-carousel.module.scss';
+import styles from './secondary-posts-carousel.module.scss'
 import swiperArrow from '../../img/right-arrow.svg'
-import PostImage from '../PostImage';
+import PostImage from '../PostImage'
 
 console.log(swiperStyles, paginationSwiperStyles)
 
 SwiperCore.use([Pagination, Navigation])
 
-const BigPostsCarousel = ({posts, heading, displayCategory, onlyMobile}) => {
-
+const BigPostsCarousel = ({ posts, heading, displayCategory, onlyMobile }) => {
   let data = useStaticQuery(graphql`
-      query categories{
-        allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "category-page"}}}){
-          edges {
-              node{
-                fields{
-                  slug
-                }
-              frontmatter{
-                  title
-              }
-              }
-          }
-          }
-          authors:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "author-page"}}}){
-            edges {
-                node{
-                  fields{
-                    slug
-                  }
-                frontmatter{
-                    name
-                }
-                }
+    query categories {
+      allMarkdownRemark(
+        filter: { frontmatter: { templateKey: { eq: "category-page" } } }
+      ) {
+        edges {
+          node {
+            fields {
+              slug
             }
+            frontmatter {
+              title
             }
+          }
+        }
       }
-    `)
-
-
-    let [activeSlide, setActiveSlide] = useState()
-
-    return(
-      <div className={onlyMobile && styles.onlyMobile}>
-        <h2>{heading}</h2>
-        <Swiper
-          pagination={{ el:`.${styles.swiperPagination}`,clickable: true }}
-          loop={posts.length > 1 ? true : false}
-          className={styles.carousel}
-          onSlideChange={(swiper) => {setActiveSlide(swiper.realIndex)}}
-          slidesPerView='auto'
-          onInit={() => setActiveSlide(0)}
-          navigation={{
-            nextEl: `.${styles.swiperNextEl}`,
-            prevEl: `.${styles.swiperPrevEl}`
-          }}
-        >
-          {posts.map(({node:post}, index) => {
-            let categorySlug = undefined;
-            let authorSlug = undefined;
-
-            let category = data.allMarkdownRemark.edges.find(({node:category}) => post.frontmatter.category === category.frontmatter.title)
-
-            if(category){
-              categorySlug = category.node.fields.slug
+      authors: allMarkdownRemark(
+        filter: { frontmatter: { templateKey: { eq: "author-page" } } }
+      ) {
+        edges {
+          node {
+            fields {
+              slug
             }
-            
-            let author = data.authors.edges.find(({node:author}) => post.frontmatter.author === author.frontmatter.name)
-            
-            if(author){
-              authorSlug = author.node.fields.slug
+            frontmatter {
+              name
             }
+          }
+        }
+      }
+    }
+  `)
 
-            return(
-              <SwiperSlide className={`${styles.slide} ${posts.length < 2 && styles.isOnlySlide} ${index === activeSlide ? styles.activeSlide : styles.inactiveSlide}`}>
-                <div className={styles.post}>
-                  <PostImage slug={post.fields.slug} image={post.frontmatter.coverImage.childImageSharp.fluid}/>
-                  <div className={styles.postDetails}>
-                    {(displayCategory && categorySlug) && 
-                      <Link to={categorySlug}>
-                        <span className={styles.postCategory}>{post.frontmatter.category}</span>
-                      </Link>
-                    }
-                    {
-                      authorSlug &&
-                      <Link to={authorSlug}>
-                        <p className={styles.postAuthor}>By <a>{post.frontmatter.author}</a></p>
-                      </Link>
-                    }
-                  </div>
-                    <Link to={post.fields.slug}>
-                      <p className={styles.postHeading}>
-                        {post.frontmatter.title}
+  let [activeSlide, setActiveSlide] = useState()
+
+  return (
+    <div className={onlyMobile && styles.onlyMobile}>
+      <h2>{heading}</h2>
+      <Swiper
+        pagination={{ el: `.${styles.swiperPagination}`, clickable: true }}
+        loop={posts.length > 1 ? true : false}
+        className={styles.carousel}
+        onSlideChange={(swiper) => {
+          setActiveSlide(swiper.realIndex)
+        }}
+        slidesPerView="auto"
+        onInit={() => setActiveSlide(0)}
+        navigation={{
+          nextEl: `.${styles.swiperNextEl}`,
+          prevEl: `.${styles.swiperPrevEl}`,
+        }}
+      >
+        {posts.map(({ node: post }, index) => {
+          let categorySlug = undefined
+          let authorSlug = undefined
+
+          let category = data.allMarkdownRemark.edges.find(
+            ({ node: category }) =>
+              post.frontmatter.category === category.frontmatter.title
+          )
+
+          if (category) {
+            categorySlug = category.node.fields.slug
+          }
+
+          let author = data.authors.edges.find(
+            ({ node: author }) =>
+              post.frontmatter.author === author.frontmatter.name
+          )
+
+          if (author) {
+            authorSlug = author.node.fields.slug
+          }
+
+          return (
+            <SwiperSlide
+              className={`${styles.slide} ${
+                posts.length < 2 && styles.isOnlySlide
+              } ${
+                index === activeSlide
+                  ? styles.activeSlide
+                  : styles.inactiveSlide
+              }`}
+            >
+              <div className={styles.post}>
+                <PostImage
+                  slug={post.fields.slug}
+                  image={post.frontmatter.coverImage.childImageSharp.fluid}
+                />
+                <div className={styles.postDetails}>
+                  {displayCategory && categorySlug && (
+                    <Link to={categorySlug}>
+                      <span className={styles.postCategory}>
+                        {post.frontmatter.category}
+                      </span>
+                    </Link>
+                  )}
+                  {authorSlug && (
+                    <Link to={authorSlug}>
+                      <p className={styles.postAuthor}>
+                        By <a>{post.frontmatter.author}</a>
                       </p>
                     </Link>
+                  )}
                 </div>
-              </SwiperSlide>
-            )
-          })}
-          <div className={styles.swiperPagination}></div>
-          <img className={styles.swiperPrevEl} src={swiperArrow} alt='prev slide' />
-          <img className={styles.swiperNextEl} src={swiperArrow} alt='next slide'/>
-        </Swiper>
-        <hr/>
-      </div>
-    )
-}   
+                <Link to={post.fields.slug}>
+                  <p className={styles.postHeading}>{post.frontmatter.title}</p>
+                </Link>
+              </div>
+            </SwiperSlide>
+          )
+        })}
+        <div className={styles.swiperPagination}></div>
+        <img
+          className={styles.swiperPrevEl}
+          src={swiperArrow}
+          alt="prev slide"
+        />
+        <img
+          className={styles.swiperNextEl}
+          src={swiperArrow}
+          alt="next slide"
+        />
+      </Swiper>
+      <hr />
+    </div>
+  )
+}
 
 export default BigPostsCarousel

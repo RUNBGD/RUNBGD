@@ -8,7 +8,15 @@ exports.createPages = async ({ actions, graphql }) => {
 
   await graphql(`
     {
-      posts:allMarkdownRemark(limit: 2000, filter:{frontmatter:{createPage:{eq: "true"}, templateKey: {eq: "blog-post"}}}) {
+      posts: allMarkdownRemark(
+        limit: 2000
+        filter: {
+          frontmatter: {
+            createPage: { eq: "true" }
+            templateKey: { eq: "blog-post" }
+          }
+        }
+      ) {
         edges {
           node {
             id
@@ -18,14 +26,17 @@ exports.createPages = async ({ actions, graphql }) => {
             frontmatter {
               templateKey
               category
-              icons{
+              icons {
                 icon
               }
             }
           }
         }
       }
-      tags:allMarkdownRemark(limit: 2000, filter:{frontmatter: {templateKey: {eq: "tag"}}}) {
+      tags: allMarkdownRemark(
+        limit: 2000
+        filter: { frontmatter: { templateKey: { eq: "tag" } } }
+      ) {
         edges {
           node {
             id
@@ -35,7 +46,15 @@ exports.createPages = async ({ actions, graphql }) => {
           }
         }
       }
-      subcategoryItems:allMarkdownRemark(limit: 2000, filter:{frontmatter:{createPage:{eq: "true"}, templateKey: {eq: "subcategory-item"}}}) {
+      subcategoryItems: allMarkdownRemark(
+        limit: 2000
+        filter: {
+          frontmatter: {
+            createPage: { eq: "true" }
+            templateKey: { eq: "subcategory-item" }
+          }
+        }
+      ) {
         edges {
           node {
             id
@@ -49,7 +68,15 @@ exports.createPages = async ({ actions, graphql }) => {
           }
         }
       }
-      authors:allMarkdownRemark(limit: 2000, filter:{frontmatter:{createPage:{eq: "true"}, templateKey: {eq: "author-page"}}}) {
+      authors: allMarkdownRemark(
+        limit: 2000
+        filter: {
+          frontmatter: {
+            createPage: { eq: "true" }
+            templateKey: { eq: "author-page" }
+          }
+        }
+      ) {
         edges {
           node {
             id
@@ -63,7 +90,10 @@ exports.createPages = async ({ actions, graphql }) => {
           }
         }
       }
-      titleAndBodyPages:allMarkdownRemark(limit: 2000, filter:{frontmatter:{templateKey: {eq: "page-title-and-body"}}}) {
+      titleAndBodyPages: allMarkdownRemark(
+        limit: 2000
+        filter: { frontmatter: { templateKey: { eq: "page-title-and-body" } } }
+      ) {
         edges {
           node {
             id
@@ -76,7 +106,15 @@ exports.createPages = async ({ actions, graphql }) => {
           }
         }
       }
-      categorySubcategories:allMarkdownRemark(limit: 2000, filter:{frontmatter:{createPage:{eq: "true"}, templateKey: {eq: "category-subcategory"}}}) {
+      categorySubcategories: allMarkdownRemark(
+        limit: 2000
+        filter: {
+          frontmatter: {
+            createPage: { eq: "true" }
+            templateKey: { eq: "category-subcategory" }
+          }
+        }
+      ) {
         edges {
           node {
             id
@@ -90,7 +128,10 @@ exports.createPages = async ({ actions, graphql }) => {
           }
         }
       }
-      shopProducts:allMarkdownRemark(limit: 2000, filter:{frontmatter:{templateKey: {eq: "shop-product"}}}) {
+      shopProducts: allMarkdownRemark(
+        limit: 2000
+        filter: { frontmatter: { templateKey: { eq: "shop-product" } } }
+      ) {
         edges {
           node {
             id
@@ -104,7 +145,15 @@ exports.createPages = async ({ actions, graphql }) => {
           }
         }
       }
-      categories:allMarkdownRemark(limit: 2000, filter:{frontmatter:{createPage:{eq: "true"}, templateKey: {eq: "category-page"}}}) {
+      categories: allMarkdownRemark(
+        limit: 2000
+        filter: {
+          frontmatter: {
+            createPage: { eq: "true" }
+            templateKey: { eq: "category-page" }
+          }
+        }
+      ) {
         edges {
           node {
             id
@@ -130,8 +179,8 @@ exports.createPages = async ({ actions, graphql }) => {
     posts.forEach((edge) => {
       const id = edge.node.id
       const category = edge.node.frontmatter.category
-      const tagArray = edge.node.frontmatter.icons.map(icon => icon.icon)
-      
+      const tagArray = edge.node.frontmatter.icons.map((icon) => icon.icon)
+
       createPage({
         path: edge.node.fields.slug,
         component: path.resolve(
@@ -141,7 +190,7 @@ exports.createPages = async ({ actions, graphql }) => {
         context: {
           id,
           category,
-          tagArray
+          tagArray,
         },
       })
     })
@@ -151,16 +200,14 @@ exports.createPages = async ({ actions, graphql }) => {
     tags.forEach((edge) => {
       const id = edge.node.id
       const tag = edge.node.frontmatter.iconDescription
-      
+
       createPage({
         path: `/tag/${tag.toLowerCase()}`,
-        component: path.resolve(
-          `src/templates/tags-page/index.js`
-        ),
+        component: path.resolve(`src/templates/tags-page/index.js`),
         // additional data can be passed via context
         context: {
           id,
-          tag
+          tag,
         },
       })
     })
@@ -170,7 +217,7 @@ exports.createPages = async ({ actions, graphql }) => {
     subcategoryItems.forEach((edge) => {
       const id = edge.node.id
       const subcategory = edge.node.frontmatter.subcategory
-      
+
       createPage({
         path: edge.node.fields.slug,
         component: path.resolve(
@@ -179,7 +226,7 @@ exports.createPages = async ({ actions, graphql }) => {
         // additional data can be passed via context
         context: {
           id,
-          subcategory
+          subcategory,
         },
       })
     })
@@ -189,7 +236,7 @@ exports.createPages = async ({ actions, graphql }) => {
     authors.forEach((edge) => {
       const id = edge.node.id
       const author = edge.node.frontmatter.name
-      
+
       createPage({
         path: edge.node.fields.slug,
         component: path.resolve(
@@ -198,7 +245,7 @@ exports.createPages = async ({ actions, graphql }) => {
         // additional data can be passed via context
         context: {
           id,
-          author
+          author,
         },
       })
     })
@@ -207,15 +254,13 @@ exports.createPages = async ({ actions, graphql }) => {
 
     titleAndBodyPages.forEach((edge) => {
       const id = edge.node.id
-      
+
       createPage({
         path: edge.node.fields.slug,
-        component: path.resolve(
-          `src/templates/page-title-and-body/index.js`
-        ),
+        component: path.resolve(`src/templates/page-title-and-body/index.js`),
         // additional data can be passed via context
         context: {
-          id
+          id,
         },
       })
     })
@@ -225,16 +270,14 @@ exports.createPages = async ({ actions, graphql }) => {
     categorySubcategories.forEach((edge) => {
       const id = edge.node.id
       const title = edge.node.frontmatter.title
-      
+
       createPage({
         path: edge.node.fields.slug,
-        component: path.resolve(
-          `src/templates/subcategory-page/index.js`
-        ),
+        component: path.resolve(`src/templates/subcategory-page/index.js`),
         // additional data can be passed via context
         context: {
           id,
-          title
+          title,
         },
       })
     })
@@ -244,16 +287,14 @@ exports.createPages = async ({ actions, graphql }) => {
     shopProducts.forEach((edge) => {
       const id = edge.node.id
       const category = edge.node.frontmatter.category
-      
+
       createPage({
         path: edge.node.fields.slug,
-        component: path.resolve(
-          `src/templates/shop-product/index.js`
-        ),
+        component: path.resolve(`src/templates/shop-product/index.js`),
         // additional data can be passed via context
         context: {
           id,
-          category
+          category,
         },
       })
     })
@@ -263,7 +304,7 @@ exports.createPages = async ({ actions, graphql }) => {
     categories.forEach((edge) => {
       const id = edge.node.id
       const title = edge.node.frontmatter.title
-      
+
       createPage({
         path: edge.node.fields.slug,
         component: path.resolve(
@@ -272,13 +313,11 @@ exports.createPages = async ({ actions, graphql }) => {
         // additional data can be passed via context
         context: {
           id,
-          title
+          title,
         },
       })
     })
   })
-
-  
 }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
