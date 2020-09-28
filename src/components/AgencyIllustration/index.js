@@ -37,10 +37,7 @@ const AgencyIllustration = () => {
       >
         <title>shared_workspace</title>
         <animated.g
-            style={{
-                transformOrigin: 'center bottom',
-                transformBox:'fill-box'
-            }}
+            className={styles.bottomCentered}
             transform={scalePlant.interpolate(scale => `scale(${scale})`)}
         >
             <path
@@ -101,10 +98,7 @@ const AgencyIllustration = () => {
           fill="#ee1c25"
         />
         <animated.g
-        style={{
-            transformOrigin: 'center',
-            transformBox:'fill-box'
-        }}
+        className={styles.centered}
         transform={scale.interpolate(scale => `scale(${scale})`)}
         >
             <path
@@ -207,10 +201,7 @@ const AgencyIllustration = () => {
           fill="#d0cde1"
         />
         <animated.g 
-        style={{
-            transformOrigin: 'center',
-            transformBox:'fill-box'
-        }}
+        className={styles.centered}
         transform={scale.interpolate(scale => `scale(${scale})`)}
         >
             <path

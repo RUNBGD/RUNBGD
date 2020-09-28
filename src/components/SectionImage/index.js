@@ -36,6 +36,7 @@ const SectionImage = ({ imageOnRight, image }) => {
   return (
     <VisibilitySensor onChange={handleVisibility}>
       <div
+        className={styles.imageContainer}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
       >
