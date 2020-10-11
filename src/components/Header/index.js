@@ -352,7 +352,7 @@ const Header = () => {
             trigger={menuOpened}
           />
           <LinksBlock
-            groupName="work with us"
+            groupName="information"
             linkArray={[
               {
                 node: {
@@ -382,6 +382,12 @@ const Header = () => {
                 node: {
                   fields: { slug: '/agency' },
                   frontmatter: { title: 'Agency' },
+                },
+              },
+              {
+                node: {
+                  fields: { slug: '/about' },
+                  frontmatter: { title: 'About' },
                 },
               },
             ]}

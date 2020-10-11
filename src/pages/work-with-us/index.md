@@ -5,67 +5,46 @@ heroText: We're a global youth entertainment network with unparalleled reach to
   millennials and Gen Z across big pop culture categories including streetwear
   and style, food, music, sneakers and sports. *
 heroQuote: "* This is 100% true, but everyone tries to make that claim... keep
-  scrolling to learn more about what makes Complex Networks the exception."
+  scrolling to learn more about what makes RUN BGD the exception."
 aboutImageCover: /img/the-city.jpg
 aboutText: >-
-  Complex Networks champions the people, brands and new trends you need to know
+  makes RUN BGD champions the people, brands and new trends you need to know
   now, will obsess over next, and we build consumer universes around them.
 
 
   We’re what a modern entertainment company looks like and what others have followed since 2002.
 sections:
   - coverImage: /img/image--002.jpg
-    sectionHeading: O NAMA
+    sectionHeading: ABOUT US
     sectionText: >-
-      RUN BGD je tim mladih i ambicioznih ljudi okupljenih oko ideje da Beograd
-      predstave kao turističku destinaciju u malo drugačijem svetlu. Za razliku
-      od agencija i drugih organizacija, mi želimo da Beograd približimo mladim
-      ljudima Evrope i pokažemo im urbani duh grada kroz noćni život uz
-      kvalitetnu dnevnu i noćnu zabavu u našoj organizaciji, odabrane manje
-      poznate kulturne i umetničke događaje, restorane, domaću kuhinju, “street
-      food”, kafiće, klubove, prodavnice, itd. Doživljaj Beograda sa iskustvom
-      Beograđana - #RUNBGD.
+      RUN BGD is a team of young and ambitious people gathered around the idea of ​​presenting Belgrade as a tourist destination in a slightly different light. Unlike agencies and other organizations, we want to bring Belgrade closer to the young people of Europe and show them the urban spirit of the city through the night life with quality day and night entertainment in our organization, selected lesser known cultural and artistic events, restaurants, local cuisine, "street food ”, cafes, clubs, shops, etc. Experience Belgrade with the experience of Belgraders - #RUNBGD
 
+      From year to year, more and more tourists are discovering Belgrade, which is slowly returning to the map of the most interesting cities in Europe. Despite that, there are few online platforms that can offer foreigners in English the entire offer in one place, and that is exactly our main goal.  The potential and talent we possess in the worlds of music, art, design and creativity are the main trump cards that we can present to the world together. That is why we invite various local companies, artists and brands to start Belgrade even stronger!
 
-      Iz godine u godinu sve je više turista koji otkrivaju Beograd, koji se lagano vraća na mapu najzanimljivijih gradova Evrope. Uprkos tome, malo je online platformi koji strancima na Engleskom jeziku mogu ponuditi celokupnu ponudu na jednom mestu, a upravo to je naš glavni cilj kojem stremimo.
-
-
-      Potencijal i talenat koji posedujemo u sverama muzike, umetnosti, dizajna i kreativnosti, glavni su aduti koje zajedničkim snagama možemo predstaviti svetu. Zbog toga pozivamo različita lokalna preduzeća, umetnike i brendove da još snažnije pokrenemo Beograd!
   - coverImage: /img/image-004.jpg
-    sectionHeading: RUN BGD - PUTOVANJA & TURE
+    sectionHeading: RUN BGD - TRAVEL & TOURS
     sectionText: >-
-      Turustički paketi RUNBGD posebno su namenjeni ljudima koji žele da
-      destinaciju upoznaju na jedan drugačiji način, intimnije, u paru ili sa
-      prijateljima, gde će uz lokalnog vodiča i RUNBGD Beograđane imati priliku
-      da doživi ono što tokom klasično organizovanih tura nije moguće.
+      RUNBGD tourist packages are especially intended for people who want to get to know the destination in a different way, more intimately, in pairs or with friends, where with a local guide and RUNBGD Belgraders will have the opportunity to experience what is not possible during classically organized tours.
 
+      Each basic package with us includes transportation, accommodation and guides, with the possibility of additional content in the form of concerts, sporting events, day trips and tours, as well as other events in Belgrade, which we organize for our clients. The offer will include recommendations for selected restaurants and bars with which we have achieved successful cooperation, and which stand out with quality food, choice of drinks and creative services.
 
-      Svaki osnovni paket kod nas uključuje prevoz, smeštaj i vodiča, sa mogućnošću dodatnih sadržaja u vidu koncerata, sportskih događaja, jednodnevnih izleta i tura, kao i ostalih dešavanja u Beogradu, koje za naše klijente organizujemo. Ponuda će obuhvatati preporuke za odabrane restorane i barove sa kojima smo ostvarili uspešnu saradnju, a koji se izdvajaju kvalitetnom hranom, izborom pića i kreativnih usluga.
+      Through our offer, we will also recommend the most interesting restaurants and bars with which we have successfully cooperated. Our goal is for guests to feel the local atmosphere, and visit those places that are not marked on all signs in the city, but are carefully selected by locals.
 
-
-      Kroz našu ponudu ćemo takođe preporučiti nama najinteresantnije restorane i barove sa kojima smo ostvarili uspešnu saradnju.Cilj nam je da gosti osete lokalnu atmosferu, te posete ona mesta koja nisu ucrtana na svim putokazima u gradu, već su izbor lokalaca koji ponude pažljivo sastavljaju.
   - coverImage: /img/image-006.png
-    sectionHeading: RUN BGD - MAPA
+    sectionHeading: RUN BGD - MAP
     sectionText: >-
-      Pored pisanih recenzija i spiska svih lokacija u gradu, najlakši način da
-      turisti pronađu sve što im je potrebno je personalizovana MAPA.
+      In addition to written reviews and a list of all locations in the city, the easiest way for tourists to find everything they need is a personalized MAP.
 
+      We are currently working on building a new site where the primary position will be an interactive map with selected and verified information - where the accommodation is, where I can eat, drink, go to the museum, swim, train, play until the morning.
 
-      Trenutno radimo na izgradnji novog sajta gde će primarnu poziciju imati upravo interaktivna mapa sa odabranim i verifikovanim informacijama - gde se nalazi smeštaj, gde mogu jesti, popiti piće, otići u muzej, plivati, trenirati, igrati do jutra.
   - coverImage: /img/image-009.jpg
     sectionHeading: RUN BGD - CONCEPT STORE
     sectionText: >-
-      Plan za narednu godinu nam je da u Beogradu pokrenemo konceptualni
-      prostor, kao takav jedinstven u gradu, gde bismo okupljali kako naše, tako
-      i ljude iz inostranstva zainteresovane za kulturu, umetnost, sport, modu.
-      Prostor bi sadržao umetničku galeriju, bar, prodavnicu, agenciju sa
-      prostorom za rad (coworking), prodajna i izložbena mesta za mlade talente,
-      dizajnere i umetnike.
+      Our plan for the next year is to launch a conceptual space in Belgrade, as such unique in the city, where we would gather both ours and people from abroad interested in culture, art, sports, fashion. The space would include an art gallery, a bar, a shop, an agency with space for work (coworking), sales and exhibition places for young talents, designers and artists.
 
+      Multifunctionality would be reflected in the fact that individual parts can be easily transformed into a more spacious space suitable for cultural events, gatherings, meetings, workshops or seminars.
 
-      Multifunkcionalnost bi se ogledala u tome što se pojedini delovi mogu lako tranformisati u prostraniji prostor pogodan za kulturna dešavanja, druženja, sastanke, radionice ili seminare.
+      We are on the way for RUNBGD to become an unavoidable place for the local and international urban community. We want to encourage the promotion of innovative ideas that set Belgrade apart from others as a destination. Our focus will be on domestic creatively designed brands, products, locations, and on everything that fits into the concept of "From Belgrade to Belgrade”.
 
-
-      Na putu smo da RUNBGD postane nezaobilazno mesto lokalne, ali i međunarodne urbane zajednice. Želimo da podstaknemo promociju inovativnih ideja koje Beograd kao destinaciju izdvajaju od ostalih. Naš fokus biće usmeren na domaće kreativno osmišljene brendove, proizvode, lokacije, odnosno na sve ono što se uklapa u koncept „Od Beograda za Beograd“.
 templateKey: work-with-us-page
 ---

@@ -148,6 +148,9 @@ let Sitemap = () => {
             <Link to="/agency">
               <p className={styles.entry}>Agency</p>
             </Link>
+            <Link to="/about">
+              <p className={styles.entry}>About</p>
+            </Link>
           </div>
           <div className={styles.entryGroup}>
             <p className={styles.groupParagraph}>Authors</p>
