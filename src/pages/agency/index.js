@@ -5,12 +5,18 @@ import remark from 'remark'
 import remarkHTML from 'remark-html'
 import { useSpring, animated, config } from 'react-spring'
 import { Link } from 'gatsby'
-import AgencyIllustration from '../../components/AgencyIllustration'
+import SwiperCore, {EffectCoverflow} from 'swiper'
+import {Swiper, SwiperSlide} from 'swiper/react'
+import 'swiper/components/effect-coverflow/effect-coverflow.scss'
+import 'swiper/swiper.scss';
 
+import AgencyIllustration from '../../components/AgencyIllustration'
 import Layout from '../../components/Layout'
 import styles from './agency.module.scss'
 import { HTMLContent } from '../../components/Content'
 import SectionImage from '../../components/SectionImage'
+
+SwiperCore.use([EffectCoverflow])
 
 const toHTML = (value) => remark().use(remarkHTML).processSync(value).toString()
 
@@ -44,6 +50,19 @@ const AgencyPage = () => {
             }
           }
           heroBannerHeading
+          references{
+            image{
+              childImageSharp {
+                fluid(maxWidth: 250, quality: 64) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+            title
+            quote
+            client
+            projectURL
+          }
           sections {
             image {
               childImageSharp {
@@ -117,6 +136,43 @@ const AgencyPage = () => {
               )
             }
           })}
+          <section className={styles.referenceSection}>
+            <h2>References</h2>
+            <Swiper
+              slidesPerView='1'
+              initialSlide={0}
+              centeredSlides
+              effect='coverflow'
+              coverflowEffect={{
+                slideShadows:false,
+                depth:150
+              }}
+              breakpoints={{
+                1200:{
+                  slidesPerView:'3',
+                  initialSlide:1
+                }
+              }}
+            >
+              {data.page.frontmatter.references.map((reference, key) => {
+                return <SwiperSlide>
+                        <article className={styles.reference}>
+                          <div className={styles.referencePersonImage}>
+                            <Image fluid={reference.image.childImageSharp.fluid} alt=''/>
+                          </div>
+                          <h3>{reference.title}</h3>
+                          <blockquote>
+                            {reference.quote}
+                          </blockquote>
+                          <p>{reference.client}</p>
+                          <button>
+                            <a href={reference.projectURL} target='_blank'>See This Project</a>
+                          </button>
+                        </article>
+                      </SwiperSlide>
+              })}
+            </Swiper>
+          </section>
           <div className={styles.contactButton}>
             <Link to={'/contact-us'}>Contact Us</Link>
           </div>

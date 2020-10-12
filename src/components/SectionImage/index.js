@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Image from 'gatsby-image'
-import { useSpring, animated, interpolate, useSprings } from 'react-spring'
+import { useSpring, animated, interpolate} from 'react-spring'
 import VisibilitySensor from 'react-visibility-sensor'
 
 import styles from './section-image.module.scss'

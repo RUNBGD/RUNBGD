@@ -2,6 +2,32 @@
 templateKey: agency-page
 heroBannerImage: /img/hero-banner-image-1.png
 heroBannerHeading: RUN BGD Agency
+references:
+    - image: /img/reference-profile-pic.jpg
+      title: RUN BGD website
+      quote: This is my true opinion on what I got working with RUN BGD agency.
+      client: Dragan Filovski
+      projectURL: 'https://runbgd.netlify.app/' 
+    - image: /img/reference-profile-pic.jpg
+      title: RUN BGD website
+      quote: This is my true opinion on what I got working with RUN BGD agency.
+      client: Dragan Filovski
+      projectURL: 'https://runbgd.netlify.app/' 
+    - image: /img/reference-profile-pic.jpg
+      title: RUN BGD website
+      quote: This is my true opinion on what I got working with RUN BGD agency.
+      client: Dragan Filovski
+      projectURL: 'https://runbgd.netlify.app/' 
+    - image: /img/reference-profile-pic.jpg
+      title: RUN BGD website
+      quote: This is my true opinion on what I got working with RUN BGD agency.
+      client: Dragan Filovski
+      projectURL: 'https://runbgd.netlify.app/' 
+    - image: /img/reference-profile-pic.jpg
+      title: RUN BGD website
+      quote: This is my true opinion on what I got working with RUN BGD agency.
+      client: Dragan Filovski
+      projectURL: 'https://runbgd.netlify.app/' 
 sections:
     - image: /img/section-image.png
       heading: Agency
