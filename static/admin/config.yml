@@ -104,7 +104,6 @@ collections:
       - {label: "Bottom Text", name: "bottomText", widget: markdown}
       - {label: "Show Form", name: "form", widget: boolean}
 
-
   - name: "subcategory"
     label: "Subcategory"
     folder: "src/pages/categories"
@@ -260,6 +259,29 @@ collections:
                 {label: "Button Link", name: "buttonLink", widget: string}
               ]}
           ]}
+
+      - file: "src/pages/agency/index.md"
+        label: "Agency Page"
+        name: "agencyPage"
+        fields:
+          - {label: "Hero Banner Image", name: heroBannerImage, widget: image}
+          - {label: "Hero Banner Heading", name: heroBannerHeading, widget: string}
+          - {label: References, name: references, widget: list, fields: [
+              {label: "Image", name: "image", widget: image},
+              {label: "Title", name: "title", widget: string},
+              {label: "Quote", name: "quote", widget: string},
+              {label: "Client", name: "client", widget: string},
+              {label: "Project URL", name: "projectURL", widget: string}
+          ]}
+          - {label: Sections, name: sections, widget: list, fields: [
+              {label: "Image", name: "image", widget: image},
+              {label: "Heading", name: "heading", widget: string},
+              {label: "Type(section, heading)", name: "type", widget: string},
+              {label: "Background Color", name: "backgroundColor", widget: string},
+              {label: "Image on Right", name: "imageOnRight", widget: boolean, default: false},
+              {label: "Body", name: "body", widget: markdown}
+          ]}
+          - {label: "Template Key", name: "templateKey", widget: "string", default: "agency-page"}
 
       - file: "src/pages/work-with-us/index.md"
         label: "Work With Us Page"
