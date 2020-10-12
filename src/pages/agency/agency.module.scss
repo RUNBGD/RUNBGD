@@ -150,13 +150,13 @@
         }
         blockquote::before{
             position: absolute;
-            bottom:-22px;
-            right:-10px;
+            top:0%;
+            left:-10px;
         }
         blockquote::after{
             position: absolute;
-            top:0%;
-            left:-10px;
+            bottom:-32px;
+            right:-10px;
         }
         button{
             background:none;
