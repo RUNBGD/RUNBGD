@@ -18,15 +18,6 @@ module.exports.handler = async function (event, context) {
     from: data.email,
     subject: data.package,
     html: `
-        <style>
-            table{
-                border:1px solid black;
-                border-collapse:collapse;
-            }
-            th, td{
-                text-align:center;
-            }
-        </style>
         <h1>${data.package}</h1>
             <table>
                 <thead>
@@ -50,20 +41,22 @@ module.exports.handler = async function (event, context) {
 
   try {
     await sgMail.send(msg);
+    let successBody = JSON.stringify({
+      status: 'success',
+      message: 'Your message has been sent!'
+    });
+    let errorBody = JSON.stringify({
+      status: 'error',
+      message: "There was some error with our servers. Try later!"
+    });
     return {
       statusCode: 200,
-      body: JSON.stringify({
-        status: 'success',
-        message: 'Your message has been sent!'
-      })
+      body: successBody
     };
   } catch (error) {
     return {
       statusCode: 500,
-      body: JSON.stringify({
-        status: 'error',
-        message: "There was some error with our servers. Try later!"
-      })
+      body: errorBody
     };
   }
 };

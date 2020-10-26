@@ -10,6 +10,7 @@ import { HTMLContent } from '../../components/Content'
 import Content from '../../components/Content'
 import LatestPosts from '../../components/LatestPosts'
 import PostCategoryTag from '../../components/PostCategoryTag'
+import TourForm from '../../components/TourForm'
 
 export const TourTemplate = ({ data }) => {
   return (
@@ -53,10 +54,13 @@ export const TourTemplate = ({ data }) => {
         <Content content={data.html} className={styles.postBody} />
       ) : (
         <HTMLContent
-          content={data.markdownRemark.html}
-          className={styles.postBody}
+        content={data.markdownRemark.html}
+        className={styles.postBody}
         />
-      )}
+        )}
+        {data.markdownRemark.frontmatter.subcategory == 'Tours' &&
+          <TourForm packageName={data.markdownRemark.frontmatter.title}/>
+        }
       <hr />
       <h2>Latest In {data.markdownRemark.frontmatter.subcategory}</h2>
       {data.subcategoryLatestPosts && (

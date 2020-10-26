@@ -64,6 +64,7 @@ let CategoryPage = ({ data }) => {
           method: 'POST',
         }
       )
+      .then((response) => response.json())
         .then((data) => {
           setFetching(false)
           if (data.status == 'success') {
