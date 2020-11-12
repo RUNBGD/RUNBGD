@@ -63,6 +63,11 @@ const FindPlaces = () => {
       navigator.geolocation.getCurrentPosition(({ coords }) => {
         setXCoord(coords.longitude)
         setYCoord(coords.latitude)
+      },
+      (e) => console.log(e),
+      {
+        enableHighAccuracy: true,
+        maximumAge: Infinity
       })
     }
   }
