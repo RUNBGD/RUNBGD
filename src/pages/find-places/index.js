@@ -213,7 +213,7 @@ const FindPlaces = () => {
                 <FindPlacesMap
                   locations={data.locations.edges}
                   expanded={mapExpanded}
-                  zoom={10}
+                  zoom={11}
                   currentY={currentY}
                   currentX={currentX}
                   xCoord={xCoord}
