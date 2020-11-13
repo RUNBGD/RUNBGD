@@ -399,7 +399,7 @@ const IndexPage = () => {
           <div className={styles.map}>
             <FindPlacesMap
               locations={carouselPosts.locations.edges}
-              zoom={6}
+              zoom={11}
               currentX={currentX}
               currentY={currentY}
             />

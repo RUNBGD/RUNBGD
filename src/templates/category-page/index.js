@@ -136,7 +136,7 @@ let CategoryPage = ({ data }) => {
               <div className={styles.map}>
                 <FindPlacesMap
                   locations={data.locations.edges}
-                  zoom={6}
+                  zoom={11}
                   currentX={currentX}
                   currentY={currentY}
                 />
