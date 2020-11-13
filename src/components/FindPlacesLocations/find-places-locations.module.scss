@@ -108,8 +108,8 @@
     display:flex;
     flex-direction: row;
     margin-bottom:20px;
-    height:calc(102px + 0.2vw);
-    height:fit-content;
+    min-height: fit-content;
+    height:auto;
     padding:5px;
     cursor: pointer;
     border-radius: 5px;

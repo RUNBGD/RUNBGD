@@ -45,15 +45,15 @@ module.exports.handler = async function (event, context) {
       status: 'success',
       message: 'Your message has been sent!'
     });
-    let errorBody = JSON.stringify({
-      status: 'error',
-      message: "There was some error with our servers. Try later!"
-    });
     return {
       statusCode: 200,
       body: successBody
     };
   } catch (error) {
+    let errorBody = JSON.stringify({
+      status: 'error',
+      message: "There was some error with our servers. Try later!"
+    });
     return {
       statusCode: 500,
       body: errorBody

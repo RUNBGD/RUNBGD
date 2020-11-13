@@ -41,6 +41,8 @@ function distance(lat1, lon1, lat2, lon2, unit) {
 const FindPlaces = () => {
   const [xCoord, setXCoord] = useQueryParam('x', NumberParam)
   const [yCoord, setYCoord] = useQueryParam('y', NumberParam)
+  console.log(xCoord)
+  console.log(yCoord)
 
   const [currentX, setCurrentX] = useState(0)
   const [currentY, setCurrentY] = useState(0)
@@ -172,8 +174,8 @@ const FindPlaces = () => {
           </video>
           <div className={styles.overlay}></div>
         </div>
+        {!currentX && (
         <div className={styles.locationItemsContainer}>
-          {!xCoord && (
             <div className={styles.inputCard}>
               <p>Where are you looking to have fun?</p>
               <button
@@ -188,7 +190,7 @@ const FindPlaces = () => {
                 onKeyDown={findGeocodeFromAddress}
                 placeholder="Enter location"
                 className={styles.inputCardInput}
-              ></input>
+              />
               {fetching && (
                 <img
                   src={loadingIndicator}
@@ -200,8 +202,10 @@ const FindPlaces = () => {
                 <p className={styles.fetchMessage}>{fetchMessage}</p>
               )}
             </div>
+          </div>
           )}
-          {xCoord && (
+          {currentX && (
+            <div className={styles.locationItemsContainer}>
             <div className={styles.mapAndLocations}>
               <div
                 className={`${styles.map} ${mapExpanded && styles.isExpanded}`}
@@ -253,8 +257,8 @@ const FindPlaces = () => {
                 />
               </div>
             </div>
+          </div>
           )}
-        </div>
       </main>
     </Layout>
   )

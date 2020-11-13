@@ -92,6 +92,8 @@
     padding:10px;
     padding-bottom:100px;
     @include breakpoint(lg){
+        display:flex;
+        flex-direction: column;
         width:40%;
         height:100%;
         padding:0 10px 0;
