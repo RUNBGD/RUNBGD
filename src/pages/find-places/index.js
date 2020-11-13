@@ -173,7 +173,7 @@ const FindPlaces = () => {
           <div className={styles.overlay}></div>
         </div>
         <div className={styles.locationItemsContainer}>
-          {!xCoord ? (
+          {!xCoord && (
             <div className={styles.inputCard}>
               <p>Where are you looking to have fun?</p>
               <button
@@ -200,7 +200,8 @@ const FindPlaces = () => {
                 <p className={styles.fetchMessage}>{fetchMessage}</p>
               )}
             </div>
-          ) : (
+          )}
+          {xCoord && (
             <div className={styles.mapAndLocations}>
               <div
                 className={`${styles.map} ${mapExpanded && styles.isExpanded}`}
