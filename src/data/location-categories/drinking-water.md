@@ -1,5 +1,5 @@
 ---
 templateKey: location-category
-title: Drinking Water
-categoryPin: /img/unnamed.png
+title: Public Fountains
+categoryPin: /img/run-bgd_public-fontain_icon_50x50.png
 ---
