@@ -1,5 +1,5 @@
 ---
 templateKey: location-category
-title: Food & Beverages
-categoryPin: /img/fastfood-24px.svg
+title: Restaurants
+categoryPin: /img/run-bgd_restaurant_icon_50x50.png
 ---
