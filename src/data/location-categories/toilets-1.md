@@ -1,5 +1,5 @@
 ---
 templateKey: location-category
 title: Toilets
-categoryPin: /img/aiga_toilets_simple-red_512x512.png
+categoryPin: /img/run-bgd_wc_icon_50x50.png
 ---
