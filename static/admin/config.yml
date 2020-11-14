@@ -169,6 +169,7 @@ collections:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "location"}
       - {label: "Name", name: "name", widget: "string"}
       - {label: "Cover Image", name: "coverImage", widget: "image"}
+      - {label: "Map Pin", name: "pin", widget: "image"}
       - {label: "Category", name: "category", widget: "relation", collection: "locationCategories", searchFields: ["title"], valueField: "title", displayFields: ["title"]}
       - {label: "Subcategory", required: false, name: "subcategory", widget: "relation", collection: "locationSubcategories", searchFields: ["title"], valueField: "title", displayFields: ["title"]}
       - {label: "Address", name: "address", widget: "string"}

@@ -2,6 +2,7 @@
 templateKey: location
 name: House of King Petar I / Kuća Kralja Petra
 coverImage: /img/run-bgd_museums_icon_100x100.png
+pin: /img/run-bgd_museums_icon_100x100.png
 category: The City
 address: Vase Pelagića 40
 latitude: "44.790328"

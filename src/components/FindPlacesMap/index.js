@@ -96,6 +96,9 @@ const FindPlacesMap = ({
               iconUrl = subcategory.node.frontmatter.categoryPin.publicURL
             } else if (category) {
               iconUrl = category.node.frontmatter.categoryPin.publicURL
+            } 
+            if(location.frontmatter.pin.publicURL){
+              iconUrl = location.frontmatter.pin.publicURL
             }
 
             return (

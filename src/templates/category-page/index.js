@@ -136,7 +136,7 @@ let CategoryPage = ({ data }) => {
               <div className={styles.map}>
                 <FindPlacesMap
                   locations={data.locations.edges}
-                  zoom={11}
+                  zoom={12}
                   currentX={currentX}
                   currentY={currentY}
                 />
@@ -399,6 +399,9 @@ export const pageQuery = graphql`
                   ...GatsbyImageSharpFluid
                 }
               }
+            }
+            pin{
+              publicURL
             }
             category
             subcategory

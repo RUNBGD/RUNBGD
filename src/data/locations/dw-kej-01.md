@@ -2,6 +2,7 @@
 templateKey: location
 name: DW Kej 01
 coverImage: /img/unnamed.png
+pin: /img/unnamed.png
 category: Drinking Water
 address: Kej Oslobodjenja bb
 latitude: "44.825747"

@@ -335,6 +335,9 @@ const IndexPage = () => {
                   }
                 }
               }
+              pin{
+                publicURL
+              }
               category
               subcategory
               address
@@ -399,7 +402,7 @@ const IndexPage = () => {
           <div className={styles.map}>
             <FindPlacesMap
               locations={carouselPosts.locations.edges}
-              zoom={11}
+              zoom={12}
               currentX={currentX}
               currentY={currentY}
             />

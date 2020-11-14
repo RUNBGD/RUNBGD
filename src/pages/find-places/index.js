@@ -115,6 +115,9 @@ const FindPlaces = () => {
                   }
                 }
               }
+              pin{
+                publicURL
+              }
               category
               address
               latitude
@@ -174,7 +177,7 @@ const FindPlaces = () => {
           </video>
           <div className={styles.overlay}></div>
         </div>
-        {!currentX && (
+        {!currentX && !xCoord && (
         <div className={styles.locationItemsContainer}>
             <div className={styles.inputCard}>
               <p>Where are you looking to have fun?</p>
@@ -204,7 +207,7 @@ const FindPlaces = () => {
             </div>
           </div>
           )}
-          {currentX && (
+          {(currentX || xCoord) && (
             <div className={styles.locationItemsContainer}>
             <div className={styles.mapAndLocations}>
               <div
@@ -213,7 +216,7 @@ const FindPlaces = () => {
                 <FindPlacesMap
                   locations={data.locations.edges}
                   expanded={mapExpanded}
-                  zoom={11}
+                  zoom={12}
                   currentY={currentY}
                   currentX={currentX}
                   xCoord={xCoord}

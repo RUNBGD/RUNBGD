@@ -2,6 +2,7 @@
 templateKey: location
 name: DW Kej 06
 coverImage: /img/unnamed.png
+pin: /img/unnamed.png
 category: Toilets
 address: Kej Oslobodjenja bb
 latitude: "44.821649"
