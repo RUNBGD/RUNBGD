@@ -192,7 +192,7 @@
 //   }
 // `
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 
 import Layout from '../components/Layout'
@@ -357,6 +357,35 @@ const IndexPage = () => {
     carouselPosts.locations.edges[0].node.frontmatter.latitude
   )
 
+  const [zoomLevel, setZoomLevel] = useState(undefined)
+  const [zoomInterval, setZoomInterval] = useState(undefined)
+  
+  function onLocationClicked(){
+    setZoomLevel(12)
+    clearInterval(zoomInterval)
+  
+    setTimeout(() => {
+      setZoomLevel(prevState => prevState + 1)
+      setZoomInterval(setInterval(() => {
+        setZoomLevel(prevState => prevState + 1)
+      }, 1000))
+    }, 1000)
+  
+  }
+  
+  useEffect(() => {
+    if(zoomInterval && zoomLevel > 18){
+      clearInterval(zoomInterval)
+    }
+  }, [zoomLevel])
+  
+  function handleUserMapInteraction(){
+    if(zoomInterval){
+      clearInterval(zoomInterval)
+    }
+  }
+
+
   let featuredCategories = []
 
   carouselPosts.categoryFeaturedPosts.edges.forEach(({ node }) => {
@@ -402,9 +431,10 @@ const IndexPage = () => {
           <div className={styles.map}>
             <FindPlacesMap
               locations={carouselPosts.locations.edges}
-              zoom={12}
+              zoom={zoomLevel ? zoomLevel : 12}
               currentX={currentX}
               currentY={currentY}
+              handleUserInteraction={handleUserMapInteraction}
             />
           </div>
           <div className={styles.locations}>
@@ -414,6 +444,7 @@ const IndexPage = () => {
               horizontalOnMobile={true}
               setCurrentX={setCurrentX}
               setCurrentY={setCurrentY}
+              onClick={onLocationClicked}
             />
           </div>
         </div>

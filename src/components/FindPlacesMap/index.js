@@ -14,6 +14,7 @@ const FindPlacesMap = ({
   yCoord,
   currentX,
   currentY,
+  handleUserInteraction
 }) => {
   const data = useStaticQuery(graphql`
     query findPlacesMap {
@@ -74,6 +75,7 @@ const FindPlacesMap = ({
             currentY == undefined ? [44.82307, 20.45342] : [currentY, currentX]
           }
           zoom={zoom}
+          onClick={handleUserInteraction}
         >
           <TileLayer
             url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"

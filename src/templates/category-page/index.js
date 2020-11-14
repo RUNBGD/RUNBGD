@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { graphql, Link } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import remark from 'remark'
@@ -35,6 +35,34 @@ let CategoryPage = ({ data }) => {
   const [currentY, setCurrentY] = useState(
     data.locations.edges[0] && data.locations.edges[0].node.frontmatter.latitude
   )
+
+  const [zoomLevel, setZoomLevel] = useState(undefined)
+  const [zoomInterval, setZoomInterval] = useState(undefined)
+
+  function onLocationClicked(){
+    setZoomLevel(12)
+    clearInterval(zoomInterval)
+  
+    setTimeout(() => {
+      setZoomLevel(prevState => prevState + 1)
+      setZoomInterval(setInterval(() => {
+        setZoomLevel(prevState => prevState + 1)
+      }, 1000))
+    }, 1000)
+  
+  }
+  
+  useEffect(() => {
+    if(zoomInterval && zoomLevel > 18){
+      clearInterval(zoomInterval)
+    }
+  }, [zoomLevel])
+  
+  function handleUserMapInteraction(){
+    if(zoomInterval){
+      clearInterval(zoomInterval)
+    }
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -136,9 +164,10 @@ let CategoryPage = ({ data }) => {
               <div className={styles.map}>
                 <FindPlacesMap
                   locations={data.locations.edges}
-                  zoom={12}
+                  zoom={zoomLevel ? zoomLevel : 12}
                   currentX={currentX}
                   currentY={currentY}
+                  handleUserInteraction={handleUserMapInteraction}
                 />
               </div>
               <div className={styles.locations}>
@@ -148,6 +177,7 @@ let CategoryPage = ({ data }) => {
                   horizontalOnMobile={true}
                   setCurrentX={setCurrentX}
                   setCurrentY={setCurrentY}
+                  onClick={onLocationClicked}
                 />
               </div>
             </div>

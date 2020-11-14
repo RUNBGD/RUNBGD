@@ -34,6 +34,7 @@ const FindPlacesLocations = ({
   setCurrentY,
   filterCategory,
   horizontalOnMobile,
+  onClick
 }) => {
   return (
     <div
@@ -72,6 +73,7 @@ const FindPlacesLocations = ({
                   setCurrentX(location.frontmatter.longitude)
                   setCurrentY(location.frontmatter.latitude)
                 }, 100)
+                onClick && onClick()
               }}
             >
               <div className={styles.cardCover}>

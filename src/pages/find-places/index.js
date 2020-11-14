@@ -43,12 +43,39 @@ const FindPlaces = () => {
   const [yCoord, setYCoord] = useQueryParam('y', NumberParam)
   console.log(xCoord)
   console.log(yCoord)
-
+  
+  const [filterCategory, setFilterCategory] = useState('Select Category')
   const [currentX, setCurrentX] = useState(0)
   const [currentY, setCurrentY] = useState(0)
 
-  const [filterCategory, setFilterCategory] = useState('Select Category')
-
+  const [zoomLevel, setZoomLevel] = useState(undefined)
+  const [zoomInterval, setZoomInterval] = useState(undefined)
+  
+  function onLocationClicked(){
+    setZoomLevel(12)
+    clearInterval(zoomInterval)
+  
+    setTimeout(() => {
+      setZoomLevel(prevState => prevState + 1)
+      setZoomInterval(setInterval(() => {
+        setZoomLevel(prevState => prevState + 1)
+      }, 1000))
+    }, 1000)
+  
+  }
+  
+  useEffect(() => {
+    if(zoomInterval && zoomLevel > 18){
+      clearInterval(zoomInterval)
+    }
+  }, [zoomLevel])
+  
+  function handleUserMapInteraction(){
+    if(zoomInterval){
+      clearInterval(zoomInterval)
+    }
+  }
+  
   useEffect(() => {
     setCurrentX(xCoord)
     setCurrentY(yCoord)
@@ -73,6 +100,7 @@ const FindPlaces = () => {
       })
     }
   }
+
 
   function findGeocodeFromAddress(event) {
     if (event.key === 'Enter') {
@@ -216,11 +244,12 @@ const FindPlaces = () => {
                 <FindPlacesMap
                   locations={data.locations.edges}
                   expanded={mapExpanded}
-                  zoom={12}
+                  zoom={zoomLevel ? zoomLevel : 12}
                   currentY={currentY}
                   currentX={currentX}
                   xCoord={xCoord}
                   yCoord={yCoord}
+                  handleUserInteraction={handleUserMapInteraction}
                 />
               </div>
               <div className={styles.expandButtonContainer}>
@@ -257,6 +286,7 @@ const FindPlaces = () => {
                   setCurrentX={setCurrentX}
                   setCurrentY={setCurrentY}
                   filterCategory={filterCategory}
+                  onClick={onLocationClicked}
                 />
               </div>
             </div>
