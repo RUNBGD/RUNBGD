@@ -108,7 +108,7 @@ const FindPlacesMap = ({
                   location.frontmatter.latitude,
                   location.frontmatter.longitude,
                 ]}
-                icon={icon({ iconUrl, iconSize: [20, 28.57] })}
+                icon={icon({ iconUrl, iconSize: [20, 20] })}
               >
                 <Popup>
                   <Image
@@ -129,7 +129,7 @@ const FindPlacesMap = ({
                 iconUrl:
                   data.currentLocationCategory.edges[0].node.frontmatter
                     .categoryPin.publicURL,
-                iconSize: [20, 28.57],
+                iconSize: [20, 20],
               })}
             >
               <Popup>Current Location</Popup>
