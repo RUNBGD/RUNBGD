@@ -205,7 +205,7 @@ const FindPlaces = () => {
           </video>
           <div className={styles.overlay}></div>
         </div>
-        {!currentX && !xCoord && (
+        {!currentX && (
         <div className={styles.locationItemsContainer}>
             <div className={styles.inputCard}>
               <p>Where are you looking to have fun?</p>
@@ -235,7 +235,7 @@ const FindPlaces = () => {
             </div>
           </div>
           )}
-          {(currentX || xCoord) && (
+          {currentX && (
             <div className={styles.locationItemsContainer}>
             <div className={styles.mapAndLocations}>
               <div
