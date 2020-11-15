@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from 'react'
-import { useStaticQuery, graphql, navigate } from 'gatsby'
+import { useStaticQuery, graphql } from 'gatsby'
 import Image from 'gatsby-image'
 import { Helmet } from 'react-helmet'
 
-import Layout from '../../components/Layout'
+import Layout from '../../../components/Layout'
 import styles from './find-places.module.scss'
 import { useQueryParam, NumberParam } from 'use-query-params'
 import { icon } from 'leaflet'
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet'
-import FindPlacesMap from '../../components/FindPlacesMap'
-import FindPlacesLocations from '../../components/FindPlacesLocations'
+import FindPlacesMap from '../../../components/FindPlacesMap'
+import FindPlacesLocations from '../../../components/FindPlacesLocations'
 
-import expandButton from '../../img/down-arrow.svg'
-import loadingIndicator from '../../img/loading-indicator.svg'
-import videoBackground from '../../img/find-places.mp4'
+import expandButton from '../../../img/down-arrow.svg'
+import loadingIndicator from '../../../img/loading-indicator.svg'
+import videoBackground from '../../../img/find-places.mp4'
 
 function distance(lat1, lon1, lat2, lon2, unit) {
   var radlat1 = (Math.PI * lat1) / 180
@@ -39,13 +39,29 @@ function distance(lat1, lon1, lat2, lon2, unit) {
 }
 
 const FindPlaces = () => {
+
   const [xCoord, setXCoord] = useQueryParam('x', NumberParam)
   const [yCoord, setYCoord] = useQueryParam('y', NumberParam)
   
   const [filterCategory, setFilterCategory] = useState('Select Category')
+  const [currentX, setCurrentX] = useState(0)
+  const [currentY, setCurrentY] = useState(0)
 
   const [zoomLevel, setZoomLevel] = useState(undefined)
   const [zoomInterval, setZoomInterval] = useState(undefined)
+  
+  function onLocationClicked(){
+    setZoomLevel(12)
+    clearInterval(zoomInterval)
+  
+    setTimeout(() => {
+      setZoomLevel(prevState => prevState + 1)
+      setZoomInterval(setInterval(() => {
+        setZoomLevel(prevState => prevState + 1)
+      }, 1000))
+    }, 1000)
+  
+  }
   
   useEffect(() => {
     if(zoomInterval && zoomLevel > 18){
@@ -58,53 +74,17 @@ const FindPlaces = () => {
       clearInterval(zoomInterval)
     }
   }
-  const [fetchMessage, setFetchMessage] = useState(undefined)
+  
+  useEffect(() => {
+    setCurrentX(xCoord)
+    setCurrentY(yCoord)
+  }, [xCoord, yCoord])
 
-  const [fetching, setFetching] = useState(false)
+  const [mapExpanded, setMapExpanded] = useState(false)
 
-  function getLocation() {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(({ coords }) => {
-        setXCoord(coords.longitude)
-        setYCoord(coords.latitude)
-        navigate(`/find-places/location?x=${coords.longitude}&y=${coords.latitude}`)
-      },
-      (e) => console.log(e),
-      {
-        enableHighAccuracy: true,
-        maximumAge: Infinity
-      })
-    }
-  }
-
-
-  function findGeocodeFromAddress(event) {
-    if (event.key === 'Enter') {
-      setFetchMessage(undefined)
-      setFetching(true)
-      fetch(`/.netlify/functions/getGeolocation?location=${event.target.value}`)
-        .then((response) => response.json())
-        .then((data) => {
-          console.log(data)
-          setFetching(false)
-          if (data.msg) {
-            return setFetchMessage(data.msg)
-          }
-          const coords = data.data.results[0].locations[0].latLng
-          setYCoord(coords.lat)
-          setXCoord(coords.lng)
-        })
-        .catch((error) => {
-          setFetching(false)
-          setFetchMessage(
-            'There was some error while trying to find your location. Try later!'
-          )
-        })
-    }
-  }
 
   const data = useStaticQuery(graphql`
-    query locationData {
+    query FindPlacesLocationQuery {
       locations: allMarkdownRemark(
         filter: { frontmatter: { templateKey: { eq: "location" } } }
       ) {
@@ -181,32 +161,59 @@ const FindPlaces = () => {
           </video>
           <div className={styles.overlay}></div>
         </div>
-        <div className={styles.locationItemsContainer}>
-            <div className={styles.inputCard}>
-              <p>Where are you looking to have fun?</p>
-              <button
-                className={styles.inputCardButton}
-                onClick={() => getLocation()}
+            <div className={styles.locationItemsContainer}>
+            <div className={styles.mapAndLocations}>
+              <div
+                className={`${styles.map} ${mapExpanded && styles.isExpanded}`}
               >
-                Search near me
-              </button>
-              <p>or</p>
-              <input
-                type="text"
-                onKeyDown={findGeocodeFromAddress}
-                placeholder="Enter location"
-                className={styles.inputCardInput}
-              />
-              {fetching && (
-                <img
-                  src={loadingIndicator}
-                  className={styles.loadingIndicator}
-                  alt="Loading..."
+                <FindPlacesMap
+                  locations={data.locations.edges}
+                  expanded={mapExpanded}
+                  zoom={zoomLevel ? zoomLevel : 12}
+                  currentY={currentY}
+                  currentX={currentX}
+                  xCoord={xCoord}
+                  yCoord={yCoord}
+                  handleUserInteraction={handleUserMapInteraction}
                 />
-              )}
-              {fetchMessage && (
-                <p className={styles.fetchMessage}>{fetchMessage}</p>
-              )}
+              </div>
+              <div className={styles.expandButtonContainer}>
+                <button
+                  className={`${styles.expandButton} ${
+                    mapExpanded && styles.isActivated
+                  }`}
+                  onClick={() => setMapExpanded((prevState) => !prevState)}
+                >
+                  <img src={expandButton} alt="expand button" />
+                </button>
+              </div>
+              <div className={styles.locations}>
+                <select
+                  onChange={(e) => setFilterCategory(e.target.value)}
+                  className={styles.categoryFilter}
+                >
+                  <option value="Select Category">Select Category</option>
+                  {data.categories.edges.map(({ node: category }) => {
+                    if (category.frontmatter.title == 'Current Location') {
+                      return
+                    }
+                    return (
+                      <option value={category.frontmatter.title}>
+                        {category.frontmatter.title}
+                      </option>
+                    )
+                  })}
+                </select>
+                <FindPlacesLocations
+                  locations={data.locations.edges}
+                  xCoord={xCoord}
+                  yCoord={yCoord}
+                  setCurrentX={setCurrentX}
+                  setCurrentY={setCurrentY}
+                  filterCategory={filterCategory}
+                  onClick={onLocationClicked}
+                />
+              </div>
             </div>
           </div>
       </main>
