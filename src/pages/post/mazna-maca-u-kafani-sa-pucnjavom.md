@@ -6,7 +6,7 @@ category: Life
 author: Teodora Karas
 date: 2020-11-16T22:25:29.392Z
 featuredPost: false
-categoryFeatured: false
+categoryFeatured: true
 trending: false
 coverImage: /img/kafana-blagoja-kaponea.jpg
 ---
