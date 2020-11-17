@@ -50,7 +50,7 @@ const FindPlaces = () => {
   const [zoomLevel, setZoomLevel] = useState(undefined)
   const [zoomInterval, setZoomInterval] = useState(undefined)
   
-  function onLocationClicked(){
+  function onLocationClicked(location){
     setZoomLevel(12)
     clearInterval(zoomInterval)
   
@@ -60,7 +60,7 @@ const FindPlaces = () => {
         setZoomLevel(prevState => prevState + 1)
       }, 1000))
     }, 1000)
-  
+    console.log(location)
   }
   
   useEffect(() => {

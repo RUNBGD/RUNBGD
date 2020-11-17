@@ -73,7 +73,7 @@ const FindPlacesLocations = ({
                   setCurrentX(location.frontmatter.longitude)
                   setCurrentY(location.frontmatter.latitude)
                 }, 100)
-                onClick && onClick()
+                onClick && onClick(location)
               }}
             >
               <div className={styles.cardCover}>
