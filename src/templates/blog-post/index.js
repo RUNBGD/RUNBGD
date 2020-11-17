@@ -79,7 +79,7 @@ export const BlogPostTemplate = ({ data }) => {
           className={styles.postBody}
         />
       )}
-      {data.icons.edges != undefined && (
+      {data.icons && data.icons.edges != undefined && (
         <div className={styles.iconsContainer}>
           {data.icons.edges.map(({ node: icon }, index) => {
             return (
