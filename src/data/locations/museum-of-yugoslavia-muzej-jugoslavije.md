@@ -5,9 +5,6 @@ coverImage: /img/run-bgd_museums_icon_100x100.png
 pin: /img/run-bgd_museums_icon_100x100.png
 category: The City
 address: Mihaila Mike Jankovića 6
-website:
-email: 
-description:
 latitude: "44.788077"
 longitude: "20.452111"
 ---

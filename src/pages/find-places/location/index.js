@@ -118,6 +118,9 @@ const FindPlaces = () => {
               address
               latitude
               longitude
+              website
+              email
+              description
             }
           }
         }
