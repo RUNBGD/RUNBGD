@@ -3,6 +3,9 @@
 .location-info-card{
     width:100%;
     padding:10px 15px;
+    a {
+        text-decoration: underline;
+    }
 }
 
 .back-button{
@@ -17,4 +20,16 @@
     margin-right:10px;
     margin-bottom:10px;
     cursor: pointer;
+}
+
+.small-info{
+    font-size:0.85rem;
+}
+
+.description{
+    margin-top:20px;
+}
+
+.name{
+    font-size:1.5rem;
 }

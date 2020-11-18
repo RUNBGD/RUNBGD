@@ -451,6 +451,9 @@ export const pageQuery = graphql`
             category
             subcategory
             address
+            email
+            website
+            description
             latitude
             longitude
           }

@@ -5,7 +5,9 @@ coverImage: /img/run-bgd_museums_icon_100x100.png
 pin: /img/run-bgd_museums_icon_100x100.png
 category: Museums
 address: Majke Jevrosime 30
-description: "**Something**"
+website: hey
+email: hey
+description: long text
 latitude: "44.813814"
 longitude: "20.465967"
 ---

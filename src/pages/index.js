@@ -341,6 +341,9 @@ const IndexPage = () => {
               category
               subcategory
               address
+              email
+              website
+              description
               latitude
               longitude
             }
