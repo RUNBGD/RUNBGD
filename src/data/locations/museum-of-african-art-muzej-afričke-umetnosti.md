@@ -5,6 +5,9 @@ coverImage: /img/intro.jpg
 pin: /img/run-bgd_museums_icon_100x100.png
 category: Museums
 address: Andre Nikolića 14
+website:
+email: 
+description:
 latitude: "44.788656"
 longitude: "20.435218"
 ---

@@ -359,8 +359,20 @@ const IndexPage = () => {
 
   const [zoomLevel, setZoomLevel] = useState(undefined)
   const [zoomInterval, setZoomInterval] = useState(undefined)
+
+  const [clickedLocation, setClickedLocation] = useState(undefined)
   
-  function onLocationClicked(){
+  useEffect(() => {
+    if(!clickedLocation){
+      if(zoomInterval){
+        clearInterval(zoomInterval)
+      }
+      setZoomLevel(undefined)
+      setZoomInterval(undefined)
+    }
+  }, [clickedLocation])
+  
+  function onLocationClicked(location){
     setZoomLevel(12)
     clearInterval(zoomInterval)
   
@@ -370,7 +382,8 @@ const IndexPage = () => {
         setZoomLevel(prevState => prevState + 1)
       }, 1000))
     }, 1000)
-  
+    
+    setClickedLocation(location.frontmatter)
   }
   
   useEffect(() => {
@@ -445,6 +458,8 @@ const IndexPage = () => {
               setCurrentX={setCurrentX}
               setCurrentY={setCurrentY}
               onClick={onLocationClicked}
+              clickedLocation={clickedLocation}
+              setClickedLocation={setClickedLocation}
             />
           </div>
         </div>

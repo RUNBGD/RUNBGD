@@ -50,6 +50,18 @@ const FindPlaces = () => {
   const [zoomLevel, setZoomLevel] = useState(undefined)
   const [zoomInterval, setZoomInterval] = useState(undefined)
   
+  const [clickedLocation, setClickedLocation] = useState(undefined)
+  
+  useEffect(() => {
+    if(!clickedLocation){
+      if(zoomInterval){
+        clearInterval(zoomInterval)
+      }
+      setZoomLevel(undefined)
+      setZoomInterval(undefined)
+    }
+  }, [clickedLocation])
+
   function onLocationClicked(location){
     setZoomLevel(12)
     clearInterval(zoomInterval)
@@ -60,7 +72,7 @@ const FindPlaces = () => {
         setZoomLevel(prevState => prevState + 1)
       }, 1000))
     }, 1000)
-    console.log(location)
+    setClickedLocation(location.frontmatter)
   }
   
   useEffect(() => {
@@ -212,6 +224,8 @@ const FindPlaces = () => {
                   setCurrentY={setCurrentY}
                   filterCategory={filterCategory}
                   onClick={onLocationClicked}
+                  clickedLocation={clickedLocation}
+                  setClickedLocation={setClickedLocation}
                 />
               </div>
             </div>

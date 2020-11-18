@@ -1,0 +1,20 @@
+@import '../../styles/breakpoints.scss';
+
+.location-info-card{
+    width:100%;
+    padding:10px 15px;
+}
+
+.back-button{
+    background:#EE1C25;
+    text-transform: uppercase;
+    display:inline-block;
+    padding:2.5px 15px;
+    font-weight: 700;
+    border-radius: 5px;
+    color:white;
+    font-size:0.75rem;
+    margin-right:10px;
+    margin-bottom:10px;
+    cursor: pointer;
+}

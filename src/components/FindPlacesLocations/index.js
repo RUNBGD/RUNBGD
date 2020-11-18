@@ -2,6 +2,7 @@ import React from 'react'
 import Image from 'gatsby-image'
 
 import styles from './find-places-locations.module.scss'
+import LocationInfoCard from '../LocationInfoCard'
 
 function distance(lat1, lon1, lat2, lon2, unit) {
   var radlat1 = (Math.PI * lat1) / 180
@@ -34,7 +35,9 @@ const FindPlacesLocations = ({
   setCurrentY,
   filterCategory,
   horizontalOnMobile,
-  onClick
+  onClick,
+  clickedLocation,
+  setClickedLocation
 }) => {
   return (
     <div
@@ -42,7 +45,11 @@ const FindPlacesLocations = ({
         horizontalOnMobile && styles.horizontal
       }`}
     >
-      {locations.map(({ node: location }, index) => {
+      {
+      clickedLocation ?
+      <LocationInfoCard location={clickedLocation} setLocation={setClickedLocation}/>
+      :
+      locations.map(({ node: location }, index) => {
         let distanceFromStart = undefined
         if (yCoord) {
           distanceFromStart = distance(

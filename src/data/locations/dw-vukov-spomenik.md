@@ -5,6 +5,9 @@ coverImage: /img/unnamed.png
 pin: /img/unnamed.png
 category: Drinking Water
 address: Vukov spomenik park
+website:
+email: 
+description:
 latitude: "44.804730"
 longitude: "20.478770"
 ---

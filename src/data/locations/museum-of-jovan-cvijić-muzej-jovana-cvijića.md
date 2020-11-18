@@ -5,6 +5,9 @@ coverImage: /img/run-bgd_museums_icon_100x100.png
 pin: /img/run-bgd_museums_icon_100x100.png
 category: The City
 address: Jelene Ćetković 5
+website:
+email: 
+description:
 latitude: "44.815638"
 longitude: "20.468640"
 ---

@@ -5,6 +5,9 @@ coverImage: /img/run-bgd_museums_icon_100x100.png
 pin: /img/run-bgd_museums_icon_100x100.png
 category: The City
 address: Skenderbegova 51
+website:
+email: 
+description:
 latitude: "44.821601"
 longitude: "20.465150"
 ---
