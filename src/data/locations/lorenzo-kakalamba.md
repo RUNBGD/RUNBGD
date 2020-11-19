@@ -7,7 +7,7 @@ category: Restaurants
 address: Cvijićeva 110, 11000 Beograd
 website: https://lk.rs/en/
 description: >-
-  Phone number: 0113295351
+  Phone number: [+381113295351](tel:+381113295351)
 
 
   Open: every day 12PM to 12AM
