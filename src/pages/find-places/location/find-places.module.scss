@@ -277,7 +277,9 @@
 
 .find-places-wrapper{
     min-height: 90vh;
+    height:100%;
     @include breakpoint(lg){
         min-height: 80vh;
+        height:100%;
     }
 }
