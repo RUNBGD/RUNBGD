@@ -6,9 +6,9 @@ pin: /img/run-bgd_restaurant_icon_100x100.png
 category: Restaurants
 address: Jug Bogdanova 10, 11000 Beograd
 website: <http://restoranmokum.com>
-email: "[ rezervacije@restoranmokum.com](< rezervacije@restoranmokum.com>)"
+email: "[ rezervacije@restoranmokum.com](mailto:rezervacije@restoranmokum.com)"
 description: >-
-  Phone number: [+38163326 802 ](<+38163326 802 >)
+  Phone number: [+38163326 802 ](tel:+38163326802)
 
 
   Open: 07AM to 12AM
