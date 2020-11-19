@@ -1,8 +1,8 @@
 ---
 templateKey: location
-name: DW 25 maj 01
-coverImage: /img/unnamed.png
-pin: /img/unnamed.png
+name: Public Fountain 25 maj
+coverImage: /img/run-bgd_public-fontain_icon_100x100.png
+pin: /img/run-bgd_public-fontain_icon_100x100.png
 category: Toilets
 address: 25. Maj bb
 website: "[www.runbgd.com](www.runbgd.com)"
