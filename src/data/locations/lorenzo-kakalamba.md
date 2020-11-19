@@ -5,7 +5,8 @@ coverImage: /img/restoran_lorenzo_kakalamba02.jpg
 pin: /img/run-bgd_restaurant_icon_100x100.png
 category: Restaurants
 address: Cvijićeva 110, 11000 Beograd
-website: https://lk.rs/en/
+website: "[www.lk.rs](https://lk.rs)"
+email: "[restoran@lk.rs](mailto:restoran@lk.rs)"
 description: >-
   Phone number: [+381113295351](tel:+381113295351)
 
