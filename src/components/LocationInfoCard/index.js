@@ -2,9 +2,11 @@ import React from 'react'
 import Image from 'gatsby-image'
 import remark from 'remark'
 import remarkHTML from 'remark-html'
-import Content from '../Content.js' 
+import { HTMLContent } from '../Content' 
 
 import styles from './location-info-card.module.scss'
+
+const toHTML = (value) => remark().use(remarkHTML).processSync(value).toString()
 
 const LocationInfoCard = ({location, distance, setLocation}) => {
     console.log(location)
@@ -24,13 +26,13 @@ const LocationInfoCard = ({location, distance, setLocation}) => {
             <div className={styles.smallInfo}>{location.address}</div>
         }
         {location.website &&
-            <Content content={location.website} className={styles.smallInfo}/>
+            <HTMLContent content={toHTML(location.website)} className={styles.smallInfo}/>
         }
         {location.email &&
-            <Content content={location.email} className={styles.smallInfo}/>
+            <HTMLContent content={toHTML(location.email)} className={styles.smallInfo}/>
         }
         {location.description &&
-            <Content content={location.description} className={styles.description}/>
+            <HTMLContent content={toHTML(location.description)} className={styles.description}/>
         }
     </article>
     )

@@ -93,9 +93,8 @@
         backdrop-filter: blur(5px);
     }
     width:100%;
-    height:40vh;
+    height:30vh;
     padding:10px;
-    padding-bottom:100px;
     @include breakpoint(lg){
         display:flex;
         flex-direction: column;
