@@ -1,6 +1,6 @@
 ---
 templateKey: location
-name: Public Fountain Kej Oslobođenja
+name: Public Fountain Kej Oslobođenja A
 coverImage: /img/run-bgd_public-fontain_icon_100x100.png
 pin: /img/run-bgd_public-fontain_icon_100x100.png
 category: Public Fountains
