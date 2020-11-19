@@ -7,7 +7,7 @@ category: Drinking Water
 address: 25. Maj bb
 website: "[www.runbgd.com](www.runbgd.com)"
 email: "[dragan.filovski@gmal.com](mailto:dragan.filovski@gmal.com)"
-description: Adress
+description: ""
 latitude: "44.829125"
 longitude: "20.448813"
 ---
