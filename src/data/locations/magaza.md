@@ -12,7 +12,7 @@ description: >-
   Phone number: [+381645711111](+381645711111)
 
 
-  Opening hours: every day 10AM to 02AM
+  Open: every day 10AM to 02AM
 
 
   Magaza is a restaurant created with the idea of raising hedonism to a higher level. We are located on the bank of the Sava River with a beautiful view on the river and promenade, in the heart of Belgrade's nightlife - Beton Hala.
