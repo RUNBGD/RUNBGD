@@ -1,13 +1,13 @@
 ---
 templateKey: location
-name: DW Kej 06
-coverImage: /img/unnamed.png
-pin: /img/unnamed.png
-category: Toilets
+name: Public Fountain Kej Oslobođenja F
+coverImage: /img/run-bgd_public-fontain_icon_100x100.png
+pin: /img/run-bgd_public-fontain_icon_100x100.png
+category: Public Fountains
 address: Kej Oslobodjenja bb
-website:
-email: 
-description:
+website: null
+email: null
+description: null
 latitude: "44.821649"
 longitude: "20.439432"
 ---

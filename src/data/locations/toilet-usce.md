@@ -1,13 +1,13 @@
 ---
 templateKey: location
-name: Toilet Usce
-coverImage: /img/aiga_toilets_simple-red_512x512.png
-pin: /img/aiga_toilets_simple-red_512x512.png
+name: Toilet Park Ušće
+coverImage: /img/run-bgd_wc_icon_100x100.png
+pin: /img/run-bgd_wc_icon_100x100.png
 category: Toilets
 address: Park Usce
-website:
-email: 
-description:
+website: null
+email: null
+description: null
 latitude: "44.821149"
 longitude: "20.439856"
 ---

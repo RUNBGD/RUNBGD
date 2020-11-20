@@ -130,6 +130,22 @@ module.exports = {
     //   },
     // },
     // must be after other CSS plugins
-    'gatsby-plugin-netlify', // make sure to keep it last in the array
+    {
+      resolve: 'gatsby-plugin-netlify',
+      options: {
+        headers: {
+          "/public/**/*.html": [
+            "cache-control: public",
+            "cache-control:  max-age=0", 
+            "cache-control: must-revalidate"
+          ],
+          "/public/page-data/*": [
+            "cache-control: public",
+            "cache-control:  max-age=0", 
+            "cache-control: must-revalidate"
+          ]
+        }
+      }
+    }// make sure to keep it last in the array
   ],
 }

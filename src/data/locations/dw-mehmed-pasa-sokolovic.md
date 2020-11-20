@@ -1,13 +1,13 @@
 ---
 templateKey: location
-name: DW Mehmed Pasa Sokolovic
-coverImage: /img/unnamed.png
-pin: /img/unnamed.png
-category: Drinking Water
+name: Public Fountain Mehmed Paša Sokolović
+coverImage: /img/run-bgd_public-fontain_icon_100x100.png
+pin: /img/run-bgd_public-fontain_icon_100x100.png
+category: Public Fountains
 address: Kalemegdan bb
-website:
-email: 
-description:
+website: null
+email: null
+description: null
 latitude: "44.824088"
 longitude: "20.449247"
 ---
