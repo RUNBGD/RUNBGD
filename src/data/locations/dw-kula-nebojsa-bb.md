@@ -1,13 +1,13 @@
 ---
 templateKey: location
-name: DW Kula Nebojsa bb
-coverImage: /img/unnamed.png
-pin: /img/unnamed.png
-category: Toilets
+name: Public Fountain Kula Nebojša
+coverImage: /img/run-bgd_public-fontain_icon_100x100.png
+pin: /img/run-bgd_public-fontain_icon_100x100.png
+category: Public Fountains
 address: Kula Nebojsa Kej
-website:
-email: 
-description:
+website: null
+email: null
+description: null
 latitude: "44.827072"
 longitude: "20.446397"
 ---
