@@ -1,13 +1,13 @@
 ---
 templateKey: location
-name: Toilet Manjez Park
-coverImage: /img/aiga_toilets_simple-red_512x512.png
-pin: /img/aiga_toilets_simple-red_512x512.png
+name: Toilet Park Manjež
+coverImage: /img/run-bgd_wc_icon_100x100.png
+pin: /img/run-bgd_wc_icon_100x100.png
 category: Toilets
 address: Park Manjez
-website:
-email: 
-description:
+website: null
+email: null
+description: null
 latitude: "44.805463"
 longitude: "20.464244"
 ---
