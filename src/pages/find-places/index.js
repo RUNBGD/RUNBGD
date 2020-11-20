@@ -93,6 +93,7 @@ const FindPlaces = () => {
           const coords = data.data.results[0].locations[0].latLng
           setYCoord(coords.lat)
           setXCoord(coords.lng)
+          navigate(`/find-places/location?x=${coords.lng}&y=${coords.lat}`)
         })
         .catch((error) => {
           setFetching(false)
