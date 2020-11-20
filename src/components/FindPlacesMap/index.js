@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import Image from 'gatsby-image'
 
@@ -14,7 +14,12 @@ const FindPlacesMap = ({
   yCoord,
   currentX,
   currentY,
-  handleUserInteraction
+  setCurrentX,
+  setCurrentY,
+  handleUserInteraction,
+  onClick,
+  clickedLocation,
+  setClickedLocation
 }) => {
   const data = useStaticQuery(graphql`
     query findPlacesMap {
@@ -67,6 +72,26 @@ const FindPlacesMap = ({
     }
   `)
 
+  const popupRef = useRef(null)
+
+  function onPopupClick(location){
+    setClickedLocation(undefined)
+    setCurrentX(0)
+    setCurrentY(0)
+    setTimeout(() => {
+      setCurrentX(location.frontmatter.longitude)
+      setCurrentY(location.frontmatter.latitude)
+    }, 100)
+    onClick && onClick(location)
+  }
+
+  useEffect(() => {
+    const popup = popupRef.current
+    if(popup != null){
+      popup.leafletElement.options.leaflet.map.closePopup()
+    }
+  })
+
   return (
     <div className={`${styles.map} ${expanded && styles.isExpanded}`}>
       {typeof window !== 'undefined' && (
@@ -112,14 +137,21 @@ const FindPlacesMap = ({
                 ]}
                 icon={icon({ iconUrl, iconSize: [20, 20] })}
               >
-                <Popup>
-                  <Image
-                    className={styles.popupImage}
-                    fluid={
-                      location.frontmatter.coverImage.childImageSharp.fluid
-                    }
-                  />
-                  {location.frontmatter.name}
+                <Popup
+                  ref={popupRef}
+                  className={styles.popup}
+                >
+                  <div className={styles.popupInnerContainer} onClick={() => onPopupClick(location)}>
+                    <Image
+                      className={styles.popupImage}
+                      fluid={
+                        location.frontmatter.coverImage.childImageSharp.fluid
+                      }
+                    />
+                    <span>
+                      {location.frontmatter.name}
+                    </span>
+                  </div>
                 </Popup>
               </Marker>
             )

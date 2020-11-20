@@ -180,7 +180,12 @@ let CategoryPage = ({ data }) => {
                   zoom={zoomLevel ? zoomLevel : 12}
                   currentX={currentX}
                   currentY={currentY}
+                  setCurrentX={setCurrentX}
+                  setCurrentY={setCurrentY}
                   handleUserInteraction={handleUserMapInteraction}
+                  onClick={onLocationClicked}
+                  clickedLocation={clickedLocation}
+                  setClickedLocation={setClickedLocation}
                 />
               </div>
               <div className={styles.locations}>

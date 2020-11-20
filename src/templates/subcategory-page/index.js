@@ -110,9 +110,14 @@ let SubcategoryPage = ({ data }) => {
                 <FindPlacesMap
                   locations={data.locations.edges}
                   zoom={zoomLevel ? zoomLevel : 12}
-                  currentX={currentX}
                   currentY={currentY}
+                  currentX={currentX}
+                  setCurrentX={setCurrentX}
+                  setCurrentY={setCurrentY}
                   handleUserInteraction={handleUserMapInteraction}
+                  onClick={onLocationClicked}
+                  clickedLocation={clickedLocation}
+                  setClickedLocation={setClickedLocation}
                 />
               </div>
               <div className={styles.locations}>

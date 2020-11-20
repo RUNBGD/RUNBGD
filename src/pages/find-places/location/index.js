@@ -187,9 +187,14 @@ const FindPlaces = () => {
                   zoom={zoomLevel ? zoomLevel : 12}
                   currentY={currentY}
                   currentX={currentX}
+                  setCurrentX={setCurrentX}
+                  setCurrentY={setCurrentY}
                   xCoord={xCoord}
                   yCoord={yCoord}
                   handleUserInteraction={handleUserMapInteraction}
+                  onClick={onLocationClicked}
+                  clickedLocation={clickedLocation}
+                  setClickedLocation={setClickedLocation}
                 />
               </div>
               <div className={styles.expandButtonContainer}>
