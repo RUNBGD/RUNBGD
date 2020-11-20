@@ -76,7 +76,10 @@
 }
 
 .popup{
-    width:12.5vw;
+    width:40vw;
+    @include breakpoint(lg){
+        width:12.5vw;
+    }
 }
 
 .popup-inner-container{
