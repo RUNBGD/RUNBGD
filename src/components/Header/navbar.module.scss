@@ -78,7 +78,7 @@
   height:100vh;
   overflow:scroll;
   transition:0.5s;
-  @include breakpoint(lg){
+  @include breakpoint(sm){
     max-width:800px;
     margin:auto;
     overflow-x: hidden;

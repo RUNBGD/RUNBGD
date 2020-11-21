@@ -9,7 +9,7 @@
     box-shadow:0 3px 6px rgba(0, 0, 0, 0.16);
     border-radius:5px;
     margin-bottom:20px;
-    @include breakpoint(lg){
+    @include breakpoint(sm){
         height:130px;
         width:100%;
     }
@@ -24,7 +24,7 @@
         left:50%;
         transform:translate(-50%, -50%);
     }
-    @include breakpoint(lg){
+    @include breakpoint(sm){
         height:130px;
         width:15%;
     }
@@ -33,7 +33,7 @@
 .item-information{
     width:49%;
     padding: 0 5px;
-    @include breakpoint(lg){
+    @include breakpoint(sm){
         padding:0 20px;
         width:55%;
     }
@@ -52,7 +52,7 @@
         background:none;
         border:none;
     }
-    @include breakpoint(lg){
+    @include breakpoint(sm){
         padding:0 10px;
     }
 }
@@ -64,7 +64,7 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    @include breakpoint(lg){
+    @include breakpoint(sm){
         font-size:2rem;
     }
 }

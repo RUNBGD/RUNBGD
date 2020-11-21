@@ -4,7 +4,7 @@
     > svg{
         width:75vw;
         height:auto;
-        @include breakpoint(lg){
+        @include breakpoint(sm){
             width:450px;
         }
     }

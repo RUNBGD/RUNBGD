@@ -23,11 +23,15 @@
     width:100%;
     display:flex;
     flex-direction: column-reverse;
+    @include breakpoint(sm){
+        width:70%;
+        align-self: center;
+    }
     @include breakpoint(lg){
-        flex-direction: row;
         justify-content: space-between;
         height:85vh;
         width:60%;
+        align-self: flex-start;
     }
 }
 
@@ -78,6 +82,9 @@
     height:100%;
     width:100%;
     margin:auto;
+    @include breakpoint(sm){
+        width:70%;
+    }
     @include breakpoint(lg){
         width:65vh;
     }
@@ -139,7 +146,12 @@
 .product-information{
     flex-grow:1;
     margin:20px 0 20px;
+    @include breakpoint(sm){
+        align-self: center;
+        width:50%;
+    }
     @include breakpoint(lg){
+        align-self: flex-start;
         margin-top:0;
         padding:0 10% 0 0;
     }

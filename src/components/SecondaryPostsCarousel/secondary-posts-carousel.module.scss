@@ -16,7 +16,7 @@
     display:inline-block;
     font-size:0.625rem;
     margin:0;
-    @include breakpoint(lg){
+    @include breakpoint(sm){
         font-size:0.875rem;
     }
 }
@@ -47,7 +47,7 @@
     font-size:0.75rem;
     margin-top:10px;
     font-weight:700;
-    @include breakpoint(lg){
+    @include breakpoint(sm){
         font-size:1.25rem;
     }
 }
@@ -63,7 +63,7 @@
 }
 
 .only-mobile{
-    @include breakpoint(lg){
+    @include breakpoint(sm){
         display:none;
     }
 }

@@ -10,6 +10,9 @@
   display:flex;
   align-items: center;
   justify-content: center;
+  @include breakpoint(sm){
+    width:500px;
+  }
   @include breakpoint(lg){
     width:700px;
   }

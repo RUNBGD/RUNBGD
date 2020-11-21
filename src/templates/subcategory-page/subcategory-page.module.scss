@@ -4,7 +4,7 @@
     width:100%;
     height:30vh;
     display: inline-block;
-    @include breakpoint(lg){
+    @include breakpoint(sm){
         width:60%;
         height:50vh;
     }
@@ -14,7 +14,7 @@
     width:100%;
     display: inline-block;
     margin-top:20px;
-    @include breakpoint(lg){
+    @include breakpoint(sm){
         width:40%;
         height:50vh;
         margin-top:0;
@@ -25,7 +25,7 @@
 .map-and-locations{
     display:flex;
     flex-direction:column;
-    @include breakpoint(lg){
+    @include breakpoint(sm){
         flex-direction: row;
     }
 }
@@ -45,7 +45,7 @@
     overflow: hidden;
     min-height: 20vh;
     padding:5px;
-    @include breakpoint(lg){
+    @include breakpoint(sm){
         min-height:40vh;
         padding:50px;
     }
@@ -57,7 +57,7 @@
 
 .sub-categories-navigation{
     display:none;
-    @include breakpoint(lg){
+    @include breakpoint(sm){
         width:100%;
         position:sticky;
         top:83.2px;

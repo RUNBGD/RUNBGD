@@ -28,7 +28,7 @@
     font-size:0.75rem;
     margin-top:10px;
     font-weight:700;
-    @include breakpoint(lg){
+    @include breakpoint(sm){
         font-size:1.25rem;
     }
 }

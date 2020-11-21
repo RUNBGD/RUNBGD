@@ -5,14 +5,14 @@
     margin:auto;
     position:relative;
     margin-bottom:50px;
-    @include breakpoint(lg){
+    @include breakpoint(sm){
         max-width: 400px;
     }
 }
 
 .illustration-globe{
     max-width:200px;
-    @include breakpoint(lg){
+    @include breakpoint(sm){
         max-width: 400px;
     }
 }
@@ -43,7 +43,7 @@
     left:50%;
     transform:translate(-50%, -50%);
     animation:rotate linear 10s infinite reverse;
-    @include breakpoint(lg){
+    @include breakpoint(sm){
         max-width: 50px;
     }
 }
