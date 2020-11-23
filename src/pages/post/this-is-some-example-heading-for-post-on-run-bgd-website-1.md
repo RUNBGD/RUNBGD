@@ -23,7 +23,7 @@ Na početku je sve samo san i mašta. Nakon toga sledi odluka o prvom velikom ko
 
 **\*Albino Svemogucci** has gone through each of these life stages. Staring into the distance, he imagined going on a long journey. Since he did not see well from birth, the guide on that path was He and His voice in the noise. Although he didn't know where he was coming from at first, he knew very well who he was coming from. He felt every look and struggled with a thousand obstacles and closed doors. His whisper was the strength, love, faith and hope that lit his way. The sense of sight replaced the sense of hearing, and then his port became music.*
 
-![](/img/tike_belgrade_nike_air_fear_of_god_1_triple_black_albino_svemogucci-10-.jpg)
+![](/img/tike_belgrade_nike_air_fear_of_god_1_triple_black_albino_svemogucci-12-.jpg)
 
 Sada više ne čuje glas koji ga je vodio trnovitim putem, jer je upravo **njegovglas postao muzika i vodič drugih ljudi**. Preko trnja i dalje trči ka zvezdama i visinama, a najbolji saputnik na tom putu za njega su **Nike Air Fear of God 1 "Triple Black"**.
 
@@ -57,4 +57,4 @@ U tome je zapravo i suština – u **skromnosti uprkos veličanstvenosti**. Zato
 
 **Nike Air Fear of God 1 "Triple Black"**  will soon be available in the Tike shop in Kralja Petra 24. Follow the posts on ** [our Instagram profile](https://www.instagram.com/tikebelgrade/)**  for all additional information.
 
-<iframe width="1920" height="1080" src="https://www.youtube.com/embed/X77E3HxiVPQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="960" height="540" src="https://www.youtube.com/embed/X77E3HxiVPQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
