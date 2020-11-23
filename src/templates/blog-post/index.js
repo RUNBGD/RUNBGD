@@ -60,7 +60,7 @@ export const BlogPostTemplate = ({ data }) => {
         </p>
       </div>
       <div className={styles.postCover}>
-        {data.markdownRemark.frontmatter.coverImage.childImageSharp ? (
+        {data.markdownRemark.frontmatter.coverImage && data.markdownRemark.frontmatter.coverImage.childImageSharp ? (
           <Image
             fluid={
               data.markdownRemark.frontmatter.coverImage.childImageSharp.fluid
