@@ -20,11 +20,11 @@ Na početku je sve samo san i mašta. Nakon toga sledi odluka o prvom velikom ko
 
 **[Albino Svemogucci](https://www.instagram.com/albino.svemoguccii/)** je prošao svaku od tih životnih etapa. Zagledan u daljinu, zamišljao je kako odlazi na dalek put. S obzirom na to da od rođenja ne vidi dobro, vodič na tom putu bio je On i Njegov glas u galami. Iako na početku nije znao odakle dolazi, odlično je znao od koga dolazi. Osećao je svaki pogled i borio se sa hiljadu prepreka i zatvorenih vrata. Njegov šapat bio je snaga, ljubav, vera i nada koje su mu osvetlile put. Čulo vida zamenilo je čulo sluha i tada je njegova luka postala muzika.
 
-***Greatness** - an English word that speaks so much, and it is so difficult to adequately adapt it to our language. It is a combination of majesty, uniqueness, freedom to reach dizzying heights, a synonym for success and uniqueness. And that status, you will agree, is not easy to reach!*
+**\*Greatness** - an English word that speaks so much, and it is so difficult to adequately adapt it to our language. It is a combination of majesty, uniqueness, freedom to reach dizzying heights, a synonym for success and uniqueness. And that status, you will agree, is not easy to reach!*
 
 *In the beginning, everything is just a dream and imagination. This is followed by a decision on the first big step - leaving home and going along the macadam. In those moments, the desire for a better life is all you have and it is only important that you do not give up on it ...*
 
-***Albino Svemogucci** has gone through each of these life stages. Staring into the distance, he imagined going on a long journey. Since he did not see well from birth, the guide on that path was He and His voice in the noise. Although he didn't know where he was coming from at first, he knew very well who he was coming from. He felt every look and struggled with a thousand obstacles and closed doors. His whisper was the strength, love, faith and hope that lit his way. The sense of sight replaced the sense of hearing, and then his port became music.*
+**\*Albino Svemogucci** has gone through each of these life stages. Staring into the distance, he imagined going on a long journey. Since he did not see well from birth, the guide on that path was He and His voice in the noise. Although he didn't know where he was coming from at first, he knew very well who he was coming from. He felt every look and struggled with a thousand obstacles and closed doors. His whisper was the strength, love, faith and hope that lit his way. The sense of sight replaced the sense of hearing, and then his port became music.*
 
 ![](/img/tike_belgrade_nike_air_fear_of_god_1_triple_black_albino_svemogucci-10-.jpg)
 
@@ -48,7 +48,7 @@ Gornjište je izrađeno od crne prevrnute kože, mrežastih i neoprenskih materi
 
 *The upper is made of black upturned leather, mesh and neoprene materials and is complemented by an even darker sole and midsole. Incredible focus on details, among which **the circular folding system, mini-swoosh and neoprene reinforcements stand out**, make this model of sneakers a magnificent perfection.*
 
-***Jerry Lorenzo**'s unique design "allowed" the sneakers to speak for themselves - to have their "voice" heard far away. There are no striking colors, no pomp and eccentricity - just a silhouette that can be said that, although quite simple, it has the most interesting color so far.*
+**\*Jerry Lorenzo**'s unique design "allowed" the sneakers to speak for themselves - to have their "voice" heard far away. There are no striking colors, no pomp and eccentricity - just a silhouette that can be said that, although quite simple, it has the most interesting color so far.*
 
 ![](/img/tike_belgrade_nike_air_fear_of_god_1_triple_black_albino_svemogucci-2-.jpg)
 
@@ -56,4 +56,8 @@ U tome je zapravo i suština – u **skromnosti uprkos veličanstvenosti**. Zato
 
 **Nike Air Fear of God 1 "Triple Black"** uskoro će biti dostupne u Tike šopu u Kralja Petra 24. Prati objave na **[našem Instagram profilu](https://www.instagram.com/tikebelgrade/)** za sve dodatne informacije.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/X77E3HxiVPQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+*That, in fact, is the essence - in modesty despite magnificence. That is why Albino Svemogucci was the logical and best choice for the promoter of this sneaker, because even today he does not give up on the thorny path to realizing his dream. And he is no longer afraid of anything - except God.*
+
+**Nike Air Fear of God 1 "Triple Black"**  will soon be available in the Tike shop in Kralja Petra 24. Follow the posts on ** [our Instagram profile](https://www.instagram.com/tikebelgrade/)**  for all additional information.
+
+<iframe width="720" height="405" src="https://www.youtube.com/embed/X77E3HxiVPQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
