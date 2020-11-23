@@ -113,10 +113,13 @@ const BigPostsCarousel = ({ posts }) => {
                     </Link>
                   )}
                 </div>
+                {
+                  post.frontmatter.coverImage &&
                 <PostImage
                   slug={post.fields.slug}
                   image={post.frontmatter.coverImage.childImageSharp.fluid}
                 />
+                }
               </div>
             </SwiperSlide>
           )

@@ -96,10 +96,13 @@ const AsideContent = ({ posts, heading, displayCategory }) => {
               }`}
             >
               <div className={styles.post}>
-                <PostImage
-                  slug={post.fields.slug}
-                  image={post.frontmatter.coverImage.childImageSharp.fluid}
-                />
+                {
+                  post.frontmatter.coverImage &&
+                  <PostImage
+                    slug={post.fields.slug}
+                    image={post.frontmatter.coverImage.childImageSharp.fluid}
+                  />
+                }
                 <div className={styles.postDetails}>
                   {displayCategory && (
                     <PostCategoryTag

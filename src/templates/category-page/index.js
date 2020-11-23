@@ -134,13 +134,16 @@ let CategoryPage = ({ data }) => {
             </h1>
             <hr />
             <div className={styles.categoryCover}>
-              <Image
-                fluid={
-                  data.markdownRemark.frontmatter.coverImage.childImageSharp
-                    .fluid
-                }
-                alt=""
-              />
+              {
+                data.markdownRemark.frontmatter.coverImage &&
+                <Image
+                  fluid={
+                    data.markdownRemark.frontmatter.coverImage.childImageSharp
+                      .fluid
+                  }
+                  alt=""
+                />
+              }
             </div>
           </div>
           {data.subCategories.edges[0] && (
