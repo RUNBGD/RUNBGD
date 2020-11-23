@@ -8,7 +8,7 @@ date: 2020-11-23T13:42:37.493Z
 featuredPost: true
 categoryFeatured: true
 trending: true
-coverImage: /img/img_4956.jpeg
+coverImage: /img/001418-kragujevac-restoran-mustang-690x520_c.jpg
 icons:
   - icon: Family
 ---
