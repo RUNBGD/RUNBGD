@@ -59,13 +59,18 @@ const PostCover = ({ post }) => {
     authorSlug = author.node.fields.slug
   }
 
+  console.log(post.frontmatter)
+
   return (
     <div className={styles.post}>
       <div className={styles.postImage}>
-        <PostImage
-          slug={post.fields.slug}
-          image={post.frontmatter.coverImage.childImageSharp.fluid}
-        />
+        {
+          // post.frontmatter.coverImage &&
+          <PostImage
+            slug={post.fields.slug}
+            image={post.frontmatter.coverImage.childImageSharp.fluid}
+          />
+        }
       </div>
       <div className={styles.postText}>
         <div className={styles.postDetails}>
