@@ -1,7 +1,7 @@
 ---
 templateKey: blog-post
 createPage: "true"
-title: "This is some example heading for post on RUN BGD website. "
+title: Tike 3rd Anniversary Party
 category: Style
 author: Dragan Filovski
 date: 2019-11-15T11:55:55.734Z
