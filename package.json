@@ -6,8 +6,9 @@
   "dependencies": {
     "@sendgrid/mail": "^7.2.5",
     "axios": "^0.19.2",
+    "cross-env": "^7.0.2",
     "dotenv": "^8.2.0",
-    "gatsby": "^2.20.35",
+    "gatsby": "^2.27.0",
     "gatsby-image": "^2.3.5",
     "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-mailchimp": "^5.2.2",
@@ -63,7 +64,7 @@
   "scripts": {
     "clean": "gatsby clean",
     "start": "npm run develop",
-    "build": "npm run clean && gatsby build",
+    "build": "cross-env GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build --log-pages",
     "develop": "npm run clean && gatsby develop",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"{gatsby-*.js,src/**/*.js}\"",
     "test": "echo \"Error: no test specified\" && exit 1"
