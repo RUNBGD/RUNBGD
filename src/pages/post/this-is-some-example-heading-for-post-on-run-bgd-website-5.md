@@ -10,8 +10,8 @@ categoryFeatured: true
 trending: true
 coverImage: /img/kalemegdan-4569755_1920.jpg
 icons:
-    - icon: Budget
-    - icon: Family
-    - icon: Approved
+  - icon: Budget
+  - icon: Family
+  - icon: Approved
 ---
-This is some example heading for post on RUN BGD website. This is some example heading for post on RUN BGD website. This is some example heading for post on RUN BGD website. This is some example heading for post on RUN BGD website. This is some example heading for post on RUN BGD website. This is some example heading for post on RUN BGD website. This is some example heading for post on RUN BGD website. This is some example heading for post on RUN BGD website. This is some example heading for post on RUN BGD website. This is some example heading for post on RUN BGD website. This is some example heading for post on RUN BGD website. This is some example heading for post on RUN BGD website.
+This is some example heading for post on RUN BGD website. This is some example heading for post on RUN BGD website. This is some example heading for post on RUN BGD website. This is some example heading for post on RUN BGD website. This is some example heading for post on RUN BGD website. This is some example heading for post on RUN BGD website. This is some example heading for post on RUN BGD website. This is some example heading for post on RUN BGD website.
