@@ -8,7 +8,7 @@ date: 2020-11-23T13:42:37.493Z
 featuredPost: true
 categoryFeatured: true
 trending: true
-coverImage: /img/001418-kragujevac-restoran-mustang-690x520_c.jpg
+coverImage: /img/airplane-1832699_1920.jpg
 icons:
   - icon: Family
 ---
