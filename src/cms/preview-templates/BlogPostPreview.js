@@ -2,14 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { BlogPostTemplate } from '../../templates/blog-post'
 
-const BlogPostPreview = ({ entry, widgetFor }) => {
+const BlogPostPreview = ({ entry, widgetFor, getAsset }) => {
   return (
     <BlogPostTemplate
       data={{
         markdownRemark: {
           frontmatter: {
             title: entry.getIn(['data', 'title']),
-            coverImage: entry.getIn(['data', 'coverImage']),
+            coverImage: getAsset(entry.getIn(['data', 'coverImage'])),
             category: entry.getIn(['data', 'category']),
             author: entry.getIn(['data', 'author']),
             date: entry.getIn(['data', 'date']),
