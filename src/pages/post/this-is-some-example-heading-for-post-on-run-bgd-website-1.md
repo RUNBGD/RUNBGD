@@ -8,7 +8,7 @@ date: 2020-06-24T08:23:37.881Z
 featuredPost: true
 categoryFeatured: true
 trending: true
-coverImage: /img/tike_belgrade_nike_air_fear_of_god_1_triple_black_albino_svemogucci-10-.jpg
+coverImage: /img/albino.png
 icons: []
 ---
 ***Greatness*** – engleska reč koja tako mnogo govori, a tako ju je teško adekvatno prilagoditi našem jeziku. Ona je spoj veličanstvenosti, jedinstvenosti, slobode da se dosegnu vrtoglave visine, sinonim za uspeh i neponovljivost. A do tog statusa, složićeš se, nije lako stići!
