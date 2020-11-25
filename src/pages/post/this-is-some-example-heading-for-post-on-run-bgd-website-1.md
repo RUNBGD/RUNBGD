@@ -13,13 +13,13 @@ icons: []
 ---
 ***Greatness*** – engleska reč koja tako mnogo govori, a tako ju je teško adekvatno prilagoditi našem jeziku. Ona je spoj veličanstvenosti, jedinstvenosti, slobode da se dosegnu vrtoglave visine, sinonim za uspeh i neponovljivost. A do tog statusa, složićeš se, nije lako stići!
 
-Na početku je sve samo san i mašta. Nakon toga sledi odluka o prvom velikom koraku – napuštanju doma i odlasku uz makadam. U tim trenucima je želja o boljem životu sve što imaš i važno je samo da ne odustaješ od nje...
+### "Na početku je sve samo san i mašta. Nakon toga sledi odluka o prvom velikom koraku – napuštanju doma i odlasku uz makadam. U tim trenucima je želja o boljem životu sve što imaš i važno je samo da ne odustaješ od nje..."
 
 ***[Albino Svemogucci](https://www.instagram.com/albino.svemoguccii/)*** je prošao svaku od tih životnih etapa. Zagledan u daljinu, zamišljao je kako odlazi na dalek put. S obzirom na to da od rođenja ne vidi dobro, vodič na tom putu bio je On i Njegov glas u galami. Iako na početku nije znao odakle dolazi, odlično je znao od koga dolazi. Osećao je svaki pogled i borio se sa hiljadu prepreka i zatvorenih vrata. Njegov šapat bio je snaga, ljubav, vera i nada koje su mu osvetlile put. Čulo vida zamenilo je čulo sluha i tada je njegova luka postala muzika.
 
 ***Greatness*** - an English word that speaks so much, and it is so difficult to adequately adapt it to our language. It is a combination of majesty, uniqueness, freedom to reach dizzying heights, a synonym for success and uniqueness. And that status, you will agree, is not easy to reach!*
 
-*In the beginning, everything is just a dream and imagination. This is followed by a decision on the first big step - leaving home and going along the macadam. In those moments, the desire for a better life is all you have and it is only important that you do not give up on it ...*
+### *"In the beginning, everything is just a dream and imagination. This is followed by a decision on the first big step - leaving home and going along the macadam. In those moments, the desire for a better life is all you have and it is only important that you do not give up on it ..."*
 
 ***[Albino Svemogucci](https://www.instagram.com/albino.svemoguccii/)*** has gone through each of these life stages. Staring into the distance, he imagined going on a long journey. Since he did not see well from birth, the guide on that path was He and His voice in the noise. Although he didn't know where he was coming from at first, he knew very well who he was coming from. He felt every look and struggled with a thousand obstacles and closed doors. His whisper was the strength, love, faith and hope that lit his way. The sense of sight replaced the sense of hearing, and then his port became music.*
 
@@ -56,7 +56,5 @@ U tome je zapravo i suština – u **skromnosti uprkos veličanstvenosti**. Zato
 *That, in fact, is the essence - in modesty despite magnificence. That is why Albino Svemogucci was the logical and best choice for the promoter of this sneaker, because even today he does not give up on the thorny path to realizing his dream. And he is no longer afraid of anything - except God.*
 
 **Nike Air Fear of God 1 "Triple Black"**  will soon be available in the Tike shop in Kralja Petra 24. Follow the posts on ** [our Instagram profile](https://www.instagram.com/tikebelgrade/)**  for all additional information.
-
-
 
 <iframe width="960" height="540" src="https://www.youtube.com/embed/X77E3HxiVPQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
