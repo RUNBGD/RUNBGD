@@ -1,16 +1,13 @@
 ---
 templateKey: shop-product
-title: RUNBGD T-Shirt
-description: RUN BGD "Classic" T-Shirt - Men (black)
-category: Tops
+title: RUNBGD Benie
+description: RUN BGD "Classic" Benie - Men (black)
+category: Accessories
 images:
-    - image: /img/product4-1.png
-    - image: /img/product4-2.png
-price: 25
+  - image: /img/xxx_3536-removebg-preview.png
+price: 15
 sizes:
-    - size: S
-      available: true
-    - size: M
-      available: false
+  - size: one size
+    available: true
 available: true
 ---
