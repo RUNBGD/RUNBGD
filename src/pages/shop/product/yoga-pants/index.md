@@ -4,8 +4,8 @@ title: RUN BGD Yoga Pants
 description: RUN BGD "Classic" Yoga Pants - Women (black)
 category: Bottoms
 images:
-  - image: /img/product4-2.png
-  - image: /img/product4-1.png
+  - image: /img/runbgd-legins-1.png
+  - image: /img/runbgd-legins-2.png
 price: 35
 sizes:
   - size: S
