@@ -142,12 +142,15 @@ const FindPlacesMap = ({
                   className={styles.popup}
                 >
                   <div className={styles.popupInnerContainer} onClick={() => onPopupClick(location)}>
-                    <Image
-                      className={styles.popupImage}
-                      fluid={
-                        location.frontmatter.coverImage.childImageSharp.fluid
-                      }
-                    />
+                    {
+                      location.frontmatter.coverImage &&
+                      <Image
+                        className={styles.popupImage}
+                        fluid={
+                          location.frontmatter.coverImage.childImageSharp.fluid
+                        }
+                      />
+                    }
                     <span>
                       {location.frontmatter.name}
                     </span>

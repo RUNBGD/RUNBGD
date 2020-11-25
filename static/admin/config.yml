@@ -248,6 +248,8 @@ collections:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "logos"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Logo Image", name: "logoImage", widget: "image"}
+      - {label: "Cover Image", name: "coverImage", widget: "image"}
+      - {label: "Description", name: "description", widget: "string"}
 
   - name: "pages"
     label: "Pages"

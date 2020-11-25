@@ -84,10 +84,13 @@ const FindPlacesLocations = ({
               }}
             >
               <div className={styles.cardCover}>
-                <Image
-                  fluid={location.frontmatter.coverImage.childImageSharp.fluid}
-                  alt=""
-                />
+                {
+                  location.frontmatter.coverImage &&
+                  <Image
+                    fluid={location.frontmatter.coverImage.childImageSharp.fluid}
+                    alt=""
+                  />
+                }
               </div>
               <div className={styles.cardText}>
                 <p className={styles.cardTitle}>{location.frontmatter.name}</p>
