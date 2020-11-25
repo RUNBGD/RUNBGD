@@ -2,12 +2,20 @@
 templateKey: shop-product
 title: RUNBGD T-Shirt
 description: RUN BGD "Classic" T-Shirt - Men (black)
-category: Accessories
+category: Tops
 images:
-    - image: /img/product2-1.png
-    - image: /img/product2-2.png
-    - image: /img/product2-3.png
-price: 25
+  - image: /img/xxx_0227-removebg-preview.png
+price: 4
 sizes:
+  - available: true
+    size: S
+  - size: M
+    available: true
+  - size: L
+    available: true
+  - size: XL
+    available: true
+  - size: XXL
+    available: true
 available: true
 ---
