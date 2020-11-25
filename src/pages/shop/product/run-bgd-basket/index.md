@@ -5,6 +5,6 @@ description: RUN BGD Basket
 category: Accessories
 images:
   - image: /img/product3-2.png
-price: 5
+price: 25
 available: true
 ---
