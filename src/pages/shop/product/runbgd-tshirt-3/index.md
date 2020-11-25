@@ -5,7 +5,7 @@ description: RUN BGD "Classic" T-Shirt - Men (white)
 category: Tops
 images:
   - image: /img/xxx_0228-removebg-preview.png
-price: 68
+price: 30
 sizes:
   - size: S
     available: true
