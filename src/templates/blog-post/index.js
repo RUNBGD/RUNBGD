@@ -161,6 +161,7 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         title
         coverImage {
+          publicURL
           childImageSharp {
             fluid(maxWidth: 1000) {
               ...GatsbyImageSharpFluid

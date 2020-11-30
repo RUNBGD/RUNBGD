@@ -9,11 +9,12 @@ heroQuote: "* This is 100% true, but everyone tries to make that claim... keep
   scrolling to learn more about what makes RUN BGD the exception."
 aboutImageCover: /img/the-city.jpg
 aboutText: >-
-  makes RUN BGD champions the people, brands and new trends you need to know
-  now, will obsess over next, and we build consumer universes around them.
+  RUN BGD champions the you the people, brands and new trends you need to know
+  now about, will obsess over next, and we build consumer environment around
+  them.
 
 
-  We’re what a modern entertainment company looks like and what others have followed since 2002.
+  We’re what a modern entertainment collective with abitious goals.
 sections:
   - coverImage: /img/image--002.jpg
     sectionHeading: ABOUT US
@@ -60,6 +61,6 @@ sections:
 
       Multifunctionality would be reflected in the fact that individual parts can be easily transformed into a more spacious space suitable for cultural events, gatherings, meetings, workshops or seminars.
 
-      We are on the way for RUNBGD to become an unavoidable place for the local and international urban community. We want to encourage the promotion of innovative ideas that set Belgrade apart from others as a destination. Our focus will be on domestic creatively designed brands, products, locations, and on everything that fits into the concept of "From Belgrade to Belgrade”.
+      We are on the way for RUNBGD to become an unavoidable place for the local and international urban community. We want to encourage the promotion of innovative ideas that set Belgrade apart from others as a destination. Our focus will be on domestic creatively designed brands, products, locations, and on everything that fits into the concept of "From Belgrade for Belgrade”.
 templateKey: work-with-us-page
 ---

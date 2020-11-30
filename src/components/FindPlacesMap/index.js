@@ -176,6 +176,7 @@ const FindPlacesMap = ({
                   ]}
                   icon={icon({ iconUrl, iconSize: [20, 20] })}
                 >
+<<<<<<< HEAD
                   <Popup ref={popupRef} className={styles.popup}>
                     <div
                       className={styles.popupInnerContainer}
@@ -199,6 +200,26 @@ const FindPlacesMap = ({
                 </Marker>
               )
             })}
+=======
+                  <div className={styles.popupInnerContainer} onClick={() => onPopupClick(location)}>
+                    {
+                      location.frontmatter.coverImage &&
+                      <Image
+                        className={styles.popupImage}
+                        fluid={
+                          location.frontmatter.coverImage.childImageSharp.fluid
+                        }
+                      />
+                    }
+                    <span>
+                      {location.frontmatter.name}
+                    </span>
+                  </div>
+                </Popup>
+              </Marker>
+            )
+          })}
+>>>>>>> 12dc5530e6796f73c9d4d253f121920e012f27fa
           {yCoord != undefined && (
             <Marker
               position={[yCoord, xCoord]}

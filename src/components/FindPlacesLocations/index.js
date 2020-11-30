@@ -67,6 +67,7 @@ const FindPlacesLocations = ({
             distanceFromStart = 0
           }
 
+<<<<<<< HEAD
           if (
             distanceFromStart <= 105 &&
             (location.frontmatter.category === filterCategory ||
@@ -118,6 +119,36 @@ const FindPlacesLocations = ({
                     <p className={styles.distance}>{distanceFromStart} km</p>
                   )}
                 </div>
+=======
+        if (
+          distanceFromStart <= 105 &&
+          (location.frontmatter.category === filterCategory ||
+            filterCategory === 'Select Category')
+        ) {
+          return (
+            <div
+              className={styles.locationCard}
+              style={{ order: Number(distanceFromStart).toFixed(0) }}
+              key={index}
+              onClick={() => {
+                setCurrentX(0)
+                setCurrentY(0)
+                setTimeout(() => {
+                  setCurrentX(location.frontmatter.longitude)
+                  setCurrentY(location.frontmatter.latitude)
+                }, 100)
+                onClick && onClick(location)
+              }}
+            >
+              <div className={styles.cardCover}>
+                {
+                  location.frontmatter.coverImage &&
+                  <Image
+                    fluid={location.frontmatter.coverImage.childImageSharp.fluid}
+                    alt=""
+                  />
+                }
+>>>>>>> 12dc5530e6796f73c9d4d253f121920e012f27fa
               </div>
             )
           }

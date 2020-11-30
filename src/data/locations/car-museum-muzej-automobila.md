@@ -1,13 +1,16 @@
 ---
 templateKey: location
 name: Car Museum / Muzej automobila
-coverImage: /img/run-bgd_museums_icon_100x100.png
+coverImage: /img/kolekcija-mercedes.jpg
 pin: /img/run-bgd_museums_icon_100x100.png
 category: Museums
 address: Majke Jevrosime 30
-website: hey
-email: hey
-description: long text
+website: <https://www.automuseumbgd.com/en/>
+email: "[bogdan@automuseumbgd.com](bogdan@automuseumbgd.com)"
+description: |-
+  Phone: [+381 11 3034625](<+381 11 3034625>)
+
+  Open: 09:30 to 20H
 latitude: "44.813814"
 longitude: "20.465967"
 ---

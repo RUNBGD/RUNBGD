@@ -131,9 +131,23 @@ const BigPostsCarousel = ({ posts }) => {
                     image={post.frontmatter.coverImage}
                   />
                 </div>
+<<<<<<< HEAD
               </SwiperSlide>
             )
           })}
+=======
+                {
+                  post.frontmatter.coverImage &&
+                <PostImage
+                  slug={post.fields.slug}
+                  image={post.frontmatter.coverImage.childImageSharp.fluid}
+                />
+                }
+              </div>
+            </SwiperSlide>
+          )
+        })}
+>>>>>>> 12dc5530e6796f73c9d4d253f121920e012f27fa
         <div className={styles.swiperPagination}></div>
         <img
           className={styles.swiperPrevEl}

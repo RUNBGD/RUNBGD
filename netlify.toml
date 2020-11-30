@@ -8,3 +8,5 @@
   YARN_FLAGS = "--no-ignore-optional"
 [context.deployment]
   MAPQUEST_API_KEY=1234
+[[plugins]]
+  package = "netlify-plugin-gatsby-cache"
