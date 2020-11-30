@@ -106,20 +106,10 @@ const AsideContent = ({ posts, heading, displayCategory }) => {
               }`}
             >
               <div className={styles.post}>
-<<<<<<< HEAD
                 <PostImage
                   slug={post.fields.slug}
                   image={post.frontmatter.coverImage}
                 />
-=======
-                {
-                  post.frontmatter.coverImage &&
-                  <PostImage
-                    slug={post.fields.slug}
-                    image={post.frontmatter.coverImage.childImageSharp.fluid}
-                  />
-                }
->>>>>>> 12dc5530e6796f73c9d4d253f121920e012f27fa
                 <div className={styles.postDetails}>
                   {displayCategory && (
                     <PostCategoryTag
