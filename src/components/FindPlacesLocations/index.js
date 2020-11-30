@@ -37,7 +37,7 @@ const FindPlacesLocations = ({
   horizontalOnMobile,
   onClick,
   clickedLocation,
-  setClickedLocation
+  setClickedLocation,
 }) => {
   return (
     <div
@@ -45,63 +45,84 @@ const FindPlacesLocations = ({
         horizontalOnMobile && styles.horizontal
       }`}
     >
-      {
-      clickedLocation ?
-      <LocationInfoCard location={clickedLocation} setLocation={setClickedLocation}/>
-      :
-      locations.map(({ node: location }, index) => {
-        let distanceFromStart = undefined
-        if (yCoord) {
-          distanceFromStart = distance(
-            xCoord,
-            yCoord,
-            location.frontmatter.longitude,
-            location.frontmatter.latitude,
-            'K'
-          )
-        } else {
-          distanceFromStart = 0
-        }
+      {clickedLocation ? (
+        <LocationInfoCard
+          location={clickedLocation}
+          setLocation={setClickedLocation}
+        />
+      ) : (
+        locations.map(({ node: location }, index) => {
+          let distanceFromStart = undefined
+          if (yCoord) {
+            distanceFromStart = distance(
+              xCoord,
+              yCoord,
+              location.frontmatter.longitude
+                ? location.frontmatter.longitude
+                : 0,
+              location.frontmatter.latitude ? location.frontmatter.latitude : 0,
+              'K'
+            )
+          } else {
+            distanceFromStart = 0
+          }
 
-        if (
-          distanceFromStart <= 105 &&
-          (location.frontmatter.category === filterCategory ||
-            filterCategory === 'Select Category')
-        ) {
-          return (
-            <div
-              className={styles.locationCard}
-              style={{ order: Number(distanceFromStart).toFixed(0) }}
-              key={index}
-              onClick={() => {
-                setCurrentX(0)
-                setCurrentY(0)
-                setTimeout(() => {
-                  setCurrentX(location.frontmatter.longitude)
-                  setCurrentY(location.frontmatter.latitude)
-                }, 100)
-                onClick && onClick(location)
-              }}
-            >
-              <div className={styles.cardCover}>
-                <Image
-                  fluid={location.frontmatter.coverImage.childImageSharp.fluid}
-                  alt=""
-                />
+          if (
+            distanceFromStart <= 105 &&
+            (location.frontmatter.category === filterCategory ||
+              filterCategory === 'Select Category')
+          ) {
+            return (
+              <div
+                className={styles.locationCard}
+                style={{ order: Number(distanceFromStart).toFixed(0) }}
+                key={index}
+                onClick={() => {
+                  setCurrentX(0)
+                  setCurrentY(0)
+                  setTimeout(() => {
+                    setCurrentX(
+                      location.frontmatter.longitude
+                        ? location.frontmatter.longitude
+                        : 0
+                    )
+                    setCurrentY(
+                      location.frontmatter.latitude
+                        ? location.frontmatter.latitude
+                        : 0
+                    )
+                  }, 100)
+                  onClick && onClick(location)
+                }}
+              >
+                <div className={styles.cardCover}>
+                  {location.frontmatter.coverImage &&
+                    location.frontmatter.coverImage.childImageSharp &&
+                    location.frontmatter.coverImage.childImageSharp.fluid && (
+                      <Image
+                        fluid={
+                          location.frontmatter.coverImage.childImageSharp.fluid
+                        }
+                        alt=""
+                      />
+                    )}
+                </div>
+                <div className={styles.cardText}>
+                  <p className={styles.cardTitle}>
+                    {location.frontmatter.name}
+                  </p>
+                  <p className={styles.cardAddress}>
+                    {location.frontmatter.address}
+                  </p>
+                  {yCoord && (
+                    <p className={styles.distance}>{distanceFromStart} km</p>
+                  )}
+                </div>
               </div>
-              <div className={styles.cardText}>
-                <p className={styles.cardTitle}>{location.frontmatter.name}</p>
-                <p className={styles.cardAddress}>
-                  {location.frontmatter.address}
-                </p>
-                {yCoord && (
-                  <p className={styles.distance}>{distanceFromStart} km</p>
-                )}
-              </div>
-            </div>
-          )
-        }
-      })}
+            )
+          }
+        })
+      )}
     </div>
   )
 }

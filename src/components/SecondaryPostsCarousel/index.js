@@ -72,19 +72,33 @@ const BigPostsCarousel = ({ posts, heading, displayCategory, onlyMobile }) => {
           let categorySlug = undefined
           let authorSlug = undefined
 
-          let category = data.allMarkdownRemark.edges.find(
-            ({ node: category }) =>
-              post.frontmatter.category === category.frontmatter.title
-          )
+          let category =
+            data.allMarkdownRemark &&
+            data.allMarkdownRemark.edges &&
+            data.allMarkdownRemark.edges.length > 0 &&
+            data.allMarkdownRemark.edges.find(({ node: category }) => {
+              if (post.frontmatter.category && category.frontmatter.title) {
+                return post.frontmatter.category === category.frontmatter.title
+              } else {
+                return false
+              }
+            })
 
           if (category) {
             categorySlug = category.node.fields.slug
           }
 
-          let author = data.authors.edges.find(
-            ({ node: author }) =>
-              post.frontmatter.author === author.frontmatter.name
-          )
+          let author =
+            data.authors &&
+            data.authors.edges &&
+            data.authors.edges.length > 0 &&
+            data.authors.edges.find(({ node: author }) => {
+              if (post.frontmatter.author && author.frontmatter.name) {
+                return post.frontmatter.author === author.frontmatter.name
+              } else {
+                return false
+              }
+            })
 
           if (author) {
             authorSlug = author.node.fields.slug
@@ -101,10 +115,12 @@ const BigPostsCarousel = ({ posts, heading, displayCategory, onlyMobile }) => {
               }`}
             >
               <div className={styles.post}>
-                <PostImage
-                  slug={post.fields.slug}
-                  image={post.frontmatter.coverImage.childImageSharp.fluid}
-                />
+                {post.frontmatter.coverImage && (
+                  <PostImage
+                    slug={post.fields.slug}
+                    image={post.frontmatter.coverImage}
+                  />
+                )}
                 <div className={styles.postDetails}>
                   {displayCategory && categorySlug && (
                     <Link to={categorySlug}>

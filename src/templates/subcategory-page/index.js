@@ -19,21 +19,28 @@ const toHTML = (value) => remark().use(remarkHTML).processSync(value).toString()
 
 let SubcategoryPage = ({ data }) => {
   const [currentX, setCurrentX] = useState(
-    data.locations.edges[0] &&
+    data.locations &&
+      data.locations.edges.length > 0 &&
       data.locations.edges[0].node.frontmatter.longitude
+      ? data.locations.edges[0].node.frontmatter.longitude
+      : 0
   )
   const [currentY, setCurrentY] = useState(
-    data.locations.edges[0] && data.locations.edges[0].node.frontmatter.latitude
+    data.locations &&
+      data.locations.edges.length > 0 &&
+      data.locations.edges[0].node.frontmatter.latitude
+      ? data.locations.edges[0].node.frontmatter.latitude
+      : 0
   )
 
   const [zoomLevel, setZoomLevel] = useState(undefined)
   const [zoomInterval, setZoomInterval] = useState(undefined)
-  
+
   const [clickedLocation, setClickedLocation] = useState(undefined)
-  
+
   useEffect(() => {
-    if(!clickedLocation){
-      if(zoomInterval){
+    if (!clickedLocation) {
+      if (zoomInterval) {
         clearInterval(zoomInterval)
       }
       setZoomLevel(undefined)
@@ -41,28 +48,30 @@ let SubcategoryPage = ({ data }) => {
     }
   }, [clickedLocation])
 
-  function onLocationClicked(location){
+  function onLocationClicked(location) {
     setZoomLevel(12)
     clearInterval(zoomInterval)
-  
+
     setTimeout(() => {
-      setZoomLevel(prevState => prevState + 1)
-      setZoomInterval(setInterval(() => {
-        setZoomLevel(prevState => prevState + 1)
-      }, 1000))
+      setZoomLevel((prevState) => prevState + 1)
+      setZoomInterval(
+        setInterval(() => {
+          setZoomLevel((prevState) => prevState + 1)
+        }, 1000)
+      )
     }, 1000)
-  
+
     setClickedLocation(location.frontmatter)
   }
-  
+
   useEffect(() => {
-    if(zoomInterval && zoomLevel > 18){
+    if (zoomInterval && zoomLevel > 18) {
       clearInterval(zoomInterval)
     }
   }, [zoomLevel])
-  
-  function handleUserMapInteraction(){
-    if(zoomInterval){
+
+  function handleUserMapInteraction() {
+    if (zoomInterval) {
       clearInterval(zoomInterval)
     }
   }
@@ -77,13 +86,18 @@ let SubcategoryPage = ({ data }) => {
             </h1>
             <hr />
             <div className={styles.categoryCover}>
-              <Image
-                fluid={
-                  data.markdownRemark.frontmatter.coverImage.childImageSharp
-                    .fluid
-                }
-                alt=""
-              />
+              {data.markdownRemark.frontmatter.coverImage &&
+                data.markdownRemark.frontmatter.coverImage.childImageSharp &&
+                data.markdownRemark.frontmatter.coverImage.childImageSharp
+                  .fluid && (
+                  <Image
+                    fluid={
+                      data.markdownRemark.frontmatter.coverImage.childImageSharp
+                        .fluid
+                    }
+                    alt=""
+                  />
+                )}
             </div>
           </div>
         </React.Fragment>
@@ -102,13 +116,17 @@ let SubcategoryPage = ({ data }) => {
         />
         <hr />
         <BigPostsCarousel posts={data.subcategoryFeaturedPosts} />
-        {data.locations.edges[0] && (
+        {data.locations && data.locations.edges.length > 0 && (
           <React.Fragment>
             <h2>Find Places</h2>
             <div className={styles.mapAndLocations}>
               <div className={styles.map}>
                 <FindPlacesMap
-                  locations={data.locations.edges}
+                  locations={
+                    data.locations &&
+                    data.locations.edges.length > 0 &&
+                    data.locations.edges
+                  }
                   zoom={zoomLevel ? zoomLevel : 12}
                   currentY={currentY}
                   currentX={currentX}
@@ -122,7 +140,11 @@ let SubcategoryPage = ({ data }) => {
               </div>
               <div className={styles.locations}>
                 <FindPlacesLocations
-                  locations={data.locations.edges}
+                  locations={
+                    data.locations &&
+                    data.locations.edges.length > 0 &&
+                    data.locations.edges
+                  }
                   filterCategory={'Select Category'}
                   horizontalOnMobile={true}
                   setCurrentX={setCurrentX}
@@ -260,7 +282,7 @@ export const pageQuery = graphql`
                 }
               }
             }
-            pin{
+            pin {
               publicURL
             }
             category

@@ -18,17 +18,35 @@ export const BlogPostTemplate = ({ data }) => {
   let categorySlug = ''
 
   if (data.categories && data.authors) {
-    let category = data.categories.edges.find(
-      ({ node: category }) =>
-        data.markdownRemark.frontmatter.category === category.frontmatter.title
-    )
+    let category =
+      data.categories.edges.length > 0 &&
+      data.categories.edges.find(({ node: category }) => {
+        if (
+          data.markdownRemark.frontmatter.category &&
+          category.frontmatter.title
+        ) {
+          return (
+            data.markdownRemark.frontmatter.category ===
+            category.frontmatter.title
+          )
+        } else {
+          return false
+        }
+      })
 
     categorySlug = category.node.fields.slug
 
-    let author = data.authors.edges.find(
-      ({ node: author }) =>
-        data.markdownRemark.frontmatter.author === author.frontmatter.name
-    )
+    let author =
+      data.authors.edges.length > 0 &&
+      data.authors.edges.find(({ node: author }) => {
+        if (data.markdownRemark.frontmatter.author && author.frontmatter.name) {
+          return (
+            data.markdownRemark.frontmatter.author === author.frontmatter.name
+          )
+        } else {
+          return false
+        }
+      })
 
     authorSlug = author.node.fields.slug
   }
@@ -39,7 +57,9 @@ export const BlogPostTemplate = ({ data }) => {
         <title>{data.markdownRemark.frontmatter.title} | RUN BGD</title>
         <meta
           name="description"
-          content={`${data.markdownRemark.frontmatter.title} ${data.markdownRemark.html}`}
+          content={`${data.markdownRemark.frontmatter.title} ${
+            data.markdownRemark && data.markdownRemark.html
+          }`}
         />
       </Helmet>
       <h2>{data.markdownRemark.frontmatter.title}</h2>
@@ -60,7 +80,10 @@ export const BlogPostTemplate = ({ data }) => {
         </p>
       </div>
       <div className={styles.postCover}>
-        {data.markdownRemark.frontmatter.coverImage.childImageSharp ? (
+        {data.markdownRemark.frontmatter.coverImage &&
+        data.markdownRemark.frontmatter.coverImage.childImageSharp &&
+        data.markdownRemark.frontmatter.coverImage.childImageSharp &&
+        data.markdownRemark.frontmatter.coverImage.childImageSharp.fluid ? (
           <Image
             fluid={
               data.markdownRemark.frontmatter.coverImage.childImageSharp.fluid
@@ -81,30 +104,35 @@ export const BlogPostTemplate = ({ data }) => {
       )}
       {data.icons && data.icons.edges != undefined && (
         <div className={styles.iconsContainer}>
-          {data.icons.edges.map(({ node: icon }, index) => {
-            return (
-              <Link
-                to={`/tag/${icon.frontmatter.iconDescription.toLowerCase()}`}
-              >
-                <div className={styles.icon} key={index}>
-                  <h3>{icon.frontmatter.heading}</h3>
-                  <div>
-                    {data.markdownRemark.frontmatter.coverImage
-                      .childImageSharp ? (
-                      <Image
-                        className={styles.iconImage}
-                        fixed={icon.frontmatter.icon.childImageSharp.fixed}
-                        alt=""
-                      />
-                    ) : (
-                      <img src={icon.icon} />
-                    )}
+          {data.icons.edges.length > 0 &&
+            data.icons.edges.map(({ node: icon }, index) => {
+              return (
+                <Link
+                  to={`/tag/${
+                    icon.frontmatter.iconDescription &&
+                    icon.frontmatter.iconDescription.toLowerCase()
+                  }`}
+                >
+                  <div className={styles.icon} key={index}>
+                    <h3>{icon.frontmatter.heading}</h3>
+                    <div>
+                      {icon.frontmatter.icon &&
+                      icon.frontmatter.icon.childImageSharp &&
+                      icon.frontmatter.icon.childImageSharp.fixed ? (
+                        <Image
+                          className={styles.iconImage}
+                          fixed={icon.frontmatter.icon.childImageSharp.fixed}
+                          alt=""
+                        />
+                      ) : (
+                        <img src={icon.icon} alt="" />
+                      )}
+                    </div>
+                    <p>{icon.frontmatter.iconDescription}</p>
                   </div>
-                  <p>{icon.frontmatter.iconDescription}</p>
-                </div>
-              </Link>
-            )
-          })}
+                </Link>
+              )
+            })}
         </div>
       )}
       <hr />

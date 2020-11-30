@@ -1,197 +1,3 @@
-// import React from 'react'
-// import PropTypes from 'prop-types'
-// import { Link, graphql } from 'gatsby'
-
-// import Layout from '../components/Layout'
-// import Features from '../components/Features'
-// import BlogRoll from '../components/BlogRoll'
-
-// export const IndexPageTemplate = ({
-//   image,
-//   title,
-//   heading,
-//   subheading,
-//   mainpitch,
-//   description,
-//   intro,
-// }) => (
-//   <div>
-//     <div
-//       className="full-width-image margin-top-0"
-//       style={{
-//         backgroundImage: `url(${
-//           !!image.childImageSharp ? image.childImageSharp.fluid.src : image
-//         })`,
-//         backgroundPosition: `top left`,
-//         backgroundAttachment: `fixed`,
-//       }}
-//     >
-//       <div
-//         style={{
-//           display: 'flex',
-//           height: '150px',
-//           lineHeight: '1',
-//           justifyContent: 'space-around',
-//           alignItems: 'left',
-//           flexDirection: 'column',
-//         }}
-//       >
-//         <h1
-//           className="has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen"
-//           style={{
-//             boxShadow:
-//               'rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px',
-//             backgroundColor: 'rgb(255, 68, 0)',
-//             color: 'white',
-//             lineHeight: '1',
-//             padding: '0.25em',
-//           }}
-//         >
-//           {title}
-//         </h1>
-//         <h3
-//           className="has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen"
-//           style={{
-//             boxShadow:
-//               'rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px',
-//             backgroundColor: 'rgb(255, 68, 0)',
-//             color: 'white',
-//             lineHeight: '1',
-//             padding: '0.25em',
-//           }}
-//         >
-//           {subheading}
-//         </h3>
-//       </div>
-//     </div>
-//     <section className="section section--gradient">
-//       <div className="container">
-//         <div className="section">
-//           <div className="columns">
-//             <div className="column is-10 is-offset-1">
-//               <div className="content">
-//                 <div className="content">
-//                   <div className="tile">
-//                     <h1 className="title">{mainpitch.title}</h1>
-//                   </div>
-//                   <div className="tile">
-//                     <h3 className="subtitle">{mainpitch.description}</h3>
-//                   </div>
-//                 </div>
-//                 <div className="columns">
-//                   <div className="column is-12">
-//                     <h3 className="has-text-weight-semibold is-size-2">
-//                       {heading}
-//                     </h3>
-//                     <p>{description}</p>
-//                   </div>
-//                 </div>
-//                 <Features gridItems={intro.blurbs} />
-//                 <div className="columns">
-//                   <div className="column is-12 has-text-centered">
-//                     <Link className="btn" to="/products">
-//                       See all products
-//                     </Link>
-//                   </div>
-//                 </div>
-//                 <div className="column is-12">
-//                   <h3 className="has-text-weight-semibold is-size-2">
-//                     Latest stories
-//                   </h3>
-//                   <BlogRoll />
-//                   <div className="column is-12 has-text-centered">
-//                     <Link className="btn" to="/blog">
-//                       Read more
-//                     </Link>
-//                   </div>
-//                 </div>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//     </section>
-//   </div>
-// )
-
-// IndexPageTemplate.propTypes = {
-//   image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-//   title: PropTypes.string,
-//   heading: PropTypes.string,
-//   subheading: PropTypes.string,
-//   mainpitch: PropTypes.object,
-//   description: PropTypes.string,
-//   intro: PropTypes.shape({
-//     blurbs: PropTypes.array,
-//   }),
-// }
-
-// const IndexPage = ({ data }) => {
-//   const { frontmatter } = data.markdownRemark
-
-//   return (
-//     <Layout>
-//       <IndexPageTemplate
-//         image={frontmatter.image}
-//         title={frontmatter.title}
-//         heading={frontmatter.heading}
-//         subheading={frontmatter.subheading}
-//         mainpitch={frontmatter.mainpitch}
-//         description={frontmatter.description}
-//         intro={frontmatter.intro}
-//       />
-//     </Layout>
-//   )
-// }
-
-// IndexPage.propTypes = {
-//   data: PropTypes.shape({
-//     markdownRemark: PropTypes.shape({
-//       frontmatter: PropTypes.object,
-//     }),
-//   }),
-// }
-
-// export default IndexPage
-
-// export const pageQuery = graphql`
-//   query IndexPageTemplate {
-//     markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
-//       frontmatter {
-//         title
-//         image {
-//           childImageSharp {
-//             fluid(maxWidth: 2048, quality: 100) {
-//               ...GatsbyImageSharpFluid
-//             }
-//           }
-//         }
-//         heading
-//         subheading
-//         mainpitch {
-//           title
-//           description
-//         }
-//         description
-//         intro {
-//           blurbs {
-//             image {
-//               childImageSharp {
-//                 fluid(maxWidth: 240, quality: 64) {
-//                   ...GatsbyImageSharpFluid
-//                 }
-//               }
-//             }
-//             text
-//           }
-//           heading
-//           description
-//         }
-//       }
-//     }
-//   }
-// `
-
 import React, { useState, useEffect } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 
@@ -335,7 +141,7 @@ const IndexPage = () => {
                   }
                 }
               }
-              pin{
+              pin {
                 publicURL
               }
               category
@@ -354,71 +160,89 @@ const IndexPage = () => {
   `)
 
   const [currentX, setCurrentX] = useState(
-    carouselPosts.locations.edges[0].node.frontmatter.longitude
+    carouselPosts &&
+      carouselPosts.locations &&
+      carouselPosts.locations.edges.length > 0 &&
+      carouselPosts.locations.edges[0] &&
+      carouselPosts.locations.edges[0].node.frontmatter.longitude
+      ? carouselPosts.locations.edges[0].node.frontmatter.longitude
+      : 0
   )
   const [currentY, setCurrentY] = useState(
-    carouselPosts.locations.edges[0].node.frontmatter.latitude
+    carouselPosts &&
+      carouselPosts.locations &&
+      carouselPosts.locations.edges.length > 0 &&
+      carouselPosts.locations.edges[0] &&
+      carouselPosts.locations.edges[0].node.frontmatter.latitude
+      ? carouselPosts.locations.edges[0].node.frontmatter.latitude
+      : 0
   )
 
   const [zoomLevel, setZoomLevel] = useState(undefined)
   const [zoomInterval, setZoomInterval] = useState(undefined)
 
   const [clickedLocation, setClickedLocation] = useState(undefined)
-  
+
   useEffect(() => {
-    if(!clickedLocation){
-      if(zoomInterval){
+    if (!clickedLocation) {
+      if (zoomInterval) {
         clearInterval(zoomInterval)
       }
       setZoomLevel(undefined)
       setZoomInterval(undefined)
     }
   }, [clickedLocation])
-  
-  function onLocationClicked(location){
+
+  function onLocationClicked(location) {
     setZoomLevel(12)
     clearInterval(zoomInterval)
-  
+
     setTimeout(() => {
-      setZoomLevel(prevState => prevState + 1)
-      setZoomInterval(setInterval(() => {
-        setZoomLevel(prevState => prevState + 1)
-      }, 1000))
+      setZoomLevel((prevState) => prevState + 1)
+      setZoomInterval(
+        setInterval(() => {
+          setZoomLevel((prevState) => prevState + 1)
+        }, 1000)
+      )
     }, 1000)
-    
+
     setClickedLocation(location.frontmatter)
   }
-  
+
   useEffect(() => {
-    if(zoomInterval && zoomLevel > 18){
+    if (zoomInterval && zoomLevel > 18) {
       clearInterval(zoomInterval)
     }
   }, [zoomLevel])
-  
-  function handleUserMapInteraction(){
-    if(zoomInterval){
+
+  function handleUserMapInteraction() {
+    if (zoomInterval) {
       clearInterval(zoomInterval)
     }
   }
 
-
   let featuredCategories = []
 
-  carouselPosts.categoryFeaturedPosts.edges.forEach(({ node }) => {
-    let categoryName = node.frontmatter.category
-    if (featuredCategories.indexOf(categoryName) == -1) {
-      featuredCategories.push(categoryName)
-    }
-  })
+  carouselPosts &&
+    carouselPosts.categoryFeaturedPosts &&
+    carouselPosts.categoryFeaturedPosts.edges.length > 0 &&
+    carouselPosts.categoryFeaturedPosts.edges.forEach(({ node }) => {
+      let categoryName = node.frontmatter.category
+      if (featuredCategories.indexOf(categoryName) == -1) {
+        featuredCategories.push(categoryName)
+      }
+    })
 
   let featuredCategoriesInOrder = (featuredCategories) => {
-    let filteredCategories = carouselPosts.categories.edges.filter(
-      ({ node: category }) => {
+    let filteredCategories =
+      carouselPosts &&
+      carouselPosts.categories &&
+      carouselPosts.categories.edges.length > 0 &&
+      carouselPosts.categories.edges.filter(({ node: category }) => {
         if (featuredCategories.indexOf(category.frontmatter.title) !== -1) {
           return true
         }
-      }
-    )
+      })
 
     return filteredCategories
   }
@@ -433,9 +257,16 @@ const IndexPage = () => {
           unlike agencies and other organisations.
         </p>
         <hr />
-        <BigPostsCarousel posts={carouselPosts.allMarkdownRemark} />
+        <BigPostsCarousel
+          posts={carouselPosts && carouselPosts.allMarkdownRemark}
+        />
         <SecondaryPostsCarousel
-          posts={carouselPosts.trending.edges}
+          posts={
+            carouselPosts &&
+            carouselPosts.trending &&
+            carouselPosts.trending.edges &&
+            carouselPosts.trending.edges
+          }
           onlyMobile={true}
           heading="Trending"
           displayCategory={true}
@@ -446,7 +277,12 @@ const IndexPage = () => {
         <div className={styles.mapAndLocations}>
           <div className={styles.map}>
             <FindPlacesMap
-              locations={carouselPosts.locations.edges}
+              locations={
+                carouselPosts &&
+                carouselPosts.locations &&
+                carouselPosts.locations.edges.length > 0 &&
+                carouselPosts.locations.edges
+              }
               zoom={zoomLevel ? zoomLevel : 12}
               currentY={currentY}
               currentX={currentX}
@@ -460,7 +296,12 @@ const IndexPage = () => {
           </div>
           <div className={styles.locations}>
             <FindPlacesLocations
-              locations={carouselPosts.locations.edges}
+              locations={
+                carouselPosts &&
+                carouselPosts.locations &&
+                carouselPosts.locations.edges.length > 0 &&
+                carouselPosts.locations.edges
+              }
               filterCategory={'Select Category'}
               horizontalOnMobile={true}
               setCurrentX={setCurrentX}
@@ -476,11 +317,19 @@ const IndexPage = () => {
         <hr />
         {featuredCategoriesInOrder(featuredCategories).map(
           ({ node: category }) => {
-            let posts = carouselPosts.categoryFeaturedPosts.edges.filter(
-              ({ node }) => {
-                return node.frontmatter.category === category.frontmatter.title
-              }
-            )
+            let posts =
+              carouselPosts &&
+              carouselPosts.categoryFeaturedPosts &&
+              carouselPosts.categoryFeaturedPosts.edges.length > 0 &&
+              carouselPosts.categoryFeaturedPosts.edges.filter(({ node }) => {
+                if (node.frontmatter.category && category.frontmatter.title) {
+                  return (
+                    node.frontmatter.category === category.frontmatter.title
+                  )
+                } else {
+                  return false
+                }
+              })
 
             return (
               <React.Fragment>
@@ -504,7 +353,12 @@ const IndexPage = () => {
       <aside>
         <div>
           <AsideContent
-            posts={carouselPosts.trending.edges}
+            posts={
+              carouselPosts &&
+              carouselPosts.trending &&
+              carouselPosts.trending.edges.length > 0 &&
+              carouselPosts.trending.edges
+            }
             heading="Trending"
             displayCategory={true}
           />

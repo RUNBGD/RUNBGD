@@ -79,11 +79,16 @@ const Careers = () => {
     <Layout fullWidth={true}>
       <main className={styles.fullWidth}>
         <div className={styles.hero}>
-          <Image
-            className={styles.heroImage}
-            fluid={data.page.frontmatter.heroImage.childImageSharp.fluid}
-            alt=""
-          />
+          {data.page &&
+            data.page.frontmatter.heroImage &&
+            data.page.frontmatter.heroImage.childImageSharp &&
+            data.page.frontmatter.heroImage.childImageSharp.fluid && (
+              <Image
+                className={styles.heroImage}
+                fluid={data.page.frontmatter.heroImage.childImageSharp.fluid}
+                alt=""
+              />
+            )}
         </div>
         <div className={styles.kickerText}>
           <h2>CULTURE. PERSONIFIED.</h2>
@@ -95,30 +100,52 @@ const Careers = () => {
         </div>
         <div className={styles.logos}>
           <div className={styles.mainLogo}>
-            {data.logos.edges.map(({ node: logo }) => {
-              if (logo.frontmatter.title === 'Networks') {
-                return (
-                  <Image
-                    fluid={logo.frontmatter.logoImage.childImageSharp.fluid}
-                    alt=""
-                  />
-                )
-              }
-            })}
+            {data.logos &&
+              data.logos.edges &&
+              data.logos.edges.length > 0 &&
+              data.logos.edges.map(({ node: logo }) => {
+                if (logo.frontmatter.title === 'Networks') {
+                  return (
+                    logo.frontmatter.logoImage &&
+                    logo.frontmatter.logoImage.childImageSharp &&
+                    logo.frontmatter.logoImage.childImageSharp.fluid && (
+                      <Image
+                        fluid={logo.frontmatter.logoImage.childImageSharp.fluid}
+                        alt=""
+                      />
+                    )
+                  )
+                }
+              })}
           </div>
           <div className={styles.otherLogos}>
-            {data.logos.edges.map(({ node: logo }) => {
-              if (logo.frontmatter.title !== 'Networks') {
-                return (
-                  <Image
-                    style={{ width: `${100 / data.logos.edges.length - 2}%` }}
-                    className={styles.otherLogosItem}
-                    fluid={logo.frontmatter.logoImage.childImageSharp.fluid}
-                    alt=""
-                  />
-                )
-              }
-            })}
+            {data.logos &&
+              data.logos.edges &&
+              data.logos.edges.length > 0 &&
+              data.logos.edges.map(({ node: logo }) => {
+                if (logo.frontmatter.title !== 'Networks') {
+                  return (
+                    logo.frontmatter.logoImage &&
+                    logo.frontmatter.logoImage.childImageSharp &&
+                    logo.frontmatter.logoImage.childImageSharp.fluid && (
+                      <Image
+                        style={{
+                          width: `${
+                            100 /
+                              (data.logos &&
+                                data.logos.edges &&
+                                data.logos.edges.length) -
+                            2
+                          }%`,
+                        }}
+                        className={styles.otherLogosItem}
+                        fluid={logo.frontmatter.logoImage.childImageSharp.fluid}
+                        alt=""
+                      />
+                    )
+                  )
+                }
+              })}
           </div>
           <hr />
         </div>
@@ -131,50 +158,69 @@ const Careers = () => {
         </div>
         <div className={styles.sliderContainer}>
           <FullWidthSlider>
-            {data.page.frontmatter.slides.map((slide) => {
-              return (
-                <SwiperSlide className={styles.sliderSlide}>
-                  <Image fluid={slide.image.childImageSharp.fluid} alt="" />
-                </SwiperSlide>
-              )
-            })}
+            {data.page &&
+              data.page.frontmatter.slides &&
+              data.page.frontmatter.slides.length > 0 &&
+              data.page.frontmatter.slides.map((slide) => {
+                return (
+                  <SwiperSlide className={styles.sliderSlide}>
+                    {slide.image &&
+                      slide.image.childImageSharp &&
+                      slide.image.childImageSharp.fluid && (
+                        <Image
+                          fluid={slide.image.childImageSharp.fluid}
+                          alt=""
+                        />
+                      )}
+                  </SwiperSlide>
+                )
+              })}
           </FullWidthSlider>
         </div>
         <div className={styles.benefitsSection}>
           <h2>BENEFITS & PERKS</h2>
           <div className={styles.lRow}>
-            {data.page.frontmatter.benefits.map((benefit) => {
-              return (
-                <div className={styles.benefit}>
-                  <Image
-                    className={styles.benefitImage}
-                    fluid={benefit.image.childImageSharp.fluid}
-                    alt=""
-                  />
-                  <HTMLContent content={toHTML(benefit.text)} />
-                </div>
-              )
-            })}
+            {data.page &&
+              data.page.frontmatter.benefits &&
+              data.page.frontmatter.benefits.map((benefit) => {
+                return (
+                  <div className={styles.benefit}>
+                    {benefit.image &&
+                      benefit.image.childImageSharp &&
+                      benefit.image.childImageSharp.fluid && (
+                        <Image
+                          className={styles.benefitImage}
+                          fluid={benefit.image.childImageSharp.fluid}
+                          alt=""
+                        />
+                      )}
+                    <HTMLContent content={toHTML(benefit.text)} />
+                  </div>
+                )
+              })}
           </div>
           <hr />
         </div>
         <div className={styles.openingsSection}>
           <h2>RECENT OPENINGS</h2>
           <div>
-            {data.page.frontmatter.positions.map((position) => {
-              return (
-                <div className={`${styles.position} ${styles.lRow}`}>
-                  <div>
-                    <p className={styles.positionTitle}>{position.title}</p>
-                    <p className={styles.positionType}>{position.type}</p>
-                    <p className={styles.positionPlace}>{position.place}</p>
+            {data.page &&
+              data.page.frontmatter.positions &&
+              data.page.frontmatter.positions.length > 0 &&
+              data.page.frontmatter.positions.map((position) => {
+                return (
+                  <div className={`${styles.position} ${styles.lRow}`}>
+                    <div>
+                      <p className={styles.positionTitle}>{position.title}</p>
+                      <p className={styles.positionType}>{position.type}</p>
+                      <p className={styles.positionPlace}>{position.place}</p>
+                    </div>
+                    <div>
+                      <PostCategoryTag slug={position.link} text={'Apply'} />
+                    </div>
                   </div>
-                  <div>
-                    <PostCategoryTag slug={position.link} text={'Apply'} />
-                  </div>
-                </div>
-              )
-            })}
+                )
+              })}
           </div>
         </div>
       </main>

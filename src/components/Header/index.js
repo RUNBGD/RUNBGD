@@ -134,7 +134,10 @@ const Header = () => {
   search.addIndex('html')
   search.addIndex(['frontmatter', 'author'])
 
-  let allPostsNewArray = data.allPosts.edges.map(({ node }) => node)
+  let allPostsNewArray =
+    data.allPosts &&
+    data.allPosts.edges.length > 0 &&
+    data.allPosts.edges.map(({ node }) => node)
 
   search.addDocuments(allPostsNewArray)
 
@@ -216,18 +219,29 @@ const Header = () => {
         </div>
         <div className={styles.logoNavItems}>
           <Link to="/" className={styles.logo}>
-            <Image
-              fluid={data.mainLogo.frontmatter.logoImage.childImageSharp.fluid}
-              alt="logo"
-            />
+            {data.mainLogo &&
+              data.mainLogo.frontmatter.logoImage &&
+              data.mainLogo.frontmatter.logoImage.childImageSharp &&
+              data.mainLogo.frontmatter.logoImage.childImageSharp.fluid && (
+                <Image
+                  fluid={
+                    data.mainLogo.frontmatter.logoImage.childImageSharp.fluid
+                  }
+                  alt="logo"
+                />
+              )}
           </Link>
         </div>
         <div className={styles.headerLinks}>
-          {data.channels.edges.map(({ node: channel }) => {
-            return (
-              <Link to={channel.fields.slug}>{channel.frontmatter.title}</Link>
-            )
-          })}
+          {data.channels &&
+            data.channels.edges.length > 0 &&
+            data.channels.edges.map(({ node: channel }) => {
+              return (
+                <Link to={channel.fields.slug}>
+                  {channel.frontmatter.title}
+                </Link>
+              )
+            })}
           <Link to={'/shop'}>Shop</Link>
           <div
             className={styles.menuButtonContainer}
@@ -266,22 +280,26 @@ const Header = () => {
             <div className={styles.numOfItemsInCart}>{numOfItemsInCart}</div>
           </div>
           <div className={styles.navSocialLinks}>
-            {data.socialLinks.edges.map(({ node: link }) => {
-              return (
-                <div className={styles.menuButtonContainer}>
-                  <a href={link.frontmatter.url}>
-                    <img
-                      src={
-                        menuOpened
-                          ? link.frontmatter.iconLight.publicURL
-                          : link.frontmatter.iconDark.publicURL
-                      }
-                      alt={`${link.frontmatter.title} icon`}
-                    />
-                  </a>
-                </div>
-              )
-            })}
+            {data.socialLinks &&
+              data.socialLinks.edges.length > 0 &&
+              data.socialLinks.edges.map(({ node: link }) => {
+                return (
+                  <div className={styles.menuButtonContainer}>
+                    <a href={link.frontmatter.url}>
+                      <img
+                        src={
+                          menuOpened
+                            ? link.frontmatter.iconLight &&
+                              link.frontmatter.iconLight.publicURL
+                            : link.frontmatter.iconDark &&
+                              link.frontmatter.iconDark.publicURL
+                        }
+                        alt={`${link.frontmatter.title} icon`}
+                      />
+                    </a>
+                  </div>
+                )
+              })}
           </div>
         </div>
       </div>
@@ -303,35 +321,41 @@ const Header = () => {
             onChange={searchHandler}
           ></input>
           <div className={styles.searchResults}>
-            {transitions.map(({ item, props, key }) => {
-              return (
-                <animated.div
-                  style={props}
-                  key={key}
-                  className={styles.searchResult}
-                >
-                  <Link
-                    to={item.fields.slug}
-                    className={styles.searchResultLink}
+            {transitions.length > 0 &&
+              transitions.map(({ item, props, key }) => {
+                return (
+                  <animated.div
+                    style={props}
+                    key={key}
+                    className={styles.searchResult}
                   >
-                    <div className={styles.searchResultThumbnail}>
-                      <Image
-                        fluid={
-                          item.frontmatter.coverImage.childImageSharp.fluid
-                        }
-                        alt=""
-                      />
-                    </div>
-                    <div className={styles.searchResultText}>
-                      <p>{item.frontmatter.title}</p>
-                      <p className={styles.searchResultDate}>
-                        {item.frontmatter.date}
-                      </p>
-                    </div>
-                  </Link>
-                </animated.div>
-              )
-            })}
+                    <Link
+                      to={item.fields.slug}
+                      className={styles.searchResultLink}
+                    >
+                      <div className={styles.searchResultThumbnail}>
+                        {item.frontmatter.coverImage &&
+                          item.frontmatter.coverImage.childImageSharp &&
+                          item.frontmatter.coverImage.childImageSharp.fluid && (
+                            <Image
+                              fluid={
+                                item.frontmatter.coverImage.childImageSharp
+                                  .fluid
+                              }
+                              alt=""
+                            />
+                          )}
+                      </div>
+                      <div className={styles.searchResultText}>
+                        <p>{item.frontmatter.title}</p>
+                        <p className={styles.searchResultDate}>
+                          {item.frontmatter.date}
+                        </p>
+                      </div>
+                    </Link>
+                  </animated.div>
+                )
+              })}
           </div>
         </div>
       </div>
@@ -346,11 +370,15 @@ const Header = () => {
             menuOpened && styles.headerMoreMenuOpened
           }`}
         >
-          <LinksBlock
-            groupName="Channels"
-            linkArray={data.channels.edges}
-            trigger={menuOpened}
-          />
+          {data.channels &&
+            data.channels.edges &&
+            data.channels.edges.length > 0 && (
+              <LinksBlock
+                groupName="Channels"
+                linkArray={data.channels.edges}
+                trigger={menuOpened}
+              />
+            )}
           <LinksBlock
             groupName="information"
             linkArray={[
@@ -393,16 +421,24 @@ const Header = () => {
             ]}
             trigger={menuOpened}
           />
-          <LinksBlock
-            groupName="Follow On"
-            linkArray={data.socialLinks.edges}
-            trigger={menuOpened}
-          />
-          <LinksBlock
-            groupName="run bgd sites"
-            linkArray={data.otherSites.edges}
-            trigger={menuOpened}
-          />
+          {data.socialLinks &&
+            data.socialLinks.edges &&
+            data.socialLinks.edges.length > 0 && (
+              <LinksBlock
+                groupName="Follow On"
+                linkArray={data.socialLinks.edges}
+                trigger={menuOpened}
+              />
+            )}
+          {data.otherSites &&
+            data.otherSites.edges &&
+            data.otherSites.edges.length > 0 && (
+              <LinksBlock
+                groupName="run bgd sites"
+                linkArray={data.otherSites.edges}
+                trigger={menuOpened}
+              />
+            )}
           <LinksBlock
             groupName="Our Web App"
             linkArray={[

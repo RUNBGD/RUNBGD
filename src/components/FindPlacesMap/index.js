@@ -19,7 +19,7 @@ const FindPlacesMap = ({
   handleUserInteraction,
   onClick,
   clickedLocation,
-  setClickedLocation
+  setClickedLocation,
 }) => {
   const data = useStaticQuery(graphql`
     query findPlacesMap {
@@ -74,20 +74,24 @@ const FindPlacesMap = ({
 
   const popupRef = useRef(null)
 
-  function onPopupClick(location){
+  function onPopupClick(location) {
     setClickedLocation(undefined)
     setCurrentX(0)
     setCurrentY(0)
     setTimeout(() => {
-      setCurrentX(location.frontmatter.longitude)
-      setCurrentY(location.frontmatter.latitude)
+      setCurrentX(
+        location.frontmatter.longitude ? location.frontmatter.longitude : 0
+      )
+      setCurrentY(
+        location.frontmatter.longitude ? location.frontmatter.latitude : 0
+      )
     }, 100)
     onClick && onClick(location)
   }
 
   useEffect(() => {
     const popup = popupRef.current
-    if(popup != null){
+    if (popup != null) {
       popup.leafletElement.options.leaflet.map.closePopup()
     }
   })
@@ -107,60 +111,106 @@ const FindPlacesMap = ({
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
             subdomains={'abcd'}
           />
-          {locations.map(({ node: location }) => {
-            let iconUrl = undefined
-            let category = data.categories.edges.find(
-              ({ node: category }) =>
-                location.frontmatter.category === category.frontmatter.title
-            )
-            let subcategory = data.subcategories.edges.find(
-              ({ node: subcategory }) =>
-                subcategory.frontmatter.title ===
-                location.frontmatter.subcategory
-            )
+          {locations &&
+            locations.length > 0 &&
+            locations.map(({ node: location }) => {
+              let iconUrl = undefined
+              let category =
+                data.categories &&
+                data.categories.edges.length > 0 &&
+                data.categories.edges.find(({ node: category }) => {
+                  if (
+                    location.frontmatter.category &&
+                    category.frontmatter.title
+                  ) {
+                    return (
+                      location.frontmatter.category ===
+                      category.frontmatter.title
+                    )
+                  } else {
+                    return false
+                  }
+                })
+              let subcategory = data.subcategories.edges.find(
+                ({ node: subcategory }) => {
+                  if (
+                    subcategory.frontmatter.title &&
+                    location.frontmatter.subcategory
+                  ) {
+                    return (
+                      subcategory.frontmatter.title ===
+                      location.frontmatter.subcategory
+                    )
+                  } else {
+                    return false
+                  }
+                }
+              )
 
-            if (subcategory) {
-              iconUrl = subcategory.node.frontmatter.categoryPin.publicURL
-            } else if (category) {
-              iconUrl = category.node.frontmatter.categoryPin.publicURL
-            } 
+              if (subcategory) {
+                iconUrl =
+                  subcategory.node.frontmatter.categoryPin &&
+                  subcategory.node.frontmatter.categoryPin.publicURL
+              } else if (category) {
+                iconUrl =
+                  category.node.frontmatter.categoryPin &&
+                  category.node.frontmatter.categoryPin.publicURL
+              }
 
-            if(location.frontmatter.pin && location.frontmatter.pin.publicURL){
-              iconUrl = location.frontmatter.pin.publicURL
-            }
+              if (
+                location.frontmatter.pin &&
+                location.frontmatter.pin.publicURL
+              ) {
+                iconUrl = location.frontmatter.pin.publicURL
+              }
 
-            return (
-              <Marker
-                position={[
-                  location.frontmatter.latitude,
-                  location.frontmatter.longitude,
-                ]}
-                icon={icon({ iconUrl, iconSize: [20, 20] })}
-              >
-                <Popup
-                  ref={popupRef}
-                  className={styles.popup}
+              return (
+                <Marker
+                  position={[
+                    location.frontmatter.latitude
+                      ? location.frontmatter.latitude
+                      : 0,
+                    location.frontmatter.longitude
+                      ? location.frontmatter.longitude
+                      : 0,
+                  ]}
+                  icon={icon({ iconUrl, iconSize: [20, 20] })}
                 >
-                  <div className={styles.popupInnerContainer} onClick={() => onPopupClick(location)}>
-                    <Image
-                      className={styles.popupImage}
-                      fluid={
-                        location.frontmatter.coverImage.childImageSharp.fluid
-                      }
-                    />
-                    <span>
-                      {location.frontmatter.name}
-                    </span>
-                  </div>
-                </Popup>
-              </Marker>
-            )
-          })}
+                  <Popup ref={popupRef} className={styles.popup}>
+                    <div
+                      className={styles.popupInnerContainer}
+                      onClick={() => onPopupClick(location)}
+                    >
+                      {location.frontmatter.coverImage &&
+                        location.frontmatter.coverImage.childImageSharp &&
+                        location.frontmatter.coverImage.childImageSharp
+                          .fluid && (
+                          <Image
+                            className={styles.popupImage}
+                            fluid={
+                              location.frontmatter.coverImage.childImageSharp
+                                .fluid
+                            }
+                          />
+                        )}
+                      <span>{location.frontmatter.name}</span>
+                    </div>
+                  </Popup>
+                </Marker>
+              )
+            })}
           {yCoord != undefined && (
             <Marker
               position={[yCoord, xCoord]}
               icon={icon({
                 iconUrl:
+                  data.currentLocationCategory &&
+                  data.currentLocationCategory.edges.length > 0 &&
+                  data.currentLocationCategory.edges[0] &&
+                  data.currentLocationCategory.edges[0].node.frontmatter
+                    .categoryPin &&
+                  data.currentLocationCategory.edges[0].node.frontmatter
+                    .categoryPin.publicURL &&
                   data.currentLocationCategory.edges[0].node.frontmatter
                     .categoryPin.publicURL,
                 iconSize: [20, 20],

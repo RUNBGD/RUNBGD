@@ -6,7 +6,13 @@ import styles from './shop-product.module.scss'
 const ShopProduct = ({ images, title, price, availableSizes }) => {
   const [hovered, setHovered] = useState(false)
   const [currentImage, setCurrentImage] = useState(
-    images[1] && images[1].image.childImageSharp.fluid
+    images &&
+      images.length > 0 &&
+      images[1] &&
+      images[1].image &&
+      images[1].image.childImageSharp &&
+      images[1].image.childImageSharp.fluid &&
+      images[1].image.childImageSharp.fluid
   )
 
   return (
@@ -19,11 +25,18 @@ const ShopProduct = ({ images, title, price, availableSizes }) => {
         className={`${styles.mainInformation} ${hovered && styles.invisible}`}
       >
         <div className={styles.image}>
-          <Image
-            className={styles.fullHeightImage}
-            fluid={images[0].image.childImageSharp.fluid}
-            alt=""
-          />
+          {images &&
+            images.length > 0 &&
+            images[0] &&
+            images[0].image &&
+            images[0].image.childImageSharp &&
+            images[0].image.childImageSharp.fluid && (
+              <Image
+                className={styles.fullHeightImage}
+                fluid={images[0].image.childImageSharp.fluid}
+                alt=""
+              />
+            )}
         </div>
         <div>
           <p className={styles.title}>{title}</p>
@@ -39,28 +52,52 @@ const ShopProduct = ({ images, title, price, availableSizes }) => {
               alt=""
             />
           ) : (
-            <Image
-              className={styles.fullHeightImage}
-              fluid={images[0].image.childImageSharp.fluid}
-              alt=""
-            />
+            images &&
+            images.length > 0 &&
+            images[0] &&
+            images[0].image &&
+            images[0].image.childImageSharp &&
+            images[0].image.childImageSharp.fluid && (
+              <Image
+                className={styles.fullHeightImage}
+                fluid={images[0].image.childImageSharp.fluid}
+                alt=""
+              />
+            )
           )}
         </div>
         <div className={styles.thumbnailsContainer}>
-          {images.map((image, index) => {
-            if (index < 4) {
-              return (
-                <div
-                  className={styles.thumbnail}
-                  onMouseEnter={() =>
-                    setCurrentImage(images[index].image.childImageSharp.fluid)
-                  }
-                >
-                  <Image fluid={image.image.childImageSharp.fluid} alt="" />
-                </div>
-              )
-            }
-          })}
+          {images &&
+            images.length > 0 &&
+            images.map((image, index) => {
+              if (index < 4) {
+                return (
+                  <div
+                    className={styles.thumbnail}
+                    onMouseEnter={() =>
+                      setCurrentImage(
+                        images &&
+                          images.length > 0 &&
+                          images[index] &&
+                          images[index].image &&
+                          images[index].image.childImageSharp &&
+                          images[index].image.childImageSharp.fluid
+                      )
+                    }
+                  >
+                    {image &&
+                      image.image &&
+                      image.image.childImageSharp &&
+                      image.image.childImageSharp.fluid && (
+                        <Image
+                          fluid={image.image.childImageSharp.fluid}
+                          alt=""
+                        />
+                      )}
+                  </div>
+                )
+              }
+            })}
         </div>
         <div>
           {availableSizes && (

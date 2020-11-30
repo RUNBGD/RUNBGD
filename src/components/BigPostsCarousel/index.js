@@ -65,62 +65,75 @@ const BigPostsCarousel = ({ posts }) => {
         className={styles.carousel}
         onSlideChange={(swiper) => setActiveSlide(swiper.realIndex)}
       >
-        {posts.edges.map(({ node: post }, index) => {
-          let categorySlug = undefined
-          let authorSlug = undefined
+        {posts.edges.length > 0 &&
+          posts.edges.map(({ node: post }, index) => {
+            let categorySlug = undefined
+            let authorSlug = undefined
 
-          let category = data.allMarkdownRemark.edges.find(
-            ({ node: category }) =>
-              post.frontmatter.category === category.frontmatter.title
-          )
+            let category =
+              data.allMarkdownRemark.edges.length > 0 &&
+              data.allMarkdownRemark.edges.find(({ node: category }) => {
+                if (post.frontmatter.category && category.frontmatter.title) {
+                  return (
+                    post.frontmatter.category === category.frontmatter.title
+                  )
+                } else {
+                  return false
+                }
+              })
 
-          let author = data.authors.edges.find(
-            ({ node: author }) =>
-              post.frontmatter.author === author.frontmatter.name
-          )
+            let author =
+              data.authors.edges.length > 0 &&
+              data.authors.edges.find(({ node: author }) => {
+                if (post.frontmatter.author && author.frontmatter.name) {
+                  return post.frontmatter.author === author.frontmatter.name
+                } else {
+                  return false
+                }
+              })
 
-          if (category) {
-            categorySlug = category.node.fields.slug
-          }
-          if (author) {
-            authorSlug = author.node.fields.slug
-          }
+            if (category) {
+              categorySlug = category.node.fields.slug
+            }
+            if (author) {
+              authorSlug = author.node.fields.slug
+            }
 
-          return (
-            <SwiperSlide
-              className={`${styles.slide} ${
-                index === activeSlide
-                  ? styles.activeSlide
-                  : styles.notActiveSlide
-              }`}
-            >
-              <div className={styles.post}>
-                <Link to={post.fields.slug}>
-                  <h2>{post.frontmatter.title}</h2>
-                </Link>
-                <div className={styles.postDetails}>
-                  {post.frontmatter.category && (
-                    <PostCategoryTag
-                      slug={categorySlug}
-                      text={post.frontmatter.category}
-                    />
-                  )}
-                  {post.frontmatter.author && (
-                    <Link to={authorSlug}>
-                      <p className={styles.postAuthor}>
-                        by <a>{post.frontmatter.author}</a>
-                      </p>
-                    </Link>
-                  )}
+            return (
+              <SwiperSlide
+                className={`${styles.slide} ${
+                  index === activeSlide
+                    ? styles.activeSlide
+                    : styles.notActiveSlide
+                }`}
+              >
+                <div className={styles.post}>
+                  <Link to={post.fields.slug}>
+                    <h2>{post.frontmatter.title}</h2>
+                  </Link>
+                  <div className={styles.postDetails}>
+                    {post.frontmatter.category && (
+                      <PostCategoryTag
+                        slug={categorySlug}
+                        text={post.frontmatter.category}
+                      />
+                    )}
+                    {post.frontmatter.author && (
+                      <Link to={authorSlug}>
+                        <p className={styles.postAuthor}>
+                          by <a>{post.frontmatter.author}</a>
+                        </p>
+                      </Link>
+                    )}
+                  </div>
+                  <PostImage
+                    slug={post.fields.slug}
+                    image={post.frontmatter.coverImage}
+                  />
                 </div>
-                <PostImage
-                  slug={post.fields.slug}
-                  image={post.frontmatter.coverImage.childImageSharp.fluid}
-                />
-              </div>
-            </SwiperSlide>
-          )
-        })}
+              </SwiperSlide>
+            )
+          })}
         <div className={styles.swiperPagination}></div>
         <img
           className={styles.swiperPrevEl}

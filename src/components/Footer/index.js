@@ -35,16 +35,21 @@ const Footer = () => {
         <div className={styles.socialContainer}>
           <p>Connect With Us</p>
           <div className={styles.socialIconsContainer}>
-            {data.socialLinks.edges.map(({ node: link }) => {
-              return (
-                <a href={link.fields.slug}>
-                  <img
-                    src={link.frontmatter.iconDark.publicURL}
-                    alt={`${link.frontmatter.title} logo`}
-                  />
-                </a>
-              )
-            })}
+            {data.socialLinks &&
+              data.socialLinks.edges.length > 0 &&
+              data.socialLinks.edges.map(({ node: link }) => {
+                return (
+                  <a href={link.fields.slug}>
+                    {link.frontmatter.iconDark &&
+                      link.frontmatter.iconDark.publicURL && (
+                        <img
+                          src={link.frontmatter.iconDark.publicURL}
+                          alt={`${link.frontmatter.title} logo`}
+                        />
+                      )}
+                  </a>
+                )
+              })}
           </div>
         </div>
         <hr />

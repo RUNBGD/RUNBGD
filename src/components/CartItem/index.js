@@ -23,12 +23,21 @@ const CartItem = ({ item: product }) => {
     <div className={styles.cartItem}>
       <div className={styles.itemImage}>
         <Link to={product.product.fields.slug}>
-          <Image
-            fluid={
-              product.product.frontmatter.images[0].image.childImageSharp.fluid
-            }
-            alt=""
-          />
+          {product.product.frontmatter.images.length > 0 &&
+            product.product.frontmatter.images[0] &&
+            product.product.frontmatter.images[0].image &&
+            product.product.frontmatter.images[0].image.childImageSharp &&
+            product.product.frontmatter.images[0].image.childImageSharp &&
+            product.product.frontmatter.images[0].image.childImageSharp
+              .fluid && (
+              <Image
+                fluid={
+                  product.product.frontmatter.images[0].image.childImageSharp
+                    .fluid
+                }
+                alt=""
+              />
+            )}
         </Link>
       </div>
       <div className={styles.itemInformation}>
@@ -39,11 +48,13 @@ const CartItem = ({ item: product }) => {
           <p className={styles.itemDescription}>
             {product.product.frontmatter.description}
           </p>
-          {product.size !== undefined && (
-            <p className={styles.itemSize}>
-              Size: {product.product.frontmatter.sizes[product.size].size}
-            </p>
-          )}
+          {product.size !== undefined &&
+            product.product.frontmatter.sizes.length > 0 &&
+            product.product.frontmatter.sizes[product.size] && (
+              <p className={styles.itemSize}>
+                Size: {product.product.frontmatter.sizes[product.size].size}
+              </p>
+            )}
         </Link>
       </div>
       <div className={styles.quantity}>

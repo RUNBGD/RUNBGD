@@ -83,47 +83,63 @@ let Sitemap = () => {
         <div className={styles.sitemapEntries}>
           <div className={styles.entryGroup}>
             <p className={styles.groupParagraph}>Channels</p>
-            {data.channels.edges.map(({ node: channel }) => {
-              console.log(data.subchannels)
-              let subchannels = data.subchannels.edges.filter(
-                ({ node: subchannel }) => {
-                  return (
-                    channel.frontmatter.title ===
-                    subchannel.frontmatter.category
-                  )
-                }
-              )
-              return (
-                <React.Fragment>
-                  <Link to={channel.fields.slug}>
-                    <p className={styles.entry}>{channel.frontmatter.title}</p>
-                  </Link>
-                  {subchannels && (
-                    <ul className={styles.subentryList}>
-                      {subchannels.map(({ node: subchannel }) => {
-                        return (
-                          <li className={styles.subentry}>
-                            <Link to={subchannel.fields.slug}>
-                              {subchannel.frontmatter.title}
-                            </Link>
-                          </li>
-                        )
-                      })}
-                    </ul>
-                  )}
-                </React.Fragment>
-              )
-            })}
+            {data.channels &&
+              data.channels.edges &&
+              data.channels.edges.length > 0 &&
+              data.channels.edges.map(({ node: channel }) => {
+                let subchannels =
+                  data.subchannels &&
+                  data.subchannels.edges &&
+                  data.subchannels.edges.length > 0 &&
+                  data.subchannels.edges.filter(({ node: subchannel }) => {
+                    if (
+                      channel.frontmatter.title &&
+                      subchannel.frontmatter.category
+                    ) {
+                      return (
+                        channel.frontmatter.title ===
+                        subchannel.frontmatter.category
+                      )
+                    } else {
+                      return false
+                    }
+                  })
+                return (
+                  <React.Fragment>
+                    <Link to={channel.fields.slug}>
+                      <p className={styles.entry}>
+                        {channel.frontmatter.title}
+                      </p>
+                    </Link>
+                    {subchannels && (
+                      <ul className={styles.subentryList}>
+                        {subchannels.map(({ node: subchannel }) => {
+                          return (
+                            <li className={styles.subentry}>
+                              <Link to={subchannel.fields.slug}>
+                                {subchannel.frontmatter.title}
+                              </Link>
+                            </li>
+                          )
+                        })}
+                      </ul>
+                    )}
+                  </React.Fragment>
+                )
+              })}
           </div>
           <div className={styles.entryGroup}>
             <p className={styles.groupParagraph}>Follow Us</p>
-            {data.socialLinks.edges.map(({ node: social }) => (
-              <Link to={social.frontmatter.url}>
-                <p className={styles.entry}>
-                  Follow us on {social.frontmatter.title}
-                </p>
-              </Link>
-            ))}
+            {data.socialLinks &&
+              data.socialLinks.edges &&
+              data.socialLinks.edges.length > 0 &&
+              data.socialLinks.edges.map(({ node: social }) => (
+                <Link to={social.frontmatter.url}>
+                  <p className={styles.entry}>
+                    Follow us on {social.frontmatter.title}
+                  </p>
+                </Link>
+              ))}
           </div>
           <div className={styles.entryGroup}>
             <p className={styles.groupParagraph}>Info</p>
@@ -154,11 +170,14 @@ let Sitemap = () => {
           </div>
           <div className={styles.entryGroup}>
             <p className={styles.groupParagraph}>Authors</p>
-            {data.authors.edges.map(({ node: author }) => (
-              <Link to={author.fields.slug}>
-                <p className={styles.entry}>{author.frontmatter.name}</p>
-              </Link>
-            ))}
+            {data.authors &&
+              data.authors.edges &&
+              data.authors.edges.length > 0 &&
+              data.authors.edges.map(({ node: author }) => (
+                <Link to={author.fields.slug}>
+                  <p className={styles.entry}>{author.frontmatter.name}</p>
+                </Link>
+              ))}
           </div>
           <div className={styles.entryGroup}>
             <p className={styles.groupParagraph}>Web Application</p>

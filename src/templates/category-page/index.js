@@ -40,10 +40,10 @@ let CategoryPage = ({ data }) => {
   const [zoomInterval, setZoomInterval] = useState(undefined)
 
   const [clickedLocation, setClickedLocation] = useState(undefined)
-  
+
   useEffect(() => {
-    if(!clickedLocation){
-      if(zoomInterval){
+    if (!clickedLocation) {
+      if (zoomInterval) {
         clearInterval(zoomInterval)
       }
       setZoomLevel(undefined)
@@ -51,28 +51,30 @@ let CategoryPage = ({ data }) => {
     }
   }, [clickedLocation])
 
-  function onLocationClicked(location){
+  function onLocationClicked(location) {
     setZoomLevel(12)
     clearInterval(zoomInterval)
-  
+
     setTimeout(() => {
-      setZoomLevel(prevState => prevState + 1)
-      setZoomInterval(setInterval(() => {
-        setZoomLevel(prevState => prevState + 1)
-      }, 1000))
+      setZoomLevel((prevState) => prevState + 1)
+      setZoomInterval(
+        setInterval(() => {
+          setZoomLevel((prevState) => prevState + 1)
+        }, 1000)
+      )
     }, 1000)
-    
+
     setClickedLocation(location.frontmatter)
   }
-  
+
   useEffect(() => {
-    if(zoomInterval && zoomLevel > 18){
+    if (zoomInterval && zoomLevel > 18) {
       clearInterval(zoomInterval)
     }
   }, [zoomLevel])
-  
-  function handleUserMapInteraction(){
-    if(zoomInterval){
+
+  function handleUserMapInteraction() {
+    if (zoomInterval) {
       clearInterval(zoomInterval)
     }
   }
@@ -105,7 +107,7 @@ let CategoryPage = ({ data }) => {
           method: 'POST',
         }
       )
-      .then((response) => response.json())
+        .then((response) => response.json())
         .then((data) => {
           setFetching(false)
           if (data.status == 'success') {
@@ -134,26 +136,35 @@ let CategoryPage = ({ data }) => {
             </h1>
             <hr />
             <div className={styles.categoryCover}>
-              <Image
-                fluid={
-                  data.markdownRemark.frontmatter.coverImage.childImageSharp
-                    .fluid
-                }
-                alt=""
-              />
+              {data.markdownRemark.frontmatter.coverImage &&
+                data.markdownRemark.frontmatter.coverImage.childImageSharp &&
+                data.markdownRemark.frontmatter.coverImage.childImageSharp
+                  .fluid && (
+                  <Image
+                    fluid={
+                      data.markdownRemark.frontmatter.coverImage.childImageSharp
+                        .fluid
+                    }
+                    alt=""
+                  />
+                )}
             </div>
           </div>
-          {data.subCategories.edges[0] && (
-            <div className={styles.subCategoriesNavigation}>
-              {data.subCategories.edges.map(({ node: subcategory }) => {
-                return (
-                  <Link to={`#${subcategory.frontmatter.title}`}>
-                    {subcategory.frontmatter.title}
-                  </Link>
-                )
-              })}
-            </div>
-          )}
+          {data.subCategories &&
+            data.subCategories.edges.length > 0 &&
+            data.subCategories.edges[0] && (
+              <div className={styles.subCategoriesNavigation}>
+                {data.subCategories &&
+                  data.subCategories.edges.length > 0 &&
+                  data.subCategories.edges.map(({ node: subcategory }) => {
+                    return (
+                      <Link to={`#${subcategory.frontmatter.title}`}>
+                        {subcategory.frontmatter.title}
+                      </Link>
+                    )
+                  })}
+              </div>
+            )}
         </React.Fragment>
       }
     >
@@ -176,7 +187,11 @@ let CategoryPage = ({ data }) => {
             <div className={styles.mapAndLocations}>
               <div className={styles.map}>
                 <FindPlacesMap
-                  locations={data.locations.edges}
+                  locations={
+                    data.locations &&
+                    data.locations.edges.length > 0 &&
+                    data.locations.edges
+                  }
                   zoom={zoomLevel ? zoomLevel : 12}
                   currentX={currentX}
                   currentY={currentY}
@@ -190,7 +205,11 @@ let CategoryPage = ({ data }) => {
               </div>
               <div className={styles.locations}>
                 <FindPlacesLocations
-                  locations={data.locations.edges}
+                  locations={
+                    data.locations &&
+                    data.locations.edges.length > 0 &&
+                    data.locations.edges
+                  }
                   filterCategory={'Select Category'}
                   horizontalOnMobile={true}
                   setCurrentX={setCurrentX}
@@ -212,24 +231,25 @@ let CategoryPage = ({ data }) => {
               content={toHTML(data.packages.frontmatter.description)}
             />
             <div className={styles.packageContainer}>
-              {data.packages.frontmatter.packages.map((item) => {
-                return (
-                  <div className={styles.package}>
-                    <div className={styles.background}>
-                      <Image
-                        className={styles.fullHeightImage}
-                        fluid={item.background.childImageSharp.fluid}
+              {data.packages.frontmatter.packages.length > 0 &&
+                data.packages.frontmatter.packages.map((item) => {
+                  return (
+                    <div className={styles.package}>
+                      <div className={styles.background}>
+                        <Image
+                          className={styles.fullHeightImage}
+                          fluid={item.background.childImageSharp.fluid}
+                        />
+                        <div className={styles.overlay}></div>
+                      </div>
+                      <p className={styles.packageTitle}>{item.title}</p>
+                      <HTMLContent
+                        className={styles.packageDescription}
+                        content={toHTML(item.description)}
                       />
-                      <div className={styles.overlay}></div>
                     </div>
-                    <p className={styles.packageTitle}>{item.title}</p>
-                    <HTMLContent
-                      className={styles.packageDescription}
-                      content={toHTML(item.description)}
-                    />
-                  </div>
-                )
-              })}
+                  )
+                })}
             </div>
             <HTMLContent
               className={styles.packageBody}
@@ -240,17 +260,23 @@ let CategoryPage = ({ data }) => {
                 <h3>Contact Us About {data.packages.frontmatter.title}</h3>
                 <form className={styles.packagesContactForm}>
                   <p className={styles.packageLabel}>Select Package*</p>
-                  {data.packages.frontmatter.packages.map((item) => {
-                    return (
-                      <div
-                        className={styles.packageInput}
-                        onChange={(e) => setSelectedPackage(e.target.value)}
-                      >
-                        <label>{item.title}</label>
-                        <input type="radio" name="package" value={item.title} />
-                      </div>
-                    )
-                  })}
+                  {data.packages.frontmatter.packages &&
+                    data.packages.frontmatter.packages.length > 0 &&
+                    data.packages.frontmatter.packages.map((item) => {
+                      return (
+                        <div
+                          className={styles.packageInput}
+                          onChange={(e) => setSelectedPackage(e.target.value)}
+                        >
+                          <label>{item.title}</label>
+                          <input
+                            type="radio"
+                            name="package"
+                            value={item.title}
+                          />
+                        </div>
+                      )
+                    })}
                   <div className={styles.fullNameInput}>
                     <div onChange={(e) => setFirstName(e.target.value)}>
                       <label>First Name*</label>
@@ -299,15 +325,24 @@ let CategoryPage = ({ data }) => {
             )}
           </div>
         )}
-        {data.subCategories.edges[0] &&
+        {data.subCategories &&
+          data.subCategories.edges.length > 0 &&
           data.subCategories.edges.map(({ node: category }) => {
-            let filteredPosts = data.subCategoryItems.edges.filter(
-              ({ node: item }) => {
-                return (
-                  item.frontmatter.subcategory === category.frontmatter.title
-                )
-              }
-            )
+            let filteredPosts =
+              data.subCategoryItems &&
+              data.subCategoryItems.edges.length > 0 &&
+              data.subCategoryItems.edges.filter(({ node: item }) => {
+                if (
+                  item.frontmatter.subcategory &&
+                  category.frontmatter.title
+                ) {
+                  return (
+                    item.frontmatter.subcategory === category.frontmatter.title
+                  )
+                } else {
+                  return false
+                }
+              })
             return (
               <div id={category.frontmatter.title}>
                 <div className={styles.titleAndSeeMore}>
@@ -450,7 +485,7 @@ export const pageQuery = graphql`
                 }
               }
             }
-            pin{
+            pin {
               publicURL
             }
             category

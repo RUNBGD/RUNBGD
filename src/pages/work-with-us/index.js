@@ -176,22 +176,36 @@ const WorkWithUsPage = () => {
     <Layout fullWidth={true}>
       <section class={styles.videoSection}>
         <div className={styles.background}>
-          <video className={styles.fullWidthImage} autoPlay muted loop={true}>
-            <source
-              src={data.page.frontmatter.heroVideoCover.publicURL}
-              type="video/mp4"
-            />
-          </video>
+          {data.page &&
+            data.page.frontmatter.heroVideoCover &&
+            data.page.frontmatter.heroVideoCover.publicURL && (
+              <video
+                className={styles.fullWidthImage}
+                autoPlay
+                muted
+                loop={true}
+              >
+                <source
+                  src={data.page.frontmatter.heroVideoCover.publicURL}
+                  type="video/mp4"
+                />
+              </video>
+            )}
           <div className={styles.overlay}></div>
         </div>
         <div className={styles.lSpacedContent}>
-          <Image
-            fluid={
-              data.networksLogo.frontmatter.logoImage.childImageSharp.fluid
-            }
-            alt=""
-            className={styles.mainLogo}
-          />
+          {data.networksLogo &&
+            data.networksLogo.frontmatter.logoImage &&
+            data.networksLogo.frontmatter.logoImage.childImageSharp &&
+            data.networksLogo.frontmatter.logoImage.childImageSharp.fluid && (
+              <Image
+                fluid={
+                  data.networksLogo.frontmatter.logoImage.childImageSharp.fluid
+                }
+                alt=""
+                className={styles.mainLogo}
+              />
+            )}
           <HTMLContent
             className={styles.heroHeading}
             content={toHTML(data.page.frontmatter.heroHeading)}
@@ -206,98 +220,135 @@ const WorkWithUsPage = () => {
             <img src={downArrow} alt="" />
           </a>
           <div className={styles.allLogos}>
-            {data.logos.edges.map(({ node: logo }) => {
-              if (logo.frontmatter.title !== 'Networks') {
-                return (
-                  <Image
-                    fluid={logo.frontmatter.logoImage.childImageSharp.fluid}
-                    alt={logo.frontmatter.title}
-                  />
-                )
-              }
-            })}
+            {data.logos &&
+              data.logos.edges &&
+              data.logos.edges.length > 0 &&
+              data.logos.edges.map(({ node: logo }) => {
+                if (logo.frontmatter.title !== 'Networks') {
+                  return (
+                    logo.frontmatter.logoImage &&
+                    logo.frontmatter.logoImage.childImageSharp &&
+                    logo.frontmatter.logoImage.childImageSharp.fluid && (
+                      <Image
+                        fluid={logo.frontmatter.logoImage.childImageSharp.fluid}
+                        alt={logo.frontmatter.title}
+                      />
+                    )
+                  )
+                }
+              })}
           </div>
         </div>
       </section>
       <section className={styles.aboutSection} id="about">
         <div className={styles.background}>
-          <Image
-            className={styles.fullWidthImage}
-            fluid={data.page.frontmatter.aboutImageCover.childImageSharp.fluid}
-          />
+          {data.page &&
+            data.page.frontmatter.aboutImageCover &&
+            data.page.frontmatter.aboutImageCover.childImageSharp &&
+            data.page.frontmatter.aboutImageCover.childImageSharp.fluid && (
+              <Image
+                className={styles.fullWidthImage}
+                fluid={
+                  data.page.frontmatter.aboutImageCover.childImageSharp.fluid
+                }
+              />
+            )}
           <div className={styles.overlay}></div>
         </div>
         <div className={styles.aboutText}>
           <HTMLContent content={toHTML(data.page.frontmatter.aboutText)} />
         </div>
         <div className={styles.allLogos}>
-          {data.logos.edges.map(({ node: logo }) => {
-            if (logo.frontmatter.title !== 'Networks') {
-              return (
-                <Image
-                  fluid={logo.frontmatter.logoImage.childImageSharp.fluid}
-                  alt={logo.frontmatter.title}
-                />
-              )
-            }
-          })}
+          {data.logos &&
+            data.logos.edges.length > 0 &&
+            data.logos.edges.map(({ node: logo }) => {
+              if (logo.frontmatter.title !== 'Networks') {
+                return (
+                  logo.frontmatter.logoImage &&
+                  logo.frontmatter.logoImage.childImageSharp &&
+                  logo.frontmatter.logoImage.childImageSharp.fluid && (
+                    <Image
+                      fluid={logo.frontmatter.logoImage.childImageSharp.fluid}
+                      alt={logo.frontmatter.title}
+                    />
+                  )
+                )
+              }
+            })}
         </div>
       </section>
       <section className={styles.ourBrandsSection}>
         <h2>Our Brands</h2>
         <div className={styles.brandsContainer}>
-          {data.logos.edges.map(({ node: logo }) => {
-            if (logo.frontmatter.title !== 'Networks') {
-              return (
-                <div className={styles.brand}>
-                  <div className={styles.background}>
-                    {logo.frontmatter.coverImage && (
-                      <Image
-                        className={styles.fullHeightImage}
-                        fluid={
-                          logo.frontmatter.coverImage.childImageSharp.fluid
-                        }
-                      />
-                    )}
-                    <div className={styles.overlay}></div>
+          {data.logos &&
+            data.logos.edges.length > 0 &&
+            data.logos.edges.map(({ node: logo }) => {
+              if (logo.frontmatter.title !== 'Networks') {
+                return (
+                  <div className={styles.brand}>
+                    <div className={styles.background}>
+                      {logo.frontmatter.coverImage &&
+                        logo.frontmatter.coverImage.childImageSharp &&
+                        logo.frontmatter.coverImage.childImageSharp.fluid && (
+                          <Image
+                            className={styles.fullHeightImage}
+                            fluid={
+                              logo.frontmatter.coverImage.childImageSharp.fluid
+                            }
+                          />
+                        )}
+                      <div className={styles.overlay}></div>
+                    </div>
+                    <div className={styles.brandLogo}>
+                      {logo.frontmatter.logoImage &&
+                        logo.frontmatter.logoImage.childImageSharp &&
+                        logo.frontmatter.logoImage.childImageSharp.fluid && (
+                          <Image
+                            fluid={
+                              logo.frontmatter.logoImage.childImageSharp.fluid
+                            }
+                            alt={logo.frontmatter.title}
+                          />
+                        )}
+                    </div>
+                    <div className={styles.brandText}>
+                      <h3 className={styles.brandTitle}>
+                        {logo.frontmatter.title}
+                      </h3>
+                      <p className={styles.brandDescription}>
+                        {logo.frontmatter.description}
+                      </p>
+                    </div>
                   </div>
-                  <div className={styles.brandLogo}>
-                    <Image
-                      fluid={logo.frontmatter.logoImage.childImageSharp.fluid}
-                      alt={logo.frontmatter.title}
-                    />
-                  </div>
-                  <div className={styles.brandText}>
-                    <h3 className={styles.brandTitle}>
-                      {logo.frontmatter.title}
-                    </h3>
-                    <p className={styles.brandDescription}>
-                      {logo.frontmatter.description}
-                    </p>
-                  </div>
-                </div>
-              )
-            }
-          })}
+                )
+              }
+            })}
         </div>
       </section>
-      {data.page.frontmatter.sections.map((section, index) => {
-        return (
-          <section key={index} className={styles.longTextSection}>
-            <div className={styles.background}>
-              <Image
-                className={styles.fullWidthImage}
-                fluid={section.coverImage.childImageSharp.fluid}
-              />
-              <div className={styles.overlay}></div>
-            </div>
-            <div className={styles.longText}>
-              <h2>{section.sectionHeading}</h2>
-              <HTMLContent content={toHTML(section.sectionText)} />
-            </div>
-          </section>
-        )
-      })}
+      {data.page &&
+        data.page.frontmatter.sections &&
+        data.page.frontmatter.sections.length > 0 &&
+        data.page.frontmatter.sections.map((section, index) => {
+          return (
+            <section key={index} className={styles.longTextSection}>
+              <div className={styles.background}>
+                {section.coverImage &&
+                  section.coverImage.childImageSharp &&
+                  section.coverImage.childImageSharp.fluid && (
+                    <Image
+                      className={styles.fullWidthImage}
+                      fluid={section.coverImage.childImageSharp.fluid}
+                    />
+                  )}
+                <div className={styles.overlay}></div>
+              </div>
+              <div className={styles.longText}>
+                <h2>{section.sectionHeading}</h2>
+                <HTMLContent content={toHTML(section.sectionText)} />
+              </div>
+            </section>
+          )
+        })}
     </Layout>
   )
 }

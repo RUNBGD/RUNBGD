@@ -39,22 +39,21 @@ function distance(lat1, lon1, lat2, lon2, unit) {
 }
 
 const FindPlaces = () => {
-
   const [xCoord, setXCoord] = useQueryParam('x', NumberParam)
   const [yCoord, setYCoord] = useQueryParam('y', NumberParam)
-  
+
   const [filterCategory, setFilterCategory] = useState('Select Category')
   const [currentX, setCurrentX] = useState(0)
   const [currentY, setCurrentY] = useState(0)
 
   const [zoomLevel, setZoomLevel] = useState(undefined)
   const [zoomInterval, setZoomInterval] = useState(undefined)
-  
+
   const [clickedLocation, setClickedLocation] = useState(undefined)
-  
+
   useEffect(() => {
-    if(!clickedLocation){
-      if(zoomInterval){
+    if (!clickedLocation) {
+      if (zoomInterval) {
         clearInterval(zoomInterval)
       }
       setZoomLevel(undefined)
@@ -62,38 +61,39 @@ const FindPlaces = () => {
     }
   }, [clickedLocation])
 
-  function onLocationClicked(location){
+  function onLocationClicked(location) {
     setZoomLevel(12)
     clearInterval(zoomInterval)
-  
+
     setTimeout(() => {
-      setZoomLevel(prevState => prevState + 1)
-      setZoomInterval(setInterval(() => {
-        setZoomLevel(prevState => prevState + 1)
-      }, 1000))
+      setZoomLevel((prevState) => prevState + 1)
+      setZoomInterval(
+        setInterval(() => {
+          setZoomLevel((prevState) => prevState + 1)
+        }, 1000)
+      )
     }, 1000)
     setClickedLocation(location.frontmatter)
   }
-  
+
   useEffect(() => {
-    if(zoomInterval && zoomLevel > 18){
+    if (zoomInterval && zoomLevel > 18) {
       clearInterval(zoomInterval)
     }
   }, [zoomLevel])
-  
-  function handleUserMapInteraction(){
-    if(zoomInterval){
+
+  function handleUserMapInteraction() {
+    if (zoomInterval) {
       clearInterval(zoomInterval)
     }
   }
-  
+
   useEffect(() => {
     setCurrentX(xCoord)
     setCurrentY(yCoord)
   }, [xCoord, yCoord])
 
   const [mapExpanded, setMapExpanded] = useState(false)
-
 
   const data = useStaticQuery(graphql`
     query FindPlacesLocationQuery {
@@ -111,7 +111,7 @@ const FindPlaces = () => {
                   }
                 }
               }
-              pin{
+              pin {
                 publicURL
               }
               category
@@ -176,44 +176,46 @@ const FindPlaces = () => {
           </video>
           <div className={styles.overlay}></div>
         </div>
-            <div className={styles.locationItemsContainer}>
-            <div className={styles.mapAndLocations}>
-              <div
-                className={`${styles.map} ${mapExpanded && styles.isExpanded}`}
+        <div className={styles.locationItemsContainer}>
+          <div className={styles.mapAndLocations}>
+            <div
+              className={`${styles.map} ${mapExpanded && styles.isExpanded}`}
+            >
+              <FindPlacesMap
+                locations={data.locations.edges}
+                expanded={mapExpanded}
+                zoom={zoomLevel ? zoomLevel : 12}
+                currentY={currentY}
+                currentX={currentX}
+                setCurrentX={setCurrentX}
+                setCurrentY={setCurrentY}
+                xCoord={xCoord}
+                yCoord={yCoord}
+                handleUserInteraction={handleUserMapInteraction}
+                onClick={onLocationClicked}
+                clickedLocation={clickedLocation}
+                setClickedLocation={setClickedLocation}
+              />
+            </div>
+            <div className={styles.expandButtonContainer}>
+              <button
+                className={`${styles.expandButton} ${
+                  mapExpanded && styles.isActivated
+                }`}
+                onClick={() => setMapExpanded((prevState) => !prevState)}
               >
-                <FindPlacesMap
-                  locations={data.locations.edges}
-                  expanded={mapExpanded}
-                  zoom={zoomLevel ? zoomLevel : 12}
-                  currentY={currentY}
-                  currentX={currentX}
-                  setCurrentX={setCurrentX}
-                  setCurrentY={setCurrentY}
-                  xCoord={xCoord}
-                  yCoord={yCoord}
-                  handleUserInteraction={handleUserMapInteraction}
-                  onClick={onLocationClicked}
-                  clickedLocation={clickedLocation}
-                  setClickedLocation={setClickedLocation}
-                />
-              </div>
-              <div className={styles.expandButtonContainer}>
-                <button
-                  className={`${styles.expandButton} ${
-                    mapExpanded && styles.isActivated
-                  }`}
-                  onClick={() => setMapExpanded((prevState) => !prevState)}
-                >
-                  <img src={expandButton} alt="expand button" />
-                </button>
-              </div>
-              <div className={styles.locations}>
-                <select
-                  onChange={(e) => setFilterCategory(e.target.value)}
-                  className={styles.categoryFilter}
-                >
-                  <option value="Select Category">Select Category</option>
-                  {data.categories.edges.map(({ node: category }) => {
+                <img src={expandButton} alt="expand button" />
+              </button>
+            </div>
+            <div className={styles.locations}>
+              <select
+                onChange={(e) => setFilterCategory(e.target.value)}
+                className={styles.categoryFilter}
+              >
+                <option value="Select Category">Select Category</option>
+                {data.categories &&
+                  data.categories.edges.length > 0 &&
+                  data.categories.edges.map(({ node: category }) => {
                     if (category.frontmatter.title == 'Current Location') {
                       return
                     }
@@ -223,21 +225,25 @@ const FindPlaces = () => {
                       </option>
                     )
                   })}
-                </select>
-                <FindPlacesLocations
-                  locations={data.locations.edges}
-                  xCoord={xCoord}
-                  yCoord={yCoord}
-                  setCurrentX={setCurrentX}
-                  setCurrentY={setCurrentY}
-                  filterCategory={filterCategory}
-                  onClick={onLocationClicked}
-                  clickedLocation={clickedLocation}
-                  setClickedLocation={setClickedLocation}
-                />
-              </div>
+              </select>
+              {data.locations &&
+                data.locations.edges &&
+                data.locations.edges.length > 0 && (
+                  <FindPlacesLocations
+                    locations={data.locations.edges}
+                    xCoord={xCoord}
+                    yCoord={yCoord}
+                    setCurrentX={setCurrentX}
+                    setCurrentY={setCurrentY}
+                    filterCategory={filterCategory}
+                    onClick={onLocationClicked}
+                    clickedLocation={clickedLocation}
+                    setClickedLocation={setClickedLocation}
+                  />
+                )}
             </div>
           </div>
+        </div>
       </main>
     </Layout>
   )

@@ -112,19 +112,27 @@ const ShopProductPage = ({ data }) => {
                 onSwiper={setThumbsSwiper}
                 className={styles.thumbnailSlider}
               >
-                {data.product.frontmatter.images.map((image, index) => {
-                  return (
-                    <SwiperSlide className={styles.thumbnailSlide} key={index}>
-                      <div className={styles.thumbnail}>
-                        <Image
-                          className={styles.thumbnailImage}
-                          fluid={image.image.childImageSharp.fluid}
-                          alt=""
-                        />
-                      </div>
-                    </SwiperSlide>
-                  )
-                })}
+                {data.product.frontmatter.images.length > 0 &&
+                  data.product.frontmatter.images.map((image, index) => {
+                    return (
+                      <SwiperSlide
+                        className={styles.thumbnailSlide}
+                        key={index}
+                      >
+                        <div className={styles.thumbnail}>
+                          {image.image &&
+                            image.image.childImageSharp &&
+                            image.image.childImageSharp.fluid && (
+                              <Image
+                                className={styles.thumbnailImage}
+                                fluid={image.image.childImageSharp.fluid}
+                                alt=""
+                              />
+                            )}
+                        </div>
+                      </SwiperSlide>
+                    )
+                  })}
                 <div className={styles.swiperNextEl}>
                   <img src={sliderArrow} alt="" />
                 </div>
@@ -148,17 +156,22 @@ const ShopProductPage = ({ data }) => {
                 loop={true}
                 className={styles.mainSlider}
               >
-                {data.product.frontmatter.images.map((image, index) => {
-                  return (
-                    <SwiperSlide key={index}>
-                      <Image
-                        className={styles.mainImage}
-                        fluid={image.image.childImageSharp.fluid}
-                        alt=""
-                      />
-                    </SwiperSlide>
-                  )
-                })}
+                {data.product.frontmatter.images.length > 0 &&
+                  data.product.frontmatter.images.map((image, index) => {
+                    return (
+                      <SwiperSlide key={index}>
+                        {image.image &&
+                          image.image.childImageSharp &&
+                          image.image.childImageSharp.fluid && (
+                            <Image
+                              className={styles.mainImage}
+                              fluid={image.image.childImageSharp.fluid}
+                              alt=""
+                            />
+                          )}
+                      </SwiperSlide>
+                    )
+                  })}
               </Swiper>
             </div>
           </div>
@@ -174,21 +187,22 @@ const ShopProductPage = ({ data }) => {
               <React.Fragment>
                 <p>Sizes</p>
                 <div className={styles.sizes}>
-                  {data.product.frontmatter.sizes.map((size, index) => {
-                    return (
-                      <div
-                        onClick={() => {
-                          size.available && setSelectedSize(index)
-                        }}
-                        className={`${styles.size} ${
-                          !size.available && styles.notAvailable
-                        } ${selectedSize === index && styles.selected}`}
-                        key={index}
-                      >
-                        {size.size}
-                      </div>
-                    )
-                  })}
+                  {data.product.frontmatter.sizes.length > 0 &&
+                    data.product.frontmatter.sizes.map((size, index) => {
+                      return (
+                        <div
+                          onClick={() => {
+                            size.available && setSelectedSize(index)
+                          }}
+                          className={`${styles.size} ${
+                            !size.available && styles.notAvailable
+                          } ${selectedSize === index && styles.selected}`}
+                          key={index}
+                        >
+                          {size.size}
+                        </div>
+                      )
+                    })}
                 </div>
               </React.Fragment>
             )}

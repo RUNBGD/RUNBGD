@@ -64,7 +64,7 @@ const PostCover = ({ post }) => {
       <div className={styles.postImage}>
         <PostImage
           slug={post.fields.slug}
-          image={post.frontmatter.coverImage.childImageSharp.fluid}
+          image={post.frontmatter.coverImage}
         />
       </div>
       <div className={styles.postText}>

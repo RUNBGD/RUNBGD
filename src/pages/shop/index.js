@@ -163,21 +163,37 @@ const Shop = () => {
           <div className={styles.bannerTextContainer}>
             <div className={styles.bannerText}>
               <h2>
-                {data.page.frontmatter.banners[activeSlide].bannerHeading}
+                {data.page &&
+                  data.page.frontmatter.banners &&
+                  data.page.frontmatter.banners.length > 0 &&
+                  data.page.frontmatter.banners[activeSlide] &&
+                  data.page.frontmatter.banners[activeSlide].bannerHeading}
               </h2>
               <p className={styles.bannerDescription}>
-                {data.page.frontmatter.banners[activeSlide].bannerDescription}
+                {data.page &&
+                  data.page.frontmatter.banners &&
+                  data.page.frontmatter.banners.length > 0 &&
+                  data.page.frontmatter.banners[activeSlide] &&
+                  data.page.frontmatter.banners[activeSlide].bannerDescription}
               </p>
               <Link
                 to={
+                  data.page &&
+                  data.page.frontmatter.banners &&
+                  data.page.frontmatter.banners.length > 0 &&
+                  data.page.frontmatter.banners[activeSlide] &&
+                  data.page.frontmatter.banners[activeSlide].bannerButton &&
                   data.page.frontmatter.banners[activeSlide].bannerButton
                     .buttonLink
                 }
               >
-                {
+                {data.page &&
+                  data.page.frontmatter.banners &&
+                  data.page.frontmatter.banners.length > 0 &&
+                  data.page.frontmatter.banners[activeSlide] &&
+                  data.page.frontmatter.banners[activeSlide].bannerButton &&
                   data.page.frontmatter.banners[activeSlide].bannerButton
-                    .buttonText
-                }
+                    .buttonText}
               </Link>
             </div>
           </div>
@@ -198,17 +214,24 @@ const Shop = () => {
               className={styles.carousel}
               onSlideChange={(swiper) => setActiveSlide(swiper.realIndex)}
             >
-              {data.page.frontmatter.banners.map((banner) => {
-                return (
-                  <SwiperSlide className={styles.slide}>
-                    <Image
-                      className={styles.banner}
-                      fluid={banner.bannerImage.childImageSharp.fluid}
-                      alt=""
-                    />
-                  </SwiperSlide>
-                )
-              })}
+              {data.page &&
+                data.page.frontmatter.banners &&
+                data.page.frontmatter.banners.length > 0 &&
+                data.page.frontmatter.banners.map((banner) => {
+                  return (
+                    <SwiperSlide className={styles.slide}>
+                      {banner.bannerImage &&
+                        banner.bannerImage.childImageSharp &&
+                        banner.bannerImage.childImageSharp.fluid && (
+                          <Image
+                            className={styles.banner}
+                            fluid={banner.bannerImage.childImageSharp.fluid}
+                            alt=""
+                          />
+                        )}
+                    </SwiperSlide>
+                  )
+                })}
               <div className={styles.navigation}>
                 <div className={styles.swiperPrevEl}>
                   <img src={downArrow} alt="" />

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Image from 'gatsby-image'
-import { useSpring, animated, interpolate} from 'react-spring'
+import { useSpring, animated, interpolate } from 'react-spring'
 import VisibilitySensor from 'react-visibility-sensor'
 
 import styles from './section-image.module.scss'
@@ -54,7 +54,7 @@ const SectionImage = ({ imageOnRight, image }) => {
               transform: scale.interpolate((scale) => `scale(${scale})`),
             }}
           >
-            <Image fluid={image} alt="" />
+            <Image fluid={image.childImageSharp.fluid} alt="" />
           </animated.div>
         </animated.div>
       </div>

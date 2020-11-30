@@ -24,22 +24,10 @@ export const TourTemplate = ({ data }) => {
       </Helmet>
       <h2>{data.markdownRemark.frontmatter.title}</h2>
       <hr />
-      {/* <div className={styles.postDetails}>
-        <div className={styles.postCategory}>
-          <PostCategoryTag slug={categorySlug} text={data.markdownRemark.frontmatter.category} />
-        </div>
-        <p className={styles.postAuthor}>
-          <span>BY </span>
-          <Link to={authorSlug}>
-            {data.markdownRemark.frontmatter.author}
-          </Link> 
-        </p>
-        <p className={styles.postDate}>
-          {String(data.markdownRemark.frontmatter.date)}
-        </p>
-      </div> */}
       <div className={styles.postCover}>
-        {data.markdownRemark.frontmatter.coverImage.childImageSharp ? (
+        {data.markdownRemark.frontmatter.coverImage &&
+        data.markdownRemark.frontmatter.coverImage.childImageSharp &&
+        data.markdownRemark.frontmatter.coverImage.childImageSharp.fluid ? (
           <Image
             fluid={
               data.markdownRemark.frontmatter.coverImage.childImageSharp.fluid
@@ -54,13 +42,13 @@ export const TourTemplate = ({ data }) => {
         <Content content={data.html} className={styles.postBody} />
       ) : (
         <HTMLContent
-        content={data.markdownRemark.html}
-        className={styles.postBody}
+          content={data.markdownRemark.html}
+          className={styles.postBody}
         />
-        )}
-        {data.markdownRemark.frontmatter.subcategory == 'Tours' &&
-          <TourForm packageName={data.markdownRemark.frontmatter.title}/>
-        }
+      )}
+      {data.markdownRemark.frontmatter.subcategory == 'Tours' && (
+        <TourForm packageName={data.markdownRemark.frontmatter.title} />
+      )}
       <hr />
       <h2>Latest In {data.markdownRemark.frontmatter.subcategory}</h2>
       {data.subcategoryLatestPosts && (

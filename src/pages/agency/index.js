@@ -5,10 +5,10 @@ import remark from 'remark'
 import remarkHTML from 'remark-html'
 import { useSpring, animated, config } from 'react-spring'
 import { Link } from 'gatsby'
-import SwiperCore, {EffectCoverflow} from 'swiper'
-import {Swiper, SwiperSlide} from 'swiper/react'
+import SwiperCore, { EffectCoverflow } from 'swiper'
+import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/components/effect-coverflow/effect-coverflow.scss'
-import 'swiper/swiper.scss';
+import 'swiper/swiper.scss'
 
 import AgencyIllustration from '../../components/AgencyIllustration'
 import Layout from '../../components/Layout'
@@ -50,8 +50,8 @@ const AgencyPage = () => {
             }
           }
           heroBannerHeading
-          references{
-            image{
+          references {
+            image {
               childImageSharp {
                 fluid(maxWidth: 250, quality: 64) {
                   ...GatsbyImageSharpFluid
@@ -87,7 +87,7 @@ const AgencyPage = () => {
       fullWidthContent={
         <div style={{ overflowX: 'hidden' }}>
           <div className={styles.heroBanner}>
-            <AgencyIllustration/>
+            <AgencyIllustration />
             <animated.h1
               style={{
                 transform: scale.interpolate((scale) => `scale(${scale})`),
@@ -96,81 +96,112 @@ const AgencyPage = () => {
               {data.page.frontmatter.heroBannerHeading}
             </animated.h1>
             <div className={styles.backgroundImageFixed}>
-              <Image
-                fluid={
-                  data.page.frontmatter.heroBannerImage.childImageSharp.fluid
-                }
-                alt=""
-              />
+              {data.page &&
+                data.page.frontmatter &&
+                data.page.frontmatter.heroBannerImage &&
+                data.page.frontmatter.heroBannerImage.childImageSharp &&
+                data.page.frontmatter.heroBannerImage.childImageSharp.fluid && (
+                  <Image
+                    fluid={
+                      data.page.frontmatter.heroBannerImage.childImageSharp
+                        .fluid
+                    }
+                    alt=""
+                  />
+                )}
             </div>
           </div>
-          {data.page.frontmatter.sections.map((section) => {
-            if (section.type == 'heading') {
-              return (
-                <div className={styles.headingContainer}>
-                  <h2>{section.heading}</h2>
-                  <div className={styles.backgroundImage}>
-                    <Image fluid={section.image.childImageSharp.fluid} alt="" />
-                  </div>
-                </div>
-              )
-            } else if (section.type == 'section') {
-              return (
-                <section
-                  className={`${styles.contentSection} ${
-                    section.imageOnRight && styles.reverseSection
-                  }`}
-                  style={{ backgroundColor: `#${section.backgroundColor}` }}
-                >
-                  <SectionImage
-                    image={section.image.childImageSharp.fluid}
-                    imageOnRight={section.imageOnRight}
-                  />
-                  <div className={styles.sectionContent}>
-                    <h3>{section.heading}</h3>
-                    <div className={styles.body}>
-                      <HTMLContent content={toHTML(section.body)} />
+          {data.page &&
+            data.page.frontmatter.sections &&
+            data.page.frontmatter.sections.length > 0 &&
+            data.page.frontmatter.sections.map((section) => {
+              if (section.type == 'heading') {
+                return (
+                  <div className={styles.headingContainer}>
+                    <h2>{section.heading}</h2>
+                    <div className={styles.backgroundImage}>
+                      {section.image &&
+                        section.image.childImageSharp &&
+                        section.image.childImageSharp.fluid && (
+                          <Image
+                            fluid={section.image.childImageSharp.fluid}
+                            alt=""
+                          />
+                        )}
                     </div>
                   </div>
-                </section>
-              )
-            }
-          })}
+                )
+              } else if (section.type == 'section') {
+                return (
+                  <section
+                    className={`${styles.contentSection} ${
+                      section.imageOnRight && styles.reverseSection
+                    }`}
+                    style={{ backgroundColor: `#${section.backgroundColor}` }}
+                  >
+                    {
+                      <SectionImage
+                        image={section.image && section.image}
+                        imageOnRight={section.imageOnRight}
+                      />
+                    }
+                    <div className={styles.sectionContent}>
+                      <h3>{section.heading}</h3>
+                      <div className={styles.body}>
+                        <HTMLContent content={toHTML(section.body)} />
+                      </div>
+                    </div>
+                  </section>
+                )
+              }
+            })}
           <section className={styles.referenceSection}>
             <h2>References</h2>
             <Swiper
-              slidesPerView='1'
+              slidesPerView="1"
               initialSlide={0}
               centeredSlides
-              effect='coverflow'
+              effect="coverflow"
               coverflowEffect={{
-                slideShadows:false,
-                depth:150
+                slideShadows: false,
+                depth: 150,
               }}
               breakpoints={{
-                1200:{
-                  slidesPerView:'3',
-                  initialSlide:1
-                }
+                1200: {
+                  slidesPerView: '3',
+                  initialSlide: 1,
+                },
               }}
             >
-              {data.page.frontmatter.references.map((reference, key) => {
-                return <SwiperSlide>
-                        <article className={styles.reference}>
-                          <div className={styles.referencePersonImage}>
-                            <Image fluid={reference.image.childImageSharp.fluid} alt=''/>
-                          </div>
-                          <h3>{reference.title}</h3>
-                          <blockquote>
-                            {reference.quote}
-                          </blockquote>
-                          <p>{reference.client}</p>
-                          <button>
-                            <a href={reference.projectURL} target='_blank'>See This Project</a>
-                          </button>
-                        </article>
-                      </SwiperSlide>
-              })}
+              {data.page &&
+                data.page.frontmatter.references &&
+                data.page.frontmatter.references.length > 0 &&
+                data.page.frontmatter.references.map((reference, key) => {
+                  return (
+                    <SwiperSlide>
+                      <article className={styles.reference}>
+                        <div className={styles.referencePersonImage}>
+                          {reference.image &&
+                            reference.image.childImageSharp &&
+                            reference.image.childImageSharp.fluid && (
+                              <Image
+                                fluid={reference.image.childImageSharp.fluid}
+                                alt=""
+                              />
+                            )}
+                        </div>
+                        <h3>{reference.title}</h3>
+                        <blockquote>{reference.quote}</blockquote>
+                        <p>{reference.client}</p>
+                        <button>
+                          <a href={reference.projectURL} target="_blank">
+                            See This Project
+                          </a>
+                        </button>
+                      </article>
+                    </SwiperSlide>
+                  )
+                })}
             </Swiper>
           </section>
           <div className={styles.contactButton}>

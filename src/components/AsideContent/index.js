@@ -71,17 +71,27 @@ const AsideContent = ({ posts, heading, displayCategory }) => {
         key={posts.length}
       >
         {posts.map(({ node: post }, index) => {
-          let category = data.allMarkdownRemark.edges.find(
-            ({ node: category }) =>
-              post.frontmatter.category === category.frontmatter.title
-          )
+          let category =
+            data.allMarkdownRemark.edges.length > 0 &&
+            data.allMarkdownRemark.edges.find(({ node: category }) => {
+              if (post.frontmatter.category && category.frontmatter.title) {
+                return post.frontmatter.category === category.frontmatter.title
+              } else {
+                return false
+              }
+            })
 
           let categorySlug = category.node.fields.slug
 
-          let author = data.authors.edges.find(
-            ({ node: author }) =>
-              post.frontmatter.author === author.frontmatter.name
-          )
+          let author =
+            data.authors.edges.length > 0 &&
+            data.authors.edges.find(({ node: author }) => {
+              if (post.frontmatter.author && author.frontmatter.name) {
+                return post.frontmatter.author === author.frontmatter.name
+              } else {
+                return false
+              }
+            })
 
           let authorSlug = author.node.fields.slug
 
@@ -98,7 +108,7 @@ const AsideContent = ({ posts, heading, displayCategory }) => {
               <div className={styles.post}>
                 <PostImage
                   slug={post.fields.slug}
-                  image={post.frontmatter.coverImage.childImageSharp.fluid}
+                  image={post.frontmatter.coverImage}
                 />
                 <div className={styles.postDetails}>
                   {displayCategory && (

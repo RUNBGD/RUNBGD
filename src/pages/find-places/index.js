@@ -41,20 +41,20 @@ function distance(lat1, lon1, lat2, lon2, unit) {
 const FindPlaces = () => {
   const [xCoord, setXCoord] = useQueryParam('x', NumberParam)
   const [yCoord, setYCoord] = useQueryParam('y', NumberParam)
-  
+
   const [filterCategory, setFilterCategory] = useState('Select Category')
 
   const [zoomLevel, setZoomLevel] = useState(undefined)
   const [zoomInterval, setZoomInterval] = useState(undefined)
-  
+
   useEffect(() => {
-    if(zoomInterval && zoomLevel > 18){
+    if (zoomInterval && zoomLevel > 18) {
       clearInterval(zoomInterval)
     }
   }, [zoomLevel])
-  
-  function handleUserMapInteraction(){
-    if(zoomInterval){
+
+  function handleUserMapInteraction() {
+    if (zoomInterval) {
       clearInterval(zoomInterval)
     }
   }
@@ -64,19 +64,22 @@ const FindPlaces = () => {
 
   function getLocation() {
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(({ coords }) => {
-        setXCoord(coords.longitude)
-        setYCoord(coords.latitude)
-        navigate(`/find-places/location?x=${coords.longitude}&y=${coords.latitude}`)
-      },
-      (e) => console.log(e),
-      {
-        enableHighAccuracy: true,
-        maximumAge: Infinity
-      })
+      navigator.geolocation.getCurrentPosition(
+        ({ coords }) => {
+          setXCoord(coords.longitude)
+          setYCoord(coords.latitude)
+          navigate(
+            `/find-places/location?x=${coords.longitude}&y=${coords.latitude}`
+          )
+        },
+        (e) => console.log(e),
+        {
+          enableHighAccuracy: true,
+          maximumAge: Infinity,
+        }
+      )
     }
   }
-
 
   function findGeocodeFromAddress(event) {
     if (event.key === 'Enter') {
@@ -120,7 +123,7 @@ const FindPlaces = () => {
                   }
                 }
               }
-              pin{
+              pin {
                 publicURL
               }
               category
@@ -183,33 +186,33 @@ const FindPlaces = () => {
           <div className={styles.overlay}></div>
         </div>
         <div className={styles.locationItemsContainer}>
-            <div className={styles.inputCard}>
-              <p>Where are you looking to have fun?</p>
-              <button
-                className={styles.inputCardButton}
-                onClick={() => getLocation()}
-              >
-                Search near me
-              </button>
-              <p>or</p>
-              <input
-                type="text"
-                onKeyDown={findGeocodeFromAddress}
-                placeholder="Enter location"
-                className={styles.inputCardInput}
+          <div className={styles.inputCard}>
+            <p>Where are you looking to have fun?</p>
+            <button
+              className={styles.inputCardButton}
+              onClick={() => getLocation()}
+            >
+              Search near me
+            </button>
+            <p>or</p>
+            <input
+              type="text"
+              onKeyDown={findGeocodeFromAddress}
+              placeholder="Enter location"
+              className={styles.inputCardInput}
+            />
+            {fetching && (
+              <img
+                src={loadingIndicator}
+                className={styles.loadingIndicator}
+                alt="Loading..."
               />
-              {fetching && (
-                <img
-                  src={loadingIndicator}
-                  className={styles.loadingIndicator}
-                  alt="Loading..."
-                />
-              )}
-              {fetchMessage && (
-                <p className={styles.fetchMessage}>{fetchMessage}</p>
-              )}
-            </div>
+            )}
+            {fetchMessage && (
+              <p className={styles.fetchMessage}>{fetchMessage}</p>
+            )}
           </div>
+        </div>
       </main>
     </Layout>
   )

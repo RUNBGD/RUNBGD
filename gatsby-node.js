@@ -194,7 +194,9 @@ exports.createPages = async ({ actions, graphql }) => {
     posts.forEach((edge) => {
       const id = edge.node.id
       const category = edge.node.frontmatter.category
-      const tagArray = edge.node.frontmatter.icons ? edge.node.frontmatter.icons.map((icon) => icon.icon) : []
+      const tagArray = edge.node.frontmatter.icons
+        ? edge.node.frontmatter.icons.map((icon) => icon.icon)
+        : []
 
       createPage({
         path: edge.node.fields.slug,

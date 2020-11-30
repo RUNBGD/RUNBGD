@@ -22,12 +22,14 @@ const PostImage = ({ slug, image }) => {
     >
       <Link to={slug}>
         <div className={styles.postImageContainer}>
-          <AnimatedImage
-            fluid={image}
-            style={hoverAnimation}
-            alt=""
-            className={styles.postCover}
-          />
+          {image.childImageSharp && image.childImageSharp.fluid && (
+            <AnimatedImage
+              fluid={image.childImageSharp.fluid}
+              style={hoverAnimation}
+              alt=""
+              className={styles.postCover}
+            />
+          )}
         </div>
       </Link>
     </div>
