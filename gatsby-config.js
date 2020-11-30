@@ -117,7 +117,6 @@ module.exports = {
     },
     'gatsby-plugin-use-query-params',
     // {
-<<<<<<< HEAD
     //   resolve: 'gatsby-plugin-purgecss', // purges all unused/unreferenced css rules
     //   options: {
     //     develop: true, // Activates purging in npm run develop
@@ -144,39 +143,3 @@ module.exports = {
     }, // make sure to keep it last in the array
   ],
 }
-=======
-      //   resolve: 'gatsby-plugin-purgecss', // purges all unused/unreferenced css rules
-      //   options: {
-        //     develop: true, // Activates purging in npm run develop
-        //     purgeOnly: ['/all.sass'], // applies purging only on the bulma css file
-        //   },
-        // },
-        // must be after other CSS plugins
-        {
-          resolve: 'gatsby-plugin-netlify-cms',
-          options: {
-            modulePath: `${__dirname}/src/cms/cms.js`,
-          },
-        },
-        "gatsby-plugin-netlify-cache",
-        {
-          resolve: 'gatsby-plugin-netlify',
-          options: {
-            headers: {
-              "/public/**/*.html": [
-                "cache-control: public",
-                "cache-control:  max-age=0", 
-                "cache-control: must-revalidate"
-              ],
-              "/public/page-data/*": [
-                "cache-control: public",
-                "cache-control:  max-age=0", 
-                "cache-control: must-revalidate"
-              ]
-            }
-          }
-        }// make sure to keep it last in the array
-      ],
-    }
-    
->>>>>>> 12dc5530e6796f73c9d4d253f121920e012f27fa
