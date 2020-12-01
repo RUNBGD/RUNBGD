@@ -200,17 +200,17 @@ const FindPlacesMap = ({
               )
             })}
           {yCoord != undefined && (
+              data.currentLocationCategory &&
+              data.currentLocationCategory.edges.length > 0 &&
+              data.currentLocationCategory.edges[0] &&
+              data.currentLocationCategory.edges[0].node.frontmatter
+                .categoryPin &&
+              data.currentLocationCategory.edges[0].node.frontmatter
+                .categoryPin.publicURL &&
             <Marker
               position={[yCoord, xCoord]}
               icon={icon({
                 iconUrl:
-                  data.currentLocationCategory &&
-                  data.currentLocationCategory.edges.length > 0 &&
-                  data.currentLocationCategory.edges[0] &&
-                  data.currentLocationCategory.edges[0].node.frontmatter
-                    .categoryPin &&
-                  data.currentLocationCategory.edges[0].node.frontmatter
-                    .categoryPin.publicURL &&
                   data.currentLocationCategory.edges[0].node.frontmatter
                     .categoryPin.publicURL,
                 iconSize: [20, 20],

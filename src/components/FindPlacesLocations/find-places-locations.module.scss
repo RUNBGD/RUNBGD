@@ -115,6 +115,13 @@
     border-radius: 5px;
     
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+    height:120px;
+    @include breakpoint(sm){
+        height:80px;
+    }
+    @include breakpoint(lg){
+        height:140px;
+    }
 }
 
 .horizontal .location-card{
@@ -122,16 +129,17 @@
     flex-basis: 85vw;
     flex-grow: 0;
     flex-shrink: 0;
-    height:fit-content;
     @include breakpoint(sm){
         flex-basis: unset;
     }
 }
 .card-cover{
     width:50%;
+    overflow: hidden;
 }
 
 .card-cover > div{
+    height:100%;
     border-radius:5px;
 }
 

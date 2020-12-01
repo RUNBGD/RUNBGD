@@ -32,6 +32,14 @@
 
 .post-cover{
     border-radius:5px;
+    overflow: hidden;
+    height:12.5vh;
+    @include breakpoint(sm){
+        height:15vh;
+    }
+    @include breakpoint(lg){
+        height:40vh;
+    }
 }
 
 .swiper-pagination{
@@ -81,6 +89,15 @@
 
 .is-only-slide{
     width:100%;
+    .post-cover{
+        height:30vh;
+        @include breakpoint(sm){
+            height:25vh;
+        }
+        @include breakpoint(lg){
+            height:65vh;
+        }
+    }
 }
 
 .swiper-next-el, .swiper-prev-el{

@@ -1,3 +1,5 @@
+@import '../../styles/breakpoints.scss';
+
 .post-category{
     background:#EE1C25;
     text-transform: uppercase;
@@ -27,6 +29,14 @@
 
 .post-cover{
     border-radius:5px;
+    overflow: hidden;
+    height:12.5vh;
+    @include breakpoint(sm){
+        height:8.5vh;
+    }
+    @include breakpoint(lg){
+        height:20vh;
+    }
 }
 
 .swiper-pagination{

@@ -31,7 +31,7 @@ const IndexPage = () => {
               category
               coverImage {
                 childImageSharp {
-                  fluid(maxWidth: 1000, quality: 64) {
+                  fluid(maxWidth: 1280, quality: 64) {
                     ...GatsbyImageSharpFluid
                   }
                 }
@@ -54,7 +54,7 @@ const IndexPage = () => {
               author
               coverImage {
                 childImageSharp {
-                  fluid(maxWidth: 1000, quality: 64) {
+                  fluid(maxWidth: 1280, quality: 64) {
                     ...GatsbyImageSharpFluid
                   }
                 }

@@ -116,10 +116,12 @@ const BigPostsCarousel = ({ posts, heading, displayCategory, onlyMobile }) => {
             >
               <div className={styles.post}>
                 {post.frontmatter.coverImage && (
-                  <PostImage
-                    slug={post.fields.slug}
-                    image={post.frontmatter.coverImage}
-                  />
+                  <div className={styles.postCover}>
+                    <PostImage
+                      slug={post.fields.slug}
+                      image={post.frontmatter.coverImage}
+                    />
+                  </div>
                 )}
                 <div className={styles.postDetails}>
                   {displayCategory && categorySlug && (

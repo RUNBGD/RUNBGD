@@ -1,3 +1,5 @@
+@import '../../styles/breakpoints.scss';
+
 .post-category{
     background:#EE1C25;
     text-transform: uppercase;
@@ -28,16 +30,25 @@
 
 .post{
     margin-bottom:20px;
+    overflow: hidden;
+    height:45vh;
+    @include breakpoint(sm){
+        height:40vh;
+    }
+    @include breakpoint(lg){
+        height:95vh;
+    }
 }
 
 .swiper-pagination{
-    text-align:center
+    text-align: center;
 }
 
 .swiper-pagination > span{
     background-color: black;
     width:12px;
     height:12px;
+    margin:0 4px;
 }
 
 .post-cover{
@@ -47,6 +58,10 @@
 
 .slide{
     transition:0.5s;
+    padding-bottom: 20px;
+    @include breakpoint(lg){
+        padding-bottom: 50px;
+    }
 }
 
 .active-slide{

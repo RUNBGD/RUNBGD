@@ -126,15 +126,17 @@ const BigPostsCarousel = ({ posts }) => {
                       </Link>
                     )}
                   </div>
-                  <PostImage
-                    slug={post.fields.slug}
-                    image={post.frontmatter.coverImage}
-                  />
+                  <div className={styles.postImage}>
+                    <PostImage
+                      slug={post.fields.slug}
+                      image={post.frontmatter.coverImage}
+                    />
+                  </div>
                 </div>
               </SwiperSlide>
             )
           })}
-        <div className={styles.swiperPagination}></div>
+          <div className={styles.swiperPagination}></div>
         <img
           className={styles.swiperPrevEl}
           src={swiperArrow}
