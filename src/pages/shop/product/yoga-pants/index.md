@@ -16,5 +16,5 @@ sizes:
     available: false
   - size: XL
     available: false
-available: true
+available: false
 ---
