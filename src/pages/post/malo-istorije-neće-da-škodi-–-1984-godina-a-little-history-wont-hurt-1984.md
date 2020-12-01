@@ -18,10 +18,9 @@ coverImage: /img/mypeople_historija-1984.png
 
 Film Breakdance je izasao 1984 godine i prvi je film sa hip hop tematikom koji je dosao u Jugoslaviju. Te godine je u Beigradu bio cetvrti najgledaniji film u bioskopima odmah iza filmova "Oficir i Dzentlmen", "Halo Taksi", "Idi Mi Dodji Mi". Tadasnji osnovci i srednjoskolci su mogli film besplatno da gledaju pa su Brejkdens pogledali po nekoliko puta i odmah nakon filma se skupljali i vezbali pokrete koje su tamo videli. Ovaj film je jedna od tri stvari koje su obelezile 1984 godinu kada je rec o hip hop kulturi na ovim prostorima.
 
-![](/img/the-master-scratch-band.jpg)
+*Breakdance, the movie, was released in 1984 and was the first hip hop film to come to Yugoslavia. That year the movie was the fourth most watched film in the Belgrader cinemas right after the films “An Officer and Gentleman", "Halo Taxi” (local production), "Idi Mi Dodji Mi” (local production). Elementary and high school students at the time could watch the film for free, so they watched Breakdance several times and immediately after the film, they gathered and practiced the movements they saw there. This film is one of the three things that marked the year 1984 when it comes to hip hop culture in this area.*
 
-\
-*Breakdance was released in 1984 and was the first hip hop film to come to Yugoslavia. That year the movie was the fourth most watched film in the Belgrader cinemas right after the films “An Officer and Gentleman", "Halo Taxi” (local production), "Idi Mi Dodji Mi” (local production). Elementary and high school students at the time could watch the film for free, so they watched Breakdance several times and immediately after the film, they gathered and practiced the movements they saw there. This film is one of the three things that marked the year 1984 when it comes to hip hop culture in this area.*
+![](/img/the-master-scratch-band.jpg)
 
 The Master Scratch Band preko izdavacke kuce Jugoton (sadasnja Croatia Records) objavljuje Degout EP. Ovo izdanje se smatra prvim jugoslovenskim hip hop izdanjem. Iako tragove repa mozemo naci u nekim ranijim pesmama, ovaj vinil je zapisan kao temeljac sve popularnijeg zvuka. Degout EP je objavljen 1984 godine i smatra se jednim od tri najbitnije stvari koje su se desile te godine kada je rec o hip hop kulturi na ovim prostorima.
 
