@@ -8,5 +8,5 @@ images:
   - image: /img/runbgd-mug-2.png
   - image: /img/runbgd-mug-3.png
 price: 15
-available: true
+available: false
 ---
