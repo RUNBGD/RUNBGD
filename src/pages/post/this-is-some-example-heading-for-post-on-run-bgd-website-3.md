@@ -3,7 +3,7 @@ templateKey: blog-post
 createPage: "true"
 title: SNEAKERVILLE Festival Recap
 category: Style
-author: Dragan Filovski
+author: Tike!
 date: 2019-10-14T10:59:15.027Z
 featuredPost: true
 categoryFeatured: true
