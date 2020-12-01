@@ -2,10 +2,9 @@
 heroVideoCover: /img/test.mp4
 heroHeading: "# Where **the next** begins"
 heroText: We're a local group of ambitious grown up kids with an entertainment
-  network with unparalleled reach to millennials and Gen Z across big pop
-  culture categories on the balkans including streetwear and style, food, music,
-  sneakers and sports. *
-heroQuote: "* This is 100% true, but everyone tries to make that claim... keep
+  network with unparalleled reach across big pop culture categories on the
+  balkans including streetwear and style, food, music, sneakers and sports. *
+heroQuote: "* This is 99% true, but everyone tries to make that claim... keep
   scrolling to learn more about what makes RUN BGD the exception."
 aboutImageCover: /img/the-city.jpg
 aboutText: >-
