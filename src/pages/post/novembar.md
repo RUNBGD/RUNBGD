@@ -1,7 +1,7 @@
 ---
 templateKey: blog-post
 createPage: "true"
-title: Novembar
+title: Novembar / November
 category: Life
 author: Aleksandar Tašić
 date: 2020-11-30T15:07:42.603Z
