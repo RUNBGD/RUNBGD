@@ -62,7 +62,6 @@
     width:auto;
     border:1px solid black;
     padding:5px;
-    border-radius: 5px;
     cursor: pointer;
     > img{
       margin-left:5px;
@@ -252,7 +251,6 @@
   
   border:unset;
   border:1px solid #707070;
-  border-radius:5px;
   @include breakpoint(lg){
     display:none;
   }
@@ -267,7 +265,6 @@
   
   border:unset;
   border:1px solid #707070;
-  border-radius:5px;
   @include breakpoint(lg){
     min-width:100px;
     display: block;
@@ -299,12 +296,7 @@
   margin-right:5px;
 }
 
-.search-result-thumbnail > div{
-  border-radius:5px;
-}
-
 .search-results{
-  border-radius: 5px;
   background-color:#ffffff;
 
   overflow:scroll;

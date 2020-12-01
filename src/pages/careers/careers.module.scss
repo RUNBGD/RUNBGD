@@ -57,7 +57,6 @@
     align-items: center;
     background:black;
     padding:15px;
-    border-radius: 5px;
     @include breakpoint(sm){
     }
 }
@@ -140,7 +139,6 @@
 
 .position{
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
-    border-radius: 5px;
     margin-bottom:20px;
     padding:5px;
 }

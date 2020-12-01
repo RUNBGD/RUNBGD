@@ -9,10 +9,110 @@ exports.createSchemaCustomization = ({ actions }) => {
     type MarkdownRemark implements Node {
       frontmatter: Frontmatter
     }
-    type Frontmatter {
+
+    type Reference {
+      image: File @fileByRelativePath,
+      title: String,
+      quote: String,
+      client: String,
+      projectURL: String
+    }
+
+    type Package {
+      title: String,
+      description: String,
+      background: File @fileByRelativePath
+    }
+
+    type Icon {
+      icon: String
+    }
+
+    type Size {
+      size: String
+    }
+
+    type BannerButton{
+      buttonText: String,
+      buttonLink: String
+    }
+
+    type Slide{
+      image: File @fileByRelativePath
+    }
+
+    type Benefit{
+      image: File @fileByRelativePath,
+      text: String
+    }
+
+    type Section {
+      image: File @fileByRelativePath,
+      heading: String,
+      type: String,
+      backgroundColor: String,
+      body: String,
+      coverImage: File @fileByRelativePath,
+      sectionHeading: String,
+      sectionText: String
+    }
+
+    type Image {
+      image: File @fileByRelativePath
+    }
+
+    type Frontmatter @infer {
       website: String,
       email: String,
-      description: String
+      description: String,
+      references:[Reference],
+      templateKey: String,
+      createPage: String,
+      title: String,
+      coverImage: File @fileByRelativePath,
+      body: String,
+      icons: [Icon],
+      heading: String,
+      icon: String,
+      iconDescription: String,
+      category: String,
+      subcategory: String,
+      order: Int,
+      orderNavbar: Int,
+      packages: [Package],
+      bottomText: String,
+      name: String,
+      information: String,
+      url: String,
+      iconImage: File @fileByRelativePath
+      iconDark: File @fileByRelativePath,
+      iconLight: File @fileByRelativePath,
+      pin: File @fileByRelativePath,
+      address: String,
+      website: String,
+      latitude: String,
+      longitude: String,
+      categoryPin: File @fileByRelativePath,
+      images: [Image],
+      price: Int,
+      sizes: [Size],
+      logoImage: File @fileByRelativePath,
+      bannerImage: File @fileByRelativePath,
+      bannerHeading: String,
+      bannerDescription: String,
+      bannerButton: [BannerButton],
+      heroBannerImage: File @fileByRelativePath,
+      heroBannerHeading: String,
+      sections: [Section],
+      heroVideoCover: File @fileByRelativePath,
+      heroHeading: String,
+      heroText: String,
+      heroQuote: String,
+      aboutImageCover: File @fileByRelativePath,
+      aboutText: String,
+      heroImage: File @fileByRelativePath,
+      slides: [Slide],
+      benefits: [Benefit]
     }
   `
   createTypes(typeDefs)

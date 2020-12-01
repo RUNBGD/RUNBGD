@@ -3,7 +3,6 @@
 .packages-contact-form{
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
     margin:auto;
-    border-radius:5px;
     padding:15px;
     @include breakpoint(sm){
         width:100%;
@@ -32,7 +31,6 @@
     }
     input{
         padding:5px;
-        border-radius: 5px;
         border:1px solid #343434;
     }
 }
@@ -43,7 +41,6 @@
     flex-direction: column;
     input{
         padding:5px;
-        border-radius: 5px;
         border:1px solid #343434;
     }
 }
@@ -57,7 +54,6 @@
         min-height:150px;
         resize: none;
         padding:5px;
-        border-radius: 5px;
         border:1px solid #343434;
     }
 }
@@ -75,7 +71,6 @@
     color:white;
     background-color:#EE1C25;
     padding:10px 15px;
-    border-radius: 5px;
     border:none;
 }
 
@@ -84,7 +79,6 @@
     margin:0;
     margin-top:10px;
     text-align: center;
-    border-radius: 5px;
 }
 
 .error-message{

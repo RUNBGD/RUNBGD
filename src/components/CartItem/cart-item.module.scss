@@ -7,7 +7,6 @@
     align-items:flex-start;
     overflow:hidden;
     box-shadow:0 3px 6px rgba(0, 0, 0, 0.16);
-    border-radius:5px;
     margin-bottom:20px;
     @include breakpoint(sm){
         height:130px;
@@ -43,7 +42,6 @@
     width:15%;
     padding:0 5px;
     border:1px solid black;
-    border-radius:5px;
     display:flex;
     align-self:center;
     align-items:center;

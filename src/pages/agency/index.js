@@ -156,53 +156,61 @@ const AgencyPage = () => {
               }
             })}
           <section className={styles.referenceSection}>
-            <h2>References</h2>
-            <Swiper
-              slidesPerView="1"
-              initialSlide={0}
-              centeredSlides
-              effect="coverflow"
-              coverflowEffect={{
-                slideShadows: false,
-                depth: 150,
-              }}
-              breakpoints={{
-                1200: {
-                  slidesPerView: '3',
-                  initialSlide: 1,
-                },
-              }}
-            >
-              {data.page &&
-                data.page.frontmatter.references &&
-                data.page.frontmatter.references.length > 0 &&
-                data.page.frontmatter.references.map((reference, key) => {
-                  return (
-                    <SwiperSlide>
-                      <article className={styles.reference}>
-                        <div className={styles.referencePersonImage}>
-                          {reference.image &&
-                            reference.image.childImageSharp &&
-                            reference.image.childImageSharp.fluid && (
-                              <Image
-                                fluid={reference.image.childImageSharp.fluid}
-                                alt=""
-                              />
-                            )}
-                        </div>
-                        <h3>{reference.title}</h3>
-                        <blockquote>{reference.quote}</blockquote>
-                        <p>{reference.client}</p>
-                        <button>
-                          <a href={reference.projectURL} target="_blank">
-                            See This Project
-                          </a>
-                        </button>
-                      </article>
-                    </SwiperSlide>
-                  )
-                })}
-            </Swiper>
+            {
+              data.page &&
+              data.page.frontmatter.references &&
+              data.page.frontmatter.references.length > 0 &&
+              <>
+                <h2>References</h2>
+                <Swiper
+                  slidesPerView="1"
+                  initialSlide={0}
+                  centeredSlides
+                  effect="coverflow"
+                  coverflowEffect={{
+                    slideShadows: false,
+                    depth: 150,
+                  }}
+                  breakpoints={{
+                    1200: {
+                      slidesPerView: '3',
+                      initialSlide: 1,
+                    },
+                  }}
+                >
+                  {
+
+                    data.page.frontmatter.references.map((reference, key) => {
+                      return (
+                        <SwiperSlide>
+                          <article className={styles.reference}>
+                            <div className={styles.referencePersonImage}>
+                              {reference.image &&
+                                reference.image.childImageSharp &&
+                                reference.image.childImageSharp.fluid && (
+                                  <Image
+                                    fluid={reference.image.childImageSharp.fluid}
+                                    alt=""
+                                  />
+                                )}
+                            </div>
+                            <h3>{reference.title}</h3>
+                            <blockquote>{reference.quote}</blockquote>
+                            <p>{reference.client}</p>
+                            <button>
+                              <a href={reference.projectURL} target="_blank">
+                                See This Project
+                              </a>
+                            </button>
+                          </article>
+                        </SwiperSlide>
+                        )
+                  }
+                      )
+                    })
+                </Swiper>
+              </>
+            }
           </section>
           <div className={styles.contactButton}>
             <Link to={'/contact-us'}>Contact Us</Link>

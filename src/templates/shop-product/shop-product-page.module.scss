@@ -72,7 +72,6 @@
     top:50%;
     left:50%;
     transform:translate(-50%,0%);
-    border-radius:5px;
     @include breakpoint(lg){
         transform:translate(-50%,-50%);
 
@@ -98,7 +97,6 @@
 }
 
 .main-image{
-    border-radius:5px;
     @include breakpoint(lg){
         width:100%;
     }
@@ -170,7 +168,6 @@
     display:flex;
     align-items: center;
     justify-content: center;
-    border-radius: 5px;
     margin-right:5px;
     cursor:pointer;
 }
@@ -183,7 +180,6 @@
     padding:10px;
     color:white;
     font-weight:700;
-    border-radius:5px;
 }
 
 .product-description{
@@ -203,7 +199,6 @@
     margin-top:20px;
     padding:15px;
     background:#EE1C25;
-    border-radius:5px;
     text-align:center;
     color:white;
 }

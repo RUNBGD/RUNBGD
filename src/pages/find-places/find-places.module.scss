@@ -23,7 +23,6 @@
     padding:20px 10px;
 
     box-shadow:0px 3px 6px rgba(0, 0, 0, 0.16);
-    border-radius:5px;
     @include breakpoint(sm){
         width:300px;
     }
@@ -36,7 +35,6 @@
 
     background:#EE1C25;
     border:none;
-    border-radius: 5px;
     color:white;
     font-weight:800;
     text-align:center;
@@ -53,7 +51,6 @@
     padding:5px;
 
     border:1px solid #707070;
-    border-radius:5px;
 }
 
 .map{
@@ -104,7 +101,6 @@
     width:100%;
     padding:5px;
     margin-bottom:5px;
-    border-radius: 5px;
     background:rgba(255,255,255,0.15);
     backdrop-filter: blur(5px);
     color:white;
@@ -143,10 +139,6 @@
 
 .card-cover{
     width:50%;
-}
-
-.card-cover > div{
-    border-radius:5px;
 }
 
 .card-text{
@@ -216,7 +208,6 @@
 
 .fetch-message{
     padding:5px;
-    border-radius:5px;
 
     background-color:rgba(255, 0, 0, 0.1);
     color:#EE1C25;

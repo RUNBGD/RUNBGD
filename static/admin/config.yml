@@ -45,7 +45,7 @@ collections:
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "tag"}
       - {label: "Title", name: "heading", widget: "string"}
-      - {label: "Icon Image", name: "icon", widget: "image"}
+      - {label: "Icon Image", name: "iconImage", widget: "image"}
       - {label: "Icon Description", name: "iconDescription", widget: string}
 
   - name: "subcategory-item"
