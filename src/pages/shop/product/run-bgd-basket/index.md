@@ -6,5 +6,5 @@ category: Accessories
 images:
   - image: /img/product3-2.png
 price: 25
-available: true
+available: false
 ---
