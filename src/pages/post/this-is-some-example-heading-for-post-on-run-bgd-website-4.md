@@ -3,7 +3,7 @@ templateKey: blog-post
 createPage: "true"
 title: Bringing Back The 90s Event Recap
 category: Style
-author: Dragan Filovski
+author: Tike!
 date: 2019-09-28T11:01:26.337Z
 featuredPost: true
 categoryFeatured: true
