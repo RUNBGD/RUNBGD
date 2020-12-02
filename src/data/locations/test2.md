@@ -1,7 +1,7 @@
 ---
 templateKey: location
 name: test2
-coverImage: tours.jpg
+coverImage: nightlife.jpg
 pin: nightlife.jpg
 category: The City
 address: test
