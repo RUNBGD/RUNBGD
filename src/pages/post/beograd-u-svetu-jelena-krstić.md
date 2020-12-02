@@ -64,60 +64,56 @@ Ovde živim i družim se sa preko trideset razlicitih kultura i najmanje sa Srbi
 
 Svaki grad ima svoj pečat, i život u inostranstvu je avantura za sebe, i iako sam svesna boljih aspekta u skoro svemu, ja moje rodoljublje i moj Beograd nosim zauvek u srcu sa sobom, i delim lepote o njemu sa ostatkom sveta, jer na taj način delim sebe s drugima.
 
-
-
- 
-
-**1. Is life there really better somewhere?**
-
-Depends where it is out there somewhere. It's better for me personally, but it's a very individual thing, and people have very individual criteria for what a better life means to them.
-
-**2. The main reason for leaving Belgrade?**
-
-The main reason is the feeling of saturation with the current value system and generally very corrupt functioning of things in Belgrade and the country, starting from the way of finding a job to the increasing degree of cheapness in people, as a consequence of that system. You can't escape from that in any corner of Belgrade. That’s just one of for sure ten reasons.
-
-**3. Does any part of the city where you live remind you of Belgrade and why?**
-
-Yes, it reminds me of the whole city where I currently live in Belgrade, mainly because of the architecture, historical influence and geographical position of the country in which I am. Very often I hear the song "Where is my Belgrade now" in the background of my thoughts while walking through Budapest. :)
-
-**4. Would you rather move Belgrade to the country where you live, or the city where you live to Serbia?**
-
-I would not move any city to another country, because then that relocated city would be automatically changed and adapted to the culture and environment from which I left and to which I came.
-
-**5. What was the first swear word in Serbian that you taught a local in the city where you live?**
-
-It is interesting that, when I came, the locals already boasted to me about all the Serbian swear words they know, and among the most common is when we "cordially" send someone back to their mother where he came from ...
-
-**6. What is the food you bring with you from Belgrade to your current home?**
-
- Brandy, Miročki cheese and homemade mountain honey (V)
-
-**7. If you had stayed in Belgrade, what would you be doing at the moment?**
-
-I didn’t get a chance to do anything that all my qualifications should provide me with, I unfortunately didn’t even get a chance for a job interview in a sea of ​​job ad applications.
-
-**8. Compare the night life of Belgrade with the city where you live.**
-
-I think that the night life of Belgrade is incomparable with any other city. Belgrade has at least seven different types of going out, unlike most European and non-European capitals, which have a mostly standard, commercialized type of nightlife, to which every young person is adaptable. If I had to compare somehow, I would say that the nightlife in Belgrade is a palette of all possible colors, while Budapest is three beautiful shades of red, but no other color.
-
-**9. Compare the cultural scene of Belgrade with the city in which you live.**
-
-It is interesting that Belgrade has a very good cultural scene and it may not be aware of that enough. I can proudly say that it is in the range of the most diverse cultural scenes. Budapest offers greater greater diversity in both art and music, because many foreigners live in it and they can all find a quality program for themselves and their needs.
-
-**10. If you were the mayor of Belgrade, what would be your progress plan to attract people like you to return?**
-
-Honestly, I would not like to be the mayor of Belgrade as I know it today, because that would mean that I am a bitterly corrupt person, and I never want to be that.
-
-A progress plan to get people back may not exist for people who have left now and received highly better treatment in every aspect (of course, it depends on what you do and where), but a progress plan that will eliminate the will in future future young generations to The state can invest much more resources in the education of young people and introduce reforms in terms of free education for all and strategies for the integration of national minorities and strata into the education system, which should aim first at education on how to alive and how we got to where we are, and what it has done to us and our morals and how not to get to where we are now again and to encourage true values. Education is the only solution. In the long run and far, but the only thing, I can't write only three sentences on this topic, realistically ...
-
-**11. Have your views of the world changed since you moved?**
-
-Drastically. Most of all, when you live in a less developed and fair environment where the judiciary is not independent, where politics dictates the law, where values ​​have turned 360%, and so on, you only realize when you isolate yourself from how difficult it is to fight of that system, and to be good and honest in that system and how many bad, "small" things we tolerate along the way, just because there are a lot of big bad ones. Also, that the life given to us is invaluable and that we are all worth much more as people and individuals than the system shows us and allows us to see for ourselves.
-
-**12. What is the main difference between Belgrade and the city where you currently live?**
-
-In Belgrade, I was mostly surrounded by Serbs, and tourists, who are most common in spring and summer.
-
-I live and socialize here with over thirty different cultures and at least with Serbs, by coincidence, and it is an indescribable difference on an intellectual, social, emotional and spiritual level - not better, not worse, just a huge and main difference, and definitely not the only one. .
-
-Every city has its own stamp, and life abroad is an adventure in itself, and although I am aware of the better aspects in almost everything, I carry my patriotism and my Belgrade with me forever in my heart, and I share the beauties about it with the rest of the world. the way I share myself with others.
+> **1. Is life there really better somewhere?**
+>
+> Depends where it is out there somewhere. It's better for me personally, but it's a very individual thing, and people have very individual criteria for what a better life means to them.
+>
+> **2. The main reason for leaving Belgrade?**
+>
+> The main reason is the feeling of saturation with the current value system and generally very corrupt functioning of things in Belgrade and the country, starting from the way of finding a job to the increasing degree of cheapness in people, as a consequence of that system. You can't escape from that in any corner of Belgrade. That’s just one of for sure ten reasons.
+>
+> **3. Does any part of the city where you live remind you of Belgrade and why?**
+>
+> Yes, it reminds me of the whole city where I currently live in Belgrade, mainly because of the architecture, historical influence and geographical position of the country in which I am. Very often I hear the song "Where is my Belgrade now" in the background of my thoughts while walking through Budapest. :)
+>
+> **4. Would you rather move Belgrade to the country where you live, or the city where you live to Serbia?**
+>
+> I would not move any city to another country, because then that relocated city would be automatically changed and adapted to the culture and environment from which I left and to which I came.
+>
+> **5. What was the first swear word in Serbian that you taught a local in the city where you live?**
+>
+> It is interesting that, when I came, the locals already boasted to me about all the Serbian swear words they know, and among the most common is when we "cordially" send someone back to their mother where he came from ...
+>
+> **6. What is the food you bring with you from Belgrade to your current home?**
+>
+>  Brandy, Miročki cheese and homemade mountain honey (V)
+>
+> **7. If you had stayed in Belgrade, what would you be doing at the moment?**
+>
+> I didn’t get a chance to do anything that all my qualifications should provide me with, I unfortunately didn’t even get a chance for a job interview in a sea of ​​job ad applications.
+>
+> **8. Compare the night life of Belgrade with the city where you live.**
+>
+> I think that the night life of Belgrade is incomparable with any other city. Belgrade has at least seven different types of going out, unlike most European and non-European capitals, which have a mostly standard, commercialized type of nightlife, to which every young person is adaptable. If I had to compare somehow, I would say that the nightlife in Belgrade is a palette of all possible colors, while Budapest is three beautiful shades of red, but no other color.
+>
+> **9. Compare the cultural scene of Belgrade with the city in which you live.**
+>
+> It is interesting that Belgrade has a very good cultural scene and it may not be aware of that enough. I can proudly say that it is in the range of the most diverse cultural scenes. Budapest offers greater greater diversity in both art and music, because many foreigners live in it and they can all find a quality program for themselves and their needs.
+>
+> **10. If you were the mayor of Belgrade, what would be your progress plan to attract people like you to return?**
+>
+> Honestly, I would not like to be the mayor of Belgrade as I know it today, because that would mean that I am a bitterly corrupt person, and I never want to be that.
+>
+> A progress plan to get people back may not exist for people who have left now and received highly better treatment in every aspect (of course, it depends on what you do and where), but a progress plan that will eliminate the will in future future young generations to The state can invest much more resources in the education of young people and introduce reforms in terms of free education for all and strategies for the integration of national minorities and strata into the education system, which should aim first at education on how to alive and how we got to where we are, and what it has done to us and our morals and how not to get to where we are now again and to encourage true values. Education is the only solution. In the long run and far, but the only thing, I can't write only three sentences on this topic, realistically ...
+>
+> **11. Have your views of the world changed since you moved?**
+>
+> Drastically. Most of all, when you live in a less developed and fair environment where the judiciary is not independent, where politics dictates the law, where values ​​have turned 360%, and so on, you only realize when you isolate yourself from how difficult it is to fight of that system, and to be good and honest in that system and how many bad, "small" things we tolerate along the way, just because there are a lot of big bad ones. Also, that the life given to us is invaluable and that we are all worth much more as people and individuals than the system shows us and allows us to see for ourselves.
+>
+> **12. What is the main difference between Belgrade and the city where you currently live?**
+>
+> In Belgrade, I was mostly surrounded by Serbs, and tourists, who are most common in spring and summer.
+>
+> I live and socialize here with over thirty different cultures and at least with Serbs, by coincidence, and it is an indescribable difference on an intellectual, social, emotional and spiritual level - not better, not worse, just a huge and main difference, and definitely not the only one. .
+>
+> Every city has its own stamp, and life abroad is an adventure in itself, and although I am aware of the better aspects in almost everything, I carry my patriotism and my Belgrade with me forever in my heart, and I share the beauties about it with the rest of the world. the way I share myself with others.
