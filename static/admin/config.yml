@@ -21,6 +21,8 @@ collections:
     create: true
     slug: "{{title}}"
     identifier_field: name
+    media_folder: ''
+    public_folder: ''
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "blog-post"}
       - {label: "Create Page", name: "createPage", required: true, widget: "hidden", default: "true"}
@@ -42,6 +44,8 @@ collections:
     folder: "src/data/tags"
     create: true
     slug: "{{iconDescription}}"
+    media_folder: ''
+    public_folder: ''
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "tag"}
       - {label: "Title", name: "heading", widget: "string"}
@@ -59,6 +63,8 @@ collections:
       depth: 4
     slug: "index"
     identifier_field: name
+    media_folder: ''
+    public_folder: ''
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "subcategory-item"}
       - {label: "Create Page", name: "createPage", required: true, widget: "hidden", default: "true"}
@@ -78,6 +84,8 @@ collections:
     public_folder: /img
     slug: "index"
     identifier_field: name
+    media_folder: ''
+    public_folder: ''
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "category-page"}
       - {label: "Create Page", name: "createPage", required: true, widget: "hidden", default: "true"}
@@ -93,6 +101,8 @@ collections:
     create: true
     slug: "{{title}}"
     identifier_field: name
+    media_folder: ''
+    public_folder: ''
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "packages"}
       - {label: "Category", name: "category", widget: "relation", collection: "category", searchFields: ["title"], valueField: "title", displayFields: ["title"]}
@@ -117,6 +127,8 @@ collections:
       depth: 3
     slug: "index"
     identifier_field: name
+    media_folder: ''
+    public_folder: ''
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "category-subcategory"}
       - {label: "Create Page", name: "createPage", required: true, widget: "hidden", default: "true"}
@@ -131,6 +143,8 @@ collections:
     create: true
     slug: "{{name}}"
     identifier_field: name
+    media_folder: ''
+    public_folder: ''
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "author-page"}
       - {label: "Create Page", name: "createPage", required: true, widget: "hidden", default: "true"}
@@ -143,6 +157,8 @@ collections:
     create: true
     slug: "{{title}}"
     identifier_field: name
+    media_folder: ''
+    public_folder: ''
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "other-sites-links"}
       - {label: "Title", name: "title", widget: "string"}
@@ -154,6 +170,8 @@ collections:
     create: true
     slug: "{{title}}"
     identifier_field: name
+    media_folder: ''
+    public_folder: ''
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "social-link"}
       - {label: 'Social Icon Dark', name: 'iconDark', widget: "image"}
@@ -190,6 +208,8 @@ collections:
     create: true
     slug: "{{title}}"
     identifier_field: name
+    media_folder: ''
+    public_folder: ''
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "location-category"}
       - {label: "Title", name: "title", widget: "string"}
@@ -201,6 +221,8 @@ collections:
     create: true
     slug: "{{title}}"
     identifier_field: name
+    media_folder: ''
+    public_folder: ''
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "location-subcategory"}
       - {label: "Title", name: "title", widget: "string"}
@@ -215,6 +237,8 @@ collections:
     public_folder: /img
     slug: "index"
     identifier_field: name
+    media_folder: ''
+    public_folder: ''
     fields: 
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "shop-product"}
       - {label: "Title", name: "title", widget: string}
@@ -236,6 +260,8 @@ collections:
     create: true
     slug: "{{title}}"
     identifier_field: name
+    media_folder: ''
+    public_folder: ''
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "product-category"}
       - {label: "Title", name: "title", widget: "string"}
@@ -246,6 +272,8 @@ collections:
     create: true
     slug: "{{title}}"
     identifier_field: name
+    media_folder: ''
+    public_folder: ''
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "logos"}
       - {label: "Title", name: "title", widget: "string"}
@@ -255,6 +283,8 @@ collections:
 
   - name: "pages"
     label: "Pages"
+    media_folder: ''
+    public_folder: ''
     files:
       - file: "src/pages/shop/index.md"
         label: "Shop Page"
@@ -273,6 +303,8 @@ collections:
       - file: "src/pages/agency/index.md"
         label: "Agency Page"
         name: "agencyPage"
+        media_folder: ''
+        public_folder: ''
         fields:
           - {label: "Hero Banner Image", name: heroBannerImage, widget: image}
           - {label: "Hero Banner Heading", name: heroBannerHeading, widget: string}
@@ -296,6 +328,8 @@ collections:
       - file: "src/pages/work-with-us/index.md"
         label: "Work With Us Page"
         name: "workWithUsPage"
+        media_folder: ''
+        public_folder: ''
         fields:
           - {label: "Hero Video", name: "heroVideoCover", widget: file}
           - {label: "Hero Heading", name: heroHeading, widget: markdown}
@@ -313,6 +347,8 @@ collections:
       - file: "src/pages/careers/index.md"
         label: "Careers Page"
         name: "careersPage"
+        media_folder: ''
+        public_folder: ''
         fields:
           - {label: Hero Image, name: heroImage, widget: image}
           - {label: "Slides", name: "slides", widget: list, fields: [
@@ -329,6 +365,8 @@ collections:
       - file: "src/pages/terms-of-use/index.md"
         label: "Terms Of Use Page"
         name: "termsOfUse"
+        media_folder: ''
+        public_folder: ''
         fields:
           - {label: Title, name: title, widget: string}
           - {label: Body, name: body, widget: "markdown"}     
@@ -337,6 +375,8 @@ collections:
       - file: "src/pages/privacy-policy/index.md"
         label: "Privacy Policy"
         name: "privacyPolicy"
+        media_folder: ''
+        public_folder: ''
         fields:
           - {label: Title, name: title, widget: string}
           - {label: Body, name: body, widget: "markdown"}     
@@ -345,6 +385,8 @@ collections:
       - file: "src/pages/contact-us/index.md"
         label: "Contact Us"
         name: "contactUs"
+        media_folder: ''
+        public_folder: ''
         fields:
           - {label: Title, name: title, widget: string}
           - {label: Body, name: body, widget: "markdown"}     
