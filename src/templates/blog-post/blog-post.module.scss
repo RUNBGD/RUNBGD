@@ -16,6 +16,12 @@
   text-decoration: underline;
 }
 
+.post-body blockquote{
+  background:#f2f2f2;
+  padding:10px;
+  margin:0;
+}
+
 .post-details{
   display:flex;
   justify-content: space-between;

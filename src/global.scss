@@ -9,7 +9,9 @@ html{
 
 body{
   margin:0;
-  font-family:"Barlow Semi Condensed", Arial, Helvetica, sans-serif
+  *{
+    font-family:"Barlow Semi Condensed", Arial, Helvetica, sans-serif
+  }
 }
 
 ::-webkit-scrollbar{
