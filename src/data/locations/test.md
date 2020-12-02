@@ -1,8 +1,8 @@
 ---
 templateKey: location
 name: test
-coverImage: nightlife.jpg
-pin: tours.jpg
+coverImage: tours.jpg
+pin: nightlife.jpg
 category: The City
 address: test
 latitude: "1"
