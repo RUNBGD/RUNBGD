@@ -57,8 +57,6 @@ collections:
     folder: "src/pages/categories"
     create: true
     path: "{{category}}/{{subcategory}}/{{title}}/{{slug}}"
-    media_folder: /static/img
-    public_folder: /img
     nested:
       depth: 4
     slug: "index"
