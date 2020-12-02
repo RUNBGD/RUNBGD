@@ -80,7 +80,20 @@ const IndexPage = () => {
           }
         }
       }
-
+      locationCategories: allMarkdownRemark(
+        filter: { frontmatter: { templateKey: { eq: "location-category" } } }
+      ) {
+        edges {
+          node {
+            frontmatter {
+              title
+              categoryPin {
+                publicURL
+              }
+            }
+          }
+        }
+      }
       trending: allMarkdownRemark(
         filter: { frontmatter: { trending: { eq: true } } }
       ) {
@@ -182,6 +195,7 @@ const IndexPage = () => {
   const [zoomInterval, setZoomInterval] = useState(undefined)
 
   const [clickedLocation, setClickedLocation] = useState(undefined)
+  const [filterCategory, setFilterCategory] = useState('Select Category')
 
   useEffect(() => {
     if (!clickedLocation) {
@@ -292,9 +306,28 @@ const IndexPage = () => {
               onClick={onLocationClicked}
               clickedLocation={clickedLocation}
               setClickedLocation={setClickedLocation}
+              filterCategory={filterCategory}
             />
           </div>
           <div className={styles.locations}>
+            <select
+              onChange={(e) => setFilterCategory(e.target.value)}
+              className={styles.categoryFilter}
+            >
+              <option value="Select Category">Select Category</option>
+              {carouselPosts.locationCategories &&
+                carouselPosts.locationCategories.edges.length > 0 &&
+                carouselPosts.locationCategories.edges.map(({ node: category }) => {
+                  if (category.frontmatter.title == 'Current Location') {
+                    return
+                  }
+                  return (
+                    <option value={category.frontmatter.title}>
+                      {category.frontmatter.title}
+                    </option>
+                  )
+                })}
+            </select>
             <FindPlacesLocations
               locations={
                 carouselPosts &&
@@ -302,7 +335,7 @@ const IndexPage = () => {
                 carouselPosts.locations.edges.length > 0 &&
                 carouselPosts.locations.edges
               }
-              filterCategory={'Select Category'}
+              filterCategory={filterCategory}
               horizontalOnMobile={true}
               setCurrentX={setCurrentX}
               setCurrentY={setCurrentY}

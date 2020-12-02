@@ -126,6 +126,7 @@
     flex-shrink: 0;
     @include breakpoint(sm){
         flex-basis: unset;
+        margin-right:5px;
     }
 }
 .card-cover{

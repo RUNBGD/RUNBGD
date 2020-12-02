@@ -195,6 +195,7 @@ const FindPlaces = () => {
                 onClick={onLocationClicked}
                 clickedLocation={clickedLocation}
                 setClickedLocation={setClickedLocation}
+                filterCategory={filterCategory}
               />
             </div>
             <div className={styles.expandButtonContainer}>

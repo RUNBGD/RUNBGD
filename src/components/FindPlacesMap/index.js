@@ -20,6 +20,7 @@ const FindPlacesMap = ({
   onClick,
   clickedLocation,
   setClickedLocation,
+  filterCategory = 'Select Category'
 }) => {
   const data = useStaticQuery(graphql`
     query findPlacesMap {
@@ -165,6 +166,7 @@ const FindPlacesMap = ({
               }
 
               return (
+                (filterCategory == 'Select Category' || filterCategory == location.frontmatter.category) && 
                 <Marker
                   position={[
                     location.frontmatter.latitude
