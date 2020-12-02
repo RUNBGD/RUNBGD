@@ -168,6 +168,8 @@ collections:
     create: true
     slug: "{{name}}"
     identifier_field: name
+    media_folder: ''
+    public_folder: ''
     fields: 
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "location"}
       - {label: "Name", name: "name", widget: "string"}

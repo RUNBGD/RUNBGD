@@ -166,7 +166,7 @@ const FindPlacesMap = ({
               }
 
               return (
-                (filterCategory == 'Select Category' || filterCategory == location.frontmatter.category) && 
+                ((filterCategory == 'Select Category' || filterCategory == location.frontmatter.category) && iconUrl) && 
                 <Marker
                   position={[
                     location.frontmatter.latitude

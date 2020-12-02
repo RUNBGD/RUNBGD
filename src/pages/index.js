@@ -30,6 +30,7 @@ const IndexPage = () => {
               author
               category
               coverImage {
+                publicURL
                 childImageSharp {
                   fluid(maxWidth: 1280, quality: 64) {
                     ...GatsbyImageSharpFluid

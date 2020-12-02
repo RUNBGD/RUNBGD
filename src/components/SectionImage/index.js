@@ -54,7 +54,12 @@ const SectionImage = ({ imageOnRight, image }) => {
               transform: scale.interpolate((scale) => `scale(${scale})`),
             }}
           >
-            <Image fluid={image.childImageSharp.fluid} alt="" />
+            {
+              image &&
+              image.childImageSharp &&
+              image.childImageSharp.fluid &&
+              <Image fluid={image.childImageSharp.fluid} alt="" />
+            }
           </animated.div>
         </animated.div>
       </div>

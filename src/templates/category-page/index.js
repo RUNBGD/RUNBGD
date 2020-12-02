@@ -236,10 +236,15 @@ let CategoryPage = ({ data }) => {
                   return (
                     <div className={styles.package}>
                       <div className={styles.background}>
-                        <Image
-                          className={styles.fullHeightImage}
-                          fluid={item.background.childImageSharp.fluid}
-                        />
+                        {
+                          item.background &&
+                          item.background.childImageSharp &&
+                          item.background.childImageSharp.fluid &&
+                          <Image
+                            className={styles.fullHeightImage}
+                            fluid={item.background.childImageSharp.fluid}
+                          />
+                        }
                         <div className={styles.overlay}></div>
                       </div>
                       <p className={styles.packageTitle}>{item.title}</p>

@@ -37,6 +37,13 @@ exports.createSchemaCustomization = ({ actions }) => {
       buttonLink: String
     }
 
+    type Banner{
+      bannerImage: File @fileByRelativePath,
+      bannerHeading: String,
+      bannerDescription: String,
+      bannerButton: BannerButton
+    }
+
     type Slide{
       image: File @fileByRelativePath
     }
@@ -112,7 +119,8 @@ exports.createSchemaCustomization = ({ actions }) => {
       aboutText: String,
       heroImage: File @fileByRelativePath,
       slides: [Slide],
-      benefits: [Benefit]
+      benefits: [Benefit],
+      banners:[Banner]
     }
   `
   createTypes(typeDefs)

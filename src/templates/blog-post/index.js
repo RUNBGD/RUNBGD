@@ -69,7 +69,7 @@ export const BlogPostTemplate = ({ data }) => {
           <PostCategoryTag
             slug={categorySlug}
             text={data.markdownRemark.frontmatter.category}
-          />
+            />
         </div>
         <p className={styles.postAuthor}>
           <span>BY </span>
@@ -89,19 +89,11 @@ export const BlogPostTemplate = ({ data }) => {
               data.markdownRemark.frontmatter.coverImage.childImageSharp.fluid
             }
             alt=""
-          />
-        ) : (
+            />
+            ) : (
           <img src={data.markdownRemark.frontmatter.coverImage} />
-        )}
+          )}
       </div>
-      {data.html ? (
-        <Content content={data.html} className={styles.postBody} />
-      ) : (
-        <HTMLContent
-          content={data.markdownRemark.html}
-          className={styles.postBody}
-        />
-      )}
       {data.icons && data.icons.edges != undefined && (
         <div className={styles.iconsContainer}>
           {data.icons.edges.length > 0 &&
@@ -135,6 +127,14 @@ export const BlogPostTemplate = ({ data }) => {
             })}
         </div>
       )}
+      {data.html ? (
+        <Content content={data.html} className={styles.postBody} />
+        ) : (
+        <HTMLContent
+        content={data.markdownRemark.html}
+          className={styles.postBody}
+          />
+          )}
       <hr />
       <h2>Latest In {data.markdownRemark.frontmatter.category}</h2>
       {data.categoryPosts && <LatestPosts posts={data.categoryPosts} />}
