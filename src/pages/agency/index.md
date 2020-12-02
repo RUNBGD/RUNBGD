@@ -13,7 +13,7 @@ sections:
       freelancers besides the core of the agency which is located local.
 
 
-      With the understanding of the local economical markets and experience as well deep and bright international network we can offer companies willing to invest in Belgrade and Serbia the knowledge and analysis to either the Serbian market.
+      With the understanding of the local economical markets and experience as well deep and bright international network we can offer companies willing to invest in Belgrade and Serbia the knowledge and analysis to the Serbian, or more specific, the Belgrader market.
   - image: /img/heading-background.jpg
     heading: Community Management
     type: heading
@@ -48,15 +48,12 @@ sections:
 
       To give this control a hand and a foot, we maintain our own trend database. This is not a hand oracle or a glass ball, but the whole food for our conceptions. Because: Trends are not the fog of the future, but real part of our present. No matter whether mega trends, macro trends or micro trends. This is why RUN BGD taking part of the trendsetting community universe, while others are still reading the coffee grounds.
   - image: /img/heading-background.jpg
-    heading: Scenography
+    heading: Events
     type: heading
     backgroundColor: ffffff
     imageOnRight: false
-    body: Online branding is still a big question mark for a large number of small
-      businesses, and even for some large business companies. A lot of companies
-      are still under the assumption that branding is something difficult to
-      measure, and sometimes it is – unless it’s approached strategically.
-  - image: /img/section-image.png
+    body: Events
+  - image: /img/pexels-helena-lopes-705792.jpg
     heading: Spaces for dreams, stories and experiences.
     type: section
     backgroundColor: ffffff
@@ -74,7 +71,7 @@ sections:
       businesses, and even for some large business companies. A lot of companies
       are still under the assumption that branding is something difficult to
       measure, and sometimes it is – unless it’s approached strategically.
-  - image: /img/section-image.png
+  - image: /img/pexels-erik-mclean-5618257.jpg
     heading: Brands where customers and employees stick
     type: section
     backgroundColor: ffffff
@@ -84,7 +81,7 @@ sections:
       them. They love or hate. Although that is certainly difficult with Buddha.
       In any case, they have what all brands should own: identity. The basis for
       authenticity and thus for real, true marketing."
-  - image: /img/section-image.png
+  - image: /img/pexels-engin-akyurt-1437318.jpg
     heading: Brand follows identity
     type: section
     backgroundColor: ffffff
