@@ -311,24 +311,27 @@ const IndexPage = () => {
             />
           </div>
           <div className={styles.locations}>
-            <select
-              onChange={(e) => setFilterCategory(e.target.value)}
-              className={styles.categoryFilter}
-            >
-              <option value="Select Category">Select Category</option>
-              {carouselPosts.locationCategories &&
-                carouselPosts.locationCategories.edges.length > 0 &&
-                carouselPosts.locationCategories.edges.map(({ node: category }) => {
-                  if (category.frontmatter.title == 'Current Location') {
-                    return
-                  }
-                  return (
-                    <option value={category.frontmatter.title}>
-                      {category.frontmatter.title}
-                    </option>
-                  )
-                })}
-            </select>
+            {!clickedLocation &&
+              <select
+                onChange={(e) => setFilterCategory(e.target.value)}
+                className={styles.categoryFilter}
+              >
+                <option value="Select Category">Select Category</option>
+                {carouselPosts.locationCategories &&
+                  carouselPosts.locationCategories.edges.length > 0 &&
+                  carouselPosts.locationCategories.edges.map(({ node: category }) => {
+                    if (category.frontmatter.title == 'Current Location') {
+                      return
+                    }
+                    return (
+                      <option value={category.frontmatter.title}>
+                        {category.frontmatter.title}
+                      </option>
+                    )
+                  })}
+              </select>
+          
+            }
             <FindPlacesLocations
               locations={
                 carouselPosts &&
