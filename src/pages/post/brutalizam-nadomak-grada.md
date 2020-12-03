@@ -8,7 +8,7 @@ date: 2020-11-23T13:42:37.493Z
 featuredPost: true
 categoryFeatured: true
 trending: true
-coverImage: /img/img_4968.jpeg
+coverImage: img_4915.jpeg
 icons: []
 ---
 Beogradska izletišta često možemo izbrojati na prste, jedno od njih nisam posetio od školskih dana, a vrlo je moguće i nikada u životu. Iako je tu, na pola sata od centra grada, duboka brdovita šuma sa detaljem koji nikada neće izaći iz mode. Zaista je tako, socijalistički modernizam kao da poprima sve veće interesovanje iz godine u godinu. Moderno zauvek. Kao da raste strahopoštovanje svaki put kada se nađemo ispred tih masivnih betonskih spomenika, građenih upravo da pokažu svu moć sećanja i emocija u čije ime su podignuti.
