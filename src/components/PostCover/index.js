@@ -89,6 +89,9 @@ const PostCover = ({ post }) => {
         <Link to={post.fields.slug}>
           <p className={styles.postHeading}>{post.frontmatter.title}</p>
         </Link>
+        <Link to={post.fields.slug} className={styles.callToAction}>
+          Read More &gt;
+        </Link>
       </div>
     </div>
   )

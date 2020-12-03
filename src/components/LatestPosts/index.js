@@ -4,6 +4,8 @@ import { useTransition, animated } from 'react-spring'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import PostCover from '../PostCover'
 
+import styles from './latest-posts.module.scss'
+
 let LatestPosts = ({ posts }) => {
   let [numOfLatestPosts, setNumOfLatestPosts] = useState(5)
 
@@ -24,6 +26,7 @@ let LatestPosts = ({ posts }) => {
 
   return (
     <InfiniteScroll
+      className={styles.latestPostsContainer}
       scrollThreshold="0px"
       dataLength={numOfLatestPosts}
       next={loadMoreLatestPosts}

@@ -12,6 +12,10 @@
   color:#EE1C25;
 }
 
+.post-body img, .post-body video, .post-body iframe{
+  width:100%;
+}
+
 .post-body a:hover{
   text-decoration: underline;
 }
