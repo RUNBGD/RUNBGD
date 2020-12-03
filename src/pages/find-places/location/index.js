@@ -63,6 +63,9 @@ const FindPlaces = () => {
 
   function onLocationClicked(location) {
     setZoomLevel(12)
+    if(typeof window != 'undefined'){
+      window.scrollTo(0, 0)
+    }
     clearInterval(zoomInterval)
 
     setTimeout(() => {
@@ -198,35 +201,39 @@ const FindPlaces = () => {
                 filterCategory={filterCategory}
               />
             </div>
-            <div className={styles.expandButtonContainer}>
-              <button
-                className={`${styles.expandButton} ${
+            <div className={`${styles.expandButtonContainer} ${
                   mapExpanded && styles.isActivated
-                }`}
+                }`}>
+              <button
+                className={styles.expandButton}
                 onClick={() => setMapExpanded((prevState) => !prevState)}
               >
                 <img src={expandButton} alt="expand button" />
               </button>
             </div>
             <div className={styles.locations}>
-              <select
-                onChange={(e) => setFilterCategory(e.target.value)}
-                className={styles.categoryFilter}
-              >
-                <option value="Select Category">Select Category</option>
-                {data.categories &&
-                  data.categories.edges.length > 0 &&
-                  data.categories.edges.map(({ node: category }) => {
-                    if (category.frontmatter.title == 'Current Location') {
-                      return
-                    }
-                    return (
-                      <option value={category.frontmatter.title}>
-                        {category.frontmatter.title}
-                      </option>
-                    )
-                  })}
-              </select>
+              {
+                !clickedLocation &&
+
+                <select
+                  onChange={(e) => setFilterCategory(e.target.value)}
+                  className={styles.categoryFilter}
+                >
+                  <option value="Select Category">Select Category</option>
+                  {data.categories &&
+                    data.categories.edges.length > 0 &&
+                    data.categories.edges.map(({ node: category }) => {
+                      if (category.frontmatter.title == 'Current Location') {
+                        return
+                      }
+                      return (
+                        <option value={category.frontmatter.title}>
+                          {category.frontmatter.title}
+                        </option>
+                      )
+                    })}
+                </select>
+              }
               {data.locations &&
                 data.locations.edges &&
                 data.locations.edges.length > 0 && (

@@ -49,6 +49,10 @@ h2{
   }
 }
 
+input, textarea{
+  font-size:16px;
+}
+
 h1{
   font-size:1.875rem;
   @include breakpoint('lg'){

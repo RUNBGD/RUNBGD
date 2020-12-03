@@ -37,7 +37,7 @@ const FindPlacesLocations = ({
   horizontalOnMobile,
   onClick,
   clickedLocation,
-  setClickedLocation,
+  setClickedLocation
 }) => {
   return (
     <div
