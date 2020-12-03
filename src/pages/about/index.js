@@ -131,8 +131,15 @@ const AboutPage = () => {
         let date = new Date()
         let currentTime = date.getTime()
         if(currentTime - changedSlideTime >= 1000){
-            if(currentSlide + 1 < data.slidesData.frontmatter.slides.length){
-                setCurrentSlide(prevState => {return prevState + 1})
+            console.log(currentSlide, data.slidesData.frontmatter.slides.length)
+            if((currentSlide + 1) < data.slidesData.frontmatter.slides.length){
+                setCurrentSlide(prevState => {
+                    if(prevState + 1 < data.slidesData.frontmatter.slides.length){
+                        return prevState + 1
+                    }else{
+                        return 0
+                    }
+                })
             }else{
                 setCurrentSlide(0)
             }
