@@ -336,6 +336,36 @@ collections:
           ]}
           - {label: "Template Key", name: "templateKey", widget: "string", default: "work-with-us-page"}
 
+      - file: "src/pages/about/index.md"
+        label: "About Page"
+        name: "aboutPage"
+        media_folder: ''
+        public_folder: ''
+        fields:
+          - {label: "Slides", name: "slides", widget: list, fields: [
+              {label: "Cover Image", required: false,  name: "coverImage", widget: image},
+              {label: "Slide Text", name: "slideText", widget: markdown},
+              {label: "Slide Duration(ms)", name: "slideDuration", widget: number},
+              {label: "Slide Transition", name: "transition", widget: "select", options: [
+                - {label: "Appear", value: "appear"}
+                - {label: "Slide Down", value: "slideDown"}
+                - {label: "Slide Up", value: "slideUp"}
+                - {label: "Slide Left", value: "slideLeft"}
+                - {label: "Slide Right", value: "slideRight"}
+                - {label: "Scale", value: "scale"}
+              ]}
+              {
+                label: "Text Transition", name: "textTransition", widget: "select", options: [
+                - {label: "Appear", value: "appear"}
+                - {label: "Slide Down", value: "slideDown"}
+                - {label: "Slide Up", value: "slideUp"}
+                - {label: "Slide Left", value: "slideLeft"}
+                - {label: "Slide Right", value: "slideRight"}
+                - {label: "Scale", value: "scale"}
+              ]}
+          ]}
+          - {label: "Template Key", name: "templateKey", widget: "string", default: "about-page"}
+
       - file: "src/pages/careers/index.md"
         label: "Careers Page"
         name: "careersPage"

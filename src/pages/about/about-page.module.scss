@@ -31,8 +31,10 @@
     padding:0 5vw;
 }
 
-.slide-background h2{
-    text-align: center;
+.slide-body{
+    * {
+        text-align: center;
+    }
 }
 
 .l-stack{
@@ -142,5 +144,11 @@
     margin:0 5%;
     @include breakpoint(lg){
         width:10%;
+    }
+}
+
+.dark-background-text{
+    * {
+        color:white;
     }
 }

@@ -76,7 +76,7 @@ const AboutPage = () => {
         }
     `)
     
-    const [currentSlide, setCurrentSlide] = useState(1)
+    const [currentSlide, setCurrentSlide] = useState(0)
     const [changedSlideTime, setChangedSlideTime] = useState(0)
     const [touchMoves, setTouchMoves] = useState([])
     const [autoplayDirection, setAutoplayDirection] = useState(undefined)
@@ -128,10 +128,10 @@ const AboutPage = () => {
         let date = new Date()
         let currentTime = date.getTime()
         if(currentTime - changedSlideTime >= 1000){
-            if(currentSlide < data.slidesData.frontmatter.slides.length){
-                setCurrentSlide(prevState => prevState + 1)
+            if(currentSlide + 1 < data.slidesData.frontmatter.slides.length){
+                setCurrentSlide(prevState => {return prevState + 1})
             }else{
-                setCurrentSlide(1)
+                setCurrentSlide(0)
             }
             setChangedSlideTime(currentTime)
         }else{
@@ -143,10 +143,10 @@ const AboutPage = () => {
         let date = new Date()
         let currentTime = date.getTime()
         if(currentTime - changedSlideTime >= 1000){
-            if(currentSlide > 1){
+            if(currentSlide > 0){
                 setCurrentSlide(prevState => prevState - 1)
             }else{
-                setCurrentSlide(data.slidesData.frontmatter.slides.length)
+                setCurrentSlide(data.slidesData.frontmatter.slides.length - 1)
             }
             setChangedSlideTime(currentTime)
         }else{
@@ -201,118 +201,12 @@ const AboutPage = () => {
     }, [autoplayDirection, slideIntervalTime])
 
     useEffect(() => {
-        switch (currentSlide) {
-            case 4:
-                setSlideIntervalTime(3000)
-                break;
-            case 5:
-                setSlideIntervalTime(5000)
-                break;
-            case 6:
-                setSlideIntervalTime(4000)
-                break;
-            case 7:
-                setSlideIntervalTime(3000)
-                break;
-            case 8:
-                setSlideIntervalTime(4000)
-                break;
-            case 9:
-                setSlideIntervalTime(4000)
-                break;
-            case 16:
-                setSlideIntervalTime(3000)
-                break;
-            case 17:
-                setSlideIntervalTime(3000)
-                break;
-            case 18:
-                setSlideIntervalTime(3000)
-                break;
-            case 19:
-                setSlideIntervalTime(5000)
-                break;
-            case 20:
-                setSlideIntervalTime(3000)
-                break;
-            case 21:
-                setSlideIntervalTime(4000)
-                break;
-            case 22:
-                setSlideIntervalTime(4000)
-                break;
-            case 23:
-                setSlideIntervalTime(5000)
-                break;
-            case 25:
-                setSlideIntervalTime(5000)
-                break;
-            case 27:
-                setSlideIntervalTime(3000)
-                break;
-            case 28:
-                setSlideIntervalTime(5000)
-                break;
-            case 29:
-                setSlideIntervalTime(3000)
-                break;
-            case 33:
-                setSlideIntervalTime(3000)
-                break;
-            case 38:
-                setSlideIntervalTime(6000)
-                break;
-            case 39:
-                setSlideIntervalTime(3000)
-                break;
-            case 40:
-                setSlideIntervalTime(5000)
-                break;
-            case 42:
-                setSlideIntervalTime(4000)
-                break;
-            case 43:
-                setSlideIntervalTime(3000)
-                break;
-            case 52:
-                setSlideIntervalTime(4000)
-                break;
-            case 53:
-                setSlideIntervalTime(3000)
-                break;
-            case 54:
-                setSlideIntervalTime(4000)
-                break;
-            case 59:
-                setSlideIntervalTime(3000)
-                break;
-            case 63:
-                setSlideIntervalTime(3000)
-                break;
-            case 64:
-                setSlideIntervalTime(4000)
-                break;
-            case 65:
-                setSlideIntervalTime(6000)
-                break;
-            case 71:
-                setSlideIntervalTime(4000)
-                break;
-            case 72:
-                setSlideIntervalTime(4000)
-                break;
-            case 73:
-                setSlideIntervalTime(3000)
-                break;
-            case 77:
-                setSlideIntervalTime(4000)
-                break;
-            case 79:
-                setSlideIntervalTime(20000)
-                break;
-            default:
-                setSlideIntervalTime(2000)
-                break;
+        let currentSlideObject = data.slidesData.frontmatter.slides[currentSlide] 
+        if(currentSlideObject){
+            let slideInterval = currentSlideObject.slideDuration
+            if(slideInterval){
+                setSlideIntervalTime(slideInterval)
+            }
         }
     }, [currentSlide])
 
@@ -391,7 +285,7 @@ const AboutPage = () => {
                     return <VerticalSliderSlide
                       active={currentSlide == index}
                       transition={
-                        transitions.slideDown
+                        transitions[slide.transition]
                       }
                     >
                           <div className={styles.slideBackground}>
@@ -403,15 +297,14 @@ const AboutPage = () => {
                             <AnimatedContainer 
                             active={currentSlide == index}
                             transition={
-                              transitions.slideDown
+                              transitions[slide.textTransition]
                             }
                             className={styles.lStack} 
                             >
-                            <h2 style={{
-                              color: (slide.coverImage && slide.coverImage.childImageSharp && slide.coverImage.childImageSharp.fluid) ? '#fff' : '#000'
-                            }}>
-                                {slide.slideText}
-                            </h2>
+                            <HTMLContent
+                                className={`${styles.slideBody} ${(slide.coverImage && slide.coverImage.childImageSharp && slide.coverImage.childImageSharp.fluid) && styles.darkBackgroundText}`}
+                                content={toHTML(slide.slideText)}
+                            />
                         </AnimatedContainer>
                           </div>
                     </VerticalSliderSlide>

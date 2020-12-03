@@ -68,6 +68,14 @@ exports.createSchemaCustomization = ({ actions }) => {
       image: File @fileByRelativePath
     }
 
+    type Slide {
+      coverImage: File @fileByRelativePath,
+      slideText: String,
+      slideDuration: String,
+      slideTransition: String,
+      textTransition: String
+    }
+
     type Frontmatter @infer {
       website: String,
       email: String,
@@ -120,7 +128,8 @@ exports.createSchemaCustomization = ({ actions }) => {
       heroImage: File @fileByRelativePath,
       slides: [Slide],
       benefits: [Benefit],
-      banners:[Banner]
+      banners:[Banner],
+      slides:[Slide]
     }
   `
   createTypes(typeDefs)
