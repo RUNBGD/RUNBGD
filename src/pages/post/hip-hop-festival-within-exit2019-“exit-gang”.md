@@ -3,8 +3,8 @@ templateKey: blog-post
 createPage: "true"
 title: " Hip-hop festival within EXIT2019 - “EXIT Gang”"
 category: Music
-author: Dragan Filovski
-date: 2020-12-03T09:42:10.363Z
+author: Bassivity Digital
+date: 2019-05-27T08:42:10.363Z
 featuredPost: true
 categoryFeatured: true
 trending: true
