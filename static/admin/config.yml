@@ -353,7 +353,7 @@ collections:
           ]
             }
           - {label: "Template Key", name: "templateKey", widget: "string", default: "careers-page"}
-
+      
       - file: "src/pages/terms-of-use/index.md"
         label: "Terms Of Use Page"
         name: "termsOfUse"
