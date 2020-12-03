@@ -43,6 +43,9 @@ const AboutPage = () => {
                             }
                         }
                         slideText
+                        slideDuration
+                        transition
+                        textTransition
                     }
                 }
             }
@@ -209,6 +212,8 @@ const AboutPage = () => {
             }
         }
     }, [currentSlide])
+
+    console.log(data.slidesData.frontmatter.slides)
 
     return(
         <Layout verticalSlider={true}>
