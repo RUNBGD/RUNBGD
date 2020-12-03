@@ -440,7 +440,7 @@ exports.createPages = async ({ actions, graphql }) => {
       const title = edge.node.frontmatter.title
 
       createPage({
-        path: edge.node.fields.slug,
+        path: title,
         component: path.resolve(
           `src/templates/${String(edge.node.frontmatter.templateKey)}/index.js`
         ),
