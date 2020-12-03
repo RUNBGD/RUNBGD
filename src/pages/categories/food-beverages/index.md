@@ -2,7 +2,7 @@
 templateKey: category-page
 createPage: "true"
 title: Food & Beverages
-description: RUNBGD simply knows where the best meal is because we adore full
+description: RUN BGD simply knows where the best meal is because we adore full
   bellies, where the best atmosphere is because we know how to sing even though
   our voices are creepy, it knows where the best circus is because we enjoy
   every drop and look.
