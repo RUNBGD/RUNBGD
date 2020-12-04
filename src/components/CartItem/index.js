@@ -5,7 +5,7 @@ import Link from 'gatsby-link'
 
 import styles from './cart-item.module.scss'
 
-const CartItem = ({ item: product }) => {
+const CartItem = ({ item: product, key, representational }) => {
   let dispatch = useDispatch()
 
   let [quantity, setQuantity] = useState(product.quantity)
@@ -20,7 +20,7 @@ const CartItem = ({ item: product }) => {
   }, [quantity])
 
   return (
-    <div className={styles.cartItem}>
+    <div className={styles.cartItem} key={key}>
       <div className={styles.itemImage}>
         <Link to={product.product.fields.slug}>
           {product.product.frontmatter.images.length > 0 &&
@@ -58,13 +58,20 @@ const CartItem = ({ item: product }) => {
         </Link>
       </div>
       <div className={styles.quantity}>
-        <button onClick={() => setQuantity((prevState) => prevState - 1)}>
-          -
-        </button>
-        {product.quantity}
-        <button onClick={() => setQuantity((prevState) => prevState + 1)}>
-          +
-        </button>
+        {!representational &&
+          <button onClick={() => setQuantity((prevState) => prevState - 1)}>
+            -
+          </button>
+        }
+        <p>
+          {product.quantity}
+        </p>
+        {
+          !representational &&
+          <button onClick={() => setQuantity((prevState) => prevState + 1)}>
+            +
+          </button>
+        }
       </div>
       <div className={styles.itemPrice}>
         €{quantity * product.product.frontmatter.price}
