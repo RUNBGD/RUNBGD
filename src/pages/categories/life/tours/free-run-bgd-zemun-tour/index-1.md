@@ -2,7 +2,7 @@
 templateKey: subcategory-item
 createPage: "true"
 title: Free "RUN BGD" Zemun Tour
-category: Life
+category: The City
 subcategory: Tours
 subcategoryFeatured: true
 coverImage: runbgd_zemun-walking-tour.jpg
