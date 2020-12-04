@@ -21,7 +21,11 @@ const CheckoutPage = () => {
   const [shippingPrice, setShippingPrice] = useState(0)
   
   useEffect(() => {
-    setShippingPrice(Number(totalPrice) - Number(productPrice))
+    if(totalPrice > 0){
+      setShippingPrice(Number(totalPrice) - Number(productPrice))
+    }else{
+      setShippingPrice(0)
+    }
   }, [productPrice, totalPrice])
 
   

@@ -195,6 +195,21 @@ collections:
       - {label: "Description", required: false, name: "description", widget: markdown}
       - {label: "Latitude", name: "latitude", widget: "string"}
       - {label: "Longitude", name: "longitude", widget: "string"}
+  
+  - name: "shippingLocations"
+    label: "Shipping Locations"
+    folder: "src/data/shipping-locations"
+    create: true
+    slug: "{{name}}"
+    identifier_field: name
+    media_folder: ''
+    public_folder: ''
+    fields: 
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "shipping-locations"}
+      - {label: "Locations and Prices", name: "location", widget: list, fields: [
+          {label: "Name", name: "name", widget: string},
+          {label: "Price", name: "price", widget: number}
+      ]}
 
   - name: "locationCategories"
     label: "Location Categories"

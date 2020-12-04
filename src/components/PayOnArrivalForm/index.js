@@ -27,6 +27,20 @@ const PayOnArrivalForm = ({
           }
         }
       }
+      locationsAndPrices: allMarkdownRemark(
+        filter: { frontmatter: { templateKey: { eq: "shipping-locations" } } }
+      ) {
+        edges {
+          node {
+            frontmatter {
+              location{
+                name
+                price
+              }
+            }
+          }
+        }
+      }
     }
     `)
     
@@ -52,6 +66,7 @@ const PayOnArrivalForm = ({
   const [successMessage, setSuccessMessage] = useState(undefined)
   const [fetching, setFetching] = useState(false)
   const [shippingPrice, setShippingPrice] = useState(0)
+  const [formOpened, setFormOpened] = useState(false)
 
   const maxLengthCheck = (event) => {
     if (event.target.value.length > event.target.maxLength) {
@@ -139,122 +154,136 @@ const PayOnArrivalForm = ({
 
   return (
     <form className={styles.contactForm}>
-      <h4>Pay on arrival</h4>
-      <div className={styles.inputsGroup}>
-        <h2 className={styles.groupHeading}>Contact Information</h2>
-        <input
-          type="text"
-          name="firstName"
-          placeholder="first name"
-          onChange={(e) => setFirstName(e.target.value)}
-        />
-        <input
-          type="text"
-          name="lastName"
-          placeholder="last name"
-          onChange={(e) => setLastName(e.target.value)}
-        />
-        <input
-          type="email"
-          name="email"
-          placeholder="your email"
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          type="number"
-          name="phoneNumber"
-          placeholder="phone number"
-          onChange={(e) => setPhoneNumber(e.target.value)}
-        />
-      </div>
-      <div className={styles.inputsGroup}>
-        <h2 className={styles.groupHeading}>Location information</h2>
-        <select
-          name="country"
-          onChange={(e) => {
-            setCountry(e.target.value)
-            getAndSetShippingPrice(e.target.selectedIndex)
-          }}
-        >
-          <option value="">country</option>
-          {/* {data.locationsAndPrices.data.locations_and_prices.length > 0 &&
-            data.locationsAndPrices.data.locations_and_prices.map(
-              (node, index) => {
-                if (node.location && node.price) {
-                  return (
-                    <option
-                      value={node.location}
-                      price={node.price}
-                      key={index}
-                    >
-                      {node.location}
-                    </option>
-                  )
-                }
-              }
-            )} */}
-        </select>
-        <input
-          type="text"
-          name="state"
-          placeholder="state"
-          onChange={(e) => setState(e.target.value)}
-        />
-        <input
-          type="text"
-          name="city"
-          placeholder="city"
-          onChange={(e) => setCity(e.target.value)}
-        />
-        <input
-          type="text"
-          name="address"
-          placeholder="address"
-          onChange={(e) => setAddress(e.target.value)}
-        />
-        <input
-          type="number"
-          name="zipCode"
-          placeholder="zip code"
-          onChange={(e) => setZipCode(e.target.value)}
-        />
-      </div>
-      <div className={styles.inputsGroup}>
-        <h2 className={styles.groupHeading}>Other information</h2>
-        <textarea
-          name="message"
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          placeholder="message to seller"
-        ></textarea>
-      </div>
-      {successMessage ||
-        (errorMessage && (
-          <p className={styles.statusText}>{successMessage || errorMessage}</p>
-        ))}
-      {fetching && (
-        <div className={styles.loadingIndicatorContainer}>
-          <div className={styles.loadingIndicator}>
-            {data.logo &&
-             data.logo.frontmatter &&
-             data.logo.frontmatter.logoImage &&
-             data.logo.frontmatter.logoImage.childImageSharp && 
-             data.logo.frontmatter.logoImage.childImageSharp.fluid &&(
-                <Image
-                  fluid={
-                    data.logo.frontmatter.logoImage.childImageSharp.fluid
-                  }
-                  alt=''
-                />
-              )}
+      <button 
+        className={styles.primaryButton} 
+        onClick={(e) => {e.preventDefault();setFormOpened((prevState) => !prevState)}}
+      >
+        Pay on arrival
+      </button>
+      {formOpened &&
+        <>
+        
+          <h4>Pay on arrival</h4>
+          <div className={styles.inputsGroup}>
+            <h2 className={styles.groupHeading}>Contact Information</h2>
+            <input
+              type="text"
+              name="firstName"
+              placeholder="first name"
+              onChange={(e) => setFirstName(e.target.value)}
+            />
+            <input
+              type="text"
+              name="lastName"
+              placeholder="last name"
+              onChange={(e) => setLastName(e.target.value)}
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="your email"
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <input
+              type="number"
+              name="phoneNumber"
+              placeholder="phone number"
+              onChange={(e) => setPhoneNumber(e.target.value)}
+            />
           </div>
-        </div>
-      )}
-      <div onClick={(e) => handleSubmit(e)}>
-        <button className={styles.primaryButton}>
-          Send
-        </button>
-      </div>
+          <div className={styles.inputsGroup}>
+            <h2 className={styles.groupHeading}>Location information</h2>
+            <select
+              name="country"
+              onChange={(e) => {
+                setCountry(e.target.value)
+                getAndSetShippingPrice(e.target.selectedIndex)
+              }}
+            >
+              <option value="">country</option>
+              {data.locationsAndPrices &&
+              data.locationsAndPrices.edges.length > 0 &&
+              data.locationsAndPrices.edges[0].node.frontmatter.location &&
+              data.locationsAndPrices.edges[0].node.frontmatter.location.length > 0 &&
+              data.locationsAndPrices.edges[0].node.frontmatter.location.map(
+                  (node, index) => {
+                    if (node.name && node.price) {
+                      return (
+                        <option
+                          value={node.name}
+                          price={node.price}
+                          key={index}
+                        >
+                          {node.name}
+                        </option>
+                      )
+                    }
+                  }
+                )}
+            </select>
+            <input
+              type="text"
+              name="state"
+              placeholder="state"
+              onChange={(e) => setState(e.target.value)}
+            />
+            <input
+              type="text"
+              name="city"
+              placeholder="city"
+              onChange={(e) => setCity(e.target.value)}
+            />
+            <input
+              type="text"
+              name="address"
+              placeholder="address"
+              onChange={(e) => setAddress(e.target.value)}
+            />
+            <input
+              type="number"
+              name="zipCode"
+              placeholder="zip code"
+              onChange={(e) => setZipCode(e.target.value)}
+            />
+          </div>
+          <div className={styles.inputsGroup}>
+            <h2 className={styles.groupHeading}>Other information</h2>
+            <textarea
+              name="message"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              placeholder="message to seller"
+            ></textarea>
+          </div>
+          {successMessage ||
+            (errorMessage && (
+              <p className={styles.statusText}>{successMessage || errorMessage}</p>
+            ))}
+          {fetching && (
+            <div className={styles.loadingIndicatorContainer}>
+              <div className={styles.loadingIndicator}>
+                {data.logo &&
+                data.logo.frontmatter &&
+                data.logo.frontmatter.logoImage &&
+                data.logo.frontmatter.logoImage.childImageSharp && 
+                data.logo.frontmatter.logoImage.childImageSharp.fluid &&(
+                    <Image
+                      fluid={
+                        data.logo.frontmatter.logoImage.childImageSharp.fluid
+                      }
+                      alt=''
+                    />
+                  )}
+              </div>
+            </div>
+          )}
+          <div onClick={(e) => handleSubmit(e)}>
+            <button className={styles.primaryButton}>
+              Send
+            </button>
+          </div>
+        </>
+      }
     </form>
   )
 }

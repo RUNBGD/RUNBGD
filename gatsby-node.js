@@ -76,6 +76,11 @@ exports.createSchemaCustomization = ({ actions }) => {
       textTransition: String
     }
 
+    type Location{
+      name: String,
+      price: String
+    }
+
     type Frontmatter @infer {
       website: String,
       email: String,
@@ -129,7 +134,8 @@ exports.createSchemaCustomization = ({ actions }) => {
       slides: [Slide],
       benefits: [Benefit],
       banners:[Banner],
-      slides:[Slide]
+      slides:[Slide],
+      location:[Location]
     }
   `
   createTypes(typeDefs)
