@@ -22,7 +22,7 @@ Znate onaj adrenalin kad pogledate na gore, a iznad vas samo nebo?
 
 Zavirila sam na najlepše krovove našeg grada, negde krišom, negde uz lepu reč. Na jedno mesto me je odvela posebna osoba, a sada ću i ja vas.
 
-> The Crown taught us a lot, we will all agree, but it also made us want to be foreigners in our own city.
+> The Corona taught us a lot, we will all agree, but it also made us want to be foreigners in our own city.
 >
 > How much do you not know about Belgrade?
 >
@@ -53,8 +53,6 @@ Panorama na ceo grad. Brankov most i Ušće, Vračar i Hram. Kada biste me pital
 >
 > Panorama of the whole city. Branko's Bridge and Ušće, Vračar and Hram. If you asked me what the most beautiful sunset I have experienced would be that one.
 
-
-
 **Bigz**
 
 Bivša zgrada „Bigza“ nalazi se na Sajmu.
@@ -68,8 +66,6 @@ Lift je jako star, te vam preporučujem da stepenice budu vaš izbor. Mnogi ovo 
 > Parties and various promotions are often held on the top floor, but if you want to go up for no reason, you will have to ask a kind guard at the entrance.
 >
 > The elevator is very old, so I recommend that the stairs be your choice. Many call this place the most beautiful view of the city. Clear and why.
-
-
 
 **Vračar**
 
@@ -85,8 +81,6 @@ Idealno mesto da popijete pivo i u miru gledate zvezde i grad kako živi.
 >
 > An ideal place to drink a beer and watch the stars and the city, live in peace.
 
-
-
 **Beograđanka**
 
 Sam naziv već  otkriva da sa terase Beograđanke možete videti gotovo celi grad.
@@ -100,8 +94,6 @@ Nekada su u njoj bile velike i značajne firme za državu, a danas su tu i dalje
 > The first skyscraper in the city center with 30 floors, since the eighties, is one of the five tallest buildings in the capital.
 >
 > It used to have large and important companies for the state, and today there are still business premises and television, so a lot of people circulate through the building and have the opportunity to see a magical view, after work, when the sun goes down.
-
-
 
 **Usće kula / tower**
 
@@ -117,8 +109,6 @@ Pogled se pruža na Novi Beograd, blokove i Most na Adi. Šta ćete lepše?
 >
 > The view extends to New Belgrade, the blocks and the Bridge on Ada. What will you do better?
 
-
-
 **Geneks**
 
 Jedan od simbola Beograda i prva pametna zgrada u prestonici. Nekada se na vrhu Geneks kule, na 35om spratu nalazio restoran, koji nažalost nije zaživeo, a ostatak zgrade činile su poslovne i stambene prostorije.
@@ -132,8 +122,6 @@ Na vrhu je postojala kamera kojoj ste mogli online da pristupite, ali je i ona n
 > Although it offers one of the most beautiful views of New Belgrade, the Genex building has been abandoned for years.
 >
 > There was a camera at the top that you could access online, but it was also turned off after a while.
-
-
 
 **Politika**
 
