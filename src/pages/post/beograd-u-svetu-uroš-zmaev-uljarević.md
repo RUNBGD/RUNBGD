@@ -1,7 +1,7 @@
 ---
 templateKey: blog-post
 createPage: "true"
-title: "Beograd u svetu: Uroš Zmaev Uljarević"
+title: "Beograd u svetu / Belgrade around: Uroš Zmaev Uljarević"
 category: Life
 author: Aleksandar Tašić
 date: 2020-12-03T09:13:55.075Z
