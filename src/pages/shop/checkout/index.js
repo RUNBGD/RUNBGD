@@ -14,22 +14,13 @@ const CheckoutPage = () => {
   let products = useSelector((state) => state)
   const dispatch = useDispatch()
   
-  const [productPrice, setProductPrice] = useState(products ? products.reduce((a, b) => {
-    return a + b.quantity * b.product.frontmatter.price
-  }, 0) : totalPrice)
-
-  const [shippingPrice, setShippingPrice] = useState(0)
-  
-  useEffect(() => {
-    if(totalPrice > 0){
-      setShippingPrice(Number(totalPrice) - Number(productPrice))
-    }else{
-      setShippingPrice(0)
-    }
-  }, [productPrice, totalPrice])
-
-  
   const [totalPrice, setTotalPrice] = useState(0)
+
+  const [productPrice, setProductPrice] = useState(products && products.reduce((a, b) => {
+    return a + b.quantity * b.product.frontmatter.price
+  }, 0))
+
+  const [shippingPrice, setShippingPrice] = useState(0)  
   
   useEffect(() => {
     addToStateFromLocalStorage()
@@ -86,6 +77,7 @@ const CheckoutPage = () => {
                           return a + b.quantity * b.product.frontmatter.price
                         }, 0)}
                       totalPrice={totalPrice}
+                      setShippingPriceToParent={setShippingPrice}
                       onSuccess={() => {
                         localStorage.setItem('cartItems', JSON.stringify([]))
                         setTimeout(() => {

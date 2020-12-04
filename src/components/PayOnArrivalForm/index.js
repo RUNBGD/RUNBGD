@@ -10,6 +10,7 @@ const PayOnArrivalForm = ({
   price,
   totalPrice,
   setTotalPrice,
+  setShippingPriceToParent,
   onSuccess,
 }) => {
   const data = useStaticQuery(graphql`
@@ -75,8 +76,13 @@ const PayOnArrivalForm = ({
   }
 
   useEffect(() => {
-    setTotalPrice(price + shippingPrice)
+    setTotalPrice(Number(price) + Number(shippingPrice))
   }, [price, shippingPrice])
+
+  useEffect(() => {
+    setShippingPriceToParent(shippingPrice)
+  }, [shippingPrice])
+
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -145,7 +151,7 @@ const PayOnArrivalForm = ({
     let queryDataIndex = optionIndex - 1
     if (queryDataIndex >= 0) {
       let shippingPrice =
-        data.locationsAndPrices.data.locations_and_prices[queryDataIndex].price
+      data.locationsAndPrices.edges[0].node.frontmatter.location[queryDataIndex].price
       setShippingPrice(shippingPrice)
     } else {
       setShippingPrice(0)
