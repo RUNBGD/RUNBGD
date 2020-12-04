@@ -61,7 +61,7 @@ Na poslednjem spratu često se održavaju žurke i razne promocije, ali ako pož
 
 Lift je jako star, te vam preporučujem da stepenice budu vaš izbor. Mnogi ovo mesto nazivaju najlepšim pogledom na grad. Jasno i zašto.
 
-> The former Bigza building is located at the Fair.
+> The former "Bigz" building is located at the Fair.
 >
 > Parties and various promotions are often held on the top floor, but if you want to go up for no reason, you will have to ask a kind guard at the entrance.
 >
