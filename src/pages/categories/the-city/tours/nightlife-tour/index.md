@@ -1,16 +1,23 @@
 ---
 templateKey: subcategory-item
 createPage: "true"
-title: '"RUN BGD" NIGHTLIFE TOUR'
+title: '"RUN BGD" Underground Secrets Of Belgrade Tour'
 category: The City
 subcategory: Tours
 subcategoryFeatured: true
-coverImage: /img/nightlife-tour.jpeg
+coverImage: runbgd_underground-belgrad-tour.jpg
 ---
-...diving into Belgrade's nightlife...
-(about 3 hours)
-Belgrade is a city that never sleeps and well-known for groovy & outgoing nightlife.
+Every Sunday @ 3pm whole year round. 
 
-We will take you to the journey from traditional tavern “kafana” with live Serbian music to flashy and wild floating river club “splav” or into the urban underground scene.
+The hidden objects and cruel history. Visit the Roman well, a military bunker from Tito's period, Austrian gunpowder storehouse with Roman sarcofagi, sacrificial altars and tombstones. You will hear the stories about the oldest city center. Visit caverns in which the food was stored and wine cellar from the 19th century with FREE WINE at the end.
 
-Join the RUN BGD NIGHTLIFE TOUR!
+## FAQ
+
+* **Do I need to book this tour?**\
+  No, this tour is guaranteed, therefore no need to book it.
+* **Where do I pay?**\
+  You can pay to your guide when you meet them.
+* **How long does the tour last?**\
+  Usually between 2.5 and 3 hours.
+* **Where do we finish the tour?**\
+  In a very nice wine cellar bellow Branko's bridge, 10 minutes away from the Republic Square.
