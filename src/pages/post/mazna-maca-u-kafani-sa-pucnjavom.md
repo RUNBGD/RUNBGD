@@ -1,7 +1,7 @@
 ---
 templateKey: blog-post
 createPage: "true"
-title: Mazna maca u kafani sa pucnjavom
+title: Mazna maca u kafani sa pucnjavom / Sweet Little Kitty in a Shooting Bar
 category: Life
 author: Teodora Karas
 date: 2020-11-16T22:25:29.392Z
