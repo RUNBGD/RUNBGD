@@ -1,5 +1,5 @@
 ---
 templateKey: other-sites-links
-title: RUN BGD
-url: https://runbgd.com
+title: Minus1 Belgrade
+url: https://minus1store.com
 ---
