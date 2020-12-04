@@ -21,3 +21,7 @@ The hidden objects and cruel history. Visit the Roman well, a military bunker fr
   Usually between 2.5 and 3 hours.
 * **Where do we finish the tour?**\
   In a very nice wine cellar bellow Branko's bridge, 10 minutes away from the Republic Square.
+
+## Meeting point
+
+The tour starts from **the Republic Square, behind the monument**. Our guides will be wearing or shirts/sweaters, hats or umbrella. Just look for something yellow around the monumen.
