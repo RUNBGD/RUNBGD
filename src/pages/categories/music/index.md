@@ -7,7 +7,7 @@ description: RUN BGD represents our uncorrupted, strong and urban music scene.
   prepare exclusively for us, the performers will bring closer their emotions,
   attitudes and opinions about the society and Belgrade. Belgrade always got
   along best with music.
-coverImage: runbgd-music.png
+coverImage: runbgd_music.png
 order: 3
 orderNavbar: 3
 ---
