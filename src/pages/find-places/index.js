@@ -14,6 +14,7 @@ import FindPlacesLocations from '../../components/FindPlacesLocations'
 import expandButton from '../../img/down-arrow.svg'
 import loadingIndicator from '../../img/loading-indicator.svg'
 import videoBackground from '../../img/find-places.mp4'
+import searchIcon from '../../img/search-icon-white.svg'
 
 function distance(lat1, lon1, lat2, lon2, unit) {
   var radlat1 = (Math.PI * lat1) / 180
@@ -46,6 +47,7 @@ const FindPlaces = () => {
 
   const [zoomLevel, setZoomLevel] = useState(undefined)
   const [zoomInterval, setZoomInterval] = useState(undefined)
+  const [enteredLocation, setEnteredLocation] = useState('')
 
   useEffect(() => {
     if (zoomInterval && zoomLevel > 18) {
@@ -72,7 +74,10 @@ const FindPlaces = () => {
             `/find-places/location?x=${coords.longitude}&y=${coords.latitude}`
           )
         },
-        (e) => console.log(e),
+        (e) => {
+          console.log(e)
+          setFetchMessage('There was some error trying to obtain your location, try entering location below! If error persists please check if you enabled location access in popup window and if Location Services are enabled on your device for this browser, thanks!')
+        },
         {
           enableHighAccuracy: true,
           maximumAge: Infinity,
@@ -82,10 +87,10 @@ const FindPlaces = () => {
   }
 
   function findGeocodeFromAddress(event) {
-    if (event.key === 'Enter') {
+    if (event.key === 'Enter' || event.button == 0) {
       setFetchMessage(undefined)
       setFetching(true)
-      fetch(`/.netlify/functions/getGeolocation?location=${event.target.value}`)
+      fetch(`/.netlify/functions/getGeolocation?location=${enteredLocation}`)
         .then((response) => response.json())
         .then((data) => {
           console.log(data)
@@ -195,12 +200,18 @@ const FindPlaces = () => {
               Search near me
             </button>
             <p>or</p>
-            <input
-              type="text"
-              onKeyDown={findGeocodeFromAddress}
-              placeholder="Enter location"
-              className={styles.inputCardInput}
-            />
+            <div className={styles.row}>
+              <input
+                type="text"
+                onKeyDown={findGeocodeFromAddress}
+                onChange={e => setEnteredLocation(e.target.value)}
+                placeholder="Enter location"
+                className={styles.inputCardInput}
+              />
+              <button className={styles.searchByPlaceButton} onClick={e => findGeocodeFromAddress(e)}>
+                <img src={searchIcon} alt=''/>
+              </button>
+            </div>
             {fetching && (
               <img
                 src={loadingIndicator}

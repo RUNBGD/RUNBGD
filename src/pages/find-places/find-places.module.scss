@@ -46,11 +46,24 @@
     color:white;
 }
 
+.row{
+    display: flex;
+}
+
 .input-card-input{
     width:100%;
     padding:5px;
 
     border:1px solid #707070;
+}
+
+.search-by-place-button{
+    background:#EE1C25;
+    border:none;
+    margin-left:5px;
+    >img{
+        transform:rotateZ(90deg)
+    }
 }
 
 .map{
@@ -271,3 +284,4 @@
         min-height: 80vh;
     }
 }
+
