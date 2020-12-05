@@ -162,8 +162,8 @@
 }
 
 .size{
-    width:2rem;
-    height:2rem;
+    min-width:2rem;
+    padding:5px;
     border:1px solid black;
     display:flex;
     align-items: center;
