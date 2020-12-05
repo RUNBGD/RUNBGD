@@ -2,9 +2,11 @@
 
 .page-container{
   min-height:75vh;
+  width:100%;
+  @include breakpoint(lg){
+      width:75%;
+  }
 }
-
-@import '../../../styles/breakpoints.scss';
 
 .column-names{
     width:100%;
@@ -92,9 +94,9 @@
         top:200px;
         left:unset;
         bottom:unset;
-        width:20%;
         margin-bottom:0;
         margin-left:auto;
+        width:20%;
         min-width:220px;
     }
 }

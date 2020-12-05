@@ -198,14 +198,14 @@ collections:
   
   - name: "shippingLocations"
     label: "Shipping Locations"
-    folder: "src/data/shipping-locations"
+    folder: "src/data/shipping-locations-arrival"
     create: true
     slug: "{{name}}"
     identifier_field: name
     media_folder: ''
     public_folder: ''
     fields: 
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "shipping-locations"}
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "shipping-locations-arrival"}
       - {label: "Locations and Prices", name: "location", widget: list, fields: [
           {label: "Name", name: "name", widget: string},
           {label: "Price", name: "price", widget: number}

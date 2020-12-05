@@ -29,7 +29,7 @@ const PayOnArrivalForm = ({
         }
       }
       locationsAndPrices: allMarkdownRemark(
-        filter: { frontmatter: { templateKey: { eq: "shipping-locations" } } }
+        filter: { frontmatter: { templateKey: { eq: "shipping-locations-arrival" } } }
       ) {
         edges {
           node {
@@ -68,6 +68,9 @@ const PayOnArrivalForm = ({
   const [fetching, setFetching] = useState(false)
   const [shippingPrice, setShippingPrice] = useState(0)
   const [formOpened, setFormOpened] = useState(false)
+
+  
+  console.log(products)
 
   const maxLengthCheck = (event) => {
     if (event.target.value.length > event.target.maxLength) {
@@ -112,10 +115,9 @@ const PayOnArrivalForm = ({
           products.map((product) => {
             return {
               quantity: product.quantity,
-              title: product.data.title,
-              color: product.data.color_name,
+              title: product.product.frontmatter.title,
               size: product.size,
-              uid: product.uid,
+              uid: product.id,
             }
           })
         )}`,

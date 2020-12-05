@@ -27,7 +27,7 @@ function cartItems(state = [], action) {
     case 'CHANGE_QUANTITY':
       if ([...state].length > 0) {
         let changedQuantityArray = [...state].map((product) => {
-          if (product.id == action.payload.id) {
+          if ((product.id == action.payload.id) && (product.size == action.payload.size)) {
             return action.payload
           } else {
             return product

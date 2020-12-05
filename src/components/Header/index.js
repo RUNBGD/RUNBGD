@@ -203,9 +203,8 @@ const Header = () => {
   }, [searchValue])
 
   return (
-    <animated.header
+    <header
       class={`${styles.header} ${menuOpened && styles.headerDark}`}
-      style={slideDown}
     >
       <div className={styles.headerMainButtons}>
         <div className={styles.hamburgerNavItems}>
@@ -480,7 +479,7 @@ const Header = () => {
           </footer>
         </nav>
       </div>
-    </animated.header>
+    </header>
   )
 }
 

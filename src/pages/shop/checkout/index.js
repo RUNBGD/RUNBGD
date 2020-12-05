@@ -76,6 +76,7 @@ const CheckoutPage = () => {
                           console.log(a)
                           return a + b.quantity * b.product.frontmatter.price
                         }, 0)}
+                      products={products}
                       totalPrice={totalPrice}
                       setShippingPriceToParent={setShippingPrice}
                       onSuccess={() => {

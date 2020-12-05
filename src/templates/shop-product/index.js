@@ -45,7 +45,7 @@ const ShopProductPage = ({ data }) => {
       if (
         JSON.parse(localStorage.getItem('cartItems')).findIndex((product) => {
           if (
-            product.id == data.product.fields.slug + `${selectedSize}` &&
+            product.id == data.product.fields.slug &&
             product.size == selectedSize
           ) {
             return true
@@ -59,7 +59,7 @@ const ShopProductPage = ({ data }) => {
             product: data.product,
             size: selectedSize,
             quantity: 1,
-            id: data.product.fields.slug + `${selectedSize}`,
+            id: data.product.fields.slug,
           },
         })
       } else {
@@ -75,11 +75,17 @@ const ShopProductPage = ({ data }) => {
           product: data.product,
           size: selectedSize,
           quantity: 1,
-          id: data.product.fields.slug + `${selectedSize}`,
+          id: data.product.fields.slug,
         },
       })
     }
   }
+
+  useEffect(() => {
+    if(!data.product.frontmatter.sizes){
+      setAlreadyAddedToCartMessage('This product is currently not available.')
+    }
+  }, [data.product])
 
   return (
     <Layout fullWidth={true}>
@@ -210,12 +216,13 @@ const ShopProductPage = ({ data }) => {
               class={styles.callToActionButton}
               onClick={() => {
                 if (
-                  selectedSize != undefined ||
-                  data.product.frontmatter.sizes == undefined
+                  selectedSize != undefined
                 ) {
                   setAlreadyAddedToCartMessage(undefined)
                   addProductToCart()
-                } else {
+                }else if(data.product.frontmatter.sizes == undefined){
+                  setAlreadyAddedToCartMessage('This product is currently not available.')
+                }else {
                   setAlreadyAddedToCartMessage('Please choose size.')
                 }
               }}

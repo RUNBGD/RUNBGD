@@ -35,9 +35,6 @@
         margin-bottom:8px;
         padding:5px;
         border:1px solid black;
-        @include breakpoint(sm){
-            width:145px;
-        }
     }
     > textarea{
         width:100%;

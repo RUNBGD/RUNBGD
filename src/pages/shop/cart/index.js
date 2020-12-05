@@ -38,7 +38,7 @@ const Cart = () => {
           content={`Welcome to RUN BGD Shop Cart. Here you can see everything you choose to buy from our official RUN BGD Shop.`}
         />
       </Helmet>
-      <main>
+      <main className={styles.pageContainer}>
         <h1>Cart</h1>
         <div className={styles.checkoutSection}>
           {products.length > 0 ? (

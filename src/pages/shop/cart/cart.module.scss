@@ -1,5 +1,13 @@
 @import '../../../styles/breakpoints.scss';
 
+.page-container{
+    min-height:75vh;
+    width:100%;
+    @include breakpoint(lg){
+        width:75%;
+    }
+  }
+
 .column-names{
     width:100%;
     display:flex;
