@@ -1,5 +1,6 @@
 ---
 heroBannerImage: /img/hero-banner-image.jpg
+heroBannerAnimation: /img/agency.gif
 heroBannerHeading: RUN BGD Agency
 references: []
 sections:

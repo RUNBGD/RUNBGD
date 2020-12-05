@@ -7,15 +7,15 @@ images:
   - image: /img/xxx_0227-removebg-preview.png
 price: 30
 sizes:
-  - available: true
+  - quantity: 1
     size: S
   - size: M
-    available: true
+    quantity: 1
   - size: L
-    available: true
+    quantity: 1
   - size: XL
-    available: true
+    quantity: 1
   - size: XXL
-    available: true
+    quantity: 1
 available: true
 ---

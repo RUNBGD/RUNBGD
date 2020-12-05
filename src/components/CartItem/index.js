@@ -19,6 +19,23 @@ const CartItem = ({ item: product, key, representational }) => {
     }
   }, [quantity])
 
+  const setProductQuantity = (action) => {
+    switch(action){
+      case 'ADD_ONE':
+        if(quantity < product.product.frontmatter.sizes.find(size => size.size == product.size).quantity){
+          setQuantity((prevState) => prevState + 1);
+        }
+        break;
+      case 'REMOVE_ONE':
+        setQuantity((prevState) => prevState - 1);
+        break;
+      default:
+        break;
+    }
+  }
+
+  console.log(product.product.frontmatter.sizes.find(size => size.size == product.size), product)
+
   return (
     <div className={styles.cartItem} key={key}>
       <div className={styles.itemImage}>
@@ -59,7 +76,7 @@ const CartItem = ({ item: product, key, representational }) => {
       </div>
       <div className={styles.quantity}>
         {!representational &&
-          <button onClick={() => setQuantity((prevState) => prevState - 1)}>
+          <button onClick={() => setProductQuantity('REMOVE_ONE')}>
             -
           </button>
         }
@@ -68,7 +85,7 @@ const CartItem = ({ item: product, key, representational }) => {
         </p>
         {
           !representational &&
-          <button onClick={() => setQuantity((prevState) => prevState + 1)}>
+          <button onClick={() => setProductQuantity('ADD_ONE')}>
             +
           </button>
         }

@@ -64,7 +64,6 @@ const Cart = () => {
                   €
                   {products &&
                     products.reduce((a, b) => {
-                      console.log(a)
                       return a + b.quantity * b.product.frontmatter.price
                     }, 0)}
                 </p>

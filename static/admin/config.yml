@@ -257,7 +257,7 @@ collections:
       - {label: "Price", name: "price", widget: number}
       - {label: "Sizes", name: "sizes", widget: list, fields: [
           {label: "Size", name: "size", widget: string},
-          {label: "Size Available", name: "available", widget: boolean}
+          {label: "Quantity", name: "quantity", widget: number}
       ]}
       - {label: "Product Available", name: "available", widget: boolean}
 
@@ -314,6 +314,7 @@ collections:
         public_folder: ''
         fields:
           - {label: "Hero Banner Image", name: heroBannerImage, widget: image}
+          - {label: "Hero Banner Animation", name: heroBannerAnimation, widget: image}
           - {label: "Hero Banner Heading", name: heroBannerHeading, widget: string}
           - {label: References, name: references, widget: list, fields: [
               {label: "Image", name: "image", widget: image},

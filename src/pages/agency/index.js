@@ -15,6 +15,7 @@ import Layout from '../../components/Layout'
 import styles from './agency.module.scss'
 import { HTMLContent } from '../../components/Content'
 import SectionImage from '../../components/SectionImage'
+import agencyAnimation from '../../img/agency.gif'
 
 SwiperCore.use([EffectCoverflow])
 
@@ -50,6 +51,9 @@ const AgencyPage = () => {
             }
           }
           heroBannerHeading
+          heroBannerAnimation{
+            publicURL
+          }
           references {
             image {
               childImageSharp {
@@ -87,14 +91,15 @@ const AgencyPage = () => {
       fullWidthContent={
         <div style={{ overflowX: 'hidden' }}>
           <div className={styles.heroBanner}>
-            <AgencyIllustration />
+            <img src={data.page.frontmatter.heroBannerAnimation.publicURL} className={styles.agencyAnimation} alt=''/>
+            {/* <AgencyIllustration />
             <animated.h1
               style={{
                 transform: scale.interpolate((scale) => `scale(${scale})`),
               }}
             >
               {data.page.frontmatter.heroBannerHeading}
-            </animated.h1>
+            </animated.h1> */}
             <div className={styles.backgroundImageFixed}>
               {data.page &&
                 data.page.frontmatter &&

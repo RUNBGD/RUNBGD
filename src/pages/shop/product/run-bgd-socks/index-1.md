@@ -8,14 +8,14 @@ images:
 price: 12
 sizes:
   - size: 31-34
-    available: true
+    quantity: 1
   - size: 35-38
-    available: true
+    quantity: 1
   - size: 39-42
-    available: true
+    quantity: 1
   - size: 43-44
-    available: true
+    quantity: 1
   - size: 45-46
-    available: true
+    quantity: 1
 available: true
 ---

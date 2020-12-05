@@ -8,6 +8,6 @@ images:
 price: 15
 sizes:
   - size: one size
-    available: true
+    quantity: 1
 available: true
 ---

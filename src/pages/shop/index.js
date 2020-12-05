@@ -62,7 +62,7 @@ const Shop = () => {
               }
               sizes {
                 size
-                available
+                quantity
               }
               category
             }

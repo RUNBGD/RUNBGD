@@ -9,12 +9,12 @@ images:
 price: 35
 sizes:
   - size: S
-    available: false
+    quantity: 0
   - size: M
-    available: false
+    quantity: 0
   - size: L
-    available: false
+    quantity: 0
   - size: XL
-    available: false
+    quantity: 0
 available: false
 ---

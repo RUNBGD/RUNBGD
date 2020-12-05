@@ -29,7 +29,8 @@ exports.createSchemaCustomization = ({ actions }) => {
     }
 
     type Size {
-      size: String
+      size: String,
+      quantity: String
     }
 
     type BannerButton{
@@ -135,7 +136,8 @@ exports.createSchemaCustomization = ({ actions }) => {
       benefits: [Benefit],
       banners:[Banner],
       slides:[Slide],
-      location:[Location]
+      location:[Location],
+      heroBannerAnimation: File @fileByRelativePath
     }
   `
   createTypes(typeDefs)

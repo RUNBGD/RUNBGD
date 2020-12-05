@@ -100,12 +100,14 @@ const ShopProduct = ({ images, title, price, availableSizes }) => {
             })}
         </div>
         <div>
-          {availableSizes && (
+          {availableSizes &&
+          availableSizes.some(size => size.quantity > 0) &&
+          (
             <React.Fragment>
               <p className={styles.miscText}>Available Sizes</p>
               <p className={styles.miscText}>
                 {availableSizes
-                  .filter((size) => size.available)
+                  .filter((size) => size.quantity > 0)
                   .map((size) => size.size)
                   .join(',')}
               </p>

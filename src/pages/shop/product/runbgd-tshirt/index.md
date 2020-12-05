@@ -8,10 +8,10 @@ images:
 price: 45
 sizes:
   - size: S
-    available: true
+    quantity: 1
   - size: M
-    available: false
+    quantity: 0
   - size: XXL
-    available: true
+    quantity: 1
 available: true
 ---

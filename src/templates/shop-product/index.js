@@ -198,11 +198,12 @@ const ShopProductPage = ({ data }) => {
                       return (
                         <div
                           onClick={() => {
-                            size.available && setSelectedSize(index)
+                            console.log(size)
+                            size.quantity > 0 && setSelectedSize(size.size)
                           }}
                           className={`${styles.size} ${
-                            !size.available && styles.notAvailable
-                          } ${selectedSize === index && styles.selected}`}
+                            (size.quantity <= 0) && styles.notAvailable
+                          } ${selectedSize === size.size && styles.selected}`}
                           key={index}
                         >
                           {size.size}
@@ -265,7 +266,7 @@ export const pageQuery = graphql`
         }
         sizes {
           size
-          available
+          quantity
         }
         category
         description
