@@ -1,5 +1,5 @@
 ---
 templateKey: location-category
 title: Current Location
-categoryPin: /img/home-24px.svg
+categoryPin: house-309113_640.png
 ---
