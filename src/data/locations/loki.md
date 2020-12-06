@@ -1,12 +1,12 @@
 ---
 templateKey: location
 name: "Loki "
-coverImage: /img/pljeka.webp
+coverImage: loki_fast-food.jpg
 pin: /img/run-bgd_fast-food_icon_100x100.png
 category: Fast Food
 address: Strahinjića Bana 36, 11000 Beograd
 description: |-
-  Phone: [+381631644492](+381631644492)
+  Phone: [+381631644492](tel:003816316444992)
 
   Open: \
   Mon - Fri 06 to 00H\
