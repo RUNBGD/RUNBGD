@@ -6,7 +6,8 @@
     display: inline-block;
     @include breakpoint(sm){
         height:35vh;
-        width:60%;
+        width: unset;
+        flex-grow: 1;
     }
     @include breakpoint(lg){
         height:50vh;
@@ -19,14 +20,23 @@
     margin-top:20px;
     display:flex;
     flex-direction: column;
+    > div > div {
+        @include breakpoint(sm){
+            height:70px;
+        }
+        @include breakpoint(lg){
+            height:100px;
+        }
+    }
     @include breakpoint(sm){
-        width:40%;
+        width:275px;
         height:35vh;
         margin-top:0;
         margin-left:10px;
     }
     @include breakpoint(lg){
         height:50vh;
+        width:385px;
     }
 }
 

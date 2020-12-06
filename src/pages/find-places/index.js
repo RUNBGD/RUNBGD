@@ -66,6 +66,7 @@ const FindPlaces = () => {
 
   function getLocation() {
     if (navigator.geolocation) {
+      setFetching(true)
       navigator.geolocation.getCurrentPosition(
         ({ coords }) => {
           setXCoord(coords.longitude)
@@ -73,9 +74,11 @@ const FindPlaces = () => {
           navigate(
             `/find-places/location?x=${coords.longitude}&y=${coords.latitude}`
           )
+          setFetching(false)
         },
         (e) => {
           console.log(e)
+          setFetching(false)
           setFetchMessage('There was some error trying to obtain your location, try entering location below! If error persists please check if you enabled location access in popup window and if Location Services are enabled on your device for this browser, thanks!')
         },
         {
@@ -83,6 +86,8 @@ const FindPlaces = () => {
           maximumAge: Infinity,
         }
       )
+    }else{
+      setFetchMessage("There was some error trying to obtain your location, your browser probably doesn't support location services, try entering location below!")
     }
   }
 

@@ -119,9 +119,10 @@
     }
 }
 
-.horizontal .location-card{
+.horizontal > div{
     margin-right:2.5vw;
-    flex-basis: 85vw;
+    flex-basis: 290px;
+    height:80px;
     flex-grow: 0;
     flex-shrink: 0;
     @include breakpoint(sm){
@@ -129,6 +130,7 @@
         margin-right:5px;
     }
 }
+
 .card-cover{
     width:50%;
     overflow: hidden;
