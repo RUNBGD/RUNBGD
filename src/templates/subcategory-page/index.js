@@ -57,9 +57,9 @@ let SubcategoryPage = ({ data }) => {
       setZoomInterval(
         setInterval(() => {
           setZoomLevel((prevState) => prevState + 1)
-        }, 1000)
+        }, 750)
       )
-    }, 1000)
+    }, 750)
 
     setClickedLocation(location.frontmatter)
   }
