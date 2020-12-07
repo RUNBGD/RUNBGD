@@ -4,7 +4,7 @@ import Image from 'gatsby-image'
 
 import styles from './find-places-map.module.scss'
 import { icon } from 'leaflet'
-import { Map, Marker, Popup, TileLayer } from 'react-leaflet'
+import { Map, Marker, Popup, TileLayer, FeatureGroup } from 'react-leaflet'
 
 const FindPlacesMap = ({
   locations,
@@ -74,6 +74,8 @@ const FindPlacesMap = ({
   `)
 
   const popupRef = useRef(null)
+  const mapRef = useRef(null)
+  const groupRef = useRef(null)
 
   function onPopupClick(location) {
     setClickedLocation(undefined)
@@ -97,10 +99,42 @@ const FindPlacesMap = ({
     }
   })
 
+  const fitMarkers = (e) => {
+    let groupCurrent = groupRef.current;
+    let mapCurrent = mapRef.current;
+    if(groupCurrent && mapCurrent){
+      let map = mapCurrent.leafletElement;  //get native Map instance
+      let group = groupCurrent.leafletElement; //get native featureGroup instance
+      if(!e){
+        if(group && map && Object.keys(group._layers).length > 0){
+          map.fitBounds(group.getBounds());
+        }
+      }else{
+        if(Object.keys(e.target._layers).length > 0){
+          map.fitBounds(e.target.getBounds());
+        }
+      }
+    }  
+  }
+
+  useEffect(() => {
+    fitMarkers()
+  }, [mapRef, filterCategory])
+
+  useEffect(() => {
+    const fitMarkersTimeout = setTimeout(() => {
+      fitMarkers()
+    }, 1000)
+
+    return () => clearTimeout(fitMarkersTimeout)
+  }, [groupRef])
+
+
   return (
     <div className={`${styles.map} ${expanded && styles.isExpanded}`}>
       {typeof window !== 'undefined' && (
         <Map
+          ref={mapRef}
           center={
             currentY == undefined ? [44.82307, 20.45342] : [currentY, currentX]
           }
@@ -112,6 +146,7 @@ const FindPlacesMap = ({
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
             subdomains={'abcd'}
           />
+          <FeatureGroup ref={groupRef} onAdd={fitMarkers}>
           {locations &&
             locations.length > 0 &&
             locations.map(({ node: location }) => {
@@ -221,6 +256,7 @@ const FindPlacesMap = ({
               <Popup>Current Location</Popup>
             </Marker>
           )}
+          </FeatureGroup>
         </Map>
       )}
     </div>
