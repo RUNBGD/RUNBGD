@@ -80,7 +80,6 @@ exports.handler = async function (event, context) {
       return `<tr>
                         <td style='padding:2.5px; border:1px solid #000000; text-align:center;'>${product.quantity}</td>
                         <td style='padding:2.5px; border:1px solid #000000; text-align:center;'>${product.title}</td>
-                        <td style='padding:2.5px; border:1px solid #000000; text-align:center;'>${product.color}</td>
                         <td style='padding:2.5px; border:1px solid #000000; text-align:center;'>${product.size}</td>
                         <td style='padding:2.5px; border:1px solid #000000; text-align:center;'>${product.uid}</td>
                     </tr>`;
@@ -94,7 +93,7 @@ exports.handler = async function (event, context) {
   const msgToBuyer = {
     to: email,
     from: SENDGRID_TO_EMAIL,
-    subject: 'Order from Minus1 Shop',
+    subject: 'Order from RUNBGD',
     html: `
             <table style='margin-bottom:15px; border:1px solid #000000;border-collapse: collapse'>
             <tr>
@@ -146,7 +145,6 @@ exports.handler = async function (event, context) {
       return `<tr>
                         <td style='padding:2.5px; border:1px solid #000000; text-align:center;'>${product.quantity}</td>
                         <td style='padding:2.5px; border:1px solid #000000; text-align:center;'>${product.title}</td>
-                        <td style='padding:2.5px; border:1px solid #000000; text-align:center;'>${product.color}</td>
                         <td style='padding:2.5px; border:1px solid #000000; text-align:center;'>${product.size}</td>
                         <td style='padding:2.5px; border:1px solid #000000; text-align:center;'>${product.uid}</td>
                     </tr>`;
