@@ -1,6 +1,6 @@
 ---
 heroBannerImage: hero-banner-image.jpg
-heroBannerAnimation: pexels-engin-akyurt-1437318.jpg
+heroBannerAnimation: runbgd-ag_agency-animation.gif
 heroBannerHeading: RUN BGD Agency
 references: []
 sections:
