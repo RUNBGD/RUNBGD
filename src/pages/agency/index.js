@@ -91,7 +91,10 @@ const AgencyPage = () => {
       fullWidthContent={
         <div style={{ overflowX: 'hidden' }}>
           <div className={styles.heroBanner}>
-            <img src={data.page.frontmatter.heroBannerAnimation.publicURL} className={styles.agencyAnimation} alt=''/>
+            {
+              data.page.frontmatter.heroBannerAnimation && data.page.frontmatter.heroBannerAnimation.publicURL &&
+              <img src={data.page.frontmatter.heroBannerAnimation.publicURL} className={styles.agencyAnimation} alt=''/>
+            }
             {/* <AgencyIllustration />
             <animated.h1
               style={{
