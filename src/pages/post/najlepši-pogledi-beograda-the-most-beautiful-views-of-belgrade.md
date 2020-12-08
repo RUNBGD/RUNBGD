@@ -1,7 +1,8 @@
 ---
 templateKey: blog-post
 createPage: "true"
-title: Najlepši pogledi Beograda / The most beautiful views of Belgrade
+title: Najlepši pogledi Beograda /                         The most beautiful
+  views of Belgrade
 category: The City
 author: Jelena Gajić
 date: 2020-11-28T19:20:09.076Z

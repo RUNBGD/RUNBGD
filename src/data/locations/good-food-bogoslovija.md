@@ -7,7 +7,7 @@ category: Fast Food
 address: Mije Kovačevića 9/1, 11000 Beograd
 website: <http://goodfood.rs>
 description: |-
-  Phone: [+381652672700](+381652672700)
+  Phone: [+381652672700](tel:00381652672700)
 
   Open: 00 to 24H
 latitude: "44.81479603042276"
