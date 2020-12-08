@@ -92,37 +92,37 @@ const AboutPage = () => {
             from:{opacity:0},
             enter:{opacity:1},
             leave:{opacity:0},
-            trail:100
+            trail:0
         },
         slideDown:{
-            from:{transform:'translate(0%, 120%)', opacity:0},
-            enter:{transform:'translate(0%, 0%)', opacity:1},
-            leave:{transform:'translate(0%, -120%)', opacity:0},
-            trail:100
+            from:{transform:'translate(0%, 120%)'},
+            enter:{transform:'translate(0%, 0%)'},
+            leave:{transform:'translate(0%, -120%)'},
+            trail:0
         },
         slideUp:{
-            from:{transform:'translate(0%, -150%)', opacity:0},
-            enter:{transform:'translate(0%, 0%)', opacity:1},
-            leave:{transform:'translate(0%, 150%)', opacity:0},
-            trail:100
+            from:{transform:'translate(0%, -150%)'},
+            enter:{transform:'translate(0%, 0%)'},
+            leave:{transform:'translate(0%, 150%)'},
+            trail:0
         },
         slideLeft:{
-            from:{transform:'translate(-150%, 0%)', opacity:0},
-            enter:{transform:'translate(0%, 0%)', opacity:1},
-            leave:{transform:'translate(150%, 0%)', opacity:0},
-            trail:100
+            from:{transform:'translate(-150%, 0%)'},
+            enter:{transform:'translate(0%, 0%)'},
+            leave:{transform:'translate(150%, 0%)'},
+            trail:0
         },
         slideRight:{
-            from:{transform:'translate(150%, 0%)', opacity:0},
-            enter:{transform:'translate(0%, 0%)', opacity:1},
-            leave:{transform:'translate(-150%, 0%)', opacity:0},
-            trail:100
+            from:{transform:'translate(150%, 0%)'},
+            enter:{transform:'translate(0%, 0%)'},
+            leave:{transform:'translate(-150%, 0%)'},
+            trail:0
         },
         scale:{
-            from:{transform:'scale(0)', opacity:0},
-            enter:{transform:'scale(1)', opacity:1},
-            leave:{transform:'scale(0)', opacity:0},
-            trail:100
+            from:{transform:'scale(0)'},
+            enter:{transform:'scale(1)'},
+            leave:{transform:'scale(0)'},
+            trail:0
         }
     }
 
