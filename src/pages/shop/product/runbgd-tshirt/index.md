@@ -14,4 +14,5 @@ sizes:
   - size: XXL
     quantity: 1
 available: true
+showFirst: true
 ---

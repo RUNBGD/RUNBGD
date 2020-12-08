@@ -19,6 +19,7 @@
 .product{
     width:100%;
     margin:0 0 20px;
+    order:1;
     @include breakpoint(sm){
         width:21%;
         margin:0 4% 3vw 0;
@@ -176,4 +177,8 @@
 
 .filter > input{
     color:black;
+}
+
+.show-first{
+    order:0;
 }

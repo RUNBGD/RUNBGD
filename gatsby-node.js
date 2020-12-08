@@ -137,7 +137,8 @@ exports.createSchemaCustomization = ({ actions }) => {
       banners:[Banner],
       slides:[Slide],
       location:[Location],
-      heroBannerAnimation: File @fileByRelativePath
+      heroBannerAnimation: File @fileByRelativePath,
+      showFirst: String
     }
   `
   createTypes(typeDefs)

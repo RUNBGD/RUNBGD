@@ -65,6 +65,7 @@ const Shop = () => {
                 quantity
               }
               category
+              showFirst
             }
           }
         }
@@ -74,7 +75,12 @@ const Shop = () => {
 
   const [activeSlide, setActiveSlide] = useState(0)
   const [filters, setFilters] = useState([])
-  const [filteredProducts, setFilteredProducts] = useState(data.products.edges)
+  const [allProducts, setAllProducts] = useState([])
+  const [filteredProducts, setFilteredProducts] = useState(allProducts)
+
+  useEffect(() => {
+    setAllProducts(data.products.edges)
+  }, [data.products])
 
   const changeFilter = (event) => {
     event.persist()
@@ -254,10 +260,11 @@ const Shop = () => {
                 <animated.div
                   style={props}
                   key={key}
-                  className={styles.product}
+                  className={`${styles.product} ${product.node.frontmatter.showFirst && styles.showFirst}`}
                 >
                   <Link to={product.node.fields.slug}>
                     <ShopProduct
+                      showFirst={product.node.frontmatter.showFirst}
                       title={product.node.frontmatter.title}
                       images={product.node.frontmatter.images}
                       price={product.node.frontmatter.price}

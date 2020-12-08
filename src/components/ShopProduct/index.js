@@ -3,7 +3,7 @@ import Image from 'gatsby-image'
 
 import styles from './shop-product.module.scss'
 
-const ShopProduct = ({ images, title, price, availableSizes }) => {
+const ShopProduct = ({ images, title, price, availableSizes, showFirst }) => {
   const [hovered, setHovered] = useState(false)
   const [currentImage, setCurrentImage] = useState(
     images &&
