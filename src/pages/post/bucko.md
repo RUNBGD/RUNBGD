@@ -1,7 +1,7 @@
 ---
 templateKey: blog-post
 createPage: "true"
-title: "Bucko "
+title: Bucko (pizza place)
 category: Food & Beverages
 author: Aleksandar Tašić
 date: 2020-12-08T11:20:15.701Z
