@@ -1,10 +1,10 @@
 ---
-heroBannerImage: /img/hero-banner-image.jpg
-heroBannerAnimation: /img/agency.gif
+heroBannerImage: hero-banner-image.jpg
+heroBannerAnimation: runbgd-ag_agency-animation.gif
 heroBannerHeading: RUN BGD Agency
 references: []
 sections:
-  - image: /img/agency-space.png
+  - image: agency-space.png
     heading: Agency
     type: section
     backgroundColor: ffffff
@@ -15,13 +15,13 @@ sections:
 
 
       With the understanding of the local economical markets and experience as well deep and bright international network we can offer companies willing to invest in Belgrade and Serbia the knowledge and analysis to the Serbian, or more specific, the Belgrader market.
-  - image: /img/heading-background.jpg
+  - image: heading-background.jpg
     heading: Community Management
     type: heading
     backgroundColor: ffffff
     imageOnRight: false
     body: "  Community Management"
-  - image: /img/runbgd_community_management.jpg
+  - image: runbgd_community_management.jpg
     heading: Understanding your Community
     type: section
     backgroundColor: EEEEEE
@@ -36,7 +36,7 @@ sections:
 
 
       The value of community management is therefore measured on the one hand by knowledge and understanding of the communities themselves and on the other hand by setting new impulses in them. To actively and carefully contribute to the growth of communities. Be it for communities that have dedicated themselves to the brand or the company. So for customers or employees.
-  - image: /img/runbgd_influencer-integration.png
+  - image: runbgd_influencer-integration.png
     heading: Influencer integration
     type: section
     backgroundColor: ffffff
@@ -48,13 +48,13 @@ sections:
 
 
       To give this control a hand and a foot, we maintain our own trend database. This is not a hand oracle or a glass ball, but the whole food for our conceptions. Because: Trends are not the fog of the future, but real part of our present. No matter whether mega trends, macro trends or micro trends. This is why RUN BGD taking part of the trendsetting community universe, while others are still reading the coffee grounds.
-  - image: /img/heading-background.jpg
+  - image: heading-background.jpg
     heading: Events
     type: heading
     backgroundColor: ffffff
     imageOnRight: false
     body: Events
-  - image: /img/pexels-helena-lopes-705792.jpg
+  - image: pexels-helena-lopes-705792.jpg
     heading: Spaces for dreams, stories and experiences.
     type: section
     backgroundColor: ffffff
@@ -63,7 +63,7 @@ sections:
       we do not just push chairs when premieres are coming up. We create spaces.
       Places for stories. Places where memories are made. Because these spaces
       are playgrounds for interaction. Indoor, outdoor, with and without door.
-  - image: /img/heading-background.jpg
+  - image: heading-background.jpg
     heading: Development of identity-related brands
     type: heading
     backgroundColor: ffffff
@@ -72,7 +72,7 @@ sections:
       businesses, and even for some large business companies. A lot of companies
       are still under the assumption that branding is something difficult to
       measure, and sometimes it is – unless it’s approached strategically.
-  - image: /img/pexels-erik-mclean-5618257.jpg
+  - image: pexels-erik-mclean-5618257.jpg
     heading: Brands where customers and employees stick
     type: section
     backgroundColor: ffffff
@@ -82,7 +82,7 @@ sections:
       them. They love or hate. Although that is certainly difficult with Buddha.
       In any case, they have what all brands should own: identity. The basis for
       authenticity and thus for real, true marketing."
-  - image: /img/pexels-engin-akyurt-1437318.jpg
+  - image: pexels-engin-akyurt-1437318.jpg
     heading: Brand follows identity
     type: section
     backgroundColor: ffffff
