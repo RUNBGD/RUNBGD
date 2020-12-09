@@ -1,5 +1,5 @@
 ---
 templateKey: location-category
 title: The City
-categoryPin: /img/camera_alt-24px.svg
+categoryPin: /img/run-bgd_museums_icon_50x50.png
 ---
