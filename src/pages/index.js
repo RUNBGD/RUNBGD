@@ -149,6 +149,7 @@ const IndexPage = () => {
             frontmatter {
               name
               coverImage {
+                publicURL
                 childImageSharp {
                   fluid(maxWidth: 1000) {
                     ...GatsbyImageSharpFluid
@@ -172,6 +173,8 @@ const IndexPage = () => {
       }
     }
   `)
+
+  console.log(carouselPosts.locations.edges)
 
   const [currentX, setCurrentX] = useState(
     carouselPosts &&

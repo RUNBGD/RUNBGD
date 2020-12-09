@@ -10,7 +10,7 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/static/img`,
-        name: 'uploads',
+        name: 'img',
       },
     },
     {
@@ -39,6 +39,37 @@ module.exports = {
       options: {
         path: `${__dirname}/src`,
         name: 'src',
+      },
+    },
+    {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        plugins: [
+          {
+            resolve: 'gatsby-remark-relative-images',
+            options: {
+              staticFolderName: 'img',
+            },
+          },
+          // {
+          //   resolve: `gatsby-remark-relative-images-v2`,
+          // },
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              // It's important to specify the maxWidth (in pixels) of
+              // the content container as this plugin uses this as the
+              // base for generating different widths of each image.
+              maxWidth: 2048,
+            },
+          },
+          {
+            resolve: 'gatsby-remark-copy-linked-files',
+            options: {
+              destinationDir: '${__dirname}/static',
+            },
+          },
+        ],
       },
     },
     'gatsby-plugin-sharp',
@@ -77,37 +108,6 @@ module.exports = {
       options: {
         functionsSrc: `${__dirname}/lambda`,
         functionsOutput: `${__dirname}/functions`,
-      },
-    },
-    {
-      resolve: 'gatsby-transformer-remark',
-      options: {
-        plugins: [
-          {
-            resolve: 'gatsby-remark-relative-images',
-            options: {
-              name: 'uploads',
-            },
-          },
-          // {
-          //   resolve: `gatsby-remark-relative-images-v2`,
-          // },
-          {
-            resolve: 'gatsby-remark-images',
-            options: {
-              // It's important to specify the maxWidth (in pixels) of
-              // the content container as this plugin uses this as the
-              // base for generating different widths of each image.
-              maxWidth: 2048,
-            },
-          },
-          {
-            resolve: 'gatsby-remark-copy-linked-files',
-            options: {
-              destinationDir: '${__dirname}/static',
-            },
-          },
-        ],
       },
     },
     {
