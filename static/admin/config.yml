@@ -298,15 +298,21 @@ collections:
         label: "Shop Page"
         name: "shopPage"
         fields:
-          - {label: Banners, name: banners, widget: list, fields: [
-              {label: "Banner Image", name: "bannerImage", widget: image},
-              {label: "Banner Heading", name: "bannerHeading", widget: string},
-              {label: "Banner Description", name: "bannerDescription", widget: string},
-              {label: "Banner Button", name: "bannerButton", widget: list, fields: [
-                {label: "Button Text", name: "buttonText", widget: string},
-                {label: "Button Link", name: "buttonLink", widget: string}
+          - label: "Shop Page Content"
+            name: "shopPageContent"
+            widget: "object"
+            collapsed: true
+            fields: 
+              - {label: Banners, name: banners, widget: list, fields: [
+                  {label: "Banner Image", name: "bannerImage", widget: image},
+                  {label: "Banner Heading", name: "bannerHeading", widget: string},
+                  {label: "Banner Description", name: "bannerDescription", widget: string},
+                  {label: "Banner Button", name: "bannerButton", widget: list, fields: [
+                    {label: "Button Text", name: "buttonText", widget: string},
+                    {label: "Button Link", name: "buttonLink", widget: string}
+                  ]}
               ]}
-          ]}
+              - {label: "Template Key", name: "templateKey", widget: "string", default: "shop-page"}
 
       - file: "src/pages/agency/index.md"
         label: "Agency Page"

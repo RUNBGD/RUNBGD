@@ -1,10 +1,17 @@
 ---
+templateKey: shop-page
 shopPageContent:
-  banners:
-    - bannerHeading: test
-      bannerImage: runbgd-ag_agency-animation.gif
-      bannerDescription: test
+  banners: 
+    - bannerImage: /img/shop-banner-1.jpeg
+      bannerHeading: First Short Heading
+      bannerDescription: This is short description
       bannerButton:
-        - buttonText: test
-          buttonLink: test
+        buttonText: See Product
+        buttonLink: /shop/product/runbgd-tshirt/
+    - bannerImage: /img/shop-banner-2.jpeg
+      bannerHeading: Second Short Heading
+      bannerDescription: This is short description
+      bannerButton:
+        buttonText: See Product
+        buttonLink: /shop/product/runbgd-tshirt-2/
 ---
