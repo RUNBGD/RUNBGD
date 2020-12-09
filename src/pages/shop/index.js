@@ -82,6 +82,8 @@ const Shop = () => {
     setAllProducts(data.products.edges)
   }, [data.products])
 
+  console.log(data.page)
+
   const changeFilter = (event) => {
     event.persist()
     if (event.target.checked) {
@@ -204,50 +206,53 @@ const Shop = () => {
             </div>
           </div>
           <div className={styles.bannerImages}>
-            <Swiper
-              spaceBetween={10}
-              grabCursor={true}
-              navigation={{
-                nextEl: `.${styles.swiperNextEl}`,
-                prevEl: `.${styles.swiperPrevEl}`,
-              }}
-              pagination={{
-                el: `.${styles.swiperPagination}`,
-                clickable: true,
-              }}
-              slidesPerView="auto"
-              loop={true}
-              className={styles.carousel}
-              onSlideChange={(swiper) => setActiveSlide(swiper.realIndex)}
-            >
-              {data.page &&
-                data.page.frontmatter.banners &&
-                data.page.frontmatter.banners.length > 0 &&
-                data.page.frontmatter.banners.map((banner) => {
-                  return (
-                    <SwiperSlide className={styles.slide}>
-                      {banner.bannerImage &&
-                        banner.bannerImage.childImageSharp &&
-                        banner.bannerImage.childImageSharp.fluid && (
-                          <Image
-                            className={styles.banner}
-                            fluid={banner.bannerImage.childImageSharp.fluid}
-                            alt=""
-                          />
-                        )}
-                    </SwiperSlide>
-                  )
-                })}
-              <div className={styles.navigation}>
-                <div className={styles.swiperPrevEl}>
-                  <img src={downArrow} alt="" />
+            {
+              data.page && data.page.frontmatter.banners && data.page.frontmatter.banners.length > 0 &&
+              <Swiper
+                spaceBetween={10}
+                grabCursor={true}
+                navigation={{
+                  nextEl: `.${styles.swiperNextEl}`,
+                  prevEl: `.${styles.swiperPrevEl}`,
+                }}
+                pagination={{
+                  el: `.${styles.swiperPagination}`,
+                  clickable: true,
+                }}
+                slidesPerView="auto"
+                loop={true}
+                className={styles.carousel}
+                onSlideChange={(swiper) => setActiveSlide(swiper.realIndex)}
+              >
+                {data.page &&
+                  data.page.frontmatter.banners &&
+                  data.page.frontmatter.banners.length > 0 &&
+                  data.page.frontmatter.banners.map((banner) => {
+                    return (
+                      <SwiperSlide className={styles.slide}>
+                        {banner.bannerImage &&
+                          banner.bannerImage.childImageSharp &&
+                          banner.bannerImage.childImageSharp.fluid && (
+                            <Image
+                              className={styles.banner}
+                              fluid={banner.bannerImage.childImageSharp.fluid}
+                              alt=""
+                            />
+                          )}
+                      </SwiperSlide>
+                    )
+                  })}
+                <div className={styles.navigation}>
+                  <div className={styles.swiperPrevEl}>
+                    <img src={downArrow} alt="" />
+                  </div>
+                  <div className={styles.swiperNextEl}>
+                    <img src={downArrow} alt="" />
+                  </div>
                 </div>
-                <div className={styles.swiperNextEl}>
-                  <img src={downArrow} alt="" />
-                </div>
-              </div>
-              <div className={styles.swiperPagination}></div>
-            </Swiper>
+                <div className={styles.swiperPagination}></div>
+              </Swiper>
+            }
           </div>
         </div>
         <div className={styles.productContainer}>
