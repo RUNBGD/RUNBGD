@@ -52,7 +52,7 @@ const Shop = () => {
               images {
                 image {
                   childImageSharp {
-                    fluid(maxWidth: 900, quality: 64) {
+                    fluid(maxWidth: 350, quality: 100) {
                       ...GatsbyImageSharpFluid
                     }
                   }
