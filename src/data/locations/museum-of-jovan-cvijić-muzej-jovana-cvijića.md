@@ -6,9 +6,9 @@ pin: /img/run-bgd_museums_icon_100x100.png
 category: Museums
 address: Jelene Ćetković 5, 11000 Beograd
 website: <http://www.mgb.org.rs/en/visit/museum-of-jovan-cvijic>
-email: "[office@mgb.org.rs](office@mgb.org.rs)"
+email: "[office@mgb.org.rs](mailto:office@mgb.org.rs)"
 description: |-
-  Phone: [+381 11 322 31 26](<+381 11 322 31 26>)
+  Phone: [+381113223126](tel:00381113223126)
 
   Open: \
   Tue, Wed, Thu and Sat 10 to 17H\
