@@ -6,9 +6,9 @@ pin: /img/run-bgd_fast-food_icon_100x100.png
 category: Fast Food
 address: Goce Delčeva 27, 11000 Beograd
 website: <https://siscevap.rs>
-email: "[kontakt@siscevap.rs](kontakt@siscevap.rs)"
+email: "[kontakt@siscevap.rs](mailto:kontakt@siscevap.rs)"
 description: |-
-  Phone: [+381638676987](+381638676987)
+  Phone: [+381638676987](tel:00381638676987)
 
   Open: 24 / 7
 latitude: "44.83067856452186"
