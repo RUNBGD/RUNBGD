@@ -47,9 +47,7 @@ module.exports = {
         plugins: [
           {
             resolve: 'gatsby-remark-relative-images',
-            options: {
-              staticFolderName: 'img',
-            },
+            
           },
           // {
           //   resolve: `gatsby-remark-relative-images-v2`,
