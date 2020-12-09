@@ -6,9 +6,9 @@ pin: /img/run-bgd_fast-food_icon_100x100.png
 category: Fast Food
 address: Karađorđeva 12c, 11080 Beograd
 website: <https://pinokio-palacinke.rs>
-email: "[pinokiopalacinke@yahoo.com](pinokiopalacinke@yahoo.com)"
+email: "[pinokiopalacinke@yahoo.com](mailto:pinokiopalacinke@yahoo.com)"
 description: |-
-  Phone: [+381 63 712 13 14](<+381 63 712 13 14>)
+  Phone: [+381637121314](tel:00381637121314)
 
   Open: \
   Mon - Sat 09 to 01H\
