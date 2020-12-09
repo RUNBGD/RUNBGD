@@ -6,9 +6,9 @@ pin: /img/run-bgd_museums_icon_100x100.png
 category: Museums
 address: Kneza Sime Markovića 8, 11000 Beograd
 website: <http://www.mgb.org.rs/en/visit/the-residence-of-princess-ljubica>
-email: "[dragana.latincic@mgb.org.rs](dragana.latincic@mgb.org.rs)"
+email: "[dragana.latincic@mgb.org.rs](mailto:dragana.latincic@mgb.org.rs)"
 description: |-
-  Phone: [+381 11 263 82 64](<+381 11 263 82 64>)
+  Phone:[ +381112638264](tel:00381112638264)
 
   Open: \
   Tue, Wed, Thu, Sat 10 to 17H\
