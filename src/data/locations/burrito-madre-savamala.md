@@ -7,7 +7,7 @@ category: Fast Food
 address: Karađorđeva 65, 11000 Beograd
 website: <https://burritomadre.com>
 description: |-
-  Phone: [+381 11 328 15 45](<+381 11 328 15 45>)
+  Phone: [+381113281545](tel:00381113281545)
 
   Open: Sun - Wed 08 to 01H
 latitude: "44.812824436407425"
