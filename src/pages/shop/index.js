@@ -33,10 +33,8 @@ const Shop = () => {
             }
             bannerHeading
             bannerDescription
-            bannerButton {
-              buttonText
-              buttonLink
-            }
+            buttonText
+            buttonLink
           }
         }
       }
@@ -190,18 +188,15 @@ const Shop = () => {
                   data.page.frontmatter.banners &&
                   data.page.frontmatter.banners.length > 0 &&
                   data.page.frontmatter.banners[activeSlide] &&
-                  data.page.frontmatter.banners[activeSlide].bannerButton &&
-                  data.page.frontmatter.banners[activeSlide].bannerButton
-                    .buttonLink
+                  data.page.frontmatter.banners[activeSlide].buttonLink
                 }
               >
                 {data.page &&
                   data.page.frontmatter.banners &&
                   data.page.frontmatter.banners.length > 0 &&
                   data.page.frontmatter.banners[activeSlide] &&
-                  data.page.frontmatter.banners[activeSlide].bannerButton &&
-                  data.page.frontmatter.banners[activeSlide].bannerButton
-                    .buttonText}
+                  data.page.frontmatter.banners[activeSlide] &&
+                  data.page.frontmatter.banners[activeSlide].buttonText}
               </Link>
             </div>
           </div>
