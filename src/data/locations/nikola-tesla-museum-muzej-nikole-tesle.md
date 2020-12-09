@@ -6,9 +6,9 @@ pin: /img/run-bgd_museums_icon_100x100.png
 category: Museums
 address: Krunska 51, 11000 Beograd
 website: <https://nikolateslamuseum.org>
-email: "[info@tesla-museum.org](info@tesla-museum.org)"
+email: "[info@tesla-museum.org](mailto:info@tesla-museum.org)"
 description: |-
-  Phone: [+381112433886](+381112433886)
+  Phone: [+381112433886](tel:00381112433886)
 
   Open: \
   Tue - Sun 12 to 17H\
