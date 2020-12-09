@@ -26,5 +26,4 @@ slides:
     slideDuration: 3000
     transition: slideDown
 templateKey: about-page
-coverImage: /img/0001.jpg
 ---
