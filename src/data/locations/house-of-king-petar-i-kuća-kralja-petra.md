@@ -6,9 +6,9 @@ pin: /img/run-bgd_museums_icon_100x100.png
 category: Museums
 address: Vase Pelagića 40, 11000 Beograd
 website: <http://www.kucalegata.org/legati/petarlubarda.html>
-email: "[kucalegata@kucalegata.org](kucalegata@kucalegata.org)"
+email: "[kucalegata@kucalegata.org](mailto:kucalegata@kucalegata.org)"
 description: |-
-  Phone: [+381117700299](+381117700299)
+  Phone: [+381117700299](tel:00381117700299)
 
   Open: \
   Tue - Sun 10 to 17H\
