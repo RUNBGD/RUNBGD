@@ -6,9 +6,9 @@ pin: /img/run-bgd_museums_icon_100x100.png
 category: Museums
 address: Kalemegdan bb
 website: <http://www.muzej.mod.gov.rs/en>
-email: "[vojnimuzej@mod.gov.rs](vojnimuzej@mod.gov.rs)"
+email: "[vojnimuzej@mod.gov.rs](mailto:vojnimuzej@mod.gov.rs)"
 description: |-
-  Phone: [+381113343441](+381113343441)
+  Phone: [+381113343441](tel:00381113343441)
 
   Open: \
   Tue - Sun 10 to 17H\
