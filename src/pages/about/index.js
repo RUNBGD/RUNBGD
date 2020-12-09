@@ -27,13 +27,6 @@ const AboutPage = () => {
         query AboutData{
             slidesData: markdownRemark(frontmatter:{templateKey: {eq: "about-page"}}){
                 frontmatter{
-                    coverImage{
-                        childImageSharp{
-                            fluid(maxWidth:1920, quality:64){
-                                ...GatsbyImageSharpFluid
-                            }
-                        }
-                    }
                     slides{
                         coverImage{
                             childImageSharp{

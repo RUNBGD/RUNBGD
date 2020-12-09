@@ -72,7 +72,6 @@ exports.handler = async function (event, context) {
                 <tr>
                    <th style='padding:2.5px; border:1px solid #000000; text-align:center;background: #626262; color: white'>Quantity</th>
                    <th style='padding:2.5px; border:1px solid #000000; text-align:center;background: #626262; color: white'>Product</th>
-                   <th style='padding:2.5px; border:1px solid #000000; text-align:center;background: #626262; color: white'>Color</th>
                    <th style='padding:2.5px; border:1px solid #000000; text-align:center;background: #626262; color: white'>Size</th>
                    <th style='padding:2.5px; border:1px solid #000000; text-align:center;background: #626262; color: white'>UID</th> 
                 </tr>
@@ -137,7 +136,6 @@ exports.handler = async function (event, context) {
                 <tr>
                    <th style='padding:2.5px; border:1px solid #000000; text-align:center;background: #626262; color: white'>Quantity</th>
                    <th style='padding:2.5px; border:1px solid #000000; text-align:center;background: #626262; color: white'>Product</th>
-                   <th style='padding:2.5px; border:1px solid #000000; text-align:center;background: #626262; color: white'>Color</th>
                    <th style='padding:2.5px; border:1px solid #000000; text-align:center;background: #626262; color: white'>Size</th>
                    <th style='padding:2.5px; border:1px solid #000000; text-align:center;background: #626262; color: white'>UID</th> 
                 </tr>
