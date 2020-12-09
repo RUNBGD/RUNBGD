@@ -7,7 +7,7 @@ category: Fast Food
 address: Terazije 38, 11000 Beograd
 website: <http://www.solunac.rs>
 description: |-
-  Phone: [+381113626202](+381113626202)
+  Phone: [+381113626202](tel:00381113626202)
 
   Open: \
   Mon - Sat 00 to 24H\
