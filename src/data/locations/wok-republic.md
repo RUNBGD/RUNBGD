@@ -7,7 +7,7 @@ category: Fast Food
 address: Francuska 5, 11000 Beograd
 website: <https://www.wok-republic.com/serbia/>
 description: |-
-  Phone: [+381113282828](+381113282828)
+  Phone: [+381113282828](tel:00381113282828)
 
   Open: 11 to 00H
 latitude: "44.817584300819654"
