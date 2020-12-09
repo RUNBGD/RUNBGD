@@ -69,9 +69,6 @@ const PayOnArrivalForm = ({
   const [shippingPrice, setShippingPrice] = useState(0)
   const [formOpened, setFormOpened] = useState(false)
 
-  
-  console.log(products)
-
   const maxLengthCheck = (event) => {
     if (event.target.value.length > event.target.maxLength) {
       event.target.value = event.target.value.slice(0, event.target.maxLength)
@@ -279,7 +276,7 @@ const PayOnArrivalForm = ({
                       fluid={
                         data.logo.frontmatter.logoImage.childImageSharp.fluid
                       }
-                      alt=''
+                      alt='loading indicator'
                     />
                   )}
               </div>

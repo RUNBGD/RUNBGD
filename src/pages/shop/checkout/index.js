@@ -9,6 +9,7 @@ import styles from './checkout.module.scss'
 import CartItem from '../../../components/CartItem'
 import emptyCartImage from '../../../img/empty-cart.png'
 import PayOnArrivalForm from '../../../components/PayOnArrivalForm'
+import PayWithCardForm from '../../../components/PayWithCardForm'
 
 const CheckoutPage = () => {
   let products = useSelector((state) => state)
@@ -67,26 +68,48 @@ const CheckoutPage = () => {
                       }
                     })}
                 </div>
-                <h2>Payment methods</h2>
-                <div className={styles.shadowCard}>
-                    <PayOnArrivalForm
-                      setTotalPrice={setTotalPrice}
-                      price={products &&
-                        products.reduce((a, b) => {
-                          console.log(a)
-                          return a + b.quantity * b.product.frontmatter.price
-                        }, 0)}
-                      products={products}
-                      totalPrice={totalPrice}
-                      setShippingPriceToParent={setShippingPrice}
-                      onSuccess={() => {
-                        localStorage.setItem('cartItems', JSON.stringify([]))
-                        setTimeout(() => {
-                          navigate('/shop/confirmation')
-                        }, 1000)
-                      }}
+                {
+                products && products.length > 0 &&
+                <>
+                  <h2>Payment methods</h2>
+                  <div className={styles.shadowCard}>
+                      <PayOnArrivalForm
+                        setTotalPrice={setTotalPrice}
+                        price={products &&
+                          products.reduce((a, b) => {
+                            console.log(a)
+                            return a + b.quantity * b.product.frontmatter.price
+                          }, 0)}
+                        products={products}
+                        totalPrice={totalPrice}
+                        setShippingPriceToParent={setShippingPrice}
+                        onSuccess={() => {
+                          localStorage.setItem('cartItems', JSON.stringify([]))
+                          setTimeout(() => {
+                            navigate('/shop/confirmation')
+                          }, 1000)
+                        }}
+                      />
+                      <PayWithCardForm
+                        products={products}
+                        price={products &&
+                          products.reduce((a, b) => {
+                            console.log(a)
+                            return a + b.quantity * b.product.frontmatter.price
+                          }, 0)}
+                        totalPrice={totalPrice}
+                        setShippingPriceToParent={setShippingPrice}
+                        setTotalPrice={setTotalPrice}
+                        onSuccess={() => {
+                          localStorage.setItem('cartItems', JSON.stringify([]))
+                          setTimeout(() => {
+                            navigate('/shop/confirmation')
+                          }, 1000)
+                        }}
                     />
-                </div>
+                  </div>
+                </>
+                }
               </div>
               <div className={styles.totalPrice}>
                 <p>

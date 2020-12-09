@@ -211,6 +211,21 @@ collections:
           {label: "Price", name: "price", widget: number}
       ]}
 
+  - name: "shippingLocationsCardPayment"
+    label: "Shipping Locations(Card Payment)"
+    folder: "src/data/shipping-locations-card"
+    create: true
+    slug: "{{name}}"
+    identifier_field: name
+    media_folder: ''
+    public_folder: ''
+    fields: 
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "shipping-locations-arrival"}
+      - {label: "Locations and Prices", name: "location", widget: list, fields: [
+          {label: "Name", name: "name", widget: string},
+          {label: "Price", name: "price", widget: number}
+      ]}
+
   - name: "locationCategories"
     label: "Location Categories"
     folder: "src/data/location-categories"
