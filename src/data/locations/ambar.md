@@ -8,7 +8,7 @@ address: Karađorđeva 2, 11000 Beograd
 website: <https://www.ambarrestaurant.com/sr/pocetna-beograd/>
 email: "[belgrade@ambarrestaurant.com](belgrade@ambarrestaurant.com)"
 description: |-
-  Phone number: [+381113286637](+381113286637)
+  Phone number: [+381113286637](tel:+381113286637)
 
   Open: every day 10AM to 02AM
 latitude: "44.819843250802506"
