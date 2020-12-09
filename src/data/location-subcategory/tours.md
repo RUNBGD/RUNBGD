@@ -1,5 +1,5 @@
 ---
 templateKey: location-subcategory
 title: Tours
-categoryPin: /img/fastfood-24px.svg
+categoryPin: /img/run-bgd_fast-food_icon_100x100.png
 ---
