@@ -95,7 +95,7 @@ exports.handler = async function(event, context) {
       const msgToBuyer = {
         to: email,
         from: SENDGRID_TO_EMAIL,
-        subject: 'Order from Minus1 Shop',
+        subject: 'Order from RUNBGD',
         html:`
             <table style='margin-bottom:15px; border:1px dotted #959595;border-collapse: collapse'>
             <tr>
