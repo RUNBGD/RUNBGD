@@ -6,9 +6,9 @@ pin: /img/run-bgd_museums_icon_100x100.png
 category: Museums
 address: Uzun Mirkova 1, 11000 Beograd
 website: <http://www.kinoteka.org.rs>
-email: "[kinoteka@kinoteka.org.rs](kinoteka@kinoteka.org.rs)"
+email: "[kinoteka@kinoteka.org.rs](mailto:kinoteka@kinoteka.org.rs)"
 description: |-
-  Phone: [+381112622555](+381112622555)
+  Phone: [+381112622555](tel:00381112622555)
 
   Open: \
   Tue - Sun 10 to 20H\
