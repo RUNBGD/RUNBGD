@@ -4,11 +4,13 @@ import { useDispatch } from 'react-redux'
 import Link from 'gatsby-link'
 
 import styles from './cart-item.module.scss'
+import getProductSoldQuantity from '../../utils/getProductSoldQuantity'
 
 const CartItem = ({ item: product, key, representational }) => {
   let dispatch = useDispatch()
-
+  
   let [quantity, setQuantity] = useState(product.quantity)
+  const [soldQuantity, setSoldQuantity] = useState(0)
 
   useEffect(() => {
     let itemWithNewQuantity = { ...product }
@@ -20,9 +22,10 @@ const CartItem = ({ item: product, key, representational }) => {
   }, [quantity])
 
   const setProductQuantity = (action) => {
+    console.log(product.product.frontmatter.sizes.find(size => size.size == product.size).quantity - soldQuantity)
     switch(action){
       case 'ADD_ONE':
-        if(quantity < product.product.frontmatter.sizes.find(size => size.size == product.size).quantity){
+        if(quantity < (product.product.frontmatter.sizes.find(size => size.size == product.size).quantity - soldQuantity)){
           setQuantity((prevState) => prevState + 1);
         }
         break;
@@ -33,6 +36,27 @@ const CartItem = ({ item: product, key, representational }) => {
         break;
     }
   }
+
+  useEffect(() => {
+    (async () => {
+      console.log(product)
+      if(soldQuantity > (product.product.frontmatter.sizes.find(size => size.size == product.size).quantity - product.quantity)){
+        console.log('ye')
+        setQuantity(soldQuantity - (product.product.frontmatter.sizes.find(size => size.size == product.size).quantity - product.quantity));
+      }
+    })()
+  }, [soldQuantity])
+
+  useEffect(() => {
+    (async () => {
+      let soldQuantityResult = await getProductSoldQuantity(
+        product.id,
+        product.size
+      )
+      setSoldQuantity(soldQuantityResult)
+      console.log(soldQuantityResult)
+    })()
+  }, [])
 
   console.log(product.product.frontmatter.sizes.find(size => size.size == product.size), product)
 

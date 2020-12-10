@@ -18,12 +18,14 @@ export default function getProductAvailability(
     .then((response) => {
       if (response.product && response.product[0]) {
         let quantity = productSizes.find(
-          (node) => node.size.document.data.title == response.product[0].size
+          (node) => node.size == response.product[0].size
         ).quantity
         if (response.product[0].sold >= quantity) {
           setProductSold(true)
         }
         console.log(response.product[0].sold, quantity)
+      }else{
+        setProductSold(false)
       }
     })
     .catch((error) => {

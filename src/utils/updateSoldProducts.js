@@ -2,7 +2,7 @@ export default function updateSoldProducts(productList, onSuccess) {
   productList.forEach((node) => {
     console.log(node)
     fetch(
-      `/.netlify/functions/update-sold-products?uid=${node.uid}&size=${node.size}&quantity=${node.quantity}`,
+      `/.netlify/functions/update-sold-products?uid=${node.id}&size=${node.size}&quantity=${node.quantity}`,
       {
         headers: {
           Accept: 'application/json',

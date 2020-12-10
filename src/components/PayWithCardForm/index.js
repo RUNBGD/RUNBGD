@@ -6,7 +6,7 @@ import updateSoldProducts from '../../utils/updateSoldProducts'
 import styles from './pay-with-card-form.module.scss'
 import { Helmet } from 'react-helmet'
 
-const PayWithCardForm = ({ products, price, totalPrice, setTotalPrice, setShippingPriceToParent }) => {
+const PayWithCardForm = ({ products, price, totalPrice, setTotalPrice, setShippingPriceToParent, onSuccess }) => {
   const data = useStaticQuery(graphql`
     query PayWithCardFormQuery {
       logo: markdownRemark(
@@ -132,6 +132,7 @@ const PayWithCardForm = ({ products, price, totalPrice, setTotalPrice, setShippi
             .then((data) => {
               if (data.status == 'success') {
                 setFetching(false)
+                updateSoldProducts(products, onSuccess)
                 return setSuccessMessage(data.message)
               } else if (data.status == 'error') {
                 setFetching(false)

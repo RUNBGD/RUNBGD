@@ -10,6 +10,7 @@ import { graphql } from 'gatsby'
 import { useDispatch } from 'react-redux'
 import { Helmet } from 'react-helmet'
 
+import getProductAvailability from '../../utils/getProductAvailability'
 import styles from './shop-product-page.module.scss'
 import Layout from '../../components/Layout'
 import sliderArrow from '../../img/right-arrow.svg'
@@ -26,10 +27,28 @@ const ShopProductPage = ({ data }) => {
   const [alreadyAddedToCartMessage, setAlreadyAddedToCartMessage] = useState(
     undefined
   )
+  const [productSold, setProductSold] = useState(false)
 
   useEffect(() => {
     addToStateFromLocalStorage()
   }, [])
+
+  useEffect(() => {
+    if(productSold){
+      setAlreadyAddedToCartMessage('This product has been sold out!')
+    }else{
+      setAlreadyAddedToCartMessage(undefined)
+    }
+  }, [productSold])
+
+  useEffect(() => {
+    getProductAvailability(
+      data.product.fields.slug,
+      selectedSize,
+      data.product.frontmatter.sizes,
+      setProductSold
+    )
+  }, [selectedSize])
 
   function addToStateFromLocalStorage() {
     if (JSON.parse(localStorage.getItem('cartItems'))) {
@@ -216,9 +235,11 @@ const ShopProductPage = ({ data }) => {
             <button
               class={styles.callToActionButton}
               onClick={() => {
-                if (
+                if(productSold){
+                  setAlreadyAddedToCartMessage('This product has been sold out!')
+                }else if (
                   selectedSize != undefined
-                ) {
+                ){
                   setAlreadyAddedToCartMessage(undefined)
                   addProductToCart()
                 }else if(data.product.frontmatter.sizes == undefined){

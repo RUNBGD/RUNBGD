@@ -10,6 +10,8 @@ const {
 
 exports.handler = function(event, context, callback) {
 const data = event.queryStringParameters;
+
+  console.log(MONGODB_STRING, data)
   
   context.callbackWaitsForEmptyEventLoop = false;
 

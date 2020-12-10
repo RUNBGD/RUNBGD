@@ -7,7 +7,7 @@ images:
   - image: /img/xxx_0227-removebg-preview.png
 price: 30
 sizes:
-  - quantity: 1
+  - quantity: 2
     size: S
   - size: M
     quantity: 1
