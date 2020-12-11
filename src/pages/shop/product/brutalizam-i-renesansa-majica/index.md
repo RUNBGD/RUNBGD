@@ -1,5 +1,6 @@
 ---
 templateKey: shop-product
+showFirst: false
 title: "Brutalizam i Renesansa: Majica"
 description: Muška majica "Hotel Yu"
 category: Tops
