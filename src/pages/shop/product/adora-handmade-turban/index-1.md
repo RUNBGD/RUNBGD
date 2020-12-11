@@ -1,8 +1,8 @@
 ---
 templateKey: shop-product
 showFirst: false
-title: "ADORA Handmade: Turban"
-description: Handmade Turban
+title: "ADORA Handmade: Hat"
+description: Handmade Hat
 category: Accessories
 images:
   - image: img_1214.jpg
