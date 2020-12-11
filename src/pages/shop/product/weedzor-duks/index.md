@@ -1,11 +1,12 @@
 ---
 templateKey: shop-product
+showFirst: false
 title: "Weedzor: Duks"
 description: Unisex duks / sweatshirt
 category: Tops
 images:
-  - image: _stw0429.jpg
   - image: 6000rsd.jpg
+  - image: _stw0429.jpg
 price: 50
 sizes:
   - size: S
