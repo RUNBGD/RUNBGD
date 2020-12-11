@@ -8,6 +8,7 @@ import Layout from '../../../components/Layout'
 import styles from './checkout.module.scss'
 import CartItem from '../../../components/CartItem'
 import emptyCartImage from '../../../img/empty-cart.png'
+import successfulOrderImage from '../../../img/successful-order.png'
 import PayOnArrivalForm from '../../../components/PayOnArrivalForm'
 import PayWithCardForm from '../../../components/PayWithCardForm'
 
@@ -16,6 +17,7 @@ const CheckoutPage = () => {
   const dispatch = useDispatch()
   
   const [totalPrice, setTotalPrice] = useState(0)
+  const [successfulOrder, setSuccessfulOrder] = useState(undefined);
 
   const [productPrice, setProductPrice] = useState(products && products.reduce((a, b) => {
     return a + b.quantity * b.product.frontmatter.price
@@ -38,6 +40,14 @@ const CheckoutPage = () => {
     }
   }
 
+  const successfulOrderHandler = () => {
+    localStorage.setItem('cartItems', JSON.stringify([]))
+    dispatch({
+      type: 'ADD_FROM_LOCAL_STORAGE',
+      payload: JSON.parse(localStorage.getItem('cartItems')),
+    })
+    setSuccessfulOrder(true)
+  }
 
   return (
     <Layout> 
@@ -83,12 +93,7 @@ const CheckoutPage = () => {
                         products={products}
                         totalPrice={totalPrice}
                         setShippingPriceToParent={setShippingPrice}
-                        onSuccess={() => {
-                          localStorage.setItem('cartItems', JSON.stringify([]))
-                          setTimeout(() => {
-                            navigate('/shop/confirmation')
-                          }, 1000)
-                        }}
+                        onSuccess={successfulOrderHandler}
                       />
                       <PayWithCardForm
                         products={products}
@@ -100,12 +105,7 @@ const CheckoutPage = () => {
                         totalPrice={totalPrice}
                         setShippingPriceToParent={setShippingPrice}
                         setTotalPrice={setTotalPrice}
-                        onSuccess={() => {
-                          localStorage.setItem('cartItems', JSON.stringify([]))
-                          setTimeout(() => {
-                            navigate('/shop/confirmation')
-                          }, 1000)
-                        }}
+                        onSuccess={successfulOrderHandler}
                     />
                   </div>
                 </>
@@ -146,6 +146,16 @@ const CheckoutPage = () => {
               </div>
             </React.Fragment>
           ) : (
+            successfulOrder ?
+            <div className={styles.emptyCartContainer}>
+              <div className={styles.emptyCartImageContainer}>
+                <img src={successfulOrderImage} alt="" />
+              </div>
+              <p>
+                Order successfully placed, check your email for details!
+              </p>
+            </div>
+            :
             <div className={styles.emptyCartContainer}>
               <div className={styles.emptyCartImageContainer}>
                 <img src={emptyCartImage} alt="" />

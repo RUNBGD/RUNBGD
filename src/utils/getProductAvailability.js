@@ -4,6 +4,7 @@ export default function getProductAvailability(
   productSizes,
   setProductSold
 ) {
+  console.log(uid, size, productSizes, setProductSold)
   fetch(
     `/.netlify/functions/get-product-availability?uid=${uid}&size=${size}`,
     {

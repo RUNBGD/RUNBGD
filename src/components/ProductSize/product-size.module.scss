@@ -1,0 +1,19 @@
+.size{
+  min-width:2rem;
+  padding:5px;
+  border:1px solid black;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  margin-right:5px;
+  cursor:pointer;
+}
+
+.not-available{
+  opacity:0.2;
+}
+
+.selected{
+  background:black;
+  color:white;
+}

@@ -14,6 +14,7 @@ import getProductAvailability from '../../utils/getProductAvailability'
 import styles from './shop-product-page.module.scss'
 import Layout from '../../components/Layout'
 import sliderArrow from '../../img/right-arrow.svg'
+import ProductSize from '../../components/ProductSize'
 
 console.log(swiperStyles, paginationSwiperStyles, thumbsStyles)
 
@@ -102,6 +103,9 @@ const ShopProductPage = ({ data }) => {
 
   useEffect(() => {
     if(!data.product.frontmatter.sizes){
+      setAlreadyAddedToCartMessage('This product is currently not available.')
+    }else if(data.product.frontmatter.sizes){
+      data.product.frontmatter.sizes.length <= 0 &&
       setAlreadyAddedToCartMessage('This product is currently not available.')
     }
   }, [data.product])
@@ -208,49 +212,42 @@ const ShopProductPage = ({ data }) => {
               €{data.product.frontmatter.price}
             </p>
             <hr />
-            {data.product.frontmatter.sizes != undefined && (
+            {data.product.frontmatter.sizes != undefined && data.product.frontmatter.sizes.length > 0 && (
               <React.Fragment>
                 <p>Sizes</p>
                 <div className={styles.sizes}>
                   {data.product.frontmatter.sizes.length > 0 &&
                     data.product.frontmatter.sizes.map((size, index) => {
                       return (
-                        <div
-                          onClick={() => {
-                            console.log(size)
-                            size.quantity > 0 && setSelectedSize(size.size)
-                          }}
-                          className={`${styles.size} ${
-                            (size.quantity <= 0) && styles.notAvailable
-                          } ${selectedSize === size.size && styles.selected}`}
-                          key={index}
-                        >
-                          {size.size}
-                        </div>
+                        <ProductSize size={size} selectedSize={selectedSize} index={index} setSelectedSize={setSelectedSize} data={data}/>
                       )
                     })}
                 </div>
               </React.Fragment>
             )}
-            <button
-              class={styles.callToActionButton}
-              onClick={() => {
-                if(productSold){
-                  setAlreadyAddedToCartMessage('This product has been sold out!')
-                }else if (
-                  selectedSize != undefined
-                ){
-                  setAlreadyAddedToCartMessage(undefined)
-                  addProductToCart()
-                }else if(data.product.frontmatter.sizes == undefined){
-                  setAlreadyAddedToCartMessage('This product is currently not available.')
-                }else {
-                  setAlreadyAddedToCartMessage('Please choose size.')
-                }
-              }}
-            >
-              Add to bag
-            </button>
+            {
+              data.product.frontmatter.sizes &&
+              data.product.frontmatter.sizes.length > 0 &&
+              <button
+                class={styles.callToActionButton}
+                onClick={() => {
+                  if(productSold){
+                    setAlreadyAddedToCartMessage('This product has been sold out!')
+                  }else if (
+                    selectedSize != undefined
+                  ){
+                    setAlreadyAddedToCartMessage(undefined)
+                    addProductToCart()
+                  }else if(data.product.frontmatter.sizes.length <= 0){
+                    setAlreadyAddedToCartMessage('This product is currently not available.')
+                  }else {
+                    setAlreadyAddedToCartMessage('Please choose size.')
+                  }
+                }}
+              >
+                Add to bag
+              </button>
+            }
             {alreadyAddedToCartMessage && (
               <div className={styles.error}>{alreadyAddedToCartMessage}</div>
             )}
