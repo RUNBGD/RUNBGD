@@ -39,10 +39,9 @@ const CartItem = ({ item: product, key, representational }) => {
 
   useEffect(() => {
     (async () => {
-      console.log(product)
-      if(soldQuantity > (product.product.frontmatter.sizes.find(size => size.size == product.size).quantity - product.quantity)){
-        console.log('ye')
-        setQuantity(soldQuantity - (product.product.frontmatter.sizes.find(size => size.size == product.size).quantity - product.quantity));
+      console.log(product.product.frontmatter.sizes.find(size => size.size == product.size).quantity)
+      if(soldQuantity >= product.product.frontmatter.sizes.find(size => size.size == product.size).quantity){
+        setQuantity(soldQuantity - product.product.frontmatter.sizes.find(size => size.size == product.size).quantity);
       }
     })()
   }, [soldQuantity])
