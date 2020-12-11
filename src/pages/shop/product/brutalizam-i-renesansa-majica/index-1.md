@@ -1,6 +1,7 @@
 ---
 templateKey: shop-product
-title: "Brutalizam i Renesansa: Majica"
+showFirst: false
+title: "Brutalizam i Renesansa: T Shirt"
 description: Ženska majica "Hotel Yu"
 category: Tops
 images:
