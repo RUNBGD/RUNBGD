@@ -1,5 +1,6 @@
 ---
 templateKey: shop-product
+showFirst: false
 title: "Brutalizam i Renesanca: Ceger Hotel Yu"
 description: Unisex ceger / bag "Hotel Yu"
 category: Accessories
