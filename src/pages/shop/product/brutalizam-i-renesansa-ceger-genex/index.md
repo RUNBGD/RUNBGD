@@ -1,5 +1,6 @@
 ---
 templateKey: shop-product
+showFirst: false
 title: "Brutalizam i Renesansa: Ceger Genex"
 description: Unisex ceger / bag "Genex"
 category: Accessories
