@@ -28,11 +28,18 @@ const ShopProductPage = ({ data }) => {
   const [alreadyAddedToCartMessage, setAlreadyAddedToCartMessage] = useState(
     undefined
   )
+  const [infoMessage, setInfoMessage] = useState(
+    undefined
+  )
   const [productSold, setProductSold] = useState(false)
 
   useEffect(() => {
     addToStateFromLocalStorage()
   }, [])
+
+  useEffect(() => {
+    setTimeout(() => setInfoMessage(undefined), 2000)
+  }, [infoMessage])
 
   useEffect(() => {
     if(productSold){
@@ -73,6 +80,7 @@ const ShopProductPage = ({ data }) => {
         }) == -1
       ) {
         setAlreadyAddedToCartMessage(undefined)
+        setInfoMessage('Product added to cart!')
         return dispatch({
           type: 'ADD_PRODUCT',
           payload: {
@@ -84,7 +92,7 @@ const ShopProductPage = ({ data }) => {
         })
       } else {
         setAlreadyAddedToCartMessage(
-          'You have already added that item to cart!'
+          'You have already added that product to cart!'
         )
       }
     } else {
@@ -250,6 +258,9 @@ const ShopProductPage = ({ data }) => {
             }
             {alreadyAddedToCartMessage && (
               <div className={styles.error}>{alreadyAddedToCartMessage}</div>
+            )}
+            {infoMessage && (
+              <div className={styles.info}>{infoMessage}</div>
             )}
             <hr />
             <h3>Description</h3>

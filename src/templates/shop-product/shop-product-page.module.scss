@@ -195,10 +195,17 @@
     color:white;
 }
 
-.error{
+.info, .error{
     margin-top:20px;
     padding:15px;
-    background:#EE1C25;
     text-align:center;
     color:white;
+}
+
+.info{
+    background:#3fee1c;
+}
+
+.error{
+    background:#EE1C25;
 }
