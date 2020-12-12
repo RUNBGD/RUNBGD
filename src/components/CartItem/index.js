@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Image from 'gatsby-image'
 import { useDispatch } from 'react-redux'
 import Link from 'gatsby-link'
+import {useSpring, animated} from 'react-spring'
 
 import styles from './cart-item.module.scss'
 import getProductSoldQuantity from '../../utils/getProductSoldQuantity'
@@ -11,6 +12,21 @@ const CartItem = ({ item: product, key, representational }) => {
   
   let [quantity, setQuantity] = useState(product.quantity)
   const [soldQuantity, setSoldQuantity] = useState(0)
+  const [animationActivated, setAnimationActivated] = useState(false)
+
+  const props = useSpring({
+    to:[{
+      transform:animationActivated ? 'scale(1.05)':'scale(1)',
+    },
+    {
+      transform: 'scale(1)'
+    }
+  ],
+    from:{
+      transform:'scale(1)'
+    },  
+    config: { duration: 250 }
+  })
 
   useEffect(() => {
     let itemWithNewQuantity = { ...product }
@@ -28,11 +44,13 @@ const CartItem = ({ item: product, key, representational }) => {
     console.log(product.product.frontmatter.sizes.find(size => size.size == product.size).quantity - soldQuantity)
     switch(action){
       case 'ADD_ONE':
+        setAnimationActivated(true)
         if(quantity < (product.product.frontmatter.sizes.find(size => size.size == product.size).quantity - soldQuantity)){
           setQuantity((prevState) => prevState + 1);
         }
         break;
-      case 'REMOVE_ONE':
+        case 'REMOVE_ONE':
+        setAnimationActivated(true)
         setQuantity((prevState) => prevState - 1);
         break;
       default:
@@ -62,7 +80,7 @@ const CartItem = ({ item: product, key, representational }) => {
   console.log(product.product.frontmatter.sizes.find(size => size.size == product.size), product)
 
   return (
-    <div className={styles.cartItem} key={key}>
+    <animated.div style={props} className={styles.cartItem}>
       <div className={styles.itemImage}>
         <Link to={product.product.fields.slug}>
           {product.product.frontmatter.images.length > 0 &&
@@ -118,7 +136,7 @@ const CartItem = ({ item: product, key, representational }) => {
       <div className={styles.itemPrice}>
         €{quantity * product.product.frontmatter.price}
       </div>
-    </div>
+    </animated.div>
   )
 }
 

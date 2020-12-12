@@ -8,6 +8,7 @@ import Layout from '../../../components/Layout'
 import styles from './cart.module.scss'
 import CartItem from '../../../components/CartItem'
 import emptyCartImage from '../../../img/empty-cart.png'
+import { useTransition, animated } from 'react-spring'
 
 const Cart = () => {
   const dispatch = useDispatch()
@@ -28,6 +29,12 @@ const Cart = () => {
   }
 
   let products = useSelector((state) => state)
+
+  let transitionProducts = useTransition(products, item => `${item.id}${item.size}`, {
+    from:{transform: 'translate3d(0, -40px, 0)', opacity: 0},
+    enter:{transform: 'translate3d(0, 0px, 0)', opacity: 1},
+    leave:{transform: 'translate3d(0, -40px, 0)', opacity: 0}
+  })
 
   return (
     <Layout>
@@ -51,9 +58,11 @@ const Cart = () => {
                 </div>
                 <div className={styles.cartItems}>
                   {products &&
-                    products.map((product, index) => {
+                    transitionProducts.map(({item: product, props, key:index}) => {
                       if (product !== undefined) {
-                        return <CartItem key={index} item={product} />
+                        return <animated.div key={index} style={props}>
+                            <CartItem key={index} item={product} />
+                          </animated.div>
                       }
                     })}
                 </div>
