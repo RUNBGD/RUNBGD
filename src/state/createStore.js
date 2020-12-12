@@ -14,7 +14,7 @@ function cartItems(state = [], action) {
       return [...state, action.payload]
     case 'REMOVE_PRODUCT':
       let indexOfItem = [...state].findIndex((product) => {
-        return action.payload == product.id
+        return action.payload.uid == product.id &&  action.payload.size == product.size
       })
       let newState = [...state]
       newState.splice(indexOfItem, 1)

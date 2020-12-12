@@ -17,7 +17,10 @@ const CartItem = ({ item: product, key, representational }) => {
     itemWithNewQuantity.quantity = quantity
     dispatch({ type: 'CHANGE_QUANTITY', payload: itemWithNewQuantity })
     if (quantity <= 0) {
-      dispatch({ type: 'REMOVE_PRODUCT', payload: product.id })
+      dispatch({ type: 'REMOVE_PRODUCT', payload: {
+        uid:product.id,
+        size:product.size
+      } })
     }
   }, [quantity])
 
