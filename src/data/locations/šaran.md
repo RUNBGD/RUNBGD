@@ -6,9 +6,9 @@ pin: /img/run-bgd_restaurant_icon_100x100.png
 category: Restaurants
 address: Kej Oslobođenja 5
 website: <http://www.saran.co.rs/en/>
-email: "[office@saran.co.rs](office@saran.co.rs)"
+email: "[office@saran.co.rs](mailto:office@saran.co.rs)"
 description: >-
-  Phone number: [+381692618235](+381692618235)
+  Phone number: [+381692618235](tel:00381692618235)
 
 
   Open: Mon - Tue 03PM to 11PM\
