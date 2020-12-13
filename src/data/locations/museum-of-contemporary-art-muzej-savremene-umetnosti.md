@@ -6,9 +6,9 @@ pin: /img/run-bgd_museums_icon_100x100.png
 category: Museums
 address: Ušće 10, 11000 Beograd
 website: <https://www.msub.org.rs>
-email: "[info@msub.org.rs](info@msub.org.rs)"
+email: "[info@msub.org.rs](mailto:info@msub.org.rs)"
 description: |-
-  Phone: [+381638623129](+381638623129)
+  Phone: [+381638623129](tel:00381638623129)
 
   Open:\
   Wed - Mon 12 to 20H\
