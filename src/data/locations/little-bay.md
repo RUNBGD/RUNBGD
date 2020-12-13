@@ -6,9 +6,9 @@ pin: /img/run-bgd_restaurant_icon_100x100.png
 category: Restaurants
 address: Dositejeva 9a
 website: "[www.littlebay.rs](www.littlebay.rs)"
-email: "[beograd@littlebay.co.uk](beograd@littlebay.co.uk)"
+email: "[beograd@littlebay.co.uk](mailto:beograd@littlebay.co.uk)"
 description: >-
-  Phone number: [+381113284163](+381113284163)
+  Phone number: [+381113284163](tel:00381113284163)
 
 
   Open: 09AM to 01AM
