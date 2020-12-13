@@ -6,9 +6,9 @@ pin: /img/run-bgd_restaurant_icon_100x100.png
 category: Restaurants
 address: Omladinskih brigada 16a, 11070 Novi Beograd
 website: https://www.restorandurmitor.rs/en
-email: "[restorandurmitor@mts.rs ](<restorandurmitor@mts.rs >)"
+email: "[restorandurmitor@mts.rs ](mailto:restorandurmitor@mts.rs)"
 description: >-
-  Phone number: [+381112602330](+381112602330)
+  Phone number: [+381112602330](tel:00381112602330)
 
 
   Open: Mon - Sat 08AM to 11PM\
