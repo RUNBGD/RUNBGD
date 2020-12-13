@@ -6,9 +6,9 @@ pin: /img/run-bgd_restaurant_icon_100x100.png
 category: Restaurants
 address: Kralja Petra 13, 11000 Beograd
 website: <https://restoran-manufaktura.rs/en/>
-email: "[contact@restoran-manufaktura.rs](contact@restoran-manufaktura.rs)"
+email: "[contact@restoran-manufaktura.rs](mailto:contact@restoran-manufaktura.rs)"
 description: >-
-  Phone number: [+381112180044](+381112180044)
+  Phone number: [+381112180044](tel:00381112180044)
 
 
   Open: every dan 11AM to 11PM
