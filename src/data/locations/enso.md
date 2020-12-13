@@ -6,9 +6,9 @@ pin: /img/run-bgd_restaurant_icon_100x100.png
 category: Restaurants
 address: Mitropolita Petra 8, 11000 Beograd
 website: <https://www.enso.rs>
-email: "[info@enso.rs](info@enso.rs)"
+email: "[info@enso.rs](mailto:info@enso.rs)"
 description: >-
-  Phone number: [+38163594924](+38163594924)
+  Phone number: [+38163594924](tel:0038163594924)
 
 
   Open: 15PM to 01AM
