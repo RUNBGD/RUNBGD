@@ -6,9 +6,9 @@ pin: /img/run-bgd_restaurant_icon_100x100.png
 category: Restaurants
 address: Skadarska 29, 11000 Beograd
 website: <https://trisesira.rs/en/>
-email: "[trisesira@live.com](trisesira@live.com)"
+email: "[trisesira@live.com](mailto:trisesira@live.com)"
 description: >-
-  Phone: [ +381603130180](< +381603130180>)
+  Phone:  [+381603130180](tel:00381603130180)
 
 
   Open: 11AM to 01AM
