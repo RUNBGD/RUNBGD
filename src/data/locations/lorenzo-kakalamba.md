@@ -8,7 +8,7 @@ address: Cvijićeva 110, 11000 Beograd
 website: "[www.lk.rs](https://lk.rs)"
 email: "[restoran@lk.rs](mailto:restoran@lk.rs)"
 description: >-
-  Phone number: [+381113295351](tel:+381113295351)
+  Phone number: [+381113295351](tel:00381113295351)
 
 
   Open: every day 12PM to 12AM
