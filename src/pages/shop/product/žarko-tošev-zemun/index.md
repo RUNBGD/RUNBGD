@@ -1,5 +1,6 @@
 ---
 templateKey: shop-product
+showFirst: false
 title: "Žarko Tošev: Zemun"
 description: "Ilustracija 30x40cm. Veći formati na upit. "
 category: Accessories
