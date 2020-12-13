@@ -6,9 +6,9 @@ pin: /img/run-bgd_museums_icon_100x100.png
 category: Museums
 address: Skenderbegova 51, 11000 Beograd
 website: <https://www.muzejnt.rs>
-email: "[mnt@muzejnt.rs](mnt@muzejnt.rs)"
+email: "[mnt@muzejnt.rs](mailto:mnt@muzejnt.rs)"
 description: |-
-  Phone: [+381113037850](+381113037850)
+  Phone: [+381113037850](tel:00381113037850)
 
   Open: Tue - Sun 10 to 18H
 
