@@ -6,9 +6,9 @@ pin: /img/run-bgd_museums_icon_100x100.png
 category: Museums
 address: Kneza Mihaila 42, 11000 Beograd
 website: <http://www.zeptermuseum.rs>
-email: "[muzejzepter@zepter.rs](muzejzepter@zepter.rs)"
+email: "[muzejzepter@zepter.rs](mailto:muzejzepter@zepter.rs)"
 description: |-
-  Phone: [+381113283339](+381113283339)
+  Phone: [+381113283339](tel:00381113283339)
 
   Open: \
   Tue, Wed and Fri 12 to 20H\
