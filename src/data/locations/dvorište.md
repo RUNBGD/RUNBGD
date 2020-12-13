@@ -6,9 +6,9 @@ pin: /img/run-bgd_restaurant_icon_100x100.png
 category: Restaurants
 address: Svetogorska 46, 11000 Beograd
 website: <https://restorandvoriste.rs/en/>
-email: "[rezervacije.mezestoran@gmail.com](rezervacije.mezestoran@gmail.com)"
+email: "[rezervacije.mezestoran@gmail.com](mailto:rezervacije.mezestoran@gmail.com)"
 description: >-
-  Phone number: [+381113246515](+381113246515)
+  Phone number: [+381113246515](tel:00381113246515)
 
 
   Open: 09AM to 11PM
