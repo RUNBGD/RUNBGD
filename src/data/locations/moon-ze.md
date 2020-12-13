@@ -6,9 +6,9 @@ pin: /img/run-bgd_restaurant_icon_100x100.png
 category: Restaurants
 address: Kej Oslobođenja 29, 11080 Beograd
 website: <https://www.moonze.rs>
-email: "[info@moonze.rs](info@moonze.rs)"
+email: "[info@moonze.rs](mailto:info@moonze.rs)"
 description: >-
-  Phone number: [+381665037000](+381665037000)
+  Phone number: [+381665037000](tel:00381665037000)
 
 
   Open: 08AM to 11PM
