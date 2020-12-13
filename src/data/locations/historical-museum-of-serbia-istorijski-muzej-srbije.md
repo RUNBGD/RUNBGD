@@ -6,9 +6,9 @@ pin: /img/run-bgd_museums_icon_100x100.png
 category: Museums
 address: Trg Nikole Pašića 11, 11000 Beograd
 website: <http://imus.org.rs/en/home/>
-email: "[istorijskimuzej@imus.org.rs](istorijskimuzej@imus.org.rs)"
+email: "[istorijskimuzej@imus.org.rs](mailto:istorijskimuzej@imus.org.rs)"
 description: |-
-  Phone: [+381113287242](+381113287242)
+  Phone: [+381113287242](tel:00381113287242)
 
   Open: \
   Tue - Sun 12 to 20H\
