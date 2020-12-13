@@ -334,9 +334,10 @@ let CategoryPage = ({ data }) => {
           data.subCategories.edges.length > 0 &&
           data.subCategories.edges.map(({ node: category }) => {
             let filteredPosts =
-              data.subCategoryItems &&
-              data.subCategoryItems.edges.length > 0 &&
-              data.subCategoryItems.edges.filter(({ node: item }) => {
+              data.categoryLatestPosts &&
+              data.categoryLatestPosts.edges.length > 0 &&
+              data.categoryLatestPosts.edges.filter(({ node: item }) => {
+                console.log(item.frontmatter.subcategory)
                 if (
                   item.frontmatter.subcategory &&
                   category.frontmatter.title
@@ -390,7 +391,7 @@ export const pageQuery = graphql`
     subCategoryItems: allMarkdownRemark(
       filter: {
         frontmatter: {
-          templateKey: { eq: "subcategory-item" }
+          templateKey: { eq: "blog-post" }
           category: { eq: $title }
         }
       }
@@ -459,6 +460,7 @@ export const pageQuery = graphql`
           frontmatter {
             title
             category
+            subcategory
             author
             coverImage {
               childImageSharp {

@@ -184,8 +184,8 @@ export const pageQuery = graphql`
     subCategoryItems: allMarkdownRemark(
       filter: {
         frontmatter: {
-          templateKey: { eq: "subcategory-item" }
-          category: { eq: $title }
+          templateKey: { eq: "blog-post" }
+          subcategory: { eq: $title }
         }
       }
     ) {
@@ -211,7 +211,7 @@ export const pageQuery = graphql`
     subcategoryFeaturedPosts: allMarkdownRemark(
       filter: {
         frontmatter: {
-          templateKey: { eq: "subcategory-item" }
+          templateKey: { eq: "blog-post" }
           subcategory: { eq: $title }
           subcategoryFeatured: { eq: true }
         }
@@ -238,7 +238,7 @@ export const pageQuery = graphql`
     subcategoryLatestPosts: allMarkdownRemark(
       filter: {
         frontmatter: {
-          templateKey: { eq: "subcategory-item" }
+          templateKey: { eq: "blog-post" }
           subcategory: { eq: $title }
         }
       }

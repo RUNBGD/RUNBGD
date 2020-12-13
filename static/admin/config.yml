@@ -26,10 +26,12 @@ collections:
       - {label: "Create Page", name: "createPage", required: true, widget: "hidden", default: "true"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Category", name: "category", widget: "relation", collection: "category", searchFields: ["title"], valueField: "title", displayFields: ["title"]}
+      - {label: "Subcategory", name: "subcategory", widget: "relation", required: false, collection: "subcategory", searchFields: ["title"], valueField: "title", displayFields: ["title"]}
       - {label: "Author", name: "author", widget: "relation", collection: "author", searchFields: ["name"], valueField: "name", displayFields: ["name"]}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Featured Post", name: "featuredPost", widget: "boolean", default: false}
       - {label: "Category Featured Post", name: "categoryFeatured", widget: "boolean", default: false}
+      - {label: "Subcategory Featured Post", name: "subcategoryFeatured", widget: "boolean", default: false}
       - {label: "Trending Post", name: "trending", widget: "boolean", default: false}
       - {label: "Cover Image", name: "coverImage", widget: "image"}
       - {label: "Body", name: "body", widget: "markdown"}

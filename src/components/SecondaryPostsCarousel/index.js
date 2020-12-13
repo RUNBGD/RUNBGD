@@ -68,7 +68,7 @@ const BigPostsCarousel = ({ posts, heading, displayCategory, onlyMobile }) => {
           prevEl: `.${styles.swiperPrevEl}`,
         }}
       >
-        {posts.map(({ node: post }, index) => {
+        {posts && posts.map(({ node: post }, index) => {
           let categorySlug = undefined
           let authorSlug = undefined
 
