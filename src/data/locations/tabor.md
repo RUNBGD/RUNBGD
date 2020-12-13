@@ -6,9 +6,9 @@ pin: /img/run-bgd_restaurant_icon_100x100.png
 category: Restaurants
 address: Bukevar kralja Aleksandra 348, 11000 Beograd
 website: "[www.restorantabor.com](www.restorantabor.com)"
-email: "[info@restorantabor.com](info@restorantabor.com)"
+email: "[info@restorantabor.com](mailto:info@restorantabor.com)"
 description: >-
-  Phone: [+381112412464](+381112412464) 
+  Phone: [+381112412464 ](tel:00381112412464)
 
 
   Open: 12 to 02H\
