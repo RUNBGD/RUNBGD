@@ -6,9 +6,9 @@ pin: /img/run-bgd_restaurant_icon_100x100.png
 category: Restaurants
 address: Francuska 7, 11000 Beograd
 website: <https://klubknjizevnika.rs/?lang=en>
-email: "[office@klubknjizevnika.rs](office@klubknjizevnika.rs)"
+email: "[office@klubknjizevnika.rs](mailto:office@klubknjizevnika.rs)"
 description: >-
-  Phone: [+381 11 262 79 31](<+381 11 262 79 31>)
+  Phone: [+381112627931](tel:00381112627931)
 
 
   Open: 12 to 21H\
