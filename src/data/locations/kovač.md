@@ -6,9 +6,9 @@ pin: /img/run-bgd_restaurant_icon_100x100.png
 category: Restaurants
 address: Bulevar oslobodjenja 221, 11000 Beograd
 website: <http://www.restorankovac.com>
-email: "[info@kovacgroup.com](info@kovacgroup.com)"
+email: "[info@kovacgroup.com](mailto:info@kovacgroup.com)"
 description: >-
-  Phone number: [+381112462 343](<+381112462 343>)
+  Phone number: [+381112462343](tel:00381112462343)
 
 
   Open: 12PM to 11PM
