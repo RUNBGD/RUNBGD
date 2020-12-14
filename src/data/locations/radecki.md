@@ -1,7 +1,7 @@
 ---
 templateKey: location
-name: "Radecki "
-coverImage: /img/91418840_2779863372051489_105716891959427072_o.jpg
+name: "Klub Radecki "
+coverImage: /img/klub-radecki_restaurant.png
 pin: /img/run-bgd_restaurant_icon_100x100.png
 category: Restaurants
 address: Kej Oslobođenja
