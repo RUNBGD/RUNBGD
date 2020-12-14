@@ -1,7 +1,7 @@
 ---
 templateKey: location
 name: Burrito Madre Savamala
-coverImage: /img/salata-novo.jpg
+coverImage: /img/burrito-madre_savamala_fast-food.jpg
 pin: /img/run-bgd_fast-food_icon_100x100.png
 category: Fast Food
 address: Karađorđeva 65, 11000 Beograd
