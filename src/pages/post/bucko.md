@@ -2,8 +2,8 @@
 templateKey: blog-post
 createPage: "true"
 title: Bucko (pizza place)
-category: The City
-subcategory: Food & Beverages
+category: Food & Beverages
+subcategory: ""
 author: Aleksandar Tašić
 date: 2020-12-08T11:20:15.701Z
 featuredPost: true
