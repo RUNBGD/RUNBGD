@@ -2,8 +2,8 @@
 templateKey: blog-post
 createPage: "true"
 title: Carska bara
-category: The City
-subcategory: Travel
+category: Travel
+subcategory: ""
 author: Aleksandar Tašić
 date: 2020-11-24T16:34:29.403Z
 featuredPost: true
