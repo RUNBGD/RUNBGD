@@ -1,7 +1,7 @@
 ---
 templateKey: location
-name: Burrito Madre
-coverImage: /img/salata-novo.jpg
+name: Burrito Madre Terazije
+coverImage: /img/burrito-madre_terazije_fast-food.jpg
 pin: /img/run-bgd_fast-food_icon_100x100.png
 category: Fast Food
 address: Terazije 27, 11000 Beograd
