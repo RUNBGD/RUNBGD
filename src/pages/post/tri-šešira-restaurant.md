@@ -2,8 +2,8 @@
 templateKey: blog-post
 createPage: "true"
 title: Tri Šešira Restaurant
-category: The City
-subcategory: Food & Beverages
+category: Food & Beverages
+subcategory: ""
 author: Aleksandar Tašić
 date: 2020-11-19T20:03:15.911Z
 featuredPost: true
