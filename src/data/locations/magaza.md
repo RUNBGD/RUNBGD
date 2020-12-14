@@ -1,7 +1,7 @@
 ---
 templateKey: location
 name: Magaza
-coverImage: /img/njoke-specijalitet-magaza.jpg
+coverImage: /img/magaza_restaurant.jpg
 pin: /img/run-bgd_restaurant_icon_100x100.png
 category: Restaurants
 address: Karađorđeva 2, 11000 Beograd
