@@ -1,55 +1,68 @@
 ---
-templateKey: careers-page
 heroImage: /img/food-and-beverages.jpg
-slides: 
-    - image: /img/image-000.jpg
-    - image: /img/image--002.jpg
-    - image: /img/image-011.jpg
+introText: |-
+  ## CULTURE. PERSONIFIED.
+
+  Working at RUNBGD Networks isn't just a job.
+
+  > It's a way of life.
+
+  Come be a part of something bigger.
+sliderIntroText: >-
+  ## Where the Next Begins
+
+
+  RUNBGD Networks champions the people, brands and new trends you need to know now and will obsess over next
+benefitsIntroText: "## BENEFITS & PERKS"
+recentOpeningsIntroText: "## RECENT OPENINGS"
+slides:
+  - image: /img/image-000.jpg
+  - image: /img/image--002.jpg
+  - image: /img/image-011.jpg
 benefits:
-    - image: /img/image-000.jpg
-      text: |-
-        401K matching
+  - image: /img/image-000.jpg
+    text: |-
+      401K matching
 
-        Unlimited PTO
+      Unlimited PTO
 
-        Fertility & Wellness services
+      Fertility & Wellness services
 
-        Parental leave
+      Parental leave
+  - image: /img/image-000.jpg
+    text: |-
+      401K matching
 
-    - image: /img/image-000.jpg
-      text: |-
-        401K matching
+      Unlimited PTO
 
-        Unlimited PTO
+      Fertility & Wellness services
 
-        Fertility & Wellness services
+      Parental leave
+  - image: /img/image-000.jpg
+    text: |-
+      401K matching
 
-        Parental leave
+      Unlimited PTO
 
-    - image: /img/image-000.jpg
-      text: |-
-        401K matching
+      Fertility & Wellness services
 
-        Unlimited PTO
-
-        Fertility & Wellness services
-
-        Parental leave
+      Parental leave
+templateKey: careers-page
 positions:
-    - title: Content Manager
-      type: Distribution
-      place: Beograd
-      link: https://halooglasi.com
-    - title: Content Manager
-      type: Distribution
-      place: Beograd
-      link: https://halooglasi.com
-    - title: Content Manager
-      type: Distribution
-      place: Beograd
-      link: https://halooglasi.com
-    - title: Content Manager
-      type: Distribution
-      place: Beograd
-      link: https://halooglasi.com
+  - title: Content Manager
+    type: Distribution
+    place: Beograd
+    link: https://halooglasi.com
+  - title: Content Manager
+    type: Distribution
+    place: Beograd
+    link: https://halooglasi.com
+  - title: Content Manager
+    type: Distribution
+    place: Beograd
+    link: https://halooglasi.com
+  - title: Content Manager
+    type: Distribution
+    place: Beograd
+    link: https://halooglasi.com
 ---
