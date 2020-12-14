@@ -27,6 +27,10 @@ const Careers = () => {
               }
             }
           }
+          introText
+          sliderIntroText
+          benefitsIntroText
+          recentOpeningsIntroText
           slides {
             image {
               childImageSharp {
@@ -88,16 +92,13 @@ const Careers = () => {
                 fluid={data.page.frontmatter.heroImage.childImageSharp.fluid}
                 alt=""
               />
-            )}
+              )}
         </div>
-        <div className={styles.kickerText}>
-          <h2>CULTURE. PERSONIFIED.</h2>
-          <p>Working at RUNBGD Networks isn't just a job.</p>
-          <p>
-            <em>It's a way of life.</em>
-          </p>
-          <p>Come be a part of something bigger.</p>
-        </div>
+        {
+            data.page &&
+            data.page.frontmatter.introText &&
+            <HTMLContent className={styles.kickerText} content={toHTML(data.page.frontmatter.introText)} />
+          }
         <div className={styles.logos}>
           <div className={styles.mainLogo}>
             {data.logos &&
@@ -110,8 +111,8 @@ const Careers = () => {
                     logo.frontmatter.logoImage.childImageSharp &&
                     logo.frontmatter.logoImage.childImageSharp.fluid && (
                       <Image
-                        fluid={logo.frontmatter.logoImage.childImageSharp.fluid}
-                        alt=""
+                      fluid={logo.frontmatter.logoImage.childImageSharp.fluid}
+                      alt=""
                       />
                     )
                   )
@@ -141,21 +142,19 @@ const Careers = () => {
                         className={styles.otherLogosItem}
                         fluid={logo.frontmatter.logoImage.childImageSharp.fluid}
                         alt=""
-                      />
+                        />
                     )
-                  )
+                    )
                 }
               })}
           </div>
           <hr />
         </div>
-        <div className={styles.kickerText}>
-          <h2>Where the Next Begins</h2>
-          <p>
-            RUNBGD Networks champions the people, brands and new trends you need
-            to know now and will obsess over next
-          </p>
-        </div>
+        {
+            data.page &&
+            data.page.frontmatter.sliderIntroText &&
+            <HTMLContent className={styles.kickerText} content={toHTML(data.page.frontmatter.sliderIntroText)} />
+          }
         <div className={styles.sliderContainer}>
           <FullWidthSlider>
             {data.page &&
@@ -178,7 +177,11 @@ const Careers = () => {
           </FullWidthSlider>
         </div>
         <div className={styles.benefitsSection}>
-          <h2>BENEFITS & PERKS</h2>
+        {
+            data.page &&
+            data.page.frontmatter.benefitsIntroText &&
+            <HTMLContent className={styles.kickerText} content={toHTML(data.page.frontmatter.benefitsIntroText)} />
+          }
           <div className={styles.lRow}>
             {data.page &&
               data.page.frontmatter.benefits &&
@@ -202,7 +205,11 @@ const Careers = () => {
           <hr />
         </div>
         <div className={styles.openingsSection}>
-          <h2>RECENT OPENINGS</h2>
+          {
+            data.page &&
+            data.page.frontmatter.recentOpeningsIntroText &&
+            <HTMLContent className={styles.kickerText} content={toHTML(data.page.frontmatter.recentOpeningsIntroText)} />
+          }
           <div>
             {data.page &&
               data.page.frontmatter.positions &&

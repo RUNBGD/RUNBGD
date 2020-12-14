@@ -362,6 +362,10 @@ collections:
         name: "careersPage"
         fields:
           - {label: Hero Image, name: heroImage, widget: image}
+          - {label: Intro Text, name: introText, required: false, widget: markdown}
+          - {label: Slider Intro Text, name: sliderIntroText, required: false, widget: markdown}
+          - {label: Benefits Intro Text, name: benefitsIntroText, required: false, widget: markdown}
+          - {label: Recent Openings Intro Text, name: recentOpeningsIntroText, required: false, widget: markdown}
           - {label: "Slides", name: "slides", widget: list, fields: [
               {label: "Image",name: "image", widget: image}
           ]
