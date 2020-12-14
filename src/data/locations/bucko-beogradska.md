@@ -1,7 +1,7 @@
 ---
 templateKey: location
 name: Bucko Beogradska
-coverImage: /img/bucko_fast-food_2.jpg
+coverImage: /img/bucko_fast-food.jpg
 pin: /img/run-bgd_fast-food_icon_100x100.png
 category: Fast Food
 address: Beogradska 56, 11000 Beograd
