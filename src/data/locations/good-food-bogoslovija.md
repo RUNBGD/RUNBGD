@@ -1,7 +1,7 @@
 ---
 templateKey: location
 name: Good Food Bogoslovija
-coverImage: /img/gf_logo.png
+coverImage: /img/good-food_fast-food.png
 pin: /img/run-bgd_fast-food_icon_100x100.png
 category: Fast Food
 address: Mije Kovačevića 9/1, 11000 Beograd
