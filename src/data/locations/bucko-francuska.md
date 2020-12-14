@@ -1,7 +1,7 @@
 ---
 templateKey: location
 name: Bucko Francuska
-coverImage: /img/bucko-povasojmeri.png
+coverImage: /img/bucko_fast-food.jpg
 pin: /img/run-bgd_fast-food_icon_100x100.png
 category: Fast Food
 address: Francuska 18, 11000 Beograd
