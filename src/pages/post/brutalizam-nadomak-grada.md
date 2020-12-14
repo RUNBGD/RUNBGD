@@ -3,10 +3,12 @@ templateKey: blog-post
 createPage: "true"
 title: Brutalizam nadomak grada
 category: Travel
+subcategory: The City
 author: Aleksandar Tašić
 date: 2020-11-23T13:42:37.493Z
 featuredPost: true
 categoryFeatured: true
+subcategoryFeatured: true
 trending: true
 coverImage: img_4915.jpeg
 icons: []
