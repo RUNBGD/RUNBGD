@@ -235,7 +235,7 @@ collections:
     identifier_field: name
     fields: 
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "shop-product"}
-      - {label: "Show First", name: "showFirst", widget: boolean, default: false}
+      - {label: "Show First", name: "showFirst", widget: boolean, required: false, default: false}
       - {label: "Title", name: "title", widget: string}
       - {label: "Description", name: "description", widget: string}
       - {label: "Category", name: "category", widget: relation, collection: "productCategory", searchFields: ["title"], valueField: "title", displayFields: ["title"]}
