@@ -1,7 +1,7 @@
 ---
 templateKey: location
 name: Klub Književnika
-coverImage: /img/klub-o-nama.jpg
+coverImage: /img/klub-knjizevnika_restaurant.jpg
 pin: /img/run-bgd_restaurant_icon_100x100.png
 category: Restaurants
 address: Francuska 7, 11000 Beograd
