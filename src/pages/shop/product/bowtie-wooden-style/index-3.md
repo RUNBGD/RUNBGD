@@ -1,5 +1,6 @@
 ---
 templateKey: shop-product
+showFirst: false
 title: Bowtie Wooden Style
 description: Wooden bow tie / Drvena leptir mašna
 category: Accessories
