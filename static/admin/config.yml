@@ -29,10 +29,10 @@ collections:
       - {label: "Subcategory", name: "subcategory", widget: "relation", required: false, collection: "subcategory", searchFields: ["title"], valueField: "title", displayFields: ["title"]}
       - {label: "Author", name: "author", widget: "relation", collection: "author", searchFields: ["name"], valueField: "name", displayFields: ["name"]}
       - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Featured Post", name: "featuredPost", widget: "boolean", default: false}
-      - {label: "Category Featured Post", name: "categoryFeatured", widget: "boolean", default: false}
-      - {label: "Subcategory Featured Post", name: "subcategoryFeatured", widget: "boolean", default: false}
-      - {label: "Trending Post", name: "trending", widget: "boolean", default: false}
+      - {label: "Featured Post", name: "featuredPost", required: false, widget: "boolean", default: false}
+      - {label: "Category Featured Post", name: "categoryFeatured", required: false, widget: "boolean", default: false}
+      - {label: "Subcategory Featured Post", name: "subcategoryFeatured", required: false, widget: "boolean", default: false}
+      - {label: "Trending Post", name: "trending", widget: "boolean", required: false, default: false}
       - {label: "Cover Image", name: "coverImage", widget: "image"}
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Icons", name: "icons", widget: list, fields: [
