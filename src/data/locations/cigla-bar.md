@@ -1,7 +1,7 @@
 ---
 templateKey: location
 name: Cigla Bar
-coverImage: /img/36892520_433151397152678_3837707648690552832_o.jpg
+coverImage: /img/cigla_bar.png
 pin: /img/run-bgd_bar_icon_100x100.png
 category: Bars
 address: Čika Ljubina 11
