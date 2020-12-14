@@ -1,7 +1,7 @@
 ---
 templateKey: location
-name: "Žuća "
-coverImage: /img/zuca.png
+name: "Roštilj Žuća "
+coverImage: /img/rostlij-zuca_fast-food.jpg
 pin: /img/run-bgd_fast-food_icon_100x100.png
 category: Fast Food
 address: Vanizelosova 23, 11000 Beograd
