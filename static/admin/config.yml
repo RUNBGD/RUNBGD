@@ -80,7 +80,7 @@ collections:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "category-page"}
       - {label: "Create Page", name: "createPage", required: true, widget: "hidden", default: "true"}
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Description", name: "description", widget: "markdown"}
+      - {label: "Description", name: "description", required: false, widget: "markdown"}
       - {label: "Category Cover", name: "coverImage", widget: "image"}
       - {label: "Order on home page", name: "order", widget: "number"}
       - {label: "Order in navbar", name: "orderNavbar", widget: "number"}
@@ -117,7 +117,7 @@ collections:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "category-subcategory"}
       - {label: "Create Page", name: "createPage", required: true, widget: "hidden", default: "true"}
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Description", name: "description", widget: "markdown"}
+      - {label: "Description", name: "description", required: false, widget: "markdown"}
       - {label: "Subcategory Cover", name: "coverImage", widget: "image"}
       - {label: "Category", name: "category", widget: "relation", collection: "category", searchFields: ["title"], valueField: "title", displayFields: ["title"]}
 
