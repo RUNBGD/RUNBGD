@@ -10,7 +10,7 @@ featuredPost: true
 categoryFeatured: true
 subcategoryFeatured: true
 trending: true
-coverImage: jon-tyson-za9phanvp5g-unsplash.jpg
+coverImage: /img/bucko_fast-food.jpg
 icons:
   - icon: Budget
   - icon: Approved
