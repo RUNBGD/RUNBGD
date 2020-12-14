@@ -1,7 +1,7 @@
 ---
 templateKey: location
 name: Stepin Vajat
-coverImage: /img/pljeka.webp
+coverImage: /img/stepin-vajat_fast-food.jpg
 pin: /img/run-bgd_fast-food_icon_100x100.png
 category: Fast Food
 address: Vojvode Stepe 2, 11000 Beograd
