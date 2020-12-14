@@ -5,7 +5,7 @@ introText: |-
 
   Working at RUNBGD Networks isn't just a job.
 
-  > It's a way of life.
+  *It's a way of life.*
 
   Come be a part of something bigger.
 sliderIntroText: >-
