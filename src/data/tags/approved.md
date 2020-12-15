@@ -1,6 +1,6 @@
 ---
 templateKey: tag
-heading: Quality
+heading: "Quality "
 icon: /img/quality.png
 iconImage: /img/runbgd_quality_tag.png
 iconDescription: Approved
