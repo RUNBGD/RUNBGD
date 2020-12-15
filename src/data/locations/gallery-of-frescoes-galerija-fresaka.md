@@ -1,7 +1,7 @@
 ---
 templateKey: location
 name: Gallery of Frescoes / Galerija fresaka
-coverImage: /img/fresaka.jpg
+coverImage: /img/galerija-fresaka-2.jpg
 pin: /img/run-bgd_museums_icon_100x100.png
 category: Museums
 address: Cara Uroša 20, 11000 Beograd
