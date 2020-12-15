@@ -8,5 +8,8 @@ images:
   - image: zemun-u-tubi.jpg
   - image: prostor.jpg
 price: 10
+sizes:
+  - size: 30x40
+    quantity: 10
 available: true
 ---
