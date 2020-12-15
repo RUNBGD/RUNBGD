@@ -7,5 +7,8 @@ images:
   - image: pin-shaman-colors-800rsd.jpg
   - image: hack3.jpg
 price: 7
+sizes:
+  - size: One size
+    quantity: 5
 available: true
 ---
