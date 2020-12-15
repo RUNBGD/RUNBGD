@@ -23,19 +23,23 @@
     > div > div {
         @include breakpoint(sm){
             height:70px;
+            min-height:70px;
         }
         @include breakpoint(lg){
             height:100px;
+            min-height:100px;
         }
     }
     @include breakpoint(sm){
         width:275px;
         height:35vh;
+        min-height:35vh;
         margin-top:0;
         margin-left:10px;
     }
     @include breakpoint(lg){
         height:50vh;
+        min-height: 50vh;
         width:385px;
     }
 }
