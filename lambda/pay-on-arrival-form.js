@@ -1,7 +1,7 @@
 require('dotenv').config()
 const sgMail = require('@sendgrid/mail')
 
-const {SENDGRID_API_KEY, SENDGRID_TO_EMAIL, SENDGRID_TO_EMAIL_ORDERS} = process.env
+const {SENDGRID_API_KEY, SENDGRID_TO_EMAIL_ORDERS} = process.env
 
 sgMail.setApiKey(SENDGRID_API_KEY)
 
@@ -22,10 +22,10 @@ exports.handler = async function(event, context) {
         products,
         state
     } = event.queryStringParameters
-    
+
     const msgToSeller = {
         to: SENDGRID_TO_EMAIL_ORDERS,
-        from: SENDGRID_TO_EMAIL,
+        from: SENDGRID_TO_EMAIL_ORDERS,
         subject: 'Order',
         html:`
             <table style='margin-bottom:15px; border:1px solid #000000;border-collapse: collapse'>
