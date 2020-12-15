@@ -7,5 +7,8 @@ images:
   - image: rtanj.jpg
   - image: rtanj-u-ramu.jpg
 price: 10
+sizes:
+  - size: 30 x 40cm
+    quantity: 10
 available: true
 ---
