@@ -9,5 +9,8 @@ images:
   - image: beograd-enterijer.jpg
   - image: prostorija-pobednik.jpg
 price: 10
+sizes:
+  - size: 30 x 40cm
+    quantity: 10
 available: true
 ---
