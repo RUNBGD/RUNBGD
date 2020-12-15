@@ -7,5 +7,8 @@ images:
   - image: caurnica.jpg
   - image: u-tubi.jpg
 price: 10
+sizes:
+  - size: 30 x 40cm
+    quantity: 15
 available: true
 ---
