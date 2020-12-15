@@ -15,7 +15,7 @@ module.exports.handler = async function (event, context) {
   const data = event.queryStringParameters;
   const msg = {
     to: SENDGRID_TO_EMAIL,
-    from: data.email,
+    from: SENDGRID_TO_EMAIL,
     subject: data.package,
     html: `
         <h1>${data.package}</h1>
