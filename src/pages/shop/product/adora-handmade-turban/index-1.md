@@ -1,7 +1,7 @@
 ---
 templateKey: shop-product
 showFirst: false
-title: "ADORA Handmade: Hat"
+title: "ADORA Handmade: Black Hat"
 description: Handmade Hat
 category: Accessories
 images:
