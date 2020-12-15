@@ -52,17 +52,6 @@ positions:
   - title: Content Manager
     type: Distribution
     place: Beograd
-    link: https://halooglasi.com
-  - title: Content Manager
-    type: Distribution
-    place: Beograd
-    link: https://halooglasi.com
-  - title: Content Manager
-    type: Distribution
-    place: Beograd
-    link: https://halooglasi.com
-  - title: Content Manager
-    type: Distribution
-    place: Beograd
-    link: https://halooglasi.com
+    buttonText: Apply
+    buttonLink: https://halooglasi.com
 ---

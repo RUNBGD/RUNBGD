@@ -364,15 +364,23 @@ collections:
           - {label: Hero Image, name: heroImage, widget: image}
           - {label: Intro Text, name: introText, required: false, widget: markdown}
           - {label: Slider Intro Text, name: sliderIntroText, required: false, widget: markdown}
-          - {label: Benefits Intro Text, name: benefitsIntroText, required: false, widget: markdown}
-          - {label: Recent Openings Intro Text, name: recentOpeningsIntroText, required: false, widget: markdown}
           - {label: "Slides", name: "slides", widget: list, fields: [
               {label: "Image",name: "image", widget: image}
           ]
             }
+          - {label: Benefits Intro Text, name: benefitsIntroText, required: false, widget: markdown}
           - {label: "Benefits", name: "benefits", widget: list, fields: [
               {label: "Image" ,name: "image", widget: image},
               {label: "Text", name: "text", widget: markdown}
+          ]
+            }
+          - {label: Recent Openings Intro Text, name: recentOpeningsIntroText, required: false, widget: markdown}
+          - {label: "Positions", name: "positions", widget: list, fields: [
+              {label: "Title" ,name: "title", widget: string},
+              {label: "Type", name: "type", widget: string},
+              {label: "Place", name: "place", widget: string},
+              {label: "Button Text", name: "buttonText", widget: string},
+              {label: "Button Link", name: "buttonLink", widget: string}
           ]
             }
           - {label: "Template Key", name: "templateKey", widget: "string", default: "careers-page"}
