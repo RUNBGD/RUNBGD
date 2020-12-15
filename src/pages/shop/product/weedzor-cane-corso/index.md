@@ -8,5 +8,8 @@ images:
   - image: cane-corso-frame-3600rsd.jpg
   - image: cane-corso.jpg
 price: 30
+sizes:
+  - size: A3
+    quantity: 5
 available: true
 ---
