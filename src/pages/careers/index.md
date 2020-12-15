@@ -1,29 +1,5 @@
 ---
 heroImage: /img/food-and-beverages.jpg
-benefitsIntroText: "## BENEFITS & PERKS"
-recentOpeningsIntroText: "## RECENT OPENINGS"
-slides:
-  - image: /img/image-000.jpg
-  - image: /img/image--002.jpg
-  - image: /img/image-011.jpg
-templateKey: careers-page
-positions:
-  - title: Content Manager
-    type: Distribution
-    place: Beograd
-    link: https://halooglasi.com
-  - title: Content Manager
-    type: Distribution
-    place: Beograd
-    link: https://halooglasi.com
-  - title: Content Manager
-    type: Distribution
-    place: Beograd
-    link: https://halooglasi.com
-  - title: Content Manager
-    type: Distribution
-    place: Beograd
-    link: https://halooglasi.com
 introText: |-
   ## CULTURE. PERSONIFIED.
 
@@ -37,6 +13,11 @@ sliderIntroText: >-
 
 
   RUNBGD Networks champions the people, brands and new trends you need to know now and will obsess over next
+slides:
+  - image: /img/image-000.jpg
+  - image: /img/image--002.jpg
+  - image: /img/image-011.jpg
+benefitsIntroText: "## BENEFITS & PERKS"
 benefits:
   - image: /img/runbgd_benefits_opportunities.png
     text: Access to a deep local & international network
@@ -45,4 +26,31 @@ benefits:
       distribution
   - image: /img/runbgd_benefits_job.png
     text: Local & International job opportunities
+recentOpeningsIntroText: "## RECENT OPENINGS"
+positions:
+  - title: Content Manager
+    type: Sneaker & Style
+    place: Belgrade
+    link: https://halooglasi.com
+    buttonText: Apply
+    buttonLink: mailto:jobs@runbgd.com
+  - title: Manager
+    type: Sales & Distribution
+    place: Beograd
+    link: https://halooglasi.com
+    buttonText: Apply
+    buttonLink: mailto:jobs@runbgd.com
+  - title: Manager
+    type: Social Media
+    place: Beograd
+    link: https://halooglasi.com
+    buttonLink: mailto:jobs@runbgd.com
+    buttonText: Apply
+  - title: Copywriter
+    type: Blog
+    place: Beograd
+    link: https://halooglasi.com
+    buttonText: Apply
+    buttonLink: mailto:jobs@runbgd.com
+templateKey: careers-page
 ---
