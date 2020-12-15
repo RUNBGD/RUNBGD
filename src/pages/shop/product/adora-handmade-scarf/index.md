@@ -1,7 +1,7 @@
 ---
 templateKey: shop-product
 showFirst: false
-title: "ADORA Handmade: Scarf"
+title: "ADORA Handmade: Blue Scarf"
 description: Handmade Scarf
 category: Accessories
 images:
