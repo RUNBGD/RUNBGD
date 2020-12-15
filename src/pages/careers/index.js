@@ -224,7 +224,7 @@ const Careers = () => {
                       <p className={styles.positionPlace}>{position.place}</p>
                     </div>
                     <div>
-                      <PostCategoryTag slug={position.buttonLink} text={position.buttonText} externalLink />
+                      <PostCategoryTag slug={position.buttonLink} text={position.buttonText} externalLink  />
                     </div>
                   </div>
                 )
