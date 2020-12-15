@@ -1,7 +1,7 @@
 ---
 templateKey: shop-product
 showFirst: false
-title: "Jebi Ga: Duks"
+title: "Jebi Ga: Zeleni Duks"
 description: Unisex duks / Sweatshirt
 category: Tops
 images:
