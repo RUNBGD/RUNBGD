@@ -7,5 +7,8 @@ category: Accessories
 images:
   - image: ceger-hotel-yu-900rsd.jpg
 price: 8
+sizes:
+  - size: One size
+    quantity: 10
 available: true
 ---
