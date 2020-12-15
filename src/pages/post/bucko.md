@@ -14,6 +14,8 @@ coverImage: /img/bucko_fast-food.jpg
 icons:
   - icon: Budget
   - icon: Approved
+  - icon: Friends
+  - icon: Family
 ---
 Od malih nogu znam za Bucka, prva asocijacija na picu bio je šalter u Francuskoj ulici. Šalter se nije pomerio niti menjao svoj izgled, ostao je da svakodnevno hrani gladne Dorćolce i one uporne iz Knez Mihailove. Terazija. Najupornije sa Slavije. Danas je Bucko olakšao ovoj poslednjoj grupaciji otvorivši svoj lokal u Beogradskoj ulici, simbolično gladnim beogradskim stomacima. Iskren da budem, ne sećam se da li je od prvih dana bilo onih ukusnih salata – preliva, ali danas ne smem da zamislim njihovo parče pice bez toga. Nekako je svima to rutina, kao kada štanglu čokolade premažete nutelom i smažete je u jednom zalogaju. U redu, to samo ja radim. Znam da bi se Italijani zgrozili kada bi znali kako skrnavimo njihovo sveto jelo, čak sam i jednog originalnog „made in italy“ primerka vodio na trougao, dva. Žmureći je uživao u ukusima i odbijao da prokomentariše. Obećao sam mu da ga neću tužiti kod familije. Pod broj dva, nisam siguran da sam ikada probao Buckovu picu bez preliva. Nije se dogodilo i ne mogu da komentarišem, ukoliko vi jeste - javite nam utiske. Debeli čovek, samo uhu draži naziv, simbol je Beograda kada govorimo o brzoj hrani. Pored toga što svi pokušavamo da ograničimo unos ručkova sa nogu, nestrpljivo čekam momenat kada ću po centru grada ponovo hodati musav, a da me je za to baš briga.
 
