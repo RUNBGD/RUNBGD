@@ -13,6 +13,7 @@
     "gatsby": "^2.27.0",
     "gatsby-image": "^2.3.5",
     "gatsby-plugin-google-fonts": "^1.0.1",
+    "gatsby-plugin-google-gtag": "^2.5.0",
     "gatsby-plugin-mailchimp": "^5.2.2",
     "gatsby-plugin-netlify": "^2.2.4",
     "gatsby-plugin-netlify-cache": "^1.2.0",
