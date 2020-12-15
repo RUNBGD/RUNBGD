@@ -7,5 +7,8 @@ category: Accessories
 images:
   - image: 0356a251-e2dd-421f-a0a1-ec0376eb5fec.jpg
 price: 22
+sizes:
+  - size: One size
+    quantity: 10
 available: true
 ---
