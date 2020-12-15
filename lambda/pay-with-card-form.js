@@ -2,7 +2,7 @@ require('dotenv').config()
 const sgMail = require('@sendgrid/mail')
 var Twocheckout = require('2checkout-node');
 
-const {SENDGRID_API_KEY, SENDGRID_TO_EMAIL, GATSBY_2CHECKOUT_SELLER_ID, GATSBY_2CHECKOUT_PRIVATE_KEY, GATSBY_2CHECKOUT_PUBLISHABLE_KEY} = process.env
+const {SENDGRID_API_KEY, SENDGRID_TO_EMAIL_ORDERS, GATSBY_2CHECKOUT_SELLER_ID, GATSBY_2CHECKOUT_PRIVATE_KEY, GATSBY_2CHECKOUT_PUBLISHABLE_KEY} = process.env
 
 sgMail.setApiKey(SENDGRID_API_KEY)
 
@@ -27,8 +27,8 @@ exports.handler = async function(event, context) {
     } = event.queryStringParameters
     
     const msgToSeller = {
-        to: SENDGRID_TO_EMAIL,
-        from: SENDGRID_TO_EMAIL,
+        to: SENDGRID_TO_EMAIL_ORDERS,
+        from: SENDGRID_TO_EMAIL_ORDERS,
         subject: 'Order',
         html:`
             <table style='margin-bottom:15px; border:1px dotted #959595;border-collapse: collapse'>
@@ -94,7 +94,7 @@ exports.handler = async function(event, context) {
 
       const msgToBuyer = {
         to: email,
-        from: SENDGRID_TO_EMAIL,
+        from: SENDGRID_TO_EMAIL_ORDERS,
         subject: 'Order from RUNBGD',
         html:`
             <table style='margin-bottom:15px; border:1px dotted #959595;border-collapse: collapse'>
