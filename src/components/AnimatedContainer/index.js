@@ -1,23 +1,22 @@
 import React from 'react'
-import { animated, useTransition } from 'react-spring'
+import { animated, useTransition, useSpring } from 'react-spring'
 
 import styles from './animated-container.module.scss'
 
 const AnimatedContainer = ({ active, transition, children, className }) => {
-  const transitionAnimation = useTransition(active, null, transition)
+  const props = useSpring({
+    from: {...transition.from},
+    to: active ? {...transition.enter} : {...transition.leave} 
+  })
+
+  console.log(active)
 
   return (
-    <React.Fragment>
-      {transitionAnimation.map(({ item, key, props }) => {
-        return (
-          item && (
-            <animated.div style={props} key={key} className={className}>
-              {children}
-            </animated.div>
-          )
-        )
-      })}
-    </React.Fragment>
+      <div className={className}>
+        <animated.div style={props} >
+          {children}
+        </animated.div>
+      </div>
   )
 }
 

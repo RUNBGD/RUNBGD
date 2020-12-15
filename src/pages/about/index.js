@@ -20,6 +20,44 @@ import logoJam from '../../img/logo-runbgd-jam.png'
 import logoMinus1 from '../../img/logo-runbgd-minus1.png'
 
 const toHTML = value => remark().use(remarkHTML).processSync(value).toString()
+const transitions ={
+    appear:{
+        from:{opacity:0},
+        enter:{opacity:1},
+        leave:{opacity:0},
+        trail:0
+    },
+    slideDown:{
+        from:{transform:'translate(0%, 120%)'},
+        enter:{transform:'translate(0%, 0%)'},
+        leave:{transform:'translate(0%, -120%)'},
+        trail:0
+    },
+    slideUp:{
+        from:{transform:'translate(0%, -150%)'},
+        enter:{transform:'translate(0%, 0%)'},
+        leave:{transform:'translate(0%, 150%)'},
+        trail:0
+    },
+    slideLeft:{
+        from:{transform:'translate(-150%, 0%)'},
+        enter:{transform:'translate(0%, 0%)'},
+        leave:{transform:'translate(150%, 0%)'},
+        trail:0
+    },
+    slideRight:{
+        from:{transform:'translate(150%, 0%)'},
+        enter:{transform:'translate(0%, 0%)'},
+        leave:{transform:'translate(-150%, 0%)'},
+        trail:0
+    },
+    scale:{
+        from:{transform:'scale(0)'},
+        enter:{transform:'scale(1)'},
+        leave:{transform:'scale(0)'},
+        trail:0
+    }
+}
 
 const AboutPage = () => {
 
@@ -80,44 +118,6 @@ const AboutPage = () => {
     const [backwardInterval, setBackwardInterval] = useState(undefined)
     const [slideIntervalTime, setSlideIntervalTime] = useState(2500)
 
-    const transitions ={
-        appear:{
-            from:{opacity:0},
-            enter:{opacity:1},
-            leave:{opacity:0},
-            trail:0
-        },
-        slideDown:{
-            from:{transform:'translate(0%, 120%)'},
-            enter:{transform:'translate(0%, 0%)'},
-            leave:{transform:'translate(0%, -120%)'},
-            trail:0
-        },
-        slideUp:{
-            from:{transform:'translate(0%, -150%)'},
-            enter:{transform:'translate(0%, 0%)'},
-            leave:{transform:'translate(0%, 150%)'},
-            trail:0
-        },
-        slideLeft:{
-            from:{transform:'translate(-150%, 0%)'},
-            enter:{transform:'translate(0%, 0%)'},
-            leave:{transform:'translate(150%, 0%)'},
-            trail:0
-        },
-        slideRight:{
-            from:{transform:'translate(150%, 0%)'},
-            enter:{transform:'translate(0%, 0%)'},
-            leave:{transform:'translate(-150%, 0%)'},
-            trail:0
-        },
-        scale:{
-            from:{transform:'scale(0)'},
-            enter:{transform:'scale(1)'},
-            leave:{transform:'scale(0)'},
-            trail:0
-        }
-    }
 
     const nextSlide = () => {
         
@@ -288,31 +288,32 @@ const AboutPage = () => {
                 {
                   data.slidesData.frontmatter.slides.map((slide, index) => {
                     return <VerticalSliderSlide
-                      active={currentSlide == index}
-                      transition={
-                        transitions[slide.transition]
-                      }
-                    >
-                          <div className={styles.slideBackground}>
-                            {slide.coverImage && slide.coverImage.childImageSharp && slide.coverImage.childImageSharp.fluid &&
-                                <div className={styles.backgroundImage}>
-                                    <Image fluid={slide.coverImage.childImageSharp.fluid} alt=''/>
-                                </div>
-                            }
-                            <AnimatedContainer 
                             active={currentSlide == index}
+                            key={index}
                             transition={
-                              transitions[slide.textTransition]
+                                transitions[slide.transition]
                             }
-                            className={styles.lStack} 
                             >
-                            <HTMLContent
-                                className={`${styles.slideBody} ${(slide.coverImage && slide.coverImage.childImageSharp && slide.coverImage.childImageSharp.fluid) && styles.darkBackgroundText}`}
-                                content={toHTML(slide.slideText)}
-                            />
-                        </AnimatedContainer>
-                          </div>
-                    </VerticalSliderSlide>
+                                <div className={styles.slideBackground}>
+                                    {slide.coverImage && slide.coverImage.childImageSharp && slide.coverImage.childImageSharp.fluid &&
+                                        <div className={styles.backgroundImage}>
+                                            <Image fluid={slide.coverImage.childImageSharp.fluid} alt=''/>
+                                        </div>
+                                    }
+                                    <AnimatedContainer 
+                                    active={currentSlide == index}
+                                    transition={
+                                        transitions[slide.textTransition]
+                                    }
+                                    className={styles.lStack} 
+                                    >
+                                    <HTMLContent
+                                        className={`${styles.slideBody} ${(slide.coverImage && slide.coverImage.childImageSharp && slide.coverImage.childImageSharp.fluid) && styles.darkBackgroundText}`}
+                                        content={toHTML(slide.slideText)}
+                                    />
+                                </AnimatedContainer>
+                                </div>
+                            </VerticalSliderSlide>
                   })
                 }
                 {/* <VerticalSliderSlide
