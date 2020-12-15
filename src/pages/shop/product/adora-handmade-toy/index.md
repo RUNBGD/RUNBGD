@@ -7,5 +7,8 @@ category: Accessories
 images:
   - image: screenshot-2020-12-11-at-13.03.05.png
 price: 26
+sizes:
+  - size: One size
+    quantity: 5
 available: true
 ---
