@@ -1,7 +1,7 @@
 ---
 templateKey: shop-product
 showFirst: false
-title: Bowtie Wooden Style
+title: "Bowtie Wooden Style: Christmas"
 description: "Wooden bow tie + cufflinks / Drvena leptir mašna + manžetne. "
 category: Accessories
 images:
