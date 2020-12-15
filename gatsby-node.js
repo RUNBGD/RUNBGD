@@ -82,6 +82,14 @@ exports.createSchemaCustomization = ({ actions }) => {
       price: String
     }
 
+    type JobPosition{
+      title: String,
+      type: String,
+      place: String,
+      buttonText: String,
+      buttonLink: String
+    }
+
     type Frontmatter @infer {
       website: String,
       email: String,
@@ -143,7 +151,8 @@ exports.createSchemaCustomization = ({ actions }) => {
       introText: String,
       sliderIntroText: String,
       benefitsIntroText: String,
-      recentOpeningsIntroText: String
+      recentOpeningsIntroText: String,
+      positions: [JobPosition]
     }
   `
   createTypes(typeDefs)
