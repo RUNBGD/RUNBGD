@@ -1,7 +1,7 @@
 ---
 templateKey: shop-product
 showFirst: false
-title: "Jebi Ga: Majica"
+title: "Jebi Ga: Muška majica"
 description: Muška majica / Men's T SHirt
 category: Tops
 images:
