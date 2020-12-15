@@ -7,5 +7,8 @@ category: Accessories
 images:
   - image: img_1212.jpg
 price: 15
+sizes:
+  - size: One size
+    quantity: 5
 available: true
 ---
