@@ -105,7 +105,8 @@ exports.createSchemaCustomization = ({ actions }) => {
       name: String,
       information: String,
       url: String,
-      iconImage: File @fileByRelativePath
+      iconImage: File @fileByRelativePath,
+      icon: File @fileByRelativePath,
       iconDark: File @fileByRelativePath,
       iconLight: File @fileByRelativePath,
       pin: File @fileByRelativePath,

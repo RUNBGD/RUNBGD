@@ -113,7 +113,7 @@ export const BlogPostTemplate = ({ data }) => {
                       icon.frontmatter.icon.childImageSharp.fixed ? (
                         <Image
                           className={styles.iconImage}
-                          fixed={icon.frontmatter.iconImage.childImageSharp.fixed}
+                          fixed={icon.frontmatter.icon.childImageSharp.fixed}
                           alt=""
                         />
                       ) : (
@@ -185,7 +185,7 @@ export const pageQuery = graphql`
           }
           frontmatter {
             heading
-            iconImage {
+            icon {
               childImageSharp {
                 fixed(height: 65, quality: 64) {
                   ...GatsbyImageSharpFixed
