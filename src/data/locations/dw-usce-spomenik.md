@@ -1,7 +1,7 @@
 ---
 templateKey: location
 name: Public Fountain Ušće spomenik
-coverImage: /img/run-bgd_public-fontain_icon_100x100.png
+coverImage: /img/runbgd_public-fountains.png
 pin: /img/run-bgd_public-fontain_icon_100x100.png
 category: Public Fountains
 address: Usce Park
