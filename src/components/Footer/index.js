@@ -39,7 +39,7 @@ const Footer = () => {
               data.socialLinks.edges.length > 0 &&
               data.socialLinks.edges.map(({ node: link }) => {
                 return (
-                  <a href={link.fields.slug}>
+                  <a href={link.frontmatter.url}  target={'blank'}>
                     {link.frontmatter.iconDark &&
                       link.frontmatter.iconDark.publicURL && (
                         <img
