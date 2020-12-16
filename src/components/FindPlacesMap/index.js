@@ -134,6 +134,7 @@ const FindPlacesMap = ({
     <div className={`${styles.map} ${expanded && styles.isExpanded}`}>
       {typeof window !== 'undefined' && (
         <Map
+          tap={false}
           ref={mapRef}
           center={
             currentY == undefined ? [44.82307, 20.45342] : [currentY, currentX]
