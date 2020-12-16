@@ -9,10 +9,7 @@ featuredPost: true
 categoryFeatured: true
 trending: true
 coverImage: /img/sneakerville-festival-tike-workshop.jpg
-icons:
-  - icon: Approved
-  - icon: Family
-  - icon: Budget
+icons: []
 ---
 Prvi festival patika u Srbiji – **Sneakerville powered by Tike i Buzz**, održan je u nedelju, 13. oktobra u Luki Beograd i za samo jedan dan okupio **više od dvadeset hiljada ljubitelja i kolekcionara patika, *sneaker* kulture, umetnosti, muzike i sporta**. Bio je to dan za pamćenje u svakom smislu te reči, dok se red za ulazak na festival čekao mnogo pre 11h, kada su kapije zvanično otvorene.
 
