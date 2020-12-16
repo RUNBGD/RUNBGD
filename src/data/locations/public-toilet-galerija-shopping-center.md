@@ -1,6 +1,6 @@
 ---
 templateKey: location
-name: Public Toilet Galerija (shopping center)
+name: Toilet Galerija (shopping center)
 coverImage: /img/toalet-galerija.jpg
 pin: /img/run-bgd_wc_icon_100x100.png
 category: Toilets
