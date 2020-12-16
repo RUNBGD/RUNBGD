@@ -11,7 +11,7 @@ banners:
     buttonText: See Product
     buttonLink: /shop/product/runbgd-tshirt-2/
   - bannerImage: /img/runbgd_najava_gift-shop_2020.png
-    bannerHeading: Christmas Gift Shop 2020
+    bannerHeading: "Christmas Gift Shop 2020 "
     bannerDescription: Supporting different local Brands
     buttonText: " See Products"
     buttonLink: https://www.runbgd.com/shop
