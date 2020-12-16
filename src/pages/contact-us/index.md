@@ -18,4 +18,4 @@ Starih Ratnika 18
 
 Fon: (bice jos definisan)
 
-Mail: [contact@runbgd.com](contact@runbgd.com)
+Mail: [contact@runbgd.com](mailto:contact@runbgd.com)
