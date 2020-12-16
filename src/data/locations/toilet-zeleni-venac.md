@@ -1,7 +1,7 @@
 ---
 templateKey: location
 name: Toilet Zeleni venac
-coverImage: /img/run-bgd_wc_icon_100x100.png
+coverImage: /img/runbgd_toilets.png
 pin: /img/run-bgd_wc_icon_100x100.png
 category: Toilets
 address: Zeleni Venac Terminus
