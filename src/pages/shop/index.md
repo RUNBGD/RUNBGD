@@ -1,5 +1,10 @@
 ---
 banners:
+  - bannerImage: /img/runbgd_najava_gift-shop_2020.png
+    bannerHeading: Christmas Gift Shop 2020
+    bannerDescription: Supporting different local Brands
+    buttonText: " See Products"
+    buttonLink: https://www.runbgd.com/shop
   - bannerImage: /img/shop-banner-1.jpeg
     bannerHeading: RUN BGD Hoddie "MADE IN BELGRADE"
     bannerDescription: RUN BGD Classic Black Hoodie
@@ -10,10 +15,5 @@ banners:
     bannerDescription: RUN BGD Classic White T-Shirt
     buttonText: See Product
     buttonLink: /shop/product/runbgd-tshirt-2/
-  - bannerImage: /img/runbgd_najava_gift-shop_2020.png
-    bannerHeading: "Christmas Gift Shop 2020 "
-    bannerDescription: Supporting different local Brands
-    buttonText: " See Products"
-    buttonLink: https://www.runbgd.com/shop
 templateKey: shop-page
 ---
