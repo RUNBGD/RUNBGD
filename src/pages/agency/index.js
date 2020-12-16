@@ -15,8 +15,6 @@ import Layout from '../../components/Layout'
 import styles from './agency.module.scss'
 import { HTMLContent } from '../../components/Content'
 import SectionImage from '../../components/SectionImage'
-import agencyAnimation from '../../img/agency.gif'
-
 SwiperCore.use([EffectCoverflow])
 
 const toHTML = (value) => remark().use(remarkHTML).processSync(value).toString()
@@ -163,11 +161,11 @@ const AgencyPage = () => {
                 )
               }
             })}
+        {
+          data.page &&
+          data.page.frontmatter.references &&
+          data.page.frontmatter.references.length > 0 &&
           <section className={styles.referenceSection}>
-            {
-              data.page &&
-              data.page.frontmatter.references &&
-              data.page.frontmatter.references.length > 0 &&
               <>
                 <h2>References</h2>
                 <Swiper
@@ -218,8 +216,8 @@ const AgencyPage = () => {
                     })
                 </Swiper>
               </>
-            }
           </section>
+          }
           <div className={styles.contactButton}>
             <Link to={'/contact-us'}>Contact Us</Link>
           </div>

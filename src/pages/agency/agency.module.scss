@@ -5,11 +5,12 @@
     flex-direction: column;
     justify-content: flex-start;
     width:100%;
-    padding-bottom:150px;
+    padding-bottom:50px;
     align-items: center;
     background:white;
     @include breakpoint(sm){
         flex-direction: row;
+        padding-bottom:150px;
     }
 }
 
@@ -70,7 +71,6 @@
 
 .hero-banner{
     width:100vw;
-    height:100vh;
     display:flex;
     align-items: center;
     justify-content: center;
@@ -79,6 +79,9 @@
     h1{
         color:white;
         text-transform: uppercase;
+    }
+    @include breakpoint(sm){
+        height:100vh;
     }
 }
 
