@@ -1,7 +1,7 @@
 ---
 templateKey: location
 name: Charging Station Sava promenada
-coverImage: /img/run-bgd_charging-station_icon_100x100.png
+coverImage: /img/punjac-bnv.jpg
 pin: /img/run-bgd_charging-station_icon_100x100.png
 category: Charging Station
 address: Sava Promenada bb

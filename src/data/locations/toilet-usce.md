@@ -1,7 +1,7 @@
 ---
 templateKey: location
 name: Toilet Park Ušće
-coverImage: /img/run-bgd_wc_icon_100x100.png
+coverImage: /img/toalet-usce.jpg
 pin: /img/run-bgd_wc_icon_100x100.png
 category: Toilets
 address: Park Usce

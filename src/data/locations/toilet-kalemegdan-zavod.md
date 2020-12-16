@@ -1,7 +1,7 @@
 ---
 templateKey: location
 name: Toilet Kalemegdan Zavod
-coverImage: /img/run-bgd_wc_icon_100x100.png
+coverImage: /img/toalet-kalemegdan-zavod.jpg
 pin: /img/run-bgd_wc_icon_100x100.png
 category: Toilets
 address: Kalemegdan bb

@@ -1,7 +1,7 @@
 ---
 templateKey: location
 name: Charging Station Trg Republike
-coverImage: /img/run-bgd_charging-station_icon_100x100.png
+coverImage: /img/punjac-trg-rep.jpg
 pin: /img/run-bgd_charging-station_icon_100x100.png
 category: Charging Station
 address: Trg Republike
