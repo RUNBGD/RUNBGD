@@ -284,7 +284,7 @@ const Header = () => {
               data.socialLinks.edges.map(({ node: link }) => {
                 return (
                   <div className={styles.menuButtonContainer}>
-                    <a href={link.frontmatter.url}>
+                    <a href={link.frontmatter.url} target={'blank'}>
                       <img
                         src={
                           menuOpened
