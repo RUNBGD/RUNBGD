@@ -25,7 +25,7 @@ Dokazaću na jednostavnom primeru. Recimo, uzmimo popularno mišljenje da migra
 Ili drugo, paradoksalno, ali upravo zbog toga meni omiljeno popularno mišljenje je: "Ne razmišljaj previše".\
 Kažu da je glavni uzročnik depresije i anksioznosti kod adolescenata taj "overthink". Zanimljivo je da lenjost, razmaženost, samospoznaja, manjak samopouzdanja i vaspitanja, niko ne pominje. Ali to već nije popularno kazati naglas. Neko bi se mogao uvrediti. Shvatate poentu?
 
-> Now, back to that - unpopular. When I noticed that certain opinions, which can possibly be refuted by other claims, have their own trend. Trend opinion is based on the loudest group. I will prove it with a simple example. For example, let's take the popular opinion that migrants have nothing to look for in Serbia. I mean, anyone who thinks otherwise is subjected to the lynching of the masses of popular opinion.
+> Now, back to that - unpopular. I noticed that certain opinions, which can possibly be refuted by other claims, have their own trend. Trend opinion is based on the loudest group. I will prove it with a simple example. For example, let's take the popular opinion that migrants have nothing to look for in Serbia. I mean, anyone who thinks otherwise is subjected to the lynching of the masses of popular opinion.
 >
 > Or else, paradoxically, but that’s exactly why my favorite popular opinion is, “Don’t think too much”. They say that the main cause of depression and anxiety in adolescents is this "overthink". It is interesting that no one mentions laziness, spoilage, self-knowledge, lack of self-confidence and upbringing. But it is no longer popular to say it out loud. Someone might be offended. Do you understand the point?
 
@@ -85,4 +85,4 @@ I napregnimo zakržljale mozgove. Valjda smo još uvek živa bića sposobna da m
 > Those who can read, had the opportunity to see me a little on Hip Hoplife.rs, a little more on BuzzSneakerStation and a little less on MyPeople.
 >
 > From now until further notice, we read on RunBGD! \
-> Stay healthy. Breathe short and fast. And don't be afraid to think!
+> And let’s strain the stunted brains. I guess we are still living beings capable of thinking. I know we have bomber frequencies.
