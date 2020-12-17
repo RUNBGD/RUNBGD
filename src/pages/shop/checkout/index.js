@@ -95,7 +95,7 @@ const CheckoutPage = () => {
                         setShippingPriceToParent={setShippingPrice}
                         onSuccess={successfulOrderHandler}
                       />
-                      <PayWithCardForm
+                      {/* <PayWithCardForm
                         products={products}
                         price={products &&
                           products.reduce((a, b) => {
@@ -106,7 +106,7 @@ const CheckoutPage = () => {
                         setShippingPriceToParent={setShippingPrice}
                         setTotalPrice={setTotalPrice}
                         onSuccess={successfulOrderHandler}
-                    />
+                      /> */}
                   </div>
                 </>
                 }
