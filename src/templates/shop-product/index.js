@@ -121,6 +121,7 @@ const ShopProductPage = ({ data }) => {
   return (
     <Layout fullWidth={true}>
       <Helmet>
+        <base target="_blank" href="/" />
         <title>{data.product.frontmatter.title} | RUN BGD</title>
         <meta
           name="description"

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Helmet } from 'react-helmet'
 
 import Layout from '../../components/Layout'
 import styles from './advertise.module.scss'
@@ -7,6 +8,14 @@ import logoImg from '../../img/logo.jpeg'
 const AdvertisePage = () => {
   return (
     <Layout fullWidthContent={<div className={styles.background}></div>}>
+      <Helmet>
+        <base target="_blank" href="/" />
+        <title>Advertise | RUN BGD</title>
+        <meta
+          name="description"
+          content={`RUN BGD advertise page.`}
+        />
+      </Helmet>
       <main>
         <div className={styles.advertiseCard}>
           <div>

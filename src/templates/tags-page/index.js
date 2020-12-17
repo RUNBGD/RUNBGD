@@ -15,6 +15,7 @@ let TagsPage = ({ data }) => {
   return (
     <Layout>
       <Helmet>
+        <base target="_blank" href="/" />
         <title>
           Tag {data.markdownRemark.frontmatter.iconDescription} | RUN BGD
         </title>

@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'gatsby-image'
 import { useStaticQuery, graphql } from 'gatsby'
+import {Helmet} from 'react-helmet'
 import remark from 'remark'
 import remarkHTML from 'remark-html'
 import { useSpring, animated, config } from 'react-spring'
@@ -88,6 +89,14 @@ const AgencyPage = () => {
     <Layout
       fullWidthContent={
         <div style={{ overflowX: 'hidden' }}>
+          <Helmet>
+            <base target="_blank" href="/" />
+            <title>Agency | RUN BGD</title>
+            <meta
+              name="description"
+              content={`RUN BGD agency page.`}
+            />
+          </Helmet>
           <div className={styles.heroBanner}>
             {
               data.page.frontmatter.heroBannerAnimation && data.page.frontmatter.heroBannerAnimation.publicURL &&

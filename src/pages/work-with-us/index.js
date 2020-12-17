@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useTransition, useSpring, animated } from 'react-spring'
 import { useStaticQuery, graphql } from 'gatsby'
 import Image from 'gatsby-image'
+import {Helmet} from 'react-helmet'
 import remark from 'remark'
 import remarkHTML from 'remark-html'
 import Typist from 'react-typist'
@@ -174,6 +175,14 @@ const WorkWithUsPage = () => {
 
   return (
     <Layout fullWidth={true}>
+      <Helmet>
+        <base target="_blank" href="/" />
+        <title>Work With Us | RUN BGD</title>
+        <meta
+          name="description"
+          content={`RUN BGD work with us page.`}
+        />
+      </Helmet>
       <section class={styles.videoSection}>
         <div className={styles.background}>
           {data.page &&

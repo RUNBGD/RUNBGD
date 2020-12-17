@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import {useTransition, useSpring, animated} from 'react-spring'
 import {useStaticQuery, graphql} from 'gatsby'
+import {Helmet} from 'react-helmet'
 import Image from 'gatsby-image'
 import remark from 'remark'
 import remarkHTML from 'remark-html'
@@ -217,6 +218,14 @@ const AboutPage = () => {
 
     return(
         <Layout verticalSlider={true}>
+            <Helmet>
+                <base target="_blank" href="/" />
+                <title>About | RUN BGD</title>
+                <meta
+                name="description"
+                content={`Official RUN BGD about page.`}
+                />
+            </Helmet>
             <div className={styles.verticalSliderContainer} 
             onClick={() => {if(autoplayDirection == undefined){nextSlide()}; setAutoplayDirection(prevState => {
                         if(prevState === 'forward'){

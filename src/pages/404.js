@@ -9,6 +9,7 @@ import styles from './404.module.scss'
 const NotFoundPage = () => (
   <Layout>
     <Helmet>
+      <base target="_blank" href="/" />
       <title>404 Not Found | RUN BGD</title>
       <meta
         name="description"

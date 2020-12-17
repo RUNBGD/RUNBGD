@@ -15,6 +15,7 @@ let AuthorPage = ({ data }) => {
   return (
     <Layout>
       <Helmet>
+        <base target="_blank" href="/" />
         <title>Author {data.markdownRemark.frontmatter.name} | RUN BGD</title>
         <meta
           name="description"

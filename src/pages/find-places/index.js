@@ -182,6 +182,7 @@ const FindPlaces = () => {
   return (
     <Layout fullWidth={true}>
       <Helmet>
+        <base target="_blank" href="/" />
         <title>Find Places | RUN BGD</title>
         <meta
           name="description"

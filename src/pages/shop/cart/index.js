@@ -39,6 +39,7 @@ const Cart = () => {
   return (
     <Layout>
       <Helmet>
+        <base target="_blank" href="/" />
         <title>Cart | RUN BGD</title>
         <meta
           name="description"

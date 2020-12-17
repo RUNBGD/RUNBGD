@@ -56,6 +56,7 @@
     "react-typist": "^2.0.5",
     "react-visibility-sensor": "^5.1.1",
     "redux": "^4.0.5",
+    "remark-external-links": "^8.0.0",
     "remark-html": "^12.0.0",
     "sass": "^1.26.10",
     "sendgrid": "^5.2.3",

@@ -104,6 +104,7 @@ let SubcategoryPage = ({ data }) => {
       }
     >
       <Helmet>
+        <base target="_blank" href="/" />
         <title>{data.markdownRemark.frontmatter.title} | RUN BGD</title>
         <meta
           name="description"

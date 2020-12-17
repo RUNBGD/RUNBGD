@@ -1,6 +1,7 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import Image from 'gatsby-image'
+import {Helmet} from 'react-helmet'
 import { SwiperSlide } from 'swiper/react'
 import remark from 'remark'
 import remarkHTML from 'remark-html'
@@ -82,6 +83,14 @@ const Careers = () => {
 
   return (
     <Layout fullWidth={true}>
+      <Helmet>
+        <base target="_blank" href="/" />
+        <title>Careers | RUN BGD</title>
+        <meta
+          name="description"
+          content={`RUN BGD careers page.`}
+        />
+      </Helmet>
       <main className={styles.fullWidth}>
         <div className={styles.hero}>
           {data.page &&

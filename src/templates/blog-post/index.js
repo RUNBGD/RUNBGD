@@ -54,6 +54,7 @@ export const BlogPostTemplate = ({ data }) => {
   return (
     <main>
       <Helmet>
+        <base target="_blank" href="/" />
         <title>{data.markdownRemark.frontmatter.title} | RUN BGD</title>
         <meta
           name="description"

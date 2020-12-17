@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
+import {Helmet} from 'react-helmet'
 
 import Layout from '../components/Layout'
 
@@ -267,6 +268,9 @@ const IndexPage = () => {
 
   return (
     <Layout>
+      <Helmet>
+        <base target="_blank" href="/" />
+      </Helmet>
       <main>
         <h1>RUN BGD</h1>
         <p>

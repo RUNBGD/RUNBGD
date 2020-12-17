@@ -52,6 +52,7 @@ const CheckoutPage = () => {
   return (
     <Layout> 
       <Helmet>
+        <base target="_blank" href="/" />
         <title>Shop | RUN BGD</title>
         <meta
           name="description"

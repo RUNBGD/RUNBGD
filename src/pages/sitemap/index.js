@@ -71,6 +71,7 @@ let Sitemap = () => {
   return (
     <Layout>
       <Helmet>
+        <base target="_blank" href="/" />
         <title>Site Map | RUN BGD</title>
         <meta
           name="description"

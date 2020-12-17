@@ -158,6 +158,7 @@ const Shop = () => {
   return (
     <Layout fullWidth={true}>
       <Helmet>
+        <base target="_blank" href="/" />
         <title>Shop | RUN BGD</title>
         <meta
           name="description"
