@@ -1,7 +1,7 @@
 ---
 templateKey: shop-product
 showFirst: false
-title: "Jebi Ga: Ženska majica"
+title: "Jebi Ga: Ženska crna majica"
 description: Ženska majica / Women's T Shirt
 category: Tops
 images:
