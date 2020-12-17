@@ -26,8 +26,8 @@ const Shop = () => {
           banners {
             bannerImage {
               childImageSharp {
-                fluid(maxWidth: 1600, quality: 64) {
-                  ...GatsbyImageSharpFluid
+                fluid(maxWidth: 1720, quality: 64) {
+                  ...GatsbyImageSharpFluid_withWebp
                 }
               }
             }
@@ -52,8 +52,8 @@ const Shop = () => {
               images {
                 image {
                   childImageSharp {
-                    fluid(maxWidth: 350, quality: 100) {
-                      ...GatsbyImageSharpFluid
+                    fluid(maxWidth: 310, quality: 64) {
+                      ...GatsbyImageSharpFluid_withWebp
                     }
                   }
                 }
