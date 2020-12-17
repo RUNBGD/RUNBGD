@@ -50,7 +50,7 @@ Cilj projekta “Street art Belgrade” i izložbe je da fotografije i informaci
 
 Projekat je realizovan uz podršku Ministarstva kulture i informisanja Republike Srbije.
 
-[LINK ZA IZLOŽBU](<https://vrallart.com/vr-exhibitions/eg/take_3_street_art_belgrade/>)
+[LINK ZA IZLOŽBU](https://vrallart.com/vr-exhibitions/eg/take_3_street_art_belgrade/)
 
 > The exhibition is located on the revolutionary VR-All-Art platform, which serves to exhibit and explore works of art in virtual and extended worlds.
 >
@@ -58,4 +58,4 @@ Projekat je realizovan uz podršku Ministarstva kulture i informisanja Republike
 >
 > The project was implemented with the support of the Ministry of Culture and Information of the Republic of Serbia.
 >
-> [EXHIBITION LINK](<> <https://vrallart.com/vr-exhibitions/eg/take_3_street_art_belgrade/>>)[](https://vrallart.com/vr-exhibitions/eg/take_3_street_art_belgrade/)
+> [EXHIBITION LINK](https://vrallart.com/vr-exhibitions/eg/take_3_street_art_belgrade/)
