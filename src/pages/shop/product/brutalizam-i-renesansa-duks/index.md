@@ -14,7 +14,7 @@ sizes:
   - size: L
     quantity: 1
   - size: XL
-    quantity: 2
+    quantity: 1
   - size: XXL
     quantity: 2
 available: true
