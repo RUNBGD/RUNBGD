@@ -1,8 +1,8 @@
 ---
 templateKey: blog-post
 createPage: "true"
-title: Prva virtuelna izložba grafita i ulične umetnosti u Beogradu / The First
-  Virtual Exibition of Street Art and Graffiti of Belgrade
+title: "Virtuelna izložba grafita i ulične umetnosti / Virtual Exibition of
+  Street Art and Graffiti "
 category: Culture
 author: Jelena Popović
 date: 2020-12-16T14:37:17.644Z
