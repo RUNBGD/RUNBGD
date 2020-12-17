@@ -19,7 +19,7 @@ Mišljenje kao mišljenje, generalno, takvo kakvo je, i nije nešto baš u modi 
 >
 > Opinion as an opinion, in general, is as it is, and it is not something that is very fashionable in our area lately. When I say "opinion", I mean that rational, objective, causal reasoning, not "I think the country is flat, I watched the documentary", opinion.
 
-E sad, vratimo se na ono - nepopularno. Kanda sam primetio da određena mišljenja, koja eventualno mogu biti opovrgnuta drugim tvrdnjama, imaju svoj trend. Trend mišljenje se bazira na osnovu najglasnije grupe.\
+E sad, vratimo se na ono - nepopularno. Primetio sam da određena mišljenja, koja eventualno mogu biti opovrgnuta drugim tvrdnjama, imaju svoj trend. Trend mišljenje se bazira na osnovu najglasnije grupe.\
 Dokazaću na jednostavnom primeru. Recimo, uzmimo popularno mišljenje da migranti nemaju šta da traže u Srbiji. Hoću reći, svako ko misli suprotno, povrgnut je linču mase popularnog stava.
 
 Ili drugo, paradoksalno, ali upravo zbog toga meni omiljeno popularno mišljenje je: "Ne razmišljaj previše".\
@@ -79,7 +79,7 @@ Meni tepajte Lex.\
 Oni koji umeju da čitaju, imali su priliku da me pomalo vide na Hip Hoplife.rs, malo više na BuzzSneakerStation-u i malo manje na MyPeople-u.
 
 Od sada, do daljneg, čitamo se na RunBGD-u!\
-Ostanite zdravi. Dišite kratko i brzo. I ne plašite se da mislite!
+I napregnimo zakržljale mozgove. Valjda smo još uvek živa bića sposobna da misle. Znam da imamo bombarderskih frekvencija. 
 
 > I would have nothing to add, dear millennials.Beat Lex on me. \
 > Those who can read, had the opportunity to see me a little on Hip Hoplife.rs, a little more on BuzzSneakerStation and a little less on MyPeople.
