@@ -1,8 +1,8 @@
 import React from 'react'
-import Image from 'gatsby-image'
 
 import styles from './find-places-locations.module.scss'
 import LocationInfoCard from '../LocationInfoCard'
+import LocationCard from '../LocationCard'
 
 function distance(lat1, lon1, lat2, lon2, unit) {
   var radlat1 = (Math.PI * lat1) / 180
@@ -39,6 +39,7 @@ const FindPlacesLocations = ({
   clickedLocation,
   setClickedLocation
 }) => {
+
   return (
     <div
       className={`${styles.locationCards} ${
@@ -73,52 +74,15 @@ const FindPlacesLocations = ({
               filterCategory === 'Select Category')
           ) {
             return (
-              <div
-                className={styles.locationCard}
-                style={{ order: Number(distanceFromStart).toFixed(0) }}
-                key={index}
-                onClick={() => {
-                  setCurrentX(0)
-                  setCurrentY(0)
-                  setTimeout(() => {
-                    setCurrentX(
-                      location.frontmatter.longitude
-                        ? location.frontmatter.longitude
-                        : 0
-                    )
-                    setCurrentY(
-                      location.frontmatter.latitude
-                        ? location.frontmatter.latitude
-                        : 0
-                    )
-                  }, 100)
-                  onClick && onClick(location)
-                }}
-              >
-                <div className={styles.cardCover}>
-                  {location.frontmatter.coverImage &&
-                    location.frontmatter.coverImage.childImageSharp &&
-                    location.frontmatter.coverImage.childImageSharp.fluid && (
-                      <Image
-                        fluid={
-                          location.frontmatter.coverImage.childImageSharp.fluid
-                        }
-                        alt=""
-                      />
-                    )}
-                </div>
-                <div className={styles.cardText}>
-                  <p className={styles.cardTitle}>
-                    {location.frontmatter.name}
-                  </p>
-                  <p className={styles.cardAddress}>
-                    {location.frontmatter.address}
-                  </p>
-                  {yCoord && (
-                    <p className={styles.distance}>{distanceFromStart} km</p>
-                  )}
-                </div>
-              </div>
+              <LocationCard
+                setCurrentX={setCurrentX}
+                setCurrentY={setCurrentY}
+                location={location}
+                onClick={onClick}
+                distanceFromStart={distanceFromStart}
+                index={index}
+                yCoord={yCoord}
+              />
             )
           }
         })
