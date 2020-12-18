@@ -16,4 +16,4 @@ Još jedna hip hop avantura, zid i gvožđe, ono po čemu se gradovi prepoznaju.
 
 >  Another hip hop adventure, walls and iron, what cities are known for. Juice and Stefan are winding trains, a story that travels around Belgrade. And how to make that story? The legend draws lines for us on paper, and those who know little about street art learn the basics. Later, the fences became the training ground for action. Watch the video, the spike, the process and the result. 
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/1mKaAql-7Nc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="960" height="540" src="https://www.youtube.com/embed/1mKaAql-7Nc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
