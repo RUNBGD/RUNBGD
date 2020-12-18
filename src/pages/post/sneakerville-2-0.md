@@ -17,7 +17,7 @@ Sve zainteresovane gledaoce očekuje multimedijalni doživljaj, serija ekskluziv
 \
 Pre premijernog prikazivanja registrujte se na sajtu www.sneakerville.rs kako biste se priključili zajednici ljubitelja sneaker kulture i na vreme ispratili sva dešavanja. Uživajte u ovogodišnjem Sneakerville 2.0 festivalu.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/cr5D8WxlKt8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="960" height="540" src="https://www.youtube.com/embed/cr5D8WxlKt8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 > The largest regional sneaker festival founded by the two most famous local sneaker concepts Buzz and Tike, which gathered more than 20,000 visitors in the Port of Belgrade last year, will be shown online for the first time this year on **December 19 and 20, at 4 pm on RED TV**. The Sneakerville online show, as a center of street culture and fashion style, despite its physical distance, will gather fans of sneaker culture, music, art, sports and fashion.
 >
