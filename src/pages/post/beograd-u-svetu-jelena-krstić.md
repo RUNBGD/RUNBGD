@@ -5,7 +5,7 @@ title: "Beograd u svetu / Belgrade around: Jelena Krstić"
 category: Life
 author: Aleksandar Tašić
 date: 2020-11-28T19:49:01.224Z
-featuredPost: true
+featuredPost: false
 categoryFeatured: true
 trending: true
 coverImage: /img/dan-novac-8tibqbjzwiy-unsplash.jpg

@@ -5,10 +5,10 @@ title: Maske u izlaske / Masked Nation goes Celebration
 category: Culture
 author: A. M. Lex
 date: 2020-12-17T13:40:39.666Z
-featuredPost: true
+featuredPost: false
 categoryFeatured: true
 subcategoryFeatured: true
-trending: true
+trending: false
 coverImage: /img/3.jpg
 ---
 Starosrpska reč "hejter", mi se provukla po inboksima nekoliko puta ove godine, na konto par nepopularnih mišljenja koja sam izneo. 

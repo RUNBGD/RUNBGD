@@ -5,9 +5,9 @@ title: Tike 3rd Anniversary Party
 category: Style
 author: Tike!
 date: 2019-11-15T11:55:55.734Z
-featuredPost: true
+featuredPost: false
 categoryFeatured: true
-trending: true
+trending: false
 coverImage: /img/tike_3rd_birthday_party_thcf_coby_3.jpg
 icons: []
 ---

@@ -5,7 +5,7 @@ title: " Hip-hop festival within EXIT2019 - “EXIT Gang”"
 category: Music
 author: Bassivity Digital
 date: 2019-05-27T08:42:10.363Z
-featuredPost: true
+featuredPost: false
 categoryFeatured: true
 trending: true
 coverImage: exit-gang.jpg

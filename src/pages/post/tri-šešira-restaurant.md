@@ -6,10 +6,10 @@ category: Food & Beverages
 subcategory: ""
 author: Aleksandar Tašić
 date: 2020-11-19T20:03:15.911Z
-featuredPost: true
+featuredPost: false
 categoryFeatured: true
 subcategoryFeatured: true
-trending: true
+trending: false
 coverImage: /img/14-3.jpg
 icons:
   - icon: Approved

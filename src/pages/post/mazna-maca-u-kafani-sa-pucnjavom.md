@@ -5,9 +5,9 @@ title: Mazna maca u kafani sa pucnjavom / Sweet Little Kitty in a Shooting Bar
 category: Life
 author: Teodora Karas
 date: 2020-11-16T22:25:29.392Z
-featuredPost: true
+featuredPost: false
 categoryFeatured: true
-trending: true
+trending: false
 coverImage: /img/kafana-blagoja-kaponea.jpg
 ---
 Kao i kod svakog modernog grada u povoju, a Beograd nije bio ništa drugačiji od drugih svetskih gradova, pored izgradnje raznih državnih institucija, vojnih i kulturnih ustanova, škola, bolnica, tržnica i hotela, posebnu važnost za lokalni živalj imale su beogradske kafane. One su bile središte gradskih dešavanja, brstila se politika, razgovaralo se o svetskim događajima, sklapali se poslovi, dizale revolucije, ugovarali se i rasturali brakovi. Bilo je tu modenskih kafana, boemskih, ali i onih na ne tako lepom glasu.

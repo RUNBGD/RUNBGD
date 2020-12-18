@@ -6,10 +6,10 @@ category: Style
 subcategory: Test
 author: Tike!
 date: 2020-06-24T08:23:37.881Z
-featuredPost: true
+featuredPost: false
 categoryFeatured: true
 subcategoryFeatured: true
-trending: true
+trending: false
 coverImage: /img/albino.png
 icons: []
 ---

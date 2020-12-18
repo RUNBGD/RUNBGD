@@ -5,9 +5,9 @@ title: SNEAKERVILLE Festival Recap
 category: Style
 author: Tike!
 date: 2019-10-14T10:59:15.027Z
-featuredPost: true
+featuredPost: false
 categoryFeatured: true
-trending: true
+trending: false
 coverImage: /img/sneakerville-festival-tike-workshop.jpg
 icons: []
 ---

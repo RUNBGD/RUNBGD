@@ -8,7 +8,7 @@ author: Jelena Gajić
 date: 2020-11-28T19:20:09.076Z
 featuredPost: true
 categoryFeatured: true
-trending: true
+trending: false
 coverImage: alex-blokstra-uubctovhljy-unsplash.jpg
 ---
 Korona nas je mnogo čemu naučila, to ćemo se svi složiti, ali je učinila i to da poželimo da budemo stranci u sopstvenom gradu.

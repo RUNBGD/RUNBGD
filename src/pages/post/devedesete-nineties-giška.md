@@ -8,7 +8,7 @@ date: 2020-12-15T20:03:02.739Z
 featuredPost: true
 categoryFeatured: true
 subcategoryFeatured: true
-trending: true
+trending: false
 coverImage: /img/runbgd_giska_v1.png
 ---
 Period o kome mnogi raspravljaju da li je bio idiličan ili totalno katastrofalan, period u kome su ljudi bili kao pušteni sa lanca (pad komunizma), da li zbog raspada države ili zbog muzike koja je potpuna postala drugačija, period u kome si bio u Air Max patikama ili nisi, period u kome si morao biti žestok. Sve se menja sa početkom 90ih. Jedan od heroja (ili možda idola) tog vremena bio je Giška. Kako bih stvorio sliku o osobi o kojoj vam pišem, morao sam da pričam sa ljudima koji su ga znali ili barem upoznali. Svi su se složili oko jednog, bio je ljudina! Ali baš u svakom smislu te reči. Za razliku od današnjih momaka sa asfalta (ima izuzetaka) kojima ništa nije sveto, on je znao šta se sme a šta nikako ne sme. Imao je kodekse koje su izuzetno poštovali, ne samo ljudi iz njegovog društvenog sloja, već i estrada, političari i obični građani.

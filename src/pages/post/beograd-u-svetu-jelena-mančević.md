@@ -5,9 +5,9 @@ title: "Beograd u svetu / Belgrade around: Jelena Mančević"
 category: Life
 author: Aleksandar Tašić
 date: 2020-11-30T11:34:21.012Z
-featuredPost: true
+featuredPost: false
 categoryFeatured: true
-trending: true
+trending: false
 coverImage: /img/ryan-spencer-um9akoiidcu-unsplash.jpg
 ---
 **Da li je život tamo negde zaista bolji?**

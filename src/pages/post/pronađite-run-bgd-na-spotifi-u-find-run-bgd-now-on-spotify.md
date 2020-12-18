@@ -8,7 +8,7 @@ date: 2020-12-18T09:45:22.851Z
 featuredPost: true
 categoryFeatured: true
 subcategoryFeatured: false
-trending: true
+trending: false
 coverImage: /img/run-bgd_spotify-playlists.jpg
 ---
 Mi smo duboko ukorenjeni u lokalnu urbanu kulturu i želimo da svoju lokalnu muziku podelimo sa svetom. Zbog toga smo odlučili da kreiramo **[RUN BGD Spotify](https://open.spotify.com/user/8uwxenuiboyy5ijd66mlridpz?si=SwFcsl6gSNmfufXv71v4vA)** u saradnji sa našim DJ prijateljima.

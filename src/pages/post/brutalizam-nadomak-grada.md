@@ -6,10 +6,10 @@ category: Travel
 subcategory: Tours
 author: Aleksandar Tašić
 date: 2020-11-23T13:42:37.493Z
-featuredPost: true
+featuredPost: false
 categoryFeatured: true
 subcategoryFeatured: true
-trending: true
+trending: false
 coverImage: img_4915.jpeg
 icons: []
 ---

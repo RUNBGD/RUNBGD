@@ -5,9 +5,9 @@ title: Malo Istorije Neće Da Škodi – 1984 godina / A Little History Won't Hu
 category: Culture
 author: My People
 date: 2020-12-01T11:34:06.645Z
-featuredPost: true
+featuredPost: false
 categoryFeatured: true
-trending: true
+trending: false
 coverImage: /img/mypeople_historija-1984.png
 ---
 Često se u raspravama o istoriji hip hop kulture na ovim prostorima vode razne polemike. Koju godinu uzeti, kako sve to posmatrati. Logično je da se za godinu koja je početak uzme 1984 jer tada se pojavljuje album Degout EP od Master Scratch Benda, knjiga Brejkdens i film Breakdance se pojavljuje u bioskopima širom tadašnje Jugoslavije. Tragovi se mogu naći i ranije, ali ova godina je napravila prvi bum.

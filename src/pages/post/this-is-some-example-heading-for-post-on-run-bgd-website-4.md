@@ -5,9 +5,9 @@ title: Bringing Back The 90s Event Recap
 category: Style
 author: Tike!
 date: 2019-09-28T11:01:26.337Z
-featuredPost: true
+featuredPost: false
 categoryFeatured: true
-trending: true
+trending: false
 coverImage: /img/adidas-tike-bringing-back-the-90s-event-1-.jpg
 icons: []
 ---

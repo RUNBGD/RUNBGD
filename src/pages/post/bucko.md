@@ -6,10 +6,10 @@ category: Food & Beverages
 subcategory: ""
 author: Aleksandar Tašić
 date: 2020-12-08T11:20:15.701Z
-featuredPost: true
+featuredPost: false
 categoryFeatured: true
 subcategoryFeatured: true
-trending: true
+trending: false
 coverImage: /img/bucko_fast-food.jpg
 icons:
   - icon: Budget

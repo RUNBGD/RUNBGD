@@ -5,10 +5,10 @@ title: Sneakerville 2.0
 category: Style
 author: Dragan Filovski
 date: 2020-12-18T10:25:14.974Z
-featuredPost: true
+featuredPost: false
 categoryFeatured: true
 subcategoryFeatured: false
-trending: true
+trending: false
 coverImage: /img/sneakerville_2.jpg
 ---
 Najveći regionalni festival patika koji su osnovala dva najpoznatija sneaker koncepta Buzz i Tike, a koji je prošle godine okupio više od 20.000 posetilaca u Luci Beograd, ove godine biće po prvi put prikazan online **19. i 20. decembra, u 16 časova na RED TV-u**. Sneakerville online show, kao centar street kulture i modnog stila, uprkos fizičkoj udaljenosti okupiće ljubitelje sneaker kulture, muzike, umetnosti, sporta i mode.

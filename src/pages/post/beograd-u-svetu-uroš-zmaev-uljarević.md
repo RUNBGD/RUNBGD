@@ -5,7 +5,7 @@ title: "Beograd u svetu / Belgrade around: Uroš Zmaev Uljarević"
 category: Life
 author: Aleksandar Tašić
 date: 2020-12-03T09:13:55.075Z
-featuredPost: true
+featuredPost: false
 categoryFeatured: true
 trending: true
 coverImage: matias-tapia-tpjn60h7om4-unsplash.jpg

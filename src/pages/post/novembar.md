@@ -5,9 +5,9 @@ title: Novembar / November
 category: Life
 author: Aleksandar Tašić
 date: 2020-11-30T15:07:42.603Z
-featuredPost: true
+featuredPost: false
 categoryFeatured: true
-trending: true
+trending: false
 coverImage: /img/dsc_0104.jpg
 ---
 Novembar nam je doneo mnogo toga novog, nove brojke i strahove, nova žarišta i mere. Nekada je zima asocirala na daleke destinacije, kupanje u moru tokom praznika, iako talasi ne mirišu kao naš Jadran. Ko nas je odvojio? Novembar nam je takođe doneo kašnjenje gradske rasvete posvećene Bugarima, medvede na instagram fotkama. Kakve su to novogodišnje mečke, zna li neko? Irvase ti li si? Ugojio si se. Mi smo. Tokom prolećnog zaključavanja kada je vremenska prognoza bila najdivnija u zadnjih sto godina, ugojih se par kilograma jer sam za večeru jeo žu-žu. Tokom leta se ništa nije menjalo iako smo bili slobodniji da šetamo. Jesen je donela crni oblak te ko je lud da šeta i udiše nečije grejanje. Kažu. Spremam se lagano za slavu kada ćemo sakrivati goste kao kakvi jataci, u nedostatku šporeta na drva tražiti ćoškove za igranje „žmire“ sa komunalnom milicijom. Dobro veče, izvolite ući, pre svega žito i vino, red je. Uđite, imam ih samo petoro, tašta se ne računa, ona je inventar. Kako mislite ne jedete iz iste kašičice? Vera o tome propoveda. Niste vernik? Niste onda ni Srbin da ja vama kažem, a ako to niste, ne znam kako možete biti milicajac, da li je to po zakonu? To se pas čuje iz susedne sobe, kakav šesti gost. Pa popio je malo, valja se. Pa se sada valja.

@@ -6,10 +6,10 @@ category: Travel
 subcategory: ""
 author: Aleksandar Tašić
 date: 2020-11-24T16:34:29.403Z
-featuredPost: true
+featuredPost: false
 categoryFeatured: true
 subcategoryFeatured: true
-trending: true
+trending: false
 coverImage: /img/carska.jpeg
 ---
 Beograd ima dosta parkova koje nekada branimo i golim rukama, ali je kadkad  potrebno napraviti par kilometara do oaze mira. Tamo gde beton ne postoji, drvo nam je i hlad, i pogled i klupa na kojoj sedimo. Da li ste ikada obilazili prirodni rezervat kvadovima? Da li ste vozili kvadove uopšte? Spremili smo za vas mnogo jaku preporuku – carski provod u Carskoj bari, prirodnom rezervatu nedaleko od Beograda koji obiluje florom i faunom, u kojem možete sresti razne životinje među kojima verovali ili ne – lamu. Simpatična alpaka smešne frizure dočekaće vas i ispratiti iz etno sela Tiganjica, odakle inače kreće obilazak rezervata. Čupavi momak je umiljat, jako voli da klopa, da pozira pred kamerama i svestan je svoje lepote.  Ne pljuje, ne morate bežati. Da se vratimo na obilazak, vožnja kvadovima traje oko sat i po vremena gde ćete imati priliku da obiđete Carsku baru, okolna jezera, kao i jako živopisno selo Belo blato sa smatram najlepšim drvoredom u ovom delu Srbije. Ukoliko volite adrenalin i avanture, nisam siguran šta čekate? Sa vama ide vodič od koga ćete dobiti sve instrukcije, tako da se nemojte plašiti ukoliko vam je ovo prvi put. Ne boli. Imao sam osećaj kao da smo u nekoj ekspediciji u potrazi za Big Futom ili drkavcem iz sela Gloganj. Mogao sam voziti još mnogo duže, zalaziti u svaki ćošak ove lepote, ali svakako nije preporučljivo voziti kvadove van staze koja je predviđena za to. Možemo ugroziti biljni ili žvotinjski svet, s toga budimo odgovorni pri svakoj poseti prirodi! Ono što vam još može biti zanimljivo, to je plovidba Starim Begejom, brodićem ili kanuom, gde džunglu možete posmatrati sa vode. Možete prošetati, voziti bajs. Biti bosi, goli nisam siguran. A kada ogladnite od tolike šetnje, vozikanja i svežeg vazduha, klopica u ovom selu je zagarantovano dobra. Sve je urađeno od prirodnih materijala, u etno stilu tako da će priroda još uvek biti oko vas. Rekrativno jahanje, mini zoološki vrt, smeštaj u bungalovima, opcije su u kojima možete uživati na ovom mestu. Dok ponovo ne krene kriza za betonom. Znam da vam nedostaje Beograd, zalazak sunca je trenutak kada se on budi. 

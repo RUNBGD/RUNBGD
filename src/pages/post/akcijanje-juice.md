@@ -8,7 +8,7 @@ date: 2020-12-18T11:18:33.383Z
 featuredPost: true
 categoryFeatured: true
 subcategoryFeatured: true
-trending: true
+trending: false
 coverImage: /img/maxresdefault.jpg
 icons: []
 ---

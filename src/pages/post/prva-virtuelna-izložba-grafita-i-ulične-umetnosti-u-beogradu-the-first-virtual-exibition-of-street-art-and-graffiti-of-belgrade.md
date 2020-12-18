@@ -9,7 +9,7 @@ date: 2020-12-16T14:37:17.644Z
 featuredPost: true
 categoryFeatured: true
 subcategoryFeatured: true
-trending: true
+trending: false
 coverImage: /img/street-art-belgrade.png
 ---
 Prva izložba ulične umetnosti i grafita Beograda u virtuelnom prostoru je dostupna publici iz celog sveta na platformi VR-All-Art. Predstavljeno je preko 40 radova koje su domaći i strani autori stvarali na ulicama Beograda.
