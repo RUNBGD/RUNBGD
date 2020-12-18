@@ -28,13 +28,6 @@
 
 .post-cover{
     overflow: hidden;
-    height:12.5vh;
-    @include breakpoint(sm){
-        height:8.5vh;
-    }
-    @include breakpoint(lg){
-        height:20vh;
-    }
 }
 
 .swiper-pagination{

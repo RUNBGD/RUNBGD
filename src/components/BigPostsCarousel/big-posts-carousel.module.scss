@@ -30,13 +30,6 @@
 .post{
     margin-bottom:20px;
     overflow: hidden;
-    height:45vh;
-    @include breakpoint(sm){
-        height:40vh;
-    }
-    @include breakpoint(lg){
-        height:95vh;
-    }
 }
 
 .swiper-pagination{
