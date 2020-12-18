@@ -11,7 +11,7 @@ subcategoryFeatured: false
 trending: true
 coverImage: /img/run-bgd_spotify-playlists.jpg
 ---
-Mi smo duboko ukorenjeni u lokalnu urbanu kulturu i želimo da svoju lokalnu muziku podelimo sa širokim svetom. Zbog toga smo odlučili da započnemo **[RUN BGD Spotify](https://open.spotify.com/user/8uwxenuiboyy5ijd66mlridpz?si=SwFcsl6gSNmfufXv71v4vA)** u saradnji sa našim DJ prijateljima.
+Mi smo duboko ukorenjeni u lokalnu urbanu kulturu i želimo da svoju lokalnu muziku podelimo sa svetom. Zbog toga smo odlučili da kreiramo **[RUN BGD Spotify](https://open.spotify.com/user/8uwxenuiboyy5ijd66mlridpz?si=SwFcsl6gSNmfufXv71v4vA)** u saradnji sa našim DJ prijateljima.
 
 Ovo je prva uređena plejlista našeg dragog prijatelja DJ Lakija. Pronađite još informacija i Miktapes-a na njegovom **[Instagram profilu](http://instragram.com/dj_laki)**.
 
