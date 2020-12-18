@@ -22,11 +22,20 @@ const Layout = ({ children, verticalSlider, fullWidthContent, fullWidth }) => {
         <html lang="en" />
         <title>{title}</title>
         <meta name="description" content={description} />
-
-        <link rel="apple-touch-icon" sizes="180x180" href={logoVector} />
-        <link rel="favicon" type="image/png" href={logoVector} />
-        <link rel="icon" type="image/png" href={logoVector} sizes="32x32" />
-        <link rel="icon" type="image/png" href={logoVector} sizes="16x16" />
+        
+        <link rel="icon" href={logo} sizes="32x32"/>
+        <link rel="icon" href={logo} sizes="57x57"/>
+        <link rel="icon" href={logo} sizes="76x76"/>
+        <link rel="icon" href={logo} sizes="96x96"/>
+        <link rel="icon" href={logo} sizes="128x128"/>
+        <link rel="icon" href={logo} sizes="192x192"/>
+        <link rel="icon" href={logo} sizes="228x228"/>
+        
+        <link rel="shortcut icon" href={logo} sizes="196x196"/>
+        
+        <link rel="apple-touch-icon" href={logo} sizes="120x120"/>
+        <link rel="apple-touch-icon" href={logo} sizes="152x152"/>
+        <link rel="apple-touch-icon" href={logo} sizes="180x180"/>
 
         <link rel="mask-icon" href={logoVector} color="#ff4400" />
         <meta name="theme-color" content="#fff" />
@@ -34,7 +43,7 @@ const Layout = ({ children, verticalSlider, fullWidthContent, fullWidth }) => {
         <meta property="og:type" content="business.business" />
         <meta property="og:title" content={title} />
         <meta property="og:url" content="/" />
-        <meta property="og:image" content={logoVector} />
+        <meta property="og:image" content={logo} />
       </Helmet>
       {<Header />}
       {fullWidthContent}
