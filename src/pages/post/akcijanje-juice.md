@@ -1,7 +1,7 @@
 ---
 templateKey: blog-post
 createPage: "true"
-slug: /akcijanje-juice/
+slug: ""
 title: "Akcijanje: Juice"
 category: Culture
 author: Aleksandar Tašić
