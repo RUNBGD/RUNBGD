@@ -319,6 +319,14 @@ collections:
           - {label: "SEO", name: "seo", required: false, widget: "string"}
           - {label: "Template Key", name: "templateKey", widget: "string", default: "home-page"}
       
+      - file: "src/pages/advertise/index.md"
+        label: "Advertise Page"
+        name: "advertisePage"
+        fields:
+          - {label: "SEO Title", name: "seoTitle", required: false, widget: "string"}
+          - {label: "SEO", name: "seo", required: false, widget: "string"}
+          - {label: "Template Key", name: "templateKey", widget: "string", default: "advertise-page"}
+      
       - file: "src/pages/find-places/index.md"
         label: "Find Places Page"
         name: "findPlacesPage"
