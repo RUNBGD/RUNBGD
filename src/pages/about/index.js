@@ -66,6 +66,8 @@ const AboutPage = () => {
         query AboutData{
             slidesData: markdownRemark(frontmatter:{templateKey: {eq: "about-page"}}){
                 frontmatter{
+                    seo
+                    seoTitle
                     slides{
                         coverImage{
                             childImageSharp{
@@ -220,11 +222,24 @@ const AboutPage = () => {
         <Layout verticalSlider={true}>
             <Helmet>
                 <base target="_blank" href="/" />
-                <title>About | RUN BGD</title>
-                <meta
-                name="description"
-                content={`Official RUN BGD about page.`}
-                />
+                {
+                    data.slidesData.frontmatter.seoTitle ?
+                    <title>{data.slidesData.frontmatter.seoTitle}</title>
+                    :
+                    <title>About | RUN BGD</title>
+                }
+                {
+                    data.slidesData.frontmatter.seo ?
+                    <meta
+                    name="description"
+                    content={data.slidesData.frontmatter.seo}
+                    />
+                    :
+                    <meta
+                    name="description"
+                    content={`Official RUN BGD about page.`}
+                    />
+                }
             </Helmet>
             <div className={styles.verticalSliderContainer} 
             onClick={() => {if(autoplayDirection == undefined){nextSlide()}; setAutoplayDirection(prevState => {

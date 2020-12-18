@@ -122,11 +122,24 @@ const ShopProductPage = ({ data }) => {
     <Layout fullWidth={true}>
       <Helmet>
         <base target="_blank" href="/" />
-        <title>{data.product.frontmatter.title} | RUN BGD</title>
-        <meta
-          name="description"
-          content={`Official RUN BGD Shop. Buy anything from t-shirts to miscellaneous accessories.`}
-        />
+        {
+          data.product.frontmatter.seoTitle ?
+          <title>{data.product.frontmatter.seoTitle}</title>
+          :
+          <title>{data.product.frontmatter.title} | RUN BGD</title>
+        }
+        {
+          data.product.frontmatter.seo ?
+          <meta
+            name="description"
+            content={data.product.frontmatter.seo}
+          />
+          :
+          <meta
+            name="description"
+            content={`Official RUN BGD Shop. Buy anything from t-shirts to miscellaneous accessories.`}
+          />
+        }
       </Helmet>
       <main className={styles.fullWidth}>
         <div className={styles.product}>
@@ -283,6 +296,8 @@ export const pageQuery = graphql`
         slug
       }
       frontmatter {
+        seo
+        seoTitle
         title
         price
         images {

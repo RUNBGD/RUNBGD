@@ -21,6 +21,8 @@ const Careers = () => {
         frontmatter: { templateKey: { eq: "careers-page" } }
       ) {
         frontmatter {
+          seo
+          seoTitle
           heroImage {
             childImageSharp {
               fluid(maxWidth: 1920, quality: 64) {
@@ -85,11 +87,24 @@ const Careers = () => {
     <Layout fullWidth={true}>
       <Helmet>
         <base target="_blank" href="/" />
-        <title>Careers | RUN BGD</title>
-        <meta
-          name="description"
-          content={`RUN BGD careers page.`}
-        />
+        {
+          data.page.frontmatter.seoTitle ?
+          <title>{data.page.frontmatter.seoTitle}</title>
+          :
+          <title>Careers | RUN BGD</title>
+        }
+        {
+          data.page.frontmatter.seo ?
+          <meta
+            name="description"
+            content={data.page.frontmatter.seo}
+          />
+          :
+          <meta
+            name="description"
+            content={`RUN BGD careers page.`}
+          />
+        }
       </Helmet>
       <main className={styles.fullWidth}>
         <div className={styles.hero}>

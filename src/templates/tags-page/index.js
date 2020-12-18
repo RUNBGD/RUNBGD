@@ -16,13 +16,28 @@ let TagsPage = ({ data }) => {
     <Layout>
       <Helmet>
         <base target="_blank" href="/" />
-        <title>
-          Tag {data.markdownRemark.frontmatter.iconDescription} | RUN BGD
-        </title>
-        <meta
-          name="description"
-          content={`See all stories by tag ${data.markdownRemark.frontmatter.iconDescription} sorted from newer to older ones.`}
-        />
+        {
+          data.markdownRemark.frontmatter.seoTitle ?
+          <title>
+            {data.markdownRemark.frontmatter.seoTitle}
+          </title>
+          :
+          <title>
+            Tag {data.markdownRemark.frontmatter.iconDescription} | RUN BGD
+          </title>
+        }
+        {
+          data.markdownRemark.frontmatter.seo ?
+          <meta
+            name="description"
+            content={data.markdownRemark.frontmatter.seo}
+          />
+          :
+          <meta
+            name="description"
+            content={`See all stories by tag ${data.markdownRemark.frontmatter.iconDescription} sorted from newer to older ones.`}
+          />
+        }
       </Helmet>
       <main>
         <h1>
@@ -43,6 +58,8 @@ export const pageQuery = graphql`
       frontmatter {
         heading
         iconDescription
+        seo
+        seoTitle
       }
     }
     TagPosts: allMarkdownRemark(

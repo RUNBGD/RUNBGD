@@ -170,11 +170,23 @@ let CategoryPage = ({ data }) => {
     >
       <Helmet>
         <base target="_blank" href="/" />
-        <title>{data.markdownRemark.frontmatter.title} | RUN BGD</title>
-        <meta
-          name="description"
-          content={`Find more interesting stories in category ${data.markdownRemark.frontmatter.title} at RUN BGD`}
-        />
+        {
+          data.markdownRemark.frontmatter.seoTitle ?
+          <title>{data.markdownRemark.frontmatter.seoTitle}</title>
+          :
+          <title>{data.markdownRemark.frontmatter.title} | RUN BGD</title>
+        }
+        {data.markdownRemark.frontmatter.seo ?
+          <meta
+            name="description"
+            content={data.markdownRemark.frontmatter.seo}
+          />
+          :
+          <meta
+            name="description"
+            content={`Find more interesting stories in category ${data.markdownRemark.frontmatter.title} at RUN BGD`}
+          />
+        }
       </Helmet>
       <main>
         <HTMLContent
@@ -378,6 +390,8 @@ export const pageQuery = graphql`
     markdownRemark(id: { eq: $id }) {
       id
       frontmatter {
+        seo
+        seoTitle
         title
         description
         coverImage {

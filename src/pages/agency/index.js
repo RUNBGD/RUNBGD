@@ -42,6 +42,8 @@ const AgencyPage = () => {
         frontmatter: { templateKey: { eq: "agency-page" } }
       ) {
         frontmatter {
+          seo
+          seoTitle
           heroBannerImage {
             childImageSharp {
               fluid(maxWidth: 1800, quality: 64) {
@@ -91,11 +93,24 @@ const AgencyPage = () => {
         <div style={{ overflowX: 'hidden' }}>
           <Helmet>
             <base target="_blank" href="/" />
-            <title>Agency | RUN BGD</title>
-            <meta
-              name="description"
-              content={`RUN BGD agency page.`}
-            />
+            {
+              data.page.frontmatter.seoTitle ?
+              <title>{data.page.frontmatter.seoTitle}</title>
+              :
+              <title>Agency | RUN BGD</title>
+            }
+            {
+              data.page.frontmatter.seo ?
+              <meta
+                name="description"
+                content={data.page.frontmatter.seo}
+              />
+              :
+              <meta
+                name="description"
+                content={`RUN BGD agency page.`}
+              />
+            }
           </Helmet>
           <div className={styles.heroBanner}>
             {

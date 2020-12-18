@@ -11,8 +11,18 @@ export const PageTitleAndBodyTemplate = ({ data }) => {
     <main>
       <Helmet>
         <base target="_blank" href="/" />
-        <title>{data.markdownRemark.frontmatter.title} | RUN BGD</title>
-        <meta name="description" content={data.markdownRemark.html} />
+        {
+          data.markdownRemark.frontmatter.seoTitle ?
+          <title>{data.markdownRemark.frontmatter.seoTitle}</title>
+          :
+          <title>{data.markdownRemark.frontmatter.title} | RUN BGD</title>
+        }
+        {
+          data.markdownRemark.frontmatter.seo ?
+          <meta name="description" content={data.markdownRemark.frontmatter.seo} />
+          :
+          <meta name="description" content={data.markdownRemark.html} />
+        }
       </Helmet>
       <h1>{data.markdownRemark.frontmatter.title}</h1>
       <hr />
@@ -42,6 +52,8 @@ export const pageQuery = graphql`
       id
       frontmatter {
         title
+        seo
+        seoTitle
       }
       html
     }

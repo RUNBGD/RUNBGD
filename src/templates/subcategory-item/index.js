@@ -17,11 +17,24 @@ export const TourTemplate = ({ data }) => {
     <main>
       <Helmet>
         <base target="_blank" href="/" />
-        <title>{data.markdownRemark.frontmatter.title} | RUN BGD</title>
-        <meta
-          name="description"
-          content={`${data.markdownRemark.frontmatter.title} ${data.markdownRemark.html}`}
-        />
+        {
+          data.markdownRemark.frontmatter.seoTitle ?
+          <title>{data.markdownRemark.frontmatter.seoTitle}</title>
+          :
+          <title>{data.markdownRemark.frontmatter.title} | RUN BGD</title>
+        }
+        {
+          data.markdownRemark.frontmatter.seo ?
+          <meta
+            name="description"
+            content={data.markdownRemark.frontmatter.seo}
+          />
+          :
+          <meta
+            name="description"
+            content={`${data.markdownRemark.frontmatter.title} ${data.markdownRemark.html}`}
+          />
+        }
       </Helmet>
       <h2>{data.markdownRemark.frontmatter.title}</h2>
       <hr />
@@ -74,6 +87,8 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
+        seo
+        seoTitle
         subcategory
         coverImage {
           childImageSharp {

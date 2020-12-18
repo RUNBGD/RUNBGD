@@ -25,6 +25,8 @@ collections:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "blog-post"}
       - {label: "Create Page", name: "createPage", required: true, widget: "hidden", default: "true"}
       - {label: "Slug", name: "slug", hint: "/something/ or /something/something/ ...", required: false, widget: "string"}
+      - {label: "SEO", name: "seo", required: false, widget: "string"}
+      - {label: "SEO Title", name: "seoTitle", required: false, widget: "string"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Category", name: "category", widget: "relation", collection: "category", searchFields: ["title"], valueField: "title", displayFields: ["title"]}
       - {label: "Subcategory", name: "subcategory", widget: "relation", required: false, collection: "subcategory", searchFields: ["title"], valueField: "title", displayFields: ["title"]}
@@ -48,6 +50,8 @@ collections:
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "tag"}
       - {label: "Slug", name: "slug", hint: "/something/ or /something/something/ ...", required: false, widget: "string"}
+      - {label: "SEO", name: "seo", required: false, widget: "string"}
+      - {label: "SEO Title", name: "seoTitle", required: false, widget: "string"}
       - {label: "Title", name: "heading", widget: "string"}
       - {label: "Icon Image", name: "iconImage", widget: "image"}
       - {label: "Icon Description", name: "iconDescription", widget: string}
@@ -64,6 +68,8 @@ collections:
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "subcategory-item"}
       - {label: "Slug", name: "slug", hint: "/something/ or /something/something/ ...", required: false, widget: "string"}
+      - {label: "SEO", name: "seo", required: false, widget: "string"}
+      - {label: "SEO Title", name: "seoTitle", required: false, widget: "string"}
       - {label: "Create Page", name: "createPage", required: true, widget: "hidden", default: "true"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Category", name: "category", widget: "relation", collection: "category", searchFields: ["title"], valueField: "title", displayFields: ["title"]}
@@ -83,6 +89,8 @@ collections:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "category-page"}
       - {label: "Create Page", name: "createPage", required: true, widget: "hidden", default: "true"}
       - {label: "Slug", name: "slug", hint: "/something/ or /something/something/ ...", required: false, widget: "string"}
+      - {label: "SEO", name: "seo", required: false, widget: "string"}
+      - {label: "SEO Title", name: "seoTitle", required: false, widget: "string"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Description", name: "description", required: false, widget: "markdown"}
       - {label: "Category Cover", name: "coverImage", widget: "image"}
@@ -120,6 +128,8 @@ collections:
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "category-subcategory"}
       - {label: "Slug", name: "slug", hint: "/something/ or /something/something/ ...", required: false, widget: "string"}
+      - {label: "SEO", name: "seo", required: false, widget: "string"}
+      - {label: "SEO Title", name: "seoTitle", required: false, widget: "string"}
       - {label: "Create Page", name: "createPage", required: true, widget: "hidden", default: "true"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Description", name: "description", required: false, widget: "markdown"}
@@ -136,6 +146,8 @@ collections:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "author-page"}
       - {label: "Create Page", name: "createPage", required: true, widget: "hidden", default: "true"}
       - {label: "Slug", name: "slug", hint: "/something/ or /something/something/ ...", required: false, widget: "string"}
+      - {label: "SEO", name: "seo", required: false, widget: "string"}
+      - {label: "SEO Title", name: "seoTitle", required: false, widget: "string"}
       - {label: "Name", name: "name", widget: "string"}
       - {label: "Author Information", name: "information", widget: "markdown"}
   
@@ -242,6 +254,8 @@ collections:
     fields: 
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "shop-product"}
       - {label: "Slug", name: "slug", hint: "/something/ or /something/something/ ...", required: false, widget: "string"}
+      - {label: "SEO", name: "seo", required: false, widget: "string"}
+      - {label: "SEO Title", name: "seoTitle", required: false, widget: "string"}
       - {label: "Show First", name: "showFirst", widget: boolean, required: false, default: false}
       - {label: "Title", name: "title", widget: string}
       - {label: "Description", name: "description", widget: string}
@@ -286,6 +300,8 @@ collections:
         label: "Shop Page"
         name: "shopPage"
         fields:
+          - {label: "SEO", name: "seo", required: false, widget: "string"}
+          - {label: "SEO Title", name: "seoTitle", required: false, widget: "string"}
           - {label: Banners, name: banners, widget: list, fields: [
               {label: "Banner Image", name: "bannerImage", widget: image},
               {label: "Banner Heading", name: "bannerHeading", widget: string},
@@ -294,11 +310,29 @@ collections:
               {label: "Button Link", name: "buttonLink", widget: string}
           ]}
           - {label: "Template Key", name: "templateKey", widget: "string", default: "shop-page"}
+      
+      - file: "src/pages/index.md"
+        label: "Home Page"
+        name: "homePage"
+        fields:
+          - {label: "SEO Title", name: "seoTitle", required: false, widget: "string"}
+          - {label: "SEO", name: "seo", required: false, widget: "string"}
+          - {label: "Template Key", name: "templateKey", widget: "string", default: "home-page"}
+      
+      - file: "src/pages/find-places/index.md"
+        label: "Find Places Page"
+        name: "findPlacesPage"
+        fields:
+          - {label: "SEO Title", name: "seoTitle", required: false, widget: "string"}
+          - {label: "SEO", name: "seo", required: false, widget: "string"}
+          - {label: "Template Key", name: "templateKey", widget: "string", default: "find-places-page"}
 
       - file: "src/pages/agency/index.md"
         label: "Agency Page"
         name: "agencyPage"
         fields:
+          - {label: "SEO", name: "seo", required: false, widget: "string"}
+          - {label: "SEO Title", name: "seoTitle", required: false, widget: "string"}
           - {label: "Hero Banner Image", name: heroBannerImage, widget: image}
           - {label: "Hero Banner Animation", name: heroBannerAnimation, widget: image}
           - {label: "Hero Banner Heading", name: heroBannerHeading, widget: string}
@@ -323,6 +357,8 @@ collections:
         label: "Work With Us Page"
         name: "workWithUsPage"
         fields:
+          - {label: "SEO", name: "seo", required: false, widget: "string"}
+          - {label: "SEO Title", name: "seoTitle", required: false, widget: "string"}
           - {label: "Hero Video", name: "heroVideoCover", widget: file}
           - {label: "Hero Heading", name: heroHeading, widget: markdown}
           - {label: "Hero Text", name: "heroText", widget: string}
@@ -340,6 +376,8 @@ collections:
         label: "About Page"
         name: "aboutPage"
         fields:
+          - {label: "SEO", name: "seo", required: false, widget: "string"}
+          - {label: "SEO Title", name: "seoTitle", required: false, widget: "string"}
           - {label: "Slides", name: "slides", widget: list, fields: [
               {label: "Cover Image", required: false,  name: "coverImage", widget: image},
               {label: "Slide Text", name: "slideText", widget: markdown},
@@ -368,6 +406,8 @@ collections:
         label: "Careers Page"
         name: "careersPage"
         fields:
+          - {label: "SEO", name: "seo", required: false, widget: "string"}
+          - {label: "SEO Title", name: "seoTitle", required: false, widget: "string"}
           - {label: Hero Image, name: heroImage, widget: image}
           - {label: Intro Text, name: introText, required: false, widget: markdown}
           - {label: Slider Intro Text, name: sliderIntroText, required: false, widget: markdown}
@@ -396,6 +436,8 @@ collections:
         label: "Terms Of Use Page"
         name: "termsOfUse"
         fields:
+          - {label: "SEO", name: "seo", required: false, widget: "string"}
+          - {label: "SEO Title", name: "seoTitle", required: false, widget: "string"}
           - {label: Title, name: title, widget: string}
           - {label: Body, name: body, widget: "markdown"}     
           - {label: "Template Key", name: "templateKey", widget: "string", default: "page-title-and-body"}
@@ -404,6 +446,8 @@ collections:
         label: "Privacy Policy"
         name: "privacyPolicy"
         fields:
+          - {label: "SEO", name: "seo", required: false, widget: "string"}
+          - {label: "SEO Title", name: "seoTitle", required: false, widget: "string"}
           - {label: Title, name: title, widget: string}
           - {label: Body, name: body, widget: "markdown"}     
           - {label: "Template Key", name: "templateKey", widget: "string", default: "page-title-and-body"}
@@ -412,6 +456,8 @@ collections:
         label: "Contact Us"
         name: "contactUs"
         fields:
+          - {label: "SEO", name: "seo", required: false, widget: "string"}
+          - {label: "SEO Title", name: "seoTitle", required: false, widget: "string"}
           - {label: Title, name: title, widget: string}
           - {label: Body, name: body, widget: "markdown"}     
           - {label: "Template Key", name: "templateKey", widget: "string", default: "page-title-and-body"}

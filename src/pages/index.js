@@ -42,6 +42,12 @@ const IndexPage = () => {
           }
         }
       }
+      page: markdownRemark(frontmatter:{templateKey: {eq: "home-page"}}){
+        frontmatter{
+          seoTitle
+          seo
+        }
+      }
       categoryFeaturedPosts: allMarkdownRemark(
         filter: { frontmatter: { categoryFeatured: { eq: true } } }
       ) {
@@ -270,6 +276,14 @@ const IndexPage = () => {
     <Layout>
       <Helmet>
         <base target="_blank" href="/" />
+        {
+          carouselPosts.page.frontmatter.seoTitle &&
+          <title>{carouselPosts.page.frontmatter.title}</title>
+        }
+        {
+          carouselPosts.page.frontmatter.seo &&
+          <meta name="description" description={carouselPosts.page.frontmatter.seo} />
+        }
       </Helmet>
       <main>
         <h1>RUN BGD</h1>

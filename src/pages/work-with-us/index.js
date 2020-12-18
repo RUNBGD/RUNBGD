@@ -21,6 +21,8 @@ const WorkWithUsPage = () => {
         frontmatter: { templateKey: { eq: "work-with-us-page" } }
       ) {
         frontmatter {
+          seo
+          seoTitle
           heroVideoCover {
             publicURL
           }
@@ -177,11 +179,24 @@ const WorkWithUsPage = () => {
     <Layout fullWidth={true}>
       <Helmet>
         <base target="_blank" href="/" />
-        <title>Work With Us | RUN BGD</title>
-        <meta
-          name="description"
-          content={`RUN BGD work with us page.`}
-        />
+        {
+          data.page.frontmatter.seoTitle ?
+          <title>{data.page.frontmatter.seoTitle}</title>
+          :
+          <title>Work With Us | RUN BGD</title>
+        }
+        {
+          data.page.frontmatter.seo ?
+          <meta
+            name="description"
+            content={data.page.frontmatter.seo}
+          />
+          :
+          <meta
+            name="description"
+            content={`RUN BGD work with us page.`}
+          />
+        }
       </Helmet>
       <section class={styles.videoSection}>
         <div className={styles.background}>

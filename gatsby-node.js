@@ -153,7 +153,9 @@ exports.createSchemaCustomization = ({ actions }) => {
       benefitsIntroText: String,
       recentOpeningsIntroText: String,
       positions: [JobPosition],
-      slug: String
+      slug: String,
+      seo: String,
+      seoTitle: String
     }
   `
   createTypes(typeDefs)

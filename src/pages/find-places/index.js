@@ -119,6 +119,12 @@ const FindPlaces = () => {
 
   const data = useStaticQuery(graphql`
     query locationData {
+      page:markdownRemark(frontmatter:{templateKey:{eq:"find-places-page"}}) {
+        frontmatter {
+          seo
+          seoTitle
+        }
+      }
       locations: allMarkdownRemark(
         filter: { frontmatter: { templateKey: { eq: "location" } } }
       ) {
@@ -183,11 +189,24 @@ const FindPlaces = () => {
     <Layout fullWidth={true}>
       <Helmet>
         <base target="_blank" href="/" />
-        <title>Find Places | RUN BGD</title>
-        <meta
-          name="description"
-          content="Find interesting places and see what is near you in Serbia with our web app at RUN BGD."
-        />
+        {
+          data.page.frontmatter.seoTitle ?
+          <title>{data.page.frontmatter.seoTitle}</title>
+          :
+          <title>Find Places | RUN BGD</title>
+        }
+        {
+          data.page.frontmatter.seo ?
+          <meta
+            name="description"
+            content={data.page.frontmatter.seo}
+          />
+          :
+          <meta
+            name="description"
+            content="Find interesting places and see what is near you in Serbia with our web app at RUN BGD."
+          />
+        }
       </Helmet>
       <main style={{ width: '100%' }} className={styles.findPlacesWrapper}>
         <div className={styles.background}>

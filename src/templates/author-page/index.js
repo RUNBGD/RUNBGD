@@ -16,11 +16,24 @@ let AuthorPage = ({ data }) => {
     <Layout>
       <Helmet>
         <base target="_blank" href="/" />
-        <title>Author {data.markdownRemark.frontmatter.name} | RUN BGD</title>
-        <meta
-          name="description"
-          content={`See all stories written by ${data.markdownRemark.frontmatter.name} sorted from newer to older ones.`}
-        />
+        {
+          data.markdownRemark.frontmatter.seoTitle ?
+          <title>{data.markdownRemark.frontmatter.seoTitle}</title>
+          :
+          <title>Author {data.markdownRemark.frontmatter.name} | RUN BGD</title>
+        }
+        {
+          data.markdownRemark.frontmatter.seo ?
+          <meta
+            name="description"
+            content={data.markdownRemark.frontmatter.seo}
+          />
+          :
+          <meta
+            name="description"
+            content={`See all stories written by ${data.markdownRemark.frontmatter.name} sorted from newer to older ones.`}
+          />
+        }
       </Helmet>
       <main>
         <h1>{data.markdownRemark.frontmatter.name}</h1>
@@ -40,6 +53,8 @@ export const pageQuery = graphql`
     markdownRemark(id: { eq: $id }) {
       id
       frontmatter {
+        seo
+        seoTitle
         name
         information
       }

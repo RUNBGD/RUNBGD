@@ -23,6 +23,8 @@ const Shop = () => {
     query Shop {
       page: markdownRemark(frontmatter: { templateKey: { eq: "shop-page" } }) {
         frontmatter {
+          seo
+          seoTitle
           banners {
             bannerImage {
               childImageSharp {
@@ -159,11 +161,24 @@ const Shop = () => {
     <Layout fullWidth={true}>
       <Helmet>
         <base target="_blank" href="/" />
-        <title>Shop | RUN BGD</title>
-        <meta
-          name="description"
-          content={`Official RUN BGD Shop. Buy anything from t-shirts to miscellaneous accessories.`}
-        />
+        {
+          data.page.frontmatter.seoTitle ?
+          <title>{data.page.frontmatter.seoTitle}</title>
+          :
+          <title>Shop | RUN BGD</title>
+        }
+        {
+          data.page.frontmatter.seo ?
+          <meta
+            name="description"
+            content={data.page.frontmatter.seo}
+          />
+          :
+          <meta
+            name="description"
+            content={`Official RUN BGD Shop. Buy anything from t-shirts to miscellaneous accessories.`}
+          />
+        }
       </Helmet>
       <main className={styles.fullWidth}>
         <div className={styles.shopBannersContainer}>
