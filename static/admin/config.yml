@@ -24,6 +24,7 @@ collections:
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "blog-post"}
       - {label: "Create Page", name: "createPage", required: true, widget: "hidden", default: "true"}
+      - {label: "Slug", name: "slug", hint: "/something/ or /something/something/ ...", required: false, widget: "string"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Category", name: "category", widget: "relation", collection: "category", searchFields: ["title"], valueField: "title", displayFields: ["title"]}
       - {label: "Subcategory", name: "subcategory", widget: "relation", required: false, collection: "subcategory", searchFields: ["title"], valueField: "title", displayFields: ["title"]}
@@ -46,6 +47,7 @@ collections:
     slug: "{{iconDescription}}"
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "tag"}
+      - {label: "Slug", name: "slug", hint: "/something/ or /something/something/ ...", required: false, widget: "string"}
       - {label: "Title", name: "heading", widget: "string"}
       - {label: "Icon Image", name: "iconImage", widget: "image"}
       - {label: "Icon Description", name: "iconDescription", widget: string}
@@ -61,6 +63,7 @@ collections:
     identifier_field: name
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "subcategory-item"}
+      - {label: "Slug", name: "slug", hint: "/something/ or /something/something/ ...", required: false, widget: "string"}
       - {label: "Create Page", name: "createPage", required: true, widget: "hidden", default: "true"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Category", name: "category", widget: "relation", collection: "category", searchFields: ["title"], valueField: "title", displayFields: ["title"]}
@@ -79,6 +82,7 @@ collections:
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "category-page"}
       - {label: "Create Page", name: "createPage", required: true, widget: "hidden", default: "true"}
+      - {label: "Slug", name: "slug", hint: "/something/ or /something/something/ ...", required: false, widget: "string"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Description", name: "description", required: false, widget: "markdown"}
       - {label: "Category Cover", name: "coverImage", widget: "image"}
@@ -115,6 +119,7 @@ collections:
     identifier_field: name
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "category-subcategory"}
+      - {label: "Slug", name: "slug", hint: "/something/ or /something/something/ ...", required: false, widget: "string"}
       - {label: "Create Page", name: "createPage", required: true, widget: "hidden", default: "true"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Description", name: "description", required: false, widget: "markdown"}
@@ -130,6 +135,7 @@ collections:
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "author-page"}
       - {label: "Create Page", name: "createPage", required: true, widget: "hidden", default: "true"}
+      - {label: "Slug", name: "slug", hint: "/something/ or /something/something/ ...", required: false, widget: "string"}
       - {label: "Name", name: "name", widget: "string"}
       - {label: "Author Information", name: "information", widget: "markdown"}
   
@@ -235,6 +241,7 @@ collections:
     identifier_field: name
     fields: 
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "shop-product"}
+      - {label: "Slug", name: "slug", hint: "/something/ or /something/something/ ...", required: false, widget: "string"}
       - {label: "Show First", name: "showFirst", widget: boolean, required: false, default: false}
       - {label: "Title", name: "title", widget: string}
       - {label: "Description", name: "description", widget: string}

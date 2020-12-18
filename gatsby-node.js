@@ -152,7 +152,8 @@ exports.createSchemaCustomization = ({ actions }) => {
       sliderIntroText: String,
       benefitsIntroText: String,
       recentOpeningsIntroText: String,
-      positions: [JobPosition]
+      positions: [JobPosition],
+      slug: String
     }
   `
   createTypes(typeDefs)
@@ -181,6 +182,7 @@ exports.createPages = async ({ actions, graphql }) => {
             frontmatter {
               templateKey
               category
+              slug
               icons {
                 icon
               }
@@ -482,7 +484,10 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   // fmImagesToRelative(node) // convert image paths for gatsby images
 
   if (node.internal.type === `MarkdownRemark`) {
-    const value = createFilePath({ node, getNode })
+    let value = createFilePath({ node, getNode })
+    if(node.frontmatter.slug){
+      value = node.frontmatter.slug
+    }
     createNodeField({
       name: `slug`,
       node,
