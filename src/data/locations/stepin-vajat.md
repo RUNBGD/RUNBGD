@@ -7,7 +7,7 @@ category: Fast Food
 address: Vojvode Stepe 2, 11000 Beograd
 website: <https://www.facebook.com/pages/Stepin-Vajat/135364699857523>
 description: |-
-  Phone: [+381112460564](+381112460564)
+  Phone: [+381112460564](tel:00381112460564)
 
   Open: 05 to 21H
 latitude: "44.786787167047876"
