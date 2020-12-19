@@ -6,9 +6,9 @@ pin: /img/run-bgd_restaurant_icon_100x100.png
 category: Restaurants
 address: Kej Oslobođenja
 website: <https://www.facebook.com/klubradeckizemun/>
-email: "[klubradeckizemun@gmail.com](klubradeckizemun@gmail.com)"
+email: "[klubradeckizemun@gmail.com](mailto:klubradeckizemun@gmail.com)"
 description: |-
-  Phone number: [+381603029171](+381603029171)
+  Phone number: [+381603029171](tel:00381603029171)
 
   Open: 08AM to 12AM
 latitude: "44.850235"
