@@ -7,7 +7,7 @@ category: Bars
 address: Simina 5, 11000 Beograd
 website: <https://www.passengersbar.com>
 description: |-
-  Phone: [ +381606464109](< +381606464109>)
+  Phone:  [+381606464109](tel:00381606464109)
 
   Open: Mon - Fri 08:30AM to 01AM\
   Sat 09:30AM to 01AM\
