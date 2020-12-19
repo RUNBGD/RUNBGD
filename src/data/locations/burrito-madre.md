@@ -7,7 +7,7 @@ category: Fast Food
 address: Terazije 27, 11000 Beograd
 website: <https://burritomadre.com>
 description: |-
-  Phone: [+381 11 303 74 50](<+381 11 303 74 50>)
+  Phone: [+381113037450](tel:00381113037450)
 
   Open: 09 to 01H
 latitude: "44.81326990191311"
