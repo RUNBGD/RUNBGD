@@ -6,9 +6,9 @@ pin: /img/run-bgd_restaurant_icon_100x100.png
 category: Restaurants
 address: Mali Kalemegdan bb
 website: <http://kalemegdanskaterasa.com/en/home-5/>
-email: "[office@kalemegdanskaterasa.com](office@kalemegdanskaterasa.com)"
+email: "[office@kalemegdanskaterasa.com](mailto:office@kalemegdanskaterasa.com)"
 description: >-
-  Phone: [+381 11 328 30 11](<+381 11 328 30 11>)
+  Phone: [+381113283011](tel:00381113283011)
 
 
   Open: 12 to 23H
