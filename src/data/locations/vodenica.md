@@ -6,9 +6,9 @@ pin: /img/run-bgd_restaurant_icon_100x100.png
 category: Restaurants
 address: Bulevar vojvode Bojovića 5b, 11000 Beograd
 website: <https://restoranvodenica.rs>
-email: "[info@restoranvodenica.rs](info@restoranvodenica.rs)"
+email: "[info@restoranvodenica.rs](mailto:info@restoranvodenica.rs)"
 description: >-
-  Phone: [+381112628250](+381112628250)
+  Phone: [+381112628250](tel:00381112628250)
 
 
   Open: 12 to 23H
