@@ -6,9 +6,9 @@ pin: /img/run-bgd_bar_icon_100x100.png
 category: Bars
 address: Čika Ljubina 11
 website: <https://www.facebook.com/Cigla-Bar-348524022282083/>
-email: "[cigla.bar@gmail.com](cigla.bar@gmail.com)"
+email: "[cigla.bar@gmail.com](mailto:cigla.bar@gmail.com)"
 description: |-
-  Phone number: [+38163592929](+38163592929)
+  Phone number: [+38163592929](tel:0038163592929)
 
   Open: Sun - Thu 08AM to 00AM
 
