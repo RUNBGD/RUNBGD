@@ -6,9 +6,9 @@ pin: /img/run-bgd_restaurant_icon_100x100.png
 category: Restaurants
 address: Skadarska 40c, 11000 Beograd
 website: <http://www.restoranvelikaskadarlija.com>
-email: "[velikaskadarlija2013@gmail.com](velikaskadarlija2013@gmail.com)"
+email: "[velikaskadarlija2013@gmail.com](mailto:velikaskadarlija2013@gmail.com)"
 description: |-
-  Phone number: [+381113342230](+381113342230)
+  Phone number: [+381113342230](tel:00381113342230)
 
   Open: Mon - Fri 09AM to 01AM
 
