@@ -6,9 +6,9 @@ pin: /img/run-bgd_restaurant_icon_100x100.png
 category: Restaurants
 address: Skadarska 32, 11000 Beograd
 website: "[www.dvajelena.rs](www.dvajelena.rs)"
-email: "[rezervacije@dvajelena.rs](rezervacije@dvajelena.rs)"
+email: "[rezervacije@dvajelena.rs](mailto:rezervacije@dvajelena.rs)"
 description: >-
-  Phone number: [+381117234885](+381117234885)
+  Phone number: [+381117234885](tel:00381117234885)
 
 
   Open: 10AM to 01AM
