@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect, useRef, useState} from 'react'
 
 import styles from './find-places-locations.module.scss'
 import LocationInfoCard from '../LocationInfoCard'
@@ -40,8 +40,29 @@ const FindPlacesLocations = ({
   setClickedLocation
 }) => {
 
+  const locationCardsContainer = useRef(null)
+  const [scrollPositionX, setScrollPositionX] = useState(0)
+  const [scrollPositionY, setScrollPositionY] = useState(0)
+
+  useEffect(() => {
+    let container = locationCardsContainer.current
+    if(clickedLocation){
+      if(container){
+        container.scrollTo(0, 0)
+      }
+    }else{
+      container.scrollTo(scrollPositionX, scrollPositionY)
+    }
+  }, [clickedLocation])
+
   return (
     <div
+      onScroll={(e) => {
+        !clickedLocation && setScrollPositionY(e.currentTarget.scrollTop);
+        !clickedLocation && setScrollPositionX(e.currentTarget.scrollLeft);
+        console.log(e.currentTarget.scrollLeft)
+      }}
+      ref={locationCardsContainer}
       className={`${styles.locationCards} ${
         horizontalOnMobile && styles.horizontal
       }`}

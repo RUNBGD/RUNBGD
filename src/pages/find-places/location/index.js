@@ -51,6 +51,16 @@ const FindPlaces = () => {
 
   const [clickedLocation, setClickedLocation] = useState(undefined)
 
+  const [scrollPositionY, setScrollPositionY] = useState(0)
+
+  useEffect(() => { 
+    if(!clickedLocation){
+      if(typeof window != 'undefined'){
+        window.scrollTo(0, scrollPositionY)
+      }
+    }
+  }, [clickedLocation])
+
   useEffect(() => {
     if (!clickedLocation) {
       if (zoomInterval) {
@@ -62,6 +72,7 @@ const FindPlaces = () => {
   }, [clickedLocation])
 
   function onLocationClicked(location) {
+    setScrollPositionY(window.pageYOffset)
     setZoomLevel(12)
     if(typeof window != 'undefined'){
       window.scrollTo(0, 0)
