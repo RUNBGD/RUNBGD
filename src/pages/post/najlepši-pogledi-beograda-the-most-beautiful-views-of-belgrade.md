@@ -9,7 +9,7 @@ date: 2020-11-28T19:20:09.076Z
 featuredPost: true
 categoryFeatured: true
 trending: false
-coverImage: alex-blokstra-uubctovhljy-unsplash.jpg
+coverImage: /img/run-bgd_views_jelena.jpg
 ---
 Korona nas je mnogo čemu naučila, to ćemo se svi složiti, ali je učinila i to da poželimo da budemo stranci u sopstvenom gradu.
 
