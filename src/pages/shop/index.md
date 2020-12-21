@@ -14,6 +14,6 @@ banners:
     bannerHeading: RUN BGD T-Shirts "MADE IN BELGRADE"
     bannerDescription: RUN BGD Classic White T-Shirt
     buttonText: See Product
-    buttonLink: https://runbgd.com/shop/product/runbgd-classic-tshirt-white/
+    buttonLink: /shop/product/runbgd-classic-tshirt-white/
 templateKey: shop-page
 ---
