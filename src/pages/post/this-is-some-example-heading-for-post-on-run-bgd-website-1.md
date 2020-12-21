@@ -10,7 +10,7 @@ featuredPost: false
 categoryFeatured: true
 subcategoryFeatured: true
 trending: false
-coverImage: /img/albino.png
+coverImage: /img/tike_belgrade_nike_air_fear_of_god_1_triple_black_banner.png
 icons: []
 ---
 ***Greatness*** – engleska reč koja tako mnogo govori, a tako ju je teško adekvatno prilagoditi našem jeziku. Ona je spoj veličanstvenosti, jedinstvenosti, slobode da se dosegnu vrtoglave visine, sinonim za uspeh i neponovljivost. A do tog statusa, složićeš se, nije lako stići!
@@ -35,7 +35,7 @@ Patike koje su plod ponovne saradnje **[Nike](https://www.tike.rs/proizvodi/nike
 
 *The sneakers, which are the result of a renewed collaboration between Nike and the streetwear brand **Fear of God (FOG)**, are a designer masterpiece by **Jerry Lorenzo**, the founder of FOG, and in a short time have become a favorite among sneakerheads. This time, they are presented in the color **Triple Black**, which focuses on everyday minimalist aesthetics.*
 
-![](/img/tike_belgrade_nike_air_fear_of_god_1_triple_black_albino_svemogucci-7-.jpg)
+![](/img/albino.png)
 
 Osnova nove siluete su, kao što se i moglo očekivati, luksuzni košarkaški modeli. Međutim, uprkos tome što je njihov dizajn nadahnut košarkom, duboke **Nike Air Fear of God 1 "Triple Black" patike** predstavljaju **vrhunski** **hibrid *high-fashion* i *streetwear* siluete** – viziju kako luksuzni *streetwear* modeli treba da izgledaju u budućnosti.
 
