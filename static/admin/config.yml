@@ -307,7 +307,7 @@ collections:
               {label: "Banner Heading", name: "bannerHeading", widget: string},
               {label: "Banner Description", name: "bannerDescription", widget: string},
               {label: "Button Text", name: "buttonText", widget: string},
-              {label: "Button Link", name: "buttonLink", widget: string}
+              {label: "Button Link", name: "buttonLink", hint: "if link is runbgd.com/shop/ only use /shop/ (remove runbgd.com from link)", widget: string}
           ]}
           - {label: "Template Key", name: "templateKey", widget: "string", default: "shop-page"}
       

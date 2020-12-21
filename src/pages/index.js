@@ -3,17 +3,19 @@ import { graphql, useStaticQuery } from 'gatsby'
 import {Helmet} from 'react-helmet'
 
 import Layout from '../components/Layout'
-
 import BigPostsCarousel from '../components/BigPostsCarousel'
-import SecondaryPostsCarousel from '../components/SecondaryPostsCarousel'
-import NewsletterForm from '../components/NewsletterForm'
-import FindPlacesMainCard from '../components/FindPlacesMainCard'
-import LatestPosts from '../components/LatestPosts'
-import AsideContent from '../components/AsideContent'
-import FindPlacesMap from '../components/FindPlacesMap'
-import FindPlacesLocations from '../components/FindPlacesLocations'
 import PostCategoryTag from '../components/PostCategoryTag'
 import styles from './index-page.module.scss'
+import IsSSR from '../components/IsSSR'
+import ContentFallback from '../components/ContentFallback'
+const SecondaryPostsCarousel = React.lazy(() => import('../components/SecondaryPostsCarousel')) 
+const NewsletterForm = React.lazy(() => import('../components/NewsletterForm')) 
+const FindPlacesMainCard = React.lazy(() => import('../components/FindPlacesMainCard'))
+const LatestPosts = React.lazy(() => import('../components/LatestPosts'))
+const AsideContent = React.lazy(() => import('../components/AsideContent'))
+const FindPlacesMap = React.lazy(() => import('../components/FindPlacesMap'))
+const FindPlacesLocations = React.lazy(() => import('../components/FindPlacesLocations'))
+
 
 const IndexPage = () => {
   let carouselPosts = useStaticQuery(graphql`
@@ -274,154 +276,172 @@ const IndexPage = () => {
 
   return (
     <Layout>
-      <Helmet>
-        <base target="_blank" href="/" />
-        {
-          carouselPosts.page.frontmatter.seoTitle &&
-          <title>{carouselPosts.page.frontmatter.title}</title>
-        }
-        {
-          carouselPosts.page.frontmatter.seo &&
-          <meta name="description" description={carouselPosts.page.frontmatter.seo} />
-        }
-      </Helmet>
-      <main>
-        <h1>RUN BGD</h1>
-        <p>
-          RUN BGD is a team of young and ambitious people gathered around the
-          idea to present Belgrade as destination in a little different light,
-          unlike agencies and other organisations.
-        </p>
-        <hr />
-        <BigPostsCarousel
-          posts={carouselPosts && carouselPosts.allMarkdownRemark}
-        />
-        <SecondaryPostsCarousel
-          posts={
-            carouselPosts &&
-            carouselPosts.trending &&
-            carouselPosts.trending.edges &&
-            carouselPosts.trending.edges
+      <IsSSR>
+        <Helmet>
+          <base target="_blank" href="/" />
+          {
+            carouselPosts.page.frontmatter.seoTitle &&
+            <title>{carouselPosts.page.frontmatter.title}</title>
           }
-          onlyMobile={true}
-          heading="Trending"
-          displayCategory={true}
-        />
-        <NewsletterForm />
-        <hr />
-        <h2>Find Places</h2>
-        <div className={styles.mapAndLocations}>
-          <div className={styles.map}>
-            <FindPlacesMap
-              locations={
-                carouselPosts &&
-                carouselPosts.locations &&
-                carouselPosts.locations.edges.length > 0 &&
-                carouselPosts.locations.edges
-              }
-              zoom={zoomLevel ? zoomLevel : 12}
-              currentY={currentY}
-              currentX={currentX}
-              setCurrentX={setCurrentX}
-              setCurrentY={setCurrentY}
-              handleUserInteraction={handleUserMapInteraction}
-              onClick={onLocationClicked}
-              clickedLocation={clickedLocation}
-              setClickedLocation={setClickedLocation}
-              filterCategory={filterCategory}
-            />
-          </div>
-          <div className={styles.locations}>
-            {!clickedLocation &&
-              <select
-                onChange={(e) => setFilterCategory(e.target.value)}
-                className={styles.categoryFilter}
-              >
-                <option value="Select Category">Select Category</option>
-                {carouselPosts.locationCategories &&
-                  carouselPosts.locationCategories.edges.length > 0 &&
-                  carouselPosts.locationCategories.edges.map(({ node: category }) => {
-                    if (category.frontmatter.title == 'Current Location') {
-                      return
-                    }
-                    return (
-                      <option value={category.frontmatter.title}>
-                        {category.frontmatter.title}
-                      </option>
-                    )
-                  })}
-              </select>
-          
-            }
-            <FindPlacesLocations
-              locations={
-                carouselPosts &&
-                carouselPosts.locations &&
-                carouselPosts.locations.edges.length > 0 &&
-                carouselPosts.locations.edges
-              }
-              filterCategory={filterCategory}
-              horizontalOnMobile={true}
-              setCurrentX={setCurrentX}
-              setCurrentY={setCurrentY}
-              onClick={onLocationClicked}
-              clickedLocation={clickedLocation}
-              setClickedLocation={setClickedLocation}
-            />
-          </div>
-        </div>
-        <hr />
-        <FindPlacesMainCard />
-        <hr />
-        {featuredCategoriesInOrder(featuredCategories).map(
-          ({ node: category }) => {
-            let posts =
-              carouselPosts &&
-              carouselPosts.categoryFeaturedPosts &&
-              carouselPosts.categoryFeaturedPosts.edges.length > 0 &&
-              carouselPosts.categoryFeaturedPosts.edges.filter(({ node }) => {
-                if (node.frontmatter.category && category.frontmatter.title) {
-                  return (
-                    node.frontmatter.category === category.frontmatter.title
-                  )
-                } else {
-                  return false
-                }
-              })
-
-            return (
-              <React.Fragment>
-                <div className={styles.titleAndSeeMore}>
-                  <h2>{category.frontmatter.title}</h2>
-                  <PostCategoryTag
-                    slug={category.fields.slug}
-                    text={'See More'}
-                  />
-                </div>
-                <SecondaryPostsCarousel posts={posts} />
-              </React.Fragment>
-            )
+          {
+            carouselPosts.page.frontmatter.seo &&
+            <meta name="description" description={carouselPosts.page.frontmatter.seo} />
           }
-        )}
-        <h2>Latest Stories</h2>
-        <div style={{ display: 'relative' }}>
-          <LatestPosts posts={carouselPosts.latestPosts} />
-        </div>
-      </main>
-      <aside>
-        <div>
-          <AsideContent
-            posts={
-              carouselPosts &&
-              carouselPosts.trending &&
-              carouselPosts.trending.edges.length > 0 &&
-              carouselPosts.trending.edges
-            }
-            heading="Trending"
-            displayCategory={true}
+        </Helmet>
+        <main>
+          <h1>RUN BGD</h1>
+          <p>
+            RUN BGD is a team of young and ambitious people gathered around the
+            idea to present Belgrade as destination in a little different light,
+            unlike agencies and other organisations.
+          </p>
+          <hr />
+          <BigPostsCarousel
+            posts={carouselPosts && carouselPosts.allMarkdownRemark}
           />
-        </div>
-      </aside>
+          <React.Suspense fallback={<ContentFallback/>}>
+            <SecondaryPostsCarousel
+              posts={
+                carouselPosts &&
+                carouselPosts.trending &&
+                carouselPosts.trending.edges &&
+                carouselPosts.trending.edges
+              }
+              onlyMobile={true}
+              heading="Trending"
+              displayCategory={true}
+            />
+          </React.Suspense>
+          <React.Suspense fallback={<ContentFallback/>}>
+            <NewsletterForm />
+          </React.Suspense>
+          <hr />
+          <h2>Find Places</h2>
+          <div className={styles.mapAndLocations}>
+            <div className={styles.map}>
+              <React.Suspense fallback={<ContentFallback/>}>
+                <FindPlacesMap
+                  locations={
+                    carouselPosts &&
+                    carouselPosts.locations &&
+                    carouselPosts.locations.edges.length > 0 &&
+                    carouselPosts.locations.edges
+                  }
+                  zoom={zoomLevel ? zoomLevel : 12}
+                  currentY={currentY}
+                  currentX={currentX}
+                  setCurrentX={setCurrentX}
+                  setCurrentY={setCurrentY}
+                  handleUserInteraction={handleUserMapInteraction}
+                  onClick={onLocationClicked}
+                  clickedLocation={clickedLocation}
+                  setClickedLocation={setClickedLocation}
+                  filterCategory={filterCategory}
+                />
+              </React.Suspense>
+            </div>
+            <div className={styles.locations}>
+              {!clickedLocation &&
+                <select
+                  onChange={(e) => setFilterCategory(e.target.value)}
+                  className={styles.categoryFilter}
+                >
+                  <option value="Select Category">Select Category</option>
+                  {carouselPosts.locationCategories &&
+                    carouselPosts.locationCategories.edges.length > 0 &&
+                    carouselPosts.locationCategories.edges.map(({ node: category }) => {
+                      if (category.frontmatter.title == 'Current Location') {
+                        return
+                      }
+                      return (
+                        <option value={category.frontmatter.title}>
+                          {category.frontmatter.title}
+                        </option>
+                      )
+                    })}
+                </select>
+            
+              }
+              <React.Suspense fallback={<ContentFallback/>}>
+                <FindPlacesLocations
+                  locations={
+                    carouselPosts &&
+                    carouselPosts.locations &&
+                    carouselPosts.locations.edges.length > 0 &&
+                    carouselPosts.locations.edges
+                  }
+                  filterCategory={filterCategory}
+                  horizontalOnMobile={true}
+                  setCurrentX={setCurrentX}
+                  setCurrentY={setCurrentY}
+                  onClick={onLocationClicked}
+                  clickedLocation={clickedLocation}
+                  setClickedLocation={setClickedLocation}
+                />
+              </React.Suspense>
+            </div>
+          </div>
+          <hr />
+          <React.Suspense fallback={<ContentFallback />}>
+            <FindPlacesMainCard />
+          </React.Suspense>
+          <hr />
+          {featuredCategoriesInOrder(featuredCategories).map(
+            ({ node: category }) => {
+              let posts =
+                carouselPosts &&
+                carouselPosts.categoryFeaturedPosts &&
+                carouselPosts.categoryFeaturedPosts.edges.length > 0 &&
+                carouselPosts.categoryFeaturedPosts.edges.filter(({ node }) => {
+                  if (node.frontmatter.category && category.frontmatter.title) {
+                    return (
+                      node.frontmatter.category === category.frontmatter.title
+                    )
+                  } else {
+                    return false
+                  }
+                })
+
+              return (
+                <React.Fragment>
+                  <div className={styles.titleAndSeeMore}>
+                    <h2>{category.frontmatter.title}</h2>
+                    <PostCategoryTag
+                      slug={category.fields.slug}
+                      text={'See More'}
+                    />
+                  </div>
+                  <React.Suspense fallback={'Loading'}>
+                    <SecondaryPostsCarousel posts={posts} />
+                  </React.Suspense>
+                </React.Fragment>
+              )
+            }
+          )}
+          <h2>Latest Stories</h2>
+          <div style={{ display: 'relative' }}>
+            <React.Suspense fallback={<ContentFallback/>}>
+              <LatestPosts posts={carouselPosts.latestPosts} />
+            </React.Suspense>
+          </div>
+        </main>
+        <aside>
+          <div>
+            <React.Suspense fallback={<ContentFallback/>}>
+              <AsideContent
+                posts={
+                  carouselPosts &&
+                  carouselPosts.trending &&
+                  carouselPosts.trending.edges.length > 0 &&
+                  carouselPosts.trending.edges
+                }
+                heading="Trending"
+                displayCategory={true}
+              />
+            </React.Suspense>
+          </div>
+        </aside>
+      </IsSSR>
     </Layout>
   )
 }
