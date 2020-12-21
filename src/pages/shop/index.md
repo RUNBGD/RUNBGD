@@ -9,11 +9,11 @@ banners:
     bannerHeading: RUN BGD Hoddie "MADE IN BELGRADE"
     bannerDescription: RUN BGD Classic Black Hoodie
     buttonText: See Product
-    buttonLink: /shop/product/runbgd-tshirt/
+    buttonLink: /shop/product/runbgd-classic-hoodie/
   - bannerImage: /img/shop-banner-2.jpeg
     bannerHeading: RUN BGD T-Shirts "MADE IN BELGRADE"
     bannerDescription: RUN BGD Classic White T-Shirt
     buttonText: See Product
-    buttonLink: /shop/product/runbgd-tshirt-2/
+    buttonLink: https://runbgd.com/shop/product/runbgd-classic-tshirt-white/
 templateKey: shop-page
 ---
