@@ -47,7 +47,7 @@ const AgencyPage = () => {
           heroBannerImage {
             childImageSharp {
               fluid(maxWidth: 1800, quality: 64) {
-                ...GatsbyImageSharpFluid
+                ...GatsbyImageSharpFluid_withWebp
               }
             }
           }
@@ -59,7 +59,7 @@ const AgencyPage = () => {
             image {
               childImageSharp {
                 fluid(maxWidth: 250, quality: 64) {
-                  ...GatsbyImageSharpFluid
+                  ...GatsbyImageSharpFluid_withWebp
                 }
               }
             }
@@ -72,7 +72,7 @@ const AgencyPage = () => {
             image {
               childImageSharp {
                 fluid(maxWidth: 1800, quality: 64) {
-                  ...GatsbyImageSharpFluid
+                  ...GatsbyImageSharpFluid_withWebp
                 }
               }
             }

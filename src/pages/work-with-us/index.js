@@ -32,7 +32,7 @@ const WorkWithUsPage = () => {
           aboutImageCover {
             childImageSharp {
               fluid(maxWidth: 1920, quality: 64) {
-                ...GatsbyImageSharpFluid
+                ...GatsbyImageSharpFluid_withWebp
               }
             }
           }
@@ -41,7 +41,7 @@ const WorkWithUsPage = () => {
             coverImage {
               childImageSharp {
                 fluid(maxWidth: 1920, quality: 64) {
-                  ...GatsbyImageSharpFluid
+                  ...GatsbyImageSharpFluid_withWebp
                 }
               }
             }
@@ -60,14 +60,14 @@ const WorkWithUsPage = () => {
               logoImage {
                 childImageSharp {
                   fluid(maxWidth: 200, quality: 64) {
-                    ...GatsbyImageSharpFluid
+                    ...GatsbyImageSharpFluid_withWebp
                   }
                 }
               }
               coverImage {
                 childImageSharp {
                   fluid(maxWidth: 1000, quality: 64) {
-                    ...GatsbyImageSharpFluid
+                    ...GatsbyImageSharpFluid_withWebp
                   }
                 }
               }
@@ -83,7 +83,7 @@ const WorkWithUsPage = () => {
           logoImage {
             childImageSharp {
               fluid(maxWidth: 300, quality: 64) {
-                ...GatsbyImageSharpFluid
+                ...GatsbyImageSharpFluid_withWebp
               }
             }
           }

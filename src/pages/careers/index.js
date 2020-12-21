@@ -26,7 +26,7 @@ const Careers = () => {
           heroImage {
             childImageSharp {
               fluid(maxWidth: 1920, quality: 64) {
-                ...GatsbyImageSharpFluid
+                ...GatsbyImageSharpFluid_withWebp
               }
             }
           }
@@ -38,7 +38,7 @@ const Careers = () => {
             image {
               childImageSharp {
                 fluid(maxWidth: 1550, quality: 64) {
-                  ...GatsbyImageSharpFluid
+                  ...GatsbyImageSharpFluid_withWebp
                 }
               }
             }
@@ -47,7 +47,7 @@ const Careers = () => {
             image {
               childImageSharp {
                 fluid(maxWidth: 150, quality: 64) {
-                  ...GatsbyImageSharpFluid
+                  ...GatsbyImageSharpFluid_withWebp
                 }
               }
             }
@@ -72,7 +72,7 @@ const Careers = () => {
               logoImage {
                 childImageSharp {
                   fluid(maxWidth: 200, quality: 64) {
-                    ...GatsbyImageSharpFluid
+                    ...GatsbyImageSharpFluid_withWebp
                   }
                 }
               }

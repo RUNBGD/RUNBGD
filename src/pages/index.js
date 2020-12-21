@@ -34,7 +34,7 @@ const IndexPage = () => {
                 publicURL
                 childImageSharp {
                   fluid(maxWidth: 1280, quality: 64) {
-                    ...GatsbyImageSharpFluid
+                    ...GatsbyImageSharpFluid_withWebp
                   }
                 }
               }
@@ -63,7 +63,7 @@ const IndexPage = () => {
               coverImage {
                 childImageSharp {
                   fluid(maxWidth: 1280, quality: 64) {
-                    ...GatsbyImageSharpFluid
+                    ...GatsbyImageSharpFluid_withWebp
                   }
                 }
               }
@@ -116,8 +116,8 @@ const IndexPage = () => {
               category
               coverImage {
                 childImageSharp {
-                  fluid(maxWidth: 1000, quality: 64) {
-                    ...GatsbyImageSharpFluid
+                  fluid(maxWidth: 500, quality: 64) {
+                    ...GatsbyImageSharpFluid_withWebp
                   }
                 }
               }
@@ -140,7 +140,7 @@ const IndexPage = () => {
               coverImage {
                 childImageSharp {
                   fluid(maxWidth: 1000, quality: 64) {
-                    ...GatsbyImageSharpFluid
+                    ...GatsbyImageSharpFluid_withWebp
                   }
                 }
               }
@@ -159,7 +159,7 @@ const IndexPage = () => {
                 publicURL
                 childImageSharp {
                   fluid(maxWidth: 1000) {
-                    ...GatsbyImageSharpFluid
+                    ...GatsbyImageSharpFluid_withWebp
                   }
                 }
               }
