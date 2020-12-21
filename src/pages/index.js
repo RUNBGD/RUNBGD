@@ -35,7 +35,7 @@ const IndexPage = () => {
               coverImage {
                 publicURL
                 childImageSharp {
-                  fluid(maxWidth: 1280, quality: 64) {
+                  fluid(maxWidth: 1280, quality: 64, srcSetBreakpoints: [ 400, 600, 960, 1280, 1920 ]) {
                     ...GatsbyImageSharpFluid_withWebp
                   }
                 }
@@ -296,9 +296,11 @@ const IndexPage = () => {
             unlike agencies and other organisations.
           </p>
           <hr />
-          <BigPostsCarousel
-            posts={carouselPosts && carouselPosts.allMarkdownRemark}
-          />
+          <React.Suspense fallback={<ContentFallback/>}>
+            <BigPostsCarousel
+              posts={carouselPosts && carouselPosts.allMarkdownRemark}
+            />
+          </React.Suspense>
           <React.Suspense fallback={<ContentFallback/>}>
             <SecondaryPostsCarousel
               posts={

@@ -4,8 +4,8 @@ import styles from './content-fallback.module.scss'
 
 const ContentFallback = () => {
   return(
-    <div>
-      Loading
+    <div className={styles.contentFallback}>
+      LOADING
     </div>
   )
 }
