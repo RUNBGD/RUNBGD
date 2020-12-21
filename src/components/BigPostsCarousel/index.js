@@ -108,9 +108,11 @@ const BigPostsCarousel = ({ posts }) => {
                 }`}
               >
                 <div className={styles.post}>
-                  <Link to={post.fields.slug}>
-                    <h2>{post.frontmatter.title}</h2>
-                  </Link>
+                  <div className={styles.postTitle}>
+                    <Link to={post.fields.slug}>
+                      <h2>{post.frontmatter.title}</h2>
+                    </Link>
+                  </div>
                   <div className={styles.postDetails}>
                     {post.frontmatter.category && (
                       <PostCategoryTag
