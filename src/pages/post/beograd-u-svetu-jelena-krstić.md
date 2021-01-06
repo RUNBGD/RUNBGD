@@ -1,7 +1,7 @@
 ---
 templateKey: blog-post
 createPage: "true"
-title: "Beograd u svetu / Belgrade around: Jelena Krstić"
+title: "Beograd u svetu / Belgrade around: Maja Krstić"
 category: Life
 author: Aleksandar Tašić
 date: 2020-11-28T19:49:01.224Z
