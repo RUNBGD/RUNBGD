@@ -1,5 +1,6 @@
 ---
 templateKey: shop-product
+showFirst: true
 title: RUNBGD T-Shirt
 description: RUN BGD "Classic" T-Shirt - Men (white)
 category: Tops
