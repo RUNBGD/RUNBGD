@@ -1,11 +1,12 @@
 ---
 templateKey: shop-product
+showFirst: true
 title: RUNBGD Hoodie
 description: RUN BGD "Classic" Hoodie - Unisex (black)
 category: Tops
 images:
   - image: /img/xxx_0223-removebg-preview.png
-price: 45
+price: 40
 sizes:
   - size: S
     quantity: 1
@@ -14,5 +15,4 @@ sizes:
   - size: XXL
     quantity: 1
 available: true
-showFirst: true
 ---
