@@ -1,5 +1,6 @@
 ---
 templateKey: shop-product
+showFirst: true
 title: RUN BGD Yoga Pants
 description: RUN BGD "Classic" Yoga Pants - Women (black)
 category: Bottoms
