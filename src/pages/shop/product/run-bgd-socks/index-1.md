@@ -1,11 +1,12 @@
 ---
 templateKey: shop-product
+showFirst: true
 title: RUN BGD Socks
 description: RUN BGD "Classic" Socks - Unisex (back)
 category: Accessories
 images:
   - image: /img/xxx_0224-removebg-preview.png
-price: 12
+price: 9
 sizes:
   - size: 31-34
     quantity: 1
