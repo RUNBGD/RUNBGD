@@ -9,7 +9,7 @@ featuredPost: true
 categoryFeatured: true
 subcategoryFeatured: true
 trending: true
-coverImage: /img/tabla-iznad-ulaznih-vrata.jpg
+coverImage: /img/zverinje-i-masoni-kod-jevrosime.jpg
 ---
 Koliko god poznavali Beograd, uvek je u stanju da vas iznenadi. Tako je i mene u skoroj šetnji mojim krajem. Prolazila sam ulicom Majke Jevrosime hiljadu puta, uska uličica u centru grada, dom policijskoj stanici i Muzeju automobila i PTT muzeju, mislila sam da znam svaki deo nje.
 
