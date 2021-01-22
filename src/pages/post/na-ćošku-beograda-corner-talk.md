@@ -43,11 +43,10 @@ Ljubišu sam upoznao na Vidikovačkoj pijaci. Solidna jedna pijaca. Ima sve št
 
 Ljubiša prodaje suve šljive. Bio je nešto vala zavučen između onog jednog čove s baterijama i sijalicama i ribarnice sa druge strane. Dan je bio bedan, ali ne i Ljubiša. A ne! Galami bratina, razmahao se, nit sitnijeg tipa, nit veće ekstenzije ruku. Plesači bi otkinuli na gipkost. Reko', kod njega ću! Da me razveseli. Takvi tipovi me uvek razvesele. Tako i bi.
 
-\- Izvol'te mladiću!  Zaurla na mene ispod one šubare, nabijene taman do spojenih obrva, tako da se teško razaznaje granica gde jedno počinje, a drugo se završava.
-
-* Suve šljive bih ja, rekoh.
-* Dobro je, dok nije Afrička, hehe! Šali se Ljubiša malo! Meni nikad nisu trebale... Četiri ćerke, bato moj!"
-* U, svaka čast! Odgovorih, bez lažnog rispekta... 
+\- Izvol'te mladiću!  Zaurla na mene ispod one šubare, nabijene taman do spojenih obrva, tako da se teško razaznaje granica gde jedno počinje, a drugo se završava.\
+- Suve šljive bih ja, rekoh.\
+- Dobro je, dok nije Afrička, hehe! Šali se Ljubiša malo! Meni nikad nisu trebale... Četiri ćerke, bato moj!"\
+- U, svaka čast! Odgovorih, bez lažnog rispekta... 
 
 Čovek je stvarno bio toliko nerealno vrckast i energičan, a dan nikad usraniji.
 
@@ -55,11 +54,10 @@ Ljubiša prodaje suve šljive. Bio je nešto vala zavučen između onog jednog 
 >
 > Ljubiša sells prunes. There was a wave tucked between that one man with the batteries and light bulbs and the fish market on the other side. The day was miserable, but not Ljubiša. Nope! Bro shouts, he waved, neither a smaller type, nor a larger arm extension. Dancers would tear at the flexibility. I said, I'll visit him! To cheer me up. Such guys always cheer me up. So it would be.
 >
-> \- Here you go, young man! He yelled at me from under that hat, tucked right up to her joined eyebrows, so that it was difficult to distinguish the border where one begins and the other ends.
->
-> * I would like to buy some prunes, I said.
-> * It’s good, as long as it’s not African, hehe! Ljubiša is joking a little! I never needed… Four daughters, my brother!
-> * Uh, congratulations! I answered, without false respect…
+> \- Here you go, young man! He yelled at me from under that hat, tucked right up to her joined eyebrows, so that it was difficult to distinguish the border where one begins and the other ends.\
+> - I would like to buy some prunes, I said.\
+> - It’s good, as long as it’s not African, hehe! Ljubiša is joking a little! I never needed… Four daughters, my brother!\
+> - Uh, congratulations! I answered, without false respect…
 >
 > The man was really so unrealistically wiggly and energetic, and the day has never been more shitty.
 
@@ -124,26 +122,26 @@ Teško mu je pala ova godina baš. \
 
 Pokazuje mi stalno tog nekog gejmera, koji živi u jebenoj vili sa bazenom. Sve od igranja igrica.
 
-* Kakav kralj!
+\- Kakav kralj!
 
 Ispričah Maretu priču o Ljubiši žiškici, kad već pomenu kralja. Reko' možda ga motiviše.
 
-* Hahaha, kakva budala! ...Treb'o si mu tražiti instagram od ćekrica da startujemo seljančice.
-* Nego, pikamo NBA a?!
-* Ajde brt.
-* Moj je Majami!
-* Ja ću Denver.
+\- Hahaha, kakva budala! ...Treb'o si mu tražiti instagram od ćekrica da startujemo seljančice.\
+- Nego, pikamo NBA a?!\
+- Ajde brt.\
+- Moj je Majami!\
+- Ja ću Denver.
 
 > He constantly shows me that gamer, who lives in a fucking villa with a pool. Everything from playing games.
 >
-> * What a king!
+> \- What a king!
 >
 > I told Mare the story of Ljubiša, when I already mentioned the king. Thought it might motivate him.
 >
-> * Hahaha, what a fool! ... You should have asked him for the Instagram username of his daughters to slide in their DMs.
-> * Let’s play some NBA2k, huh?!
-> * Come on bro.
-> * My pick is Miami!
-> * I’ll take Denver.
+> \- Hahaha, what a fool! ... You should have asked him for the Instagram username of his daughters to slide in their DMs.\
+> - Let’s play some NBA2k, huh?!\
+> - Come on bro.\
+> - My pick is Miami!\
+> - I’ll take Denver.
 
 Fotografija: [A.walk.with.funky](https://www.instagram.com/a.walk.with.funky/?hl=en)
