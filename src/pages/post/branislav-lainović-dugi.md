@@ -1,7 +1,7 @@
 ---
 templateKey: blog-post
 createPage: "true"
-title: Branislav Lainović Dugi
+title: "Devedesete / Nineties: Dugi"
 category: Culture
 author: Vova Lučić
 date: 2021-01-26T22:56:27.124Z
