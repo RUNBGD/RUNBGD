@@ -9,7 +9,7 @@ featuredPost: false
 categoryFeatured: true
 subcategoryFeatured: true
 trending: false
-coverImage: /img/3.jpg
+coverImage: /img/lex-maske-u-izlaske.jpg
 ---
 Starosrpska reč "hejter", mi se provukla po inboksima nekoliko puta ove godine, na konto par nepopularnih mišljenja koja sam izneo. 
 
