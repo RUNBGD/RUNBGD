@@ -9,7 +9,7 @@ featuredPost: true
 categoryFeatured: true
 subcategoryFeatured: true
 trending: true
-coverImage: /img/branislav-lainović-dugi.jpg
+coverImage: /img/branislav-lainovic-dugi.jpg
 ---
 Čovek koji je nepravedno ostao u senci drugih likova 90ih je ''Dugi'' ili ''Krakati'' ili ‘'Lajavi''.
 
