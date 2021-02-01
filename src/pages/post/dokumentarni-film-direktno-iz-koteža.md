@@ -19,4 +19,4 @@ Pogledajte video i celu priču o klilnom centru iz Koteža. 
 >
 > Watch the video and the whole story about the power forward from Kotež.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/N8XkJzT6eXI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="960" height="540" src="https://www.youtube.com/embed/N8XkJzT6eXI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
