@@ -437,7 +437,8 @@ export const pageQuery = graphql`
           category: { eq: $title }
           categoryFeatured: { eq: true }
         }
-      }
+      },
+      sort: {order: DESC, fields: frontmatter___date}
     ) {
       edges {
         node {
@@ -465,7 +466,8 @@ export const pageQuery = graphql`
           templateKey: { eq: "blog-post" }
           category: { eq: $title }
         }
-      }
+      },
+      sort: {order: DESC, fields: frontmatter___date}
     ) {
       edges {
         node {

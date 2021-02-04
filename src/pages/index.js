@@ -21,7 +21,7 @@ const IndexPage = () => {
   let carouselPosts = useStaticQuery(graphql`
     query MyQuery {
       allMarkdownRemark(
-        filter: { frontmatter: { featuredPost: { eq: true } } }
+        filter: { frontmatter: { featuredPost: { eq: true } } }, sort: {order: DESC, fields: frontmatter___date}
       ) {
         edges {
           node {
@@ -51,7 +51,7 @@ const IndexPage = () => {
         }
       }
       categoryFeaturedPosts: allMarkdownRemark(
-        filter: { frontmatter: { categoryFeatured: { eq: true } } }
+        filter: { frontmatter: { categoryFeatured: { eq: true } } }, sort: {order: DESC, fields: frontmatter___date}
       ) {
         edges {
           node {
@@ -105,7 +105,7 @@ const IndexPage = () => {
         }
       }
       trending: allMarkdownRemark(
-        filter: { frontmatter: { trending: { eq: true } } }
+        filter: { frontmatter: { trending: { eq: true } } }, sort: {order: DESC, fields: frontmatter___date}
       ) {
         edges {
           node {
@@ -128,7 +128,7 @@ const IndexPage = () => {
         }
       }
       latestPosts: allMarkdownRemark(
-        filter: { frontmatter: { templateKey: { eq: "blog-post" } } }
+        filter: { frontmatter: { templateKey: { eq: "blog-post" } } }, sort: {order: DESC, fields: frontmatter___date}
       ) {
         edges {
           node {

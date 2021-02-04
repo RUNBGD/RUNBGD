@@ -231,7 +231,8 @@ export const pageQuery = graphql`
           subcategory: { eq: $title }
           subcategoryFeatured: { eq: true }
         }
-      }
+      },
+      sort: {order: DESC, fields: frontmatter___date}
     ) {
       edges {
         node {
@@ -257,7 +258,8 @@ export const pageQuery = graphql`
           templateKey: { eq: "blog-post" }
           subcategory: { eq: $title }
         }
-      }
+      },
+      sort: {order: DESC, fields: frontmatter___date}
     ) {
       edges {
         node {

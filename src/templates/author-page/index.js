@@ -65,7 +65,8 @@ export const pageQuery = graphql`
           templateKey: { eq: "blog-post" }
           author: { eq: $author }
         }
-      }
+      },
+      sort: {order: DESC, fields: frontmatter___date}
     ) {
       edges {
         node {

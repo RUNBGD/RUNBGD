@@ -68,7 +68,8 @@ export const pageQuery = graphql`
           templateKey: { eq: "blog-post" }
           icons: { elemMatch: { icon: { eq: $tag } } }
         }
-      }
+      },
+      sort: {order: DESC, fields: frontmatter___date}
     ) {
       edges {
         node {

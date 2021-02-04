@@ -247,7 +247,8 @@ export const pageQuery = graphql`
           category: { eq: $category }
         }
         id: { ne: $id }
-      }
+      },
+      sort: {order: DESC, fields: frontmatter___date}
     ) {
       edges {
         node {
