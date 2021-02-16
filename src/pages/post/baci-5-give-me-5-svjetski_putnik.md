@@ -1,7 +1,7 @@
 ---
 templateKey: blog-post
 createPage: "true"
-title: "Baci 5 / Give me 5: svjetski_putnik"
+title: "Baci 5 / Give me 5: @svjetski_putnik"
 category: Travel
 author: Aleksandar Tašić
 date: 2021-02-16T10:26:19.994Z
@@ -9,7 +9,7 @@ featuredPost: true
 categoryFeatured: true
 subcategoryFeatured: true
 trending: true
-coverImage: /img/svjetskiputnik.jpg
+coverImage: /img/runbgd_give-me-five_blog_v1.jpg
 ---
 **Kalemegdan**
 
