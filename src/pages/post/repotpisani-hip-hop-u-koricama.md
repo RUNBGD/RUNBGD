@@ -9,7 +9,7 @@ featuredPost: true
 categoryFeatured: true
 subcategoryFeatured: true
 trending: true
-coverImage: /img/repotpisani.jpg
+coverImage: /img/runbgd_blog_repotpisani_v1.jpg
 ---
 Milslite li da je lako izabrati najboljih sto tekstova srpskog hip hopa od ukupno sedam hiljada, koliko je otprilike objavljeno od samih početaka scene pa sve do januara 2019. kada su autori knjige zasedali, većali i izabrali? Da li papir trpi život sa ulice? Kroz tekstove koje možete pronaći među koricama ove knjige, doživećete (ponovo) važne fenomene društvenog, političkog i kulturnog života Srbije u zadnje dve decenije. Satkana je od iskrenosti, hedonizma, vernosti ulici, društvene angažovanosti, apsurda, tuge, smeha i surovosti. Zabave, ljubavi prema muzici i istorije. Jednoglasno smatramo da hip hop zaslužuje mnogo više prostora u javnosti zbog svog važnog doprinosa srpskoj kulturi te na ovaj način želimo da predstavimo knjigu i podstaknemo vas da nabavite svoj primerak te uživate u pričama, prozi i poeziji. Hvala Ivani, Nebojši i Aleksandru, autorima ove zbirke, na riznici urbane kulture koju su nam podarili. 
 
