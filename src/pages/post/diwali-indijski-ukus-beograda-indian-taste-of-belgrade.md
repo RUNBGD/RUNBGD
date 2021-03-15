@@ -1,0 +1,16 @@
+---
+templateKey: blog-post
+createPage: "true"
+title: "Diwali: Indijski ukus Beograda / Indian taste of Belgrade"
+category: Food & Beverages
+author: Aleksandar Tašić
+date: 2021-03-13T17:56:31.794Z
+featuredPost: true
+categoryFeatured: true
+subcategoryFeatured: true
+trending: true
+coverImage: /img/diwali.jpg
+---
+Svakako da je domaća kuhinja nama najbliža i najdraža, nije zgoreg da ponekad porbamo nešto novo, otkrijemo možda potpuno nove ukuse. Ja sam takav jedan orgazam doživeo u Indiji, kada sam probao lokalnu kuhinju, iako sam prethodno bio jako skeptičan. Kao tokom putovanja po Indiji, tako i pri poseti restoranu Diwali u Beogradu nisam bio siguran u sve sastojke koji ispunjavali tanjir preda mnom, ali je ono najvažnije – autentičnost, bila na jako visokom nivou. Iako sam ponovo bivao skeptičan i sumnjičav. Diwali se u gradu nalazi na dve lokacije, na Dušanovcu i Novom Beogradu, spremni da vam približe ovu neverovatnu zemlju kroz mirise, ukuse i muziku. Dok klopate, sa zvučnika dopire nama nepoznati jezik, pomalo čudan ali simpatičan. Jedino što mi se nije dopalo je interijer, koji nije nimalo loš, ali mi ne predstavlja niti me podseća na Indiju. Sve ostalo je \*\*\*\** teleport. Preporuka za pileću „masalu“ i njihov hleb sa dodacima, od kojih mi je najdraži onaj sa belim lukom. Uneo sam u sebe previše toga. Zaista uživao i već isplanirao ponovni dolazak. A što se tiče turista, znam da su oni uvek oduševljeni domaćom kuhinjom, saramama i ćevapima, ali Beograd zahteva više od nekoliko dana, te treba imati u ponudi celi svet. Jer kako kažu, Beograd je svet. Možda se vidimo na „masali“. 
+
+> Certainly, the local cuisine is the closest and dearest to us, it is not bad to sometimes try something new, to discover maybe completely new tastes. I experienced such an orgasm in India, when I tried local cuisine, although I was very skeptical before. Like during the trip around India, when visiting the Diwali restaurant in Belgrade, I was not sure of all the ingredients that filled the plate in front of me, but the most important thing - authenticity, was at a very high level. Although I was skeptical and suspicious again. Diwali has two locations in the city, one on Dušanovac and the other one in New Belgrade, ready to bring you closer to this amazing country through smells, tastes and music. As you eat, a language unfamiliar to us comes from the speakers, a little strange but nice. The only thing I didn't like was the interior, which is not bad at all, but it didn’t reflect what i remembered from India. Everything else is \*\*\*\** on point. My recommendation is chicken "masala" and their bread with toppings, of which my favorite is the one with garlic. I filled my belly with to much of it. Really enjoyed it and already planning to come again. As for tourists, I know that they are always delighted with the local cuisine, sarams and cevapi, but Belgrade requires more than a few days, so you should have the whole world on offer. Because, as they say, Belgrade is holy. Maybe I'll see you at Masala.
