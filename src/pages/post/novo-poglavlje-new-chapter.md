@@ -9,7 +9,7 @@ featuredPost: true
 categoryFeatured: true
 subcategoryFeatured: true
 trending: true
-coverImage: /img/novo-poglavlje-2.jpg
+coverImage: /img/untitled-1.jpg
 ---
 Bio sam taman u onim godinama kad misliš da sve znaš, kad sam prvi put imao priliku da radim na građevini. Bio je to i poslednji put. Nije da mi se nije svidelo, nego su kasnije životne okolnosti tekle drukčije, pa su prilike izostale. Građevina je slična umetnosti u jednoj stvari... Zahteva od tebe samo sve što imaš. Onaj šut, i ti, i špakla i čekić, delite istu energiju, vreme, trenutke slabosti i trijumfa... 
 
@@ -43,7 +43,7 @@ Do tog trenutka, zadovoljićemo se samo titulom velikog lidera. Srbija je lider 
 >
 > Until then, we will be satisfied only with the title of great leader. Serbia is the leader in Europe in the number of vaccinated, as well as the leader in Europe in the number of newly infected. We are also the leader in the number of PM particles in the air, but at this moment our media say that we have more important problems that we should deal with, so we will leave the air for some happier times.
 
-![](/img/novo-poglavlje-3.jpg)
+![](/img/untitled-1-copy.jpg)
 
 Bilo kako bilo, neko pametniji od mene mi je nedavno rekao da svako može biti ciničan u ovoj zemlji. Teško je usuditi se da budeš optimističan. Činjenica, koju nisam mogao prihvatiti iz prve, samo zato što sam znao da je tačna. Zato ću do kraja ovog teksta dati svoj maksimum i u skladu sa naslovom ovogodišnjeg festivala otvoriti Novo Poglavlje.\
 \
