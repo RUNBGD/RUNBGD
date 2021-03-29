@@ -9,7 +9,7 @@ featuredPost: true
 categoryFeatured: true
 subcategoryFeatured: true
 trending: true
-coverImage: /img/untitled-1.jpg
+coverImage: /img/novo-poglavlje1.jpg
 ---
 Bio sam taman u onim godinama kad misliš da sve znaš, kad sam prvi put imao priliku da radim na građevini. Bio je to i poslednji put. Nije da mi se nije svidelo, nego su kasnije životne okolnosti tekle drukčije, pa su prilike izostale. Građevina je slična umetnosti u jednoj stvari... Zahteva od tebe samo sve što imaš. Onaj šut, i ti, i špakla i čekić, delite istu energiju, vreme, trenutke slabosti i trijumfa... 
 
@@ -21,7 +21,7 @@ Navešću nekoliko primera dok ne zaključim onu prelomnu.\
 
 > During the fourteen months that the house was built, I had the opportunity to meet dozens of different craftsmen. And I can tell you, I picked up and absorbed some of the smartest slogans in my life so far from that experienced gentleman. I will give a few examples until I conclude the break. "If you can't help me, don't be a hindrance," a sentence I often listened to through different tonalities in those months. And indeed, when you grow up a little, everything becomes very clear. First it becomes clear to what a jerk you were as a kid. Secondly, you realize how many adult jerks there really are, around you, at every step, completely human. And third, you somehow learn to tolerate kid jerks, because you realize that they are no more jerks than you were yourself, in their age.
 
-![](/img/novo-poglavlje1.jpg)
+![](/img/untitled-1.jpg)
 
 Mislim, bilo je tu još prijava, koje se, pre nego ih razumeš, urežu u pamćenje, a shvatiš ih tek mnogo godina kasnije... Kao recimo: "Kloni se venčanja, jedno od njih može biti tvoje". Uglavnom, ono zbog čega sam i pomenuo gospodu od zanata je ta neka sveta mudrost: "Ako nešto kaniš napraviti kako treba, uradi to sam. A litar rakije i olovka za uvetom su solidan aksesoar za početak". Ne, ne, prešvrljajte to. Ne sećam se baš svega od reči do reči, možda sam i izmislio neki deo, ali prilično sam siguran za deo "uradi to sam" i bez čega se ne počinje.
 
