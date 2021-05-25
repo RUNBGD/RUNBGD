@@ -133,3 +133,5 @@ Dušan nije voleo grad.
 >
 > But we on this side of the city know that it is not Dušan.\
 > Dušan did not like the city.
+
+Fotografija: Mateja Jovanović
